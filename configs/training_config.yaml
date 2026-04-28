@@ -1,0 +1,23 @@
+# 训练流程配置
+
+multi_env:
+  num_envs: 18
+  episodes_per_env: 5000
+  steps_per_episode: 100
+  env_switch_freq: "per_episode"   # per_episode / per_step
+  curriculum: false
+
+reward:
+  alpha: 1.0    # delay weight
+  beta: 10.0    # blocking penalty
+  gamma: 0.5    # fragmentation cost
+  eta: 0.1      # resource consumption
+  mu: 2.0       # success reward
+
+evaluation:
+  eval_freq: 500
+  eval_episodes: 20
+
+logging:
+  use_tensorboard: true
+  log_dir: "experiments/logs"

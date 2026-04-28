@@ -1,0 +1,642 @@
+
+===========================================================================
+Train: nsfnet → Test: usnet | Encoder: v0
+===========================================================================
+  [1/4] Training on source topology ...
+    Train: 15000 | SR: 0.764
+  Epoch 01: loss=0.5224 acc=0.7657 auc=0.8334 mae=0.019298 ece=0.0760
+  Epoch 02: loss=0.3985 acc=0.8100 auc=0.8618 mae=0.017634 ece=0.0299
+  Epoch 03: loss=0.3709 acc=0.8327 auc=0.8674 mae=0.011486 ece=0.0372
+  Epoch 04: loss=0.3618 acc=0.8383 auc=0.8727 mae=0.010685 ece=0.0355
+  Epoch 05: loss=0.3539 acc=0.8350 auc=0.8794 mae=0.009909 ece=0.0248
+  Epoch 06: loss=0.3437 acc=0.8420 auc=0.8861 mae=0.009638 ece=0.0343
+  Epoch 07: loss=0.3373 acc=0.8483 auc=0.8892 mae=0.008735 ece=0.0305
+  Epoch 08: loss=0.3302 acc=0.8460 auc=0.8907 mae=0.007830 ece=0.0267
+  Epoch 09: loss=0.3263 acc=0.8487 auc=0.8915 mae=0.007541 ece=0.0271
+  Epoch 10: loss=0.3247 acc=0.8500 auc=0.8937 mae=0.007381 ece=0.0267
+  Epoch 11: loss=0.3211 acc=0.8523 auc=0.8948 mae=0.007412 ece=0.0233
+  Epoch 12: loss=0.3182 acc=0.8503 auc=0.8939 mae=0.007063 ece=0.0231
+  Epoch 13: loss=0.3184 acc=0.8473 auc=0.8950 mae=0.007034 ece=0.0257
+  Epoch 14: loss=0.3159 acc=0.8497 auc=0.8959 mae=0.006901 ece=0.0186
+  Epoch 15: loss=0.3171 acc=0.8523 auc=0.8955 mae=0.006787 ece=0.0232
+  Epoch 16: loss=0.3158 acc=0.8483 auc=0.8970 mae=0.006961 ece=0.0211
+  Epoch 17: loss=0.3141 acc=0.8480 auc=0.8972 mae=0.006755 ece=0.0220
+  Epoch 18: loss=0.3128 acc=0.8473 auc=0.8958 mae=0.006746 ece=0.0189
+  Epoch 19: loss=0.3145 acc=0.8477 auc=0.8971 mae=0.006719 ece=0.0197
+  Epoch 20: loss=0.3120 acc=0.8497 auc=0.8973 mae=0.006707 ece=0.0189
+  Epoch 21: loss=0.3125 acc=0.8487 auc=0.8966 mae=0.006664 ece=0.0210
+  Epoch 22: loss=0.3109 acc=0.8480 auc=0.8986 mae=0.006921 ece=0.0283
+  Epoch 23: loss=0.3124 acc=0.8477 auc=0.8995 mae=0.006986 ece=0.0174
+  Epoch 24: loss=0.3100 acc=0.8507 auc=0.8984 mae=0.006935 ece=0.0160
+  Epoch 25: loss=0.3096 acc=0.8477 auc=0.8986 mae=0.006577 ece=0.0211
+  Epoch 26: loss=0.3094 acc=0.8490 auc=0.8986 mae=0.006874 ece=0.0118
+  Epoch 27: loss=0.3104 acc=0.8493 auc=0.8987 mae=0.006573 ece=0.0150
+  Epoch 28: loss=0.3085 acc=0.8490 auc=0.8990 mae=0.006531 ece=0.0215
+  Epoch 29: loss=0.3085 acc=0.8480 auc=0.8985 mae=0.006623 ece=0.0245
+  Epoch 30: loss=0.3087 acc=0.8477 auc=0.8991 mae=0.006553 ece=0.0202
+  [2/4] Generating calibration data on target ...
+    Calib: 2000 | SR: 0.823
+  [3/4] Generating test data on target ...
+    Test:  3000 | SR: 0.844
+    Temperature Scaling: T=1.5600
+    Platt Scaling: a=0.4970, b=0.7207
+
+  [4/4] Test Results on usnet:
+    Method             Acc    AUC    ECE
+    ----------------------------------------
+    Raw             0.8137 0.8238 0.0835
+    TempScale       0.8137 0.8238 0.0928
+    Platt           0.8470 0.8238 0.0282
+
+===========================================================================
+Train: nsfnet → Test: cost266 | Encoder: v0
+===========================================================================
+  [1/4] Training on source topology ...
+    Train: 15000 | SR: 0.764
+  Epoch 01: loss=0.5224 acc=0.7657 auc=0.8334 mae=0.019298 ece=0.0760
+  Epoch 02: loss=0.3985 acc=0.8100 auc=0.8618 mae=0.017634 ece=0.0299
+  Epoch 03: loss=0.3709 acc=0.8327 auc=0.8674 mae=0.011486 ece=0.0372
+  Epoch 04: loss=0.3618 acc=0.8383 auc=0.8727 mae=0.010685 ece=0.0355
+  Epoch 05: loss=0.3539 acc=0.8350 auc=0.8794 mae=0.009909 ece=0.0248
+  Epoch 06: loss=0.3437 acc=0.8420 auc=0.8861 mae=0.009638 ece=0.0343
+  Epoch 07: loss=0.3373 acc=0.8483 auc=0.8892 mae=0.008735 ece=0.0305
+  Epoch 08: loss=0.3302 acc=0.8460 auc=0.8907 mae=0.007830 ece=0.0267
+  Epoch 09: loss=0.3263 acc=0.8487 auc=0.8915 mae=0.007541 ece=0.0271
+  Epoch 10: loss=0.3247 acc=0.8500 auc=0.8937 mae=0.007381 ece=0.0267
+  Epoch 11: loss=0.3211 acc=0.8523 auc=0.8948 mae=0.007412 ece=0.0233
+  Epoch 12: loss=0.3182 acc=0.8503 auc=0.8939 mae=0.007063 ece=0.0231
+  Epoch 13: loss=0.3184 acc=0.8473 auc=0.8950 mae=0.007034 ece=0.0257
+  Epoch 14: loss=0.3159 acc=0.8497 auc=0.8959 mae=0.006901 ece=0.0186
+  Epoch 15: loss=0.3171 acc=0.8523 auc=0.8955 mae=0.006787 ece=0.0232
+  Epoch 16: loss=0.3158 acc=0.8483 auc=0.8970 mae=0.006961 ece=0.0211
+  Epoch 17: loss=0.3141 acc=0.8480 auc=0.8972 mae=0.006755 ece=0.0220
+  Epoch 18: loss=0.3128 acc=0.8473 auc=0.8958 mae=0.006746 ece=0.0189
+  Epoch 19: loss=0.3145 acc=0.8477 auc=0.8971 mae=0.006719 ece=0.0197
+  Epoch 20: loss=0.3120 acc=0.8497 auc=0.8973 mae=0.006707 ece=0.0189
+  Epoch 21: loss=0.3125 acc=0.8487 auc=0.8966 mae=0.006664 ece=0.0210
+  Epoch 22: loss=0.3109 acc=0.8480 auc=0.8986 mae=0.006921 ece=0.0283
+  Epoch 23: loss=0.3124 acc=0.8477 auc=0.8995 mae=0.006986 ece=0.0174
+  Epoch 24: loss=0.3100 acc=0.8507 auc=0.8984 mae=0.006935 ece=0.0160
+  Epoch 25: loss=0.3096 acc=0.8477 auc=0.8986 mae=0.006577 ece=0.0211
+  Epoch 26: loss=0.3094 acc=0.8490 auc=0.8986 mae=0.006874 ece=0.0118
+  Epoch 27: loss=0.3104 acc=0.8493 auc=0.8987 mae=0.006573 ece=0.0150
+  Epoch 28: loss=0.3085 acc=0.8490 auc=0.8990 mae=0.006531 ece=0.0215
+  Epoch 29: loss=0.3085 acc=0.8480 auc=0.8985 mae=0.006623 ece=0.0245
+  Epoch 30: loss=0.3087 acc=0.8477 auc=0.8991 mae=0.006553 ece=0.0202
+  [2/4] Generating calibration data on target ...
+    Calib: 2000 | SR: 0.774
+  [3/4] Generating test data on target ...
+    Test:  3000 | SR: 0.780
+    Temperature Scaling: T=1.8588
+    Platt Scaling: a=0.4602, b=0.4046
+
+  [4/4] Test Results on cost266:
+    Method             Acc    AUC    ECE
+    ----------------------------------------
+    Raw             0.7833 0.8116 0.0662
+    TempScale       0.7833 0.8116 0.0432
+    Platt           0.7833 0.8116 0.0303
+
+===========================================================================
+Train: nsfnet → Test: germany50 | Encoder: v0
+===========================================================================
+  [1/4] Training on source topology ...
+    Train: 15000 | SR: 0.764
+  Epoch 01: loss=0.5224 acc=0.7657 auc=0.8334 mae=0.019298 ece=0.0760
+  Epoch 02: loss=0.3985 acc=0.8100 auc=0.8618 mae=0.017634 ece=0.0299
+  Epoch 03: loss=0.3709 acc=0.8327 auc=0.8674 mae=0.011486 ece=0.0372
+  Epoch 04: loss=0.3618 acc=0.8383 auc=0.8727 mae=0.010685 ece=0.0355
+  Epoch 05: loss=0.3539 acc=0.8350 auc=0.8794 mae=0.009909 ece=0.0248
+  Epoch 06: loss=0.3437 acc=0.8420 auc=0.8861 mae=0.009638 ece=0.0343
+  Epoch 07: loss=0.3373 acc=0.8483 auc=0.8892 mae=0.008735 ece=0.0305
+  Epoch 08: loss=0.3302 acc=0.8460 auc=0.8907 mae=0.007830 ece=0.0267
+  Epoch 09: loss=0.3263 acc=0.8487 auc=0.8915 mae=0.007541 ece=0.0271
+  Epoch 10: loss=0.3247 acc=0.8500 auc=0.8937 mae=0.007381 ece=0.0267
+  Epoch 11: loss=0.3211 acc=0.8523 auc=0.8948 mae=0.007412 ece=0.0233
+  Epoch 12: loss=0.3182 acc=0.8503 auc=0.8939 mae=0.007063 ece=0.0231
+  Epoch 13: loss=0.3184 acc=0.8473 auc=0.8950 mae=0.007034 ece=0.0257
+  Epoch 14: loss=0.3159 acc=0.8497 auc=0.8959 mae=0.006901 ece=0.0186
+  Epoch 15: loss=0.3171 acc=0.8523 auc=0.8955 mae=0.006787 ece=0.0232
+  Epoch 16: loss=0.3158 acc=0.8483 auc=0.8970 mae=0.006961 ece=0.0211
+  Epoch 17: loss=0.3141 acc=0.8480 auc=0.8972 mae=0.006755 ece=0.0220
+  Epoch 18: loss=0.3128 acc=0.8473 auc=0.8958 mae=0.006746 ece=0.0189
+  Epoch 19: loss=0.3145 acc=0.8477 auc=0.8971 mae=0.006719 ece=0.0197
+  Epoch 20: loss=0.3120 acc=0.8497 auc=0.8973 mae=0.006707 ece=0.0189
+  Epoch 21: loss=0.3125 acc=0.8487 auc=0.8966 mae=0.006664 ece=0.0210
+  Epoch 22: loss=0.3109 acc=0.8480 auc=0.8986 mae=0.006921 ece=0.0283
+  Epoch 23: loss=0.3124 acc=0.8477 auc=0.8995 mae=0.006986 ece=0.0174
+  Epoch 24: loss=0.3100 acc=0.8507 auc=0.8984 mae=0.006935 ece=0.0160
+  Epoch 25: loss=0.3096 acc=0.8477 auc=0.8986 mae=0.006577 ece=0.0211
+  Epoch 26: loss=0.3094 acc=0.8490 auc=0.8986 mae=0.006874 ece=0.0118
+  Epoch 27: loss=0.3104 acc=0.8493 auc=0.8987 mae=0.006573 ece=0.0150
+  Epoch 28: loss=0.3085 acc=0.8490 auc=0.8990 mae=0.006531 ece=0.0215
+  Epoch 29: loss=0.3085 acc=0.8480 auc=0.8985 mae=0.006623 ece=0.0245
+  Epoch 30: loss=0.3087 acc=0.8477 auc=0.8991 mae=0.006553 ece=0.0202
+  [2/4] Generating calibration data on target ...
+    Calib: 2000 | SR: 0.809
+  [3/4] Generating test data on target ...
+    Test:  3000 | SR: 0.854
+    Temperature Scaling: T=1.6060
+    Platt Scaling: a=0.4868, b=0.7103
+
+  [4/4] Test Results on germany50:
+    Method             Acc    AUC    ECE
+    ----------------------------------------
+    Raw             0.7977 0.8055 0.1133
+    TempScale       0.7977 0.8055 0.1238
+    Platt           0.8513 0.8055 0.0408
+
+===========================================================================
+Train: nsfnet → Test: random50 | Encoder: v0
+===========================================================================
+  [1/4] Training on source topology ...
+    Train: 15000 | SR: 0.764
+  Epoch 01: loss=0.5224 acc=0.7657 auc=0.8334 mae=0.019298 ece=0.0760
+  Epoch 02: loss=0.3985 acc=0.8100 auc=0.8618 mae=0.017634 ece=0.0299
+  Epoch 03: loss=0.3709 acc=0.8327 auc=0.8674 mae=0.011486 ece=0.0372
+  Epoch 04: loss=0.3618 acc=0.8383 auc=0.8727 mae=0.010685 ece=0.0355
+  Epoch 05: loss=0.3539 acc=0.8350 auc=0.8794 mae=0.009909 ece=0.0248
+  Epoch 06: loss=0.3437 acc=0.8420 auc=0.8861 mae=0.009638 ece=0.0343
+  Epoch 07: loss=0.3373 acc=0.8483 auc=0.8892 mae=0.008735 ece=0.0305
+  Epoch 08: loss=0.3302 acc=0.8460 auc=0.8907 mae=0.007830 ece=0.0267
+  Epoch 09: loss=0.3263 acc=0.8487 auc=0.8915 mae=0.007541 ece=0.0271
+  Epoch 10: loss=0.3247 acc=0.8500 auc=0.8937 mae=0.007381 ece=0.0267
+  Epoch 11: loss=0.3211 acc=0.8523 auc=0.8948 mae=0.007412 ece=0.0233
+  Epoch 12: loss=0.3182 acc=0.8503 auc=0.8939 mae=0.007063 ece=0.0231
+  Epoch 13: loss=0.3184 acc=0.8473 auc=0.8950 mae=0.007034 ece=0.0257
+  Epoch 14: loss=0.3159 acc=0.8497 auc=0.8959 mae=0.006901 ece=0.0186
+  Epoch 15: loss=0.3171 acc=0.8523 auc=0.8955 mae=0.006787 ece=0.0232
+  Epoch 16: loss=0.3158 acc=0.8483 auc=0.8970 mae=0.006961 ece=0.0211
+  Epoch 17: loss=0.3141 acc=0.8480 auc=0.8972 mae=0.006755 ece=0.0220
+  Epoch 18: loss=0.3128 acc=0.8473 auc=0.8958 mae=0.006746 ece=0.0189
+  Epoch 19: loss=0.3145 acc=0.8477 auc=0.8971 mae=0.006719 ece=0.0197
+  Epoch 20: loss=0.3120 acc=0.8497 auc=0.8973 mae=0.006707 ece=0.0189
+  Epoch 21: loss=0.3125 acc=0.8487 auc=0.8966 mae=0.006664 ece=0.0210
+  Epoch 22: loss=0.3109 acc=0.8480 auc=0.8986 mae=0.006921 ece=0.0283
+  Epoch 23: loss=0.3124 acc=0.8477 auc=0.8995 mae=0.006986 ece=0.0174
+  Epoch 24: loss=0.3100 acc=0.8507 auc=0.8984 mae=0.006935 ece=0.0160
+  Epoch 25: loss=0.3096 acc=0.8477 auc=0.8986 mae=0.006577 ece=0.0211
+  Epoch 26: loss=0.3094 acc=0.8490 auc=0.8986 mae=0.006874 ece=0.0118
+  Epoch 27: loss=0.3104 acc=0.8493 auc=0.8987 mae=0.006573 ece=0.0150
+  Epoch 28: loss=0.3085 acc=0.8490 auc=0.8990 mae=0.006531 ece=0.0215
+  Epoch 29: loss=0.3085 acc=0.8480 auc=0.8985 mae=0.006623 ece=0.0245
+  Epoch 30: loss=0.3087 acc=0.8477 auc=0.8991 mae=0.006553 ece=0.0202
+  [2/4] Generating calibration data on target ...
+    Calib: 2000 | SR: 0.647
+  [3/4] Generating test data on target ...
+    Test:  3000 | SR: 0.674
+    Temperature Scaling: T=2.8057
+    Platt Scaling: a=0.3939, b=-0.2044
+
+  [4/4] Test Results on random50:
+    Method             Acc    AUC    ECE
+    ----------------------------------------
+    Raw             0.7487 0.8057 0.1025
+    TempScale       0.7487 0.8057 0.0446
+    Platt           0.7430 0.8057 0.0325
+
+===========================================================================
+Train: nsfnet → Test: random80 | Encoder: v0
+===========================================================================
+  [1/4] Training on source topology ...
+    Train: 15000 | SR: 0.764
+  Epoch 01: loss=0.5224 acc=0.7657 auc=0.8334 mae=0.019298 ece=0.0760
+  Epoch 02: loss=0.3985 acc=0.8100 auc=0.8618 mae=0.017634 ece=0.0299
+  Epoch 03: loss=0.3709 acc=0.8327 auc=0.8674 mae=0.011486 ece=0.0372
+  Epoch 04: loss=0.3618 acc=0.8383 auc=0.8727 mae=0.010685 ece=0.0355
+  Epoch 05: loss=0.3539 acc=0.8350 auc=0.8794 mae=0.009909 ece=0.0248
+  Epoch 06: loss=0.3437 acc=0.8420 auc=0.8861 mae=0.009638 ece=0.0343
+  Epoch 07: loss=0.3373 acc=0.8483 auc=0.8892 mae=0.008735 ece=0.0305
+  Epoch 08: loss=0.3302 acc=0.8460 auc=0.8907 mae=0.007830 ece=0.0267
+  Epoch 09: loss=0.3263 acc=0.8487 auc=0.8915 mae=0.007541 ece=0.0271
+  Epoch 10: loss=0.3247 acc=0.8500 auc=0.8937 mae=0.007381 ece=0.0267
+  Epoch 11: loss=0.3211 acc=0.8523 auc=0.8948 mae=0.007412 ece=0.0233
+  Epoch 12: loss=0.3182 acc=0.8503 auc=0.8939 mae=0.007063 ece=0.0231
+  Epoch 13: loss=0.3184 acc=0.8473 auc=0.8950 mae=0.007034 ece=0.0257
+  Epoch 14: loss=0.3159 acc=0.8497 auc=0.8959 mae=0.006901 ece=0.0186
+  Epoch 15: loss=0.3171 acc=0.8523 auc=0.8955 mae=0.006787 ece=0.0232
+  Epoch 16: loss=0.3158 acc=0.8483 auc=0.8970 mae=0.006961 ece=0.0211
+  Epoch 17: loss=0.3141 acc=0.8480 auc=0.8972 mae=0.006755 ece=0.0220
+  Epoch 18: loss=0.3128 acc=0.8473 auc=0.8958 mae=0.006746 ece=0.0189
+  Epoch 19: loss=0.3145 acc=0.8477 auc=0.8971 mae=0.006719 ece=0.0197
+  Epoch 20: loss=0.3120 acc=0.8497 auc=0.8973 mae=0.006707 ece=0.0189
+  Epoch 21: loss=0.3125 acc=0.8487 auc=0.8966 mae=0.006664 ece=0.0210
+  Epoch 22: loss=0.3109 acc=0.8480 auc=0.8986 mae=0.006921 ece=0.0283
+  Epoch 23: loss=0.3124 acc=0.8477 auc=0.8995 mae=0.006986 ece=0.0174
+  Epoch 24: loss=0.3100 acc=0.8507 auc=0.8984 mae=0.006935 ece=0.0160
+  Epoch 25: loss=0.3096 acc=0.8477 auc=0.8986 mae=0.006577 ece=0.0211
+  Epoch 26: loss=0.3094 acc=0.8490 auc=0.8986 mae=0.006874 ece=0.0118
+  Epoch 27: loss=0.3104 acc=0.8493 auc=0.8987 mae=0.006573 ece=0.0150
+  Epoch 28: loss=0.3085 acc=0.8490 auc=0.8990 mae=0.006531 ece=0.0215
+  Epoch 29: loss=0.3085 acc=0.8480 auc=0.8985 mae=0.006623 ece=0.0245
+  Epoch 30: loss=0.3087 acc=0.8477 auc=0.8991 mae=0.006553 ece=0.0202
+  [2/4] Generating calibration data on target ...
+    Calib: 2000 | SR: 0.772
+  [3/4] Generating test data on target ...
+    Test:  3000 | SR: 0.783
+    Temperature Scaling: T=1.9074
+    Platt Scaling: a=0.4339, b=0.5871
+
+  [4/4] Test Results on random80:
+    Method             Acc    AUC    ECE
+    ----------------------------------------
+    Raw             0.7603 0.7847 0.0992
+    TempScale       0.7603 0.7847 0.0768
+    Platt           0.7867 0.7847 0.0131
+
+===========================================================================
+Train: nsfnet → Test: random100 | Encoder: v0
+===========================================================================
+  [1/4] Training on source topology ...
+    Train: 15000 | SR: 0.764
+  Epoch 01: loss=0.5224 acc=0.7657 auc=0.8334 mae=0.019298 ece=0.0760
+  Epoch 02: loss=0.3985 acc=0.8100 auc=0.8618 mae=0.017634 ece=0.0299
+  Epoch 03: loss=0.3709 acc=0.8327 auc=0.8674 mae=0.011486 ece=0.0372
+  Epoch 04: loss=0.3618 acc=0.8383 auc=0.8727 mae=0.010685 ece=0.0355
+  Epoch 05: loss=0.3539 acc=0.8350 auc=0.8794 mae=0.009909 ece=0.0248
+  Epoch 06: loss=0.3437 acc=0.8420 auc=0.8861 mae=0.009638 ece=0.0343
+  Epoch 07: loss=0.3373 acc=0.8483 auc=0.8892 mae=0.008735 ece=0.0305
+  Epoch 08: loss=0.3302 acc=0.8460 auc=0.8907 mae=0.007830 ece=0.0267
+  Epoch 09: loss=0.3263 acc=0.8487 auc=0.8915 mae=0.007541 ece=0.0271
+  Epoch 10: loss=0.3247 acc=0.8500 auc=0.8937 mae=0.007381 ece=0.0267
+  Epoch 11: loss=0.3211 acc=0.8523 auc=0.8948 mae=0.007412 ece=0.0233
+  Epoch 12: loss=0.3182 acc=0.8503 auc=0.8939 mae=0.007063 ece=0.0231
+  Epoch 13: loss=0.3184 acc=0.8473 auc=0.8950 mae=0.007034 ece=0.0257
+  Epoch 14: loss=0.3159 acc=0.8497 auc=0.8959 mae=0.006901 ece=0.0186
+  Epoch 15: loss=0.3171 acc=0.8523 auc=0.8955 mae=0.006787 ece=0.0232
+  Epoch 16: loss=0.3158 acc=0.8483 auc=0.8970 mae=0.006961 ece=0.0211
+  Epoch 17: loss=0.3141 acc=0.8480 auc=0.8972 mae=0.006755 ece=0.0220
+  Epoch 18: loss=0.3128 acc=0.8473 auc=0.8958 mae=0.006746 ece=0.0189
+  Epoch 19: loss=0.3145 acc=0.8477 auc=0.8971 mae=0.006719 ece=0.0197
+  Epoch 20: loss=0.3120 acc=0.8497 auc=0.8973 mae=0.006707 ece=0.0189
+  Epoch 21: loss=0.3125 acc=0.8487 auc=0.8966 mae=0.006664 ece=0.0210
+  Epoch 22: loss=0.3109 acc=0.8480 auc=0.8986 mae=0.006921 ece=0.0283
+  Epoch 23: loss=0.3124 acc=0.8477 auc=0.8995 mae=0.006986 ece=0.0174
+  Epoch 24: loss=0.3100 acc=0.8507 auc=0.8984 mae=0.006935 ece=0.0160
+  Epoch 25: loss=0.3096 acc=0.8477 auc=0.8986 mae=0.006577 ece=0.0211
+  Epoch 26: loss=0.3094 acc=0.8490 auc=0.8986 mae=0.006874 ece=0.0118
+  Epoch 27: loss=0.3104 acc=0.8493 auc=0.8987 mae=0.006573 ece=0.0150
+  Epoch 28: loss=0.3085 acc=0.8490 auc=0.8990 mae=0.006531 ece=0.0215
+  Epoch 29: loss=0.3085 acc=0.8480 auc=0.8985 mae=0.006623 ece=0.0245
+  Epoch 30: loss=0.3087 acc=0.8477 auc=0.8991 mae=0.006553 ece=0.0202
+  [2/4] Generating calibration data on target ...
+    Calib: 2000 | SR: 0.600
+  [3/4] Generating test data on target ...
+    Test:  3000 | SR: 0.609
+    Temperature Scaling: T=3.4654
+    Platt Scaling: a=0.3439, b=-0.3274
+
+  [4/4] Test Results on random100:
+    Method             Acc    AUC    ECE
+    ----------------------------------------
+    Raw             0.7020 0.7681 0.1550
+    TempScale       0.7020 0.7681 0.0644
+    Platt           0.7057 0.7681 0.0379
+
+===========================================================================
+Train: nsfnet → Test: usnet | Encoder: v2b
+===========================================================================
+  [1/4] Training on source topology ...
+    Train: 15000 | SR: 0.764
+  Epoch 01: loss=0.5201 acc=0.7657 auc=0.8671 mae=0.022315 ece=0.0961
+  Epoch 02: loss=0.3599 acc=0.8857 auc=0.9353 mae=0.016484 ece=0.0636
+  Epoch 03: loss=0.2462 acc=0.9230 auc=0.9745 mae=0.012556 ece=0.0431
+  Epoch 04: loss=0.1673 acc=0.9357 auc=0.9826 mae=0.011171 ece=0.0230
+  Epoch 05: loss=0.1333 acc=0.9450 auc=0.9878 mae=0.011833 ece=0.0211
+  Epoch 06: loss=0.1153 acc=0.9483 auc=0.9897 mae=0.010435 ece=0.0190
+  Epoch 07: loss=0.1030 acc=0.9473 auc=0.9904 mae=0.010047 ece=0.0180
+  Epoch 08: loss=0.0957 acc=0.9487 auc=0.9912 mae=0.010241 ece=0.0183
+  Epoch 09: loss=0.0912 acc=0.9570 auc=0.9916 mae=0.009922 ece=0.0152
+  Epoch 10: loss=0.0888 acc=0.9513 auc=0.9912 mae=0.008854 ece=0.0124
+  Epoch 11: loss=0.0852 acc=0.9557 auc=0.9916 mae=0.008388 ece=0.0127
+  Epoch 12: loss=0.0824 acc=0.9537 auc=0.9917 mae=0.009041 ece=0.0139
+  Epoch 13: loss=0.0812 acc=0.9540 auc=0.9920 mae=0.007636 ece=0.0138
+  Epoch 14: loss=0.0799 acc=0.9533 auc=0.9918 mae=0.007507 ece=0.0135
+  Epoch 15: loss=0.0791 acc=0.9513 auc=0.9916 mae=0.007402 ece=0.0198
+  Epoch 16: loss=0.0767 acc=0.9540 auc=0.9920 mae=0.007528 ece=0.0123
+  Epoch 17: loss=0.0794 acc=0.9567 auc=0.9921 mae=0.007322 ece=0.0120
+  Epoch 18: loss=0.0762 acc=0.9537 auc=0.9925 mae=0.007363 ece=0.0110
+  Epoch 19: loss=0.0757 acc=0.9577 auc=0.9922 mae=0.007686 ece=0.0136
+  Epoch 20: loss=0.0752 acc=0.9517 auc=0.9920 mae=0.007838 ece=0.0161
+  Epoch 21: loss=0.0734 acc=0.9553 auc=0.9925 mae=0.007382 ece=0.0116
+  Epoch 22: loss=0.0726 acc=0.9583 auc=0.9925 mae=0.007328 ece=0.0123
+  Epoch 23: loss=0.0723 acc=0.9560 auc=0.9915 mae=0.007357 ece=0.0096
+  Epoch 24: loss=0.0758 acc=0.9577 auc=0.9920 mae=0.007543 ece=0.0092
+  Epoch 25: loss=0.0731 acc=0.9560 auc=0.9925 mae=0.007761 ece=0.0110
+  Epoch 26: loss=0.0706 acc=0.9560 auc=0.9922 mae=0.008945 ece=0.0136
+  Epoch 27: loss=0.0717 acc=0.9543 auc=0.9924 mae=0.008789 ece=0.0137
+  Epoch 28: loss=0.0721 acc=0.9573 auc=0.9924 mae=0.007599 ece=0.0082
+  Epoch 29: loss=0.0705 acc=0.9527 auc=0.9921 mae=0.007571 ece=0.0147
+  Epoch 30: loss=0.0708 acc=0.9537 auc=0.9926 mae=0.009435 ece=0.0156
+  [2/4] Generating calibration data on target ...
+    Calib: 2000 | SR: 0.823
+  [3/4] Generating test data on target ...
+    Test:  3000 | SR: 0.844
+    Temperature Scaling: T=5.0465
+    Platt Scaling: a=0.2498, b=1.7197
+
+  [4/4] Test Results on usnet:
+    Method             Acc    AUC    ECE
+    ----------------------------------------
+    Raw             0.8247 0.9128 0.1536
+    TempScale       0.8247 0.9128 0.1996
+    Platt           0.8657 0.9128 0.0257
+
+===========================================================================
+Train: nsfnet → Test: cost266 | Encoder: v2b
+===========================================================================
+  [1/4] Training on source topology ...
+    Train: 15000 | SR: 0.764
+  Epoch 01: loss=0.5201 acc=0.7657 auc=0.8671 mae=0.022315 ece=0.0961
+  Epoch 02: loss=0.3599 acc=0.8857 auc=0.9353 mae=0.016484 ece=0.0636
+  Epoch 03: loss=0.2462 acc=0.9230 auc=0.9745 mae=0.012556 ece=0.0431
+  Epoch 04: loss=0.1673 acc=0.9357 auc=0.9826 mae=0.011171 ece=0.0230
+  Epoch 05: loss=0.1333 acc=0.9450 auc=0.9878 mae=0.011833 ece=0.0211
+  Epoch 06: loss=0.1153 acc=0.9483 auc=0.9897 mae=0.010435 ece=0.0190
+  Epoch 07: loss=0.1030 acc=0.9473 auc=0.9904 mae=0.010047 ece=0.0180
+  Epoch 08: loss=0.0957 acc=0.9487 auc=0.9912 mae=0.010241 ece=0.0183
+  Epoch 09: loss=0.0912 acc=0.9570 auc=0.9916 mae=0.009922 ece=0.0152
+  Epoch 10: loss=0.0888 acc=0.9513 auc=0.9912 mae=0.008854 ece=0.0124
+  Epoch 11: loss=0.0852 acc=0.9557 auc=0.9916 mae=0.008388 ece=0.0127
+  Epoch 12: loss=0.0824 acc=0.9537 auc=0.9917 mae=0.009041 ece=0.0139
+  Epoch 13: loss=0.0812 acc=0.9540 auc=0.9920 mae=0.007636 ece=0.0138
+  Epoch 14: loss=0.0799 acc=0.9533 auc=0.9918 mae=0.007507 ece=0.0135
+  Epoch 15: loss=0.0791 acc=0.9513 auc=0.9916 mae=0.007402 ece=0.0198
+  Epoch 16: loss=0.0767 acc=0.9540 auc=0.9920 mae=0.007528 ece=0.0123
+  Epoch 17: loss=0.0794 acc=0.9567 auc=0.9921 mae=0.007322 ece=0.0120
+  Epoch 18: loss=0.0762 acc=0.9537 auc=0.9925 mae=0.007363 ece=0.0110
+  Epoch 19: loss=0.0757 acc=0.9577 auc=0.9922 mae=0.007686 ece=0.0136
+  Epoch 20: loss=0.0752 acc=0.9517 auc=0.9920 mae=0.007838 ece=0.0161
+  Epoch 21: loss=0.0734 acc=0.9553 auc=0.9925 mae=0.007382 ece=0.0116
+  Epoch 22: loss=0.0726 acc=0.9583 auc=0.9925 mae=0.007328 ece=0.0123
+  Epoch 23: loss=0.0723 acc=0.9560 auc=0.9915 mae=0.007357 ece=0.0096
+  Epoch 24: loss=0.0758 acc=0.9577 auc=0.9920 mae=0.007543 ece=0.0092
+  Epoch 25: loss=0.0731 acc=0.9560 auc=0.9925 mae=0.007761 ece=0.0110
+  Epoch 26: loss=0.0706 acc=0.9560 auc=0.9922 mae=0.008945 ece=0.0136
+  Epoch 27: loss=0.0717 acc=0.9543 auc=0.9924 mae=0.008789 ece=0.0137
+  Epoch 28: loss=0.0721 acc=0.9573 auc=0.9924 mae=0.007599 ece=0.0082
+  Epoch 29: loss=0.0705 acc=0.9527 auc=0.9921 mae=0.007571 ece=0.0147
+  Epoch 30: loss=0.0708 acc=0.9537 auc=0.9926 mae=0.009435 ece=0.0156
+  [2/4] Generating calibration data on target ...
+    Calib: 2000 | SR: 0.774
+  [3/4] Generating test data on target ...
+    Test:  3000 | SR: 0.780
+    Temperature Scaling: T=4.4869
+    Platt Scaling: a=0.2618, b=1.3852
+
+  [4/4] Test Results on cost266:
+    Method             Acc    AUC    ECE
+    ----------------------------------------
+    Raw             0.8293 0.9101 0.1275
+    TempScale       0.8293 0.9101 0.1541
+    Platt           0.8543 0.9101 0.0293
+
+===========================================================================
+Train: nsfnet → Test: germany50 | Encoder: v2b
+===========================================================================
+  [1/4] Training on source topology ...
+    Train: 15000 | SR: 0.764
+  Epoch 01: loss=0.5201 acc=0.7657 auc=0.8671 mae=0.022315 ece=0.0961
+  Epoch 02: loss=0.3599 acc=0.8857 auc=0.9353 mae=0.016484 ece=0.0636
+  Epoch 03: loss=0.2462 acc=0.9230 auc=0.9745 mae=0.012556 ece=0.0431
+  Epoch 04: loss=0.1673 acc=0.9357 auc=0.9826 mae=0.011171 ece=0.0230
+  Epoch 05: loss=0.1333 acc=0.9450 auc=0.9878 mae=0.011833 ece=0.0211
+  Epoch 06: loss=0.1153 acc=0.9483 auc=0.9897 mae=0.010435 ece=0.0190
+  Epoch 07: loss=0.1030 acc=0.9473 auc=0.9904 mae=0.010047 ece=0.0180
+  Epoch 08: loss=0.0957 acc=0.9487 auc=0.9912 mae=0.010241 ece=0.0183
+  Epoch 09: loss=0.0912 acc=0.9570 auc=0.9916 mae=0.009922 ece=0.0152
+  Epoch 10: loss=0.0888 acc=0.9513 auc=0.9912 mae=0.008854 ece=0.0124
+  Epoch 11: loss=0.0852 acc=0.9557 auc=0.9916 mae=0.008388 ece=0.0127
+  Epoch 12: loss=0.0824 acc=0.9537 auc=0.9917 mae=0.009041 ece=0.0139
+  Epoch 13: loss=0.0812 acc=0.9540 auc=0.9920 mae=0.007636 ece=0.0138
+  Epoch 14: loss=0.0799 acc=0.9533 auc=0.9918 mae=0.007507 ece=0.0135
+  Epoch 15: loss=0.0791 acc=0.9513 auc=0.9916 mae=0.007402 ece=0.0198
+  Epoch 16: loss=0.0767 acc=0.9540 auc=0.9920 mae=0.007528 ece=0.0123
+  Epoch 17: loss=0.0794 acc=0.9567 auc=0.9921 mae=0.007322 ece=0.0120
+  Epoch 18: loss=0.0762 acc=0.9537 auc=0.9925 mae=0.007363 ece=0.0110
+  Epoch 19: loss=0.0757 acc=0.9577 auc=0.9922 mae=0.007686 ece=0.0136
+  Epoch 20: loss=0.0752 acc=0.9517 auc=0.9920 mae=0.007838 ece=0.0161
+  Epoch 21: loss=0.0734 acc=0.9553 auc=0.9925 mae=0.007382 ece=0.0116
+  Epoch 22: loss=0.0726 acc=0.9583 auc=0.9925 mae=0.007328 ece=0.0123
+  Epoch 23: loss=0.0723 acc=0.9560 auc=0.9915 mae=0.007357 ece=0.0096
+  Epoch 24: loss=0.0758 acc=0.9577 auc=0.9920 mae=0.007543 ece=0.0092
+  Epoch 25: loss=0.0731 acc=0.9560 auc=0.9925 mae=0.007761 ece=0.0110
+  Epoch 26: loss=0.0706 acc=0.9560 auc=0.9922 mae=0.008945 ece=0.0136
+  Epoch 27: loss=0.0717 acc=0.9543 auc=0.9924 mae=0.008789 ece=0.0137
+  Epoch 28: loss=0.0721 acc=0.9573 auc=0.9924 mae=0.007599 ece=0.0082
+  Epoch 29: loss=0.0705 acc=0.9527 auc=0.9921 mae=0.007571 ece=0.0147
+  Epoch 30: loss=0.0708 acc=0.9537 auc=0.9926 mae=0.009435 ece=0.0156
+  [2/4] Generating calibration data on target ...
+    Calib: 2000 | SR: 0.809
+  [3/4] Generating test data on target ...
+    Test:  3000 | SR: 0.854
+    Temperature Scaling: T=6.4697
+    Platt Scaling: a=0.2575, b=2.0262
+
+  [4/4] Test Results on germany50:
+    Method             Acc    AUC    ECE
+    ----------------------------------------
+    Raw             0.6993 0.8641 0.2722
+    TempScale       0.6993 0.8641 0.3099
+    Platt           0.8527 0.8641 0.0370
+
+===========================================================================
+Train: nsfnet → Test: random50 | Encoder: v2b
+===========================================================================
+  [1/4] Training on source topology ...
+    Train: 15000 | SR: 0.764
+  Epoch 01: loss=0.5201 acc=0.7657 auc=0.8671 mae=0.022315 ece=0.0961
+  Epoch 02: loss=0.3599 acc=0.8857 auc=0.9353 mae=0.016484 ece=0.0636
+  Epoch 03: loss=0.2462 acc=0.9230 auc=0.9745 mae=0.012556 ece=0.0431
+  Epoch 04: loss=0.1673 acc=0.9357 auc=0.9826 mae=0.011171 ece=0.0230
+  Epoch 05: loss=0.1333 acc=0.9450 auc=0.9878 mae=0.011833 ece=0.0211
+  Epoch 06: loss=0.1153 acc=0.9483 auc=0.9897 mae=0.010435 ece=0.0190
+  Epoch 07: loss=0.1030 acc=0.9473 auc=0.9904 mae=0.010047 ece=0.0180
+  Epoch 08: loss=0.0957 acc=0.9487 auc=0.9912 mae=0.010241 ece=0.0183
+  Epoch 09: loss=0.0912 acc=0.9570 auc=0.9916 mae=0.009922 ece=0.0152
+  Epoch 10: loss=0.0888 acc=0.9513 auc=0.9912 mae=0.008854 ece=0.0124
+  Epoch 11: loss=0.0852 acc=0.9557 auc=0.9916 mae=0.008388 ece=0.0127
+  Epoch 12: loss=0.0824 acc=0.9537 auc=0.9917 mae=0.009041 ece=0.0139
+  Epoch 13: loss=0.0812 acc=0.9540 auc=0.9920 mae=0.007636 ece=0.0138
+  Epoch 14: loss=0.0799 acc=0.9533 auc=0.9918 mae=0.007507 ece=0.0135
+  Epoch 15: loss=0.0791 acc=0.9513 auc=0.9916 mae=0.007402 ece=0.0198
+  Epoch 16: loss=0.0767 acc=0.9540 auc=0.9920 mae=0.007528 ece=0.0123
+  Epoch 17: loss=0.0794 acc=0.9567 auc=0.9921 mae=0.007322 ece=0.0120
+  Epoch 18: loss=0.0762 acc=0.9537 auc=0.9925 mae=0.007363 ece=0.0110
+  Epoch 19: loss=0.0757 acc=0.9577 auc=0.9922 mae=0.007686 ece=0.0136
+  Epoch 20: loss=0.0752 acc=0.9517 auc=0.9920 mae=0.007838 ece=0.0161
+  Epoch 21: loss=0.0734 acc=0.9553 auc=0.9925 mae=0.007382 ece=0.0116
+  Epoch 22: loss=0.0726 acc=0.9583 auc=0.9925 mae=0.007328 ece=0.0123
+  Epoch 23: loss=0.0723 acc=0.9560 auc=0.9915 mae=0.007357 ece=0.0096
+  Epoch 24: loss=0.0758 acc=0.9577 auc=0.9920 mae=0.007543 ece=0.0092
+  Epoch 25: loss=0.0731 acc=0.9560 auc=0.9925 mae=0.007761 ece=0.0110
+  Epoch 26: loss=0.0706 acc=0.9560 auc=0.9922 mae=0.008945 ece=0.0136
+  Epoch 27: loss=0.0717 acc=0.9543 auc=0.9924 mae=0.008789 ece=0.0137
+  Epoch 28: loss=0.0721 acc=0.9573 auc=0.9924 mae=0.007599 ece=0.0082
+  Epoch 29: loss=0.0705 acc=0.9527 auc=0.9921 mae=0.007571 ece=0.0147
+  Epoch 30: loss=0.0708 acc=0.9537 auc=0.9926 mae=0.009435 ece=0.0156
+  [2/4] Generating calibration data on target ...
+    Calib: 2000 | SR: 0.647
+  [3/4] Generating test data on target ...
+    Test:  3000 | SR: 0.674
+    Temperature Scaling: T=5.1475
+    Platt Scaling: a=0.2164, b=0.7999
+
+  [4/4] Test Results on random50:
+    Method             Acc    AUC    ECE
+    ----------------------------------------
+    Raw             0.7453 0.8547 0.1711
+    TempScale       0.7453 0.8547 0.1604
+    Platt           0.7867 0.8547 0.0390
+
+===========================================================================
+Train: nsfnet → Test: random80 | Encoder: v2b
+===========================================================================
+  [1/4] Training on source topology ...
+    Train: 15000 | SR: 0.764
+  Epoch 01: loss=0.5201 acc=0.7657 auc=0.8671 mae=0.022315 ece=0.0961
+  Epoch 02: loss=0.3599 acc=0.8857 auc=0.9353 mae=0.016484 ece=0.0636
+  Epoch 03: loss=0.2462 acc=0.9230 auc=0.9745 mae=0.012556 ece=0.0431
+  Epoch 04: loss=0.1673 acc=0.9357 auc=0.9826 mae=0.011171 ece=0.0230
+  Epoch 05: loss=0.1333 acc=0.9450 auc=0.9878 mae=0.011833 ece=0.0211
+  Epoch 06: loss=0.1153 acc=0.9483 auc=0.9897 mae=0.010435 ece=0.0190
+  Epoch 07: loss=0.1030 acc=0.9473 auc=0.9904 mae=0.010047 ece=0.0180
+  Epoch 08: loss=0.0957 acc=0.9487 auc=0.9912 mae=0.010241 ece=0.0183
+  Epoch 09: loss=0.0912 acc=0.9570 auc=0.9916 mae=0.009922 ece=0.0152
+  Epoch 10: loss=0.0888 acc=0.9513 auc=0.9912 mae=0.008854 ece=0.0124
+  Epoch 11: loss=0.0852 acc=0.9557 auc=0.9916 mae=0.008388 ece=0.0127
+  Epoch 12: loss=0.0824 acc=0.9537 auc=0.9917 mae=0.009041 ece=0.0139
+  Epoch 13: loss=0.0812 acc=0.9540 auc=0.9920 mae=0.007636 ece=0.0138
+  Epoch 14: loss=0.0799 acc=0.9533 auc=0.9918 mae=0.007507 ece=0.0135
+  Epoch 15: loss=0.0791 acc=0.9513 auc=0.9916 mae=0.007402 ece=0.0198
+  Epoch 16: loss=0.0767 acc=0.9540 auc=0.9920 mae=0.007528 ece=0.0123
+  Epoch 17: loss=0.0794 acc=0.9567 auc=0.9921 mae=0.007322 ece=0.0120
+  Epoch 18: loss=0.0762 acc=0.9537 auc=0.9925 mae=0.007363 ece=0.0110
+  Epoch 19: loss=0.0757 acc=0.9577 auc=0.9922 mae=0.007686 ece=0.0136
+  Epoch 20: loss=0.0752 acc=0.9517 auc=0.9920 mae=0.007838 ece=0.0161
+  Epoch 21: loss=0.0734 acc=0.9553 auc=0.9925 mae=0.007382 ece=0.0116
+  Epoch 22: loss=0.0726 acc=0.9583 auc=0.9925 mae=0.007328 ece=0.0123
+  Epoch 23: loss=0.0723 acc=0.9560 auc=0.9915 mae=0.007357 ece=0.0096
+  Epoch 24: loss=0.0758 acc=0.9577 auc=0.9920 mae=0.007543 ece=0.0092
+  Epoch 25: loss=0.0731 acc=0.9560 auc=0.9925 mae=0.007761 ece=0.0110
+  Epoch 26: loss=0.0706 acc=0.9560 auc=0.9922 mae=0.008945 ece=0.0136
+  Epoch 27: loss=0.0717 acc=0.9543 auc=0.9924 mae=0.008789 ece=0.0137
+  Epoch 28: loss=0.0721 acc=0.9573 auc=0.9924 mae=0.007599 ece=0.0082
+  Epoch 29: loss=0.0705 acc=0.9527 auc=0.9921 mae=0.007571 ece=0.0147
+  Epoch 30: loss=0.0708 acc=0.9537 auc=0.9926 mae=0.009435 ece=0.0156
+  [2/4] Generating calibration data on target ...
+    Calib: 2000 | SR: 0.772
+  [3/4] Generating test data on target ...
+    Test:  3000 | SR: 0.783
+    Temperature Scaling: T=8.8704
+    Platt Scaling: a=0.2145, b=1.7839
+
+  [4/4] Test Results on random80:
+    Method             Acc    AUC    ECE
+    ----------------------------------------
+    Raw             0.6900 0.8146 0.2608
+    TempScale       0.6900 0.8146 0.2771
+    Platt           0.7867 0.8146 0.0377
+
+===========================================================================
+Train: nsfnet → Test: random100 | Encoder: v2b
+===========================================================================
+  [1/4] Training on source topology ...
+    Train: 15000 | SR: 0.764
+  Epoch 01: loss=0.5201 acc=0.7657 auc=0.8671 mae=0.022315 ece=0.0961
+  Epoch 02: loss=0.3599 acc=0.8857 auc=0.9353 mae=0.016484 ece=0.0636
+  Epoch 03: loss=0.2462 acc=0.9230 auc=0.9745 mae=0.012556 ece=0.0431
+  Epoch 04: loss=0.1673 acc=0.9357 auc=0.9826 mae=0.011171 ece=0.0230
+  Epoch 05: loss=0.1333 acc=0.9450 auc=0.9878 mae=0.011833 ece=0.0211
+  Epoch 06: loss=0.1153 acc=0.9483 auc=0.9897 mae=0.010435 ece=0.0190
+  Epoch 07: loss=0.1030 acc=0.9473 auc=0.9904 mae=0.010047 ece=0.0180
+  Epoch 08: loss=0.0957 acc=0.9487 auc=0.9912 mae=0.010241 ece=0.0183
+  Epoch 09: loss=0.0912 acc=0.9570 auc=0.9916 mae=0.009922 ece=0.0152
+  Epoch 10: loss=0.0888 acc=0.9513 auc=0.9912 mae=0.008854 ece=0.0124
+  Epoch 11: loss=0.0852 acc=0.9557 auc=0.9916 mae=0.008388 ece=0.0127
+  Epoch 12: loss=0.0824 acc=0.9537 auc=0.9917 mae=0.009041 ece=0.0139
+  Epoch 13: loss=0.0812 acc=0.9540 auc=0.9920 mae=0.007636 ece=0.0138
+  Epoch 14: loss=0.0799 acc=0.9533 auc=0.9918 mae=0.007507 ece=0.0135
+  Epoch 15: loss=0.0791 acc=0.9513 auc=0.9916 mae=0.007402 ece=0.0198
+  Epoch 16: loss=0.0767 acc=0.9540 auc=0.9920 mae=0.007528 ece=0.0123
+  Epoch 17: loss=0.0794 acc=0.9567 auc=0.9921 mae=0.007322 ece=0.0120
+  Epoch 18: loss=0.0762 acc=0.9537 auc=0.9925 mae=0.007363 ece=0.0110
+  Epoch 19: loss=0.0757 acc=0.9577 auc=0.9922 mae=0.007686 ece=0.0136
+  Epoch 20: loss=0.0752 acc=0.9517 auc=0.9920 mae=0.007838 ece=0.0161
+  Epoch 21: loss=0.0734 acc=0.9553 auc=0.9925 mae=0.007382 ece=0.0116
+  Epoch 22: loss=0.0726 acc=0.9583 auc=0.9925 mae=0.007328 ece=0.0123
+  Epoch 23: loss=0.0723 acc=0.9560 auc=0.9915 mae=0.007357 ece=0.0096
+  Epoch 24: loss=0.0758 acc=0.9577 auc=0.9920 mae=0.007543 ece=0.0092
+  Epoch 25: loss=0.0731 acc=0.9560 auc=0.9925 mae=0.007761 ece=0.0110
+  Epoch 26: loss=0.0706 acc=0.9560 auc=0.9922 mae=0.008945 ece=0.0136
+  Epoch 27: loss=0.0717 acc=0.9543 auc=0.9924 mae=0.008789 ece=0.0137
+  Epoch 28: loss=0.0721 acc=0.9573 auc=0.9924 mae=0.007599 ece=0.0082
+  Epoch 29: loss=0.0705 acc=0.9527 auc=0.9921 mae=0.007571 ece=0.0147
+  Epoch 30: loss=0.0708 acc=0.9537 auc=0.9926 mae=0.009435 ece=0.0156
+  [2/4] Generating calibration data on target ...
+    Calib: 2000 | SR: 0.600
+  [3/4] Generating test data on target ...
+    Test:  3000 | SR: 0.609
+    Temperature Scaling: T=6.0205
+    Platt Scaling: a=0.2016, b=0.7472
+
+  [4/4] Test Results on random100:
+    Method             Acc    AUC    ECE
+    ----------------------------------------
+    Raw             0.7053 0.7970 0.2069
+    TempScale       0.7053 0.7970 0.1370
+    Platt           0.7377 0.7970 0.0321
+
+===========================================================================
+SUMMARY: Cross-Topology AUC (Raw / TempScale / Platt)
+===========================================================================
+Test Topo    Nodes Ver      Raw  +T.S.  +Platt
+-------------------------------------------------------
+usnet           28 v0    0.8238 0.8238  0.8238
+usnet           28 v2b   0.9128 0.9128  0.9128
+cost266         28 v0    0.8116 0.8116  0.8116
+cost266         28 v2b   0.9101 0.9101  0.9101
+germany50       50 v0    0.8055 0.8055  0.8055
+germany50       50 v2b   0.8641 0.8641  0.8641
+random50        50 v0    0.8057 0.8057  0.8057
+random50        50 v2b   0.8547 0.8547  0.8547
+random80        80 v0    0.7847 0.7847  0.7847
+random80        80 v2b   0.8146 0.8146  0.8146
+random100      100 v0    0.7681 0.7681  0.7681
+random100      100 v2b   0.7970 0.7970  0.7970
+
+===========================================================================
+SUMMARY: Cross-Topology ECE (Raw / TempScale / Platt)
+===========================================================================
+Test Topo    Nodes Ver      Raw  +T.S.  +Platt
+-------------------------------------------------------
+usnet           28 v0    0.0835 0.0928  0.0282
+usnet           28 v2b   0.1536 0.1996  0.0257
+cost266         28 v0    0.0662 0.0432  0.0303
+cost266         28 v2b   0.1275 0.1541  0.0293
+germany50       50 v0    0.1133 0.1238  0.0408
+germany50       50 v2b   0.2722 0.3099  0.0370
+random50        50 v0    0.1025 0.0446  0.0325
+random50        50 v2b   0.1711 0.1604  0.0390
+random80        80 v0    0.0992 0.0768  0.0131
+random80        80 v2b   0.2608 0.2771  0.0377
+random100      100 v0    0.1550 0.0644  0.0379
+random100      100 v2b   0.2069 0.1370  0.0321
+
+===========================================================================
+CALIBRATION PARAMETER SUMMARY
+===========================================================================
+Test Topo    Ver          T        a        b
+---------------------------------------------
+usnet        v0      1.5600   0.4970   0.7207
+usnet        v2b     5.0465   0.2498   1.7197
+cost266      v0      1.8588   0.4602   0.4046
+cost266      v2b     4.4869   0.2618   1.3852
+germany50    v0      1.6060   0.4868   0.7103
+germany50    v2b     6.4697   0.2575   2.0262
+random50     v0      2.8057   0.3939  -0.2044
+random50     v2b     5.1475   0.2164   0.7999
+random80     v0      1.9074   0.4339   0.5871
+random80     v2b     8.8704   0.2145   1.7839
+random100    v0      3.4654   0.3439  -0.3274
+random100    v2b     6.0205   0.2016   0.7472
