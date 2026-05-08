@@ -21,9 +21,10 @@ class OpticalDataset(Dataset):
     def __getitem__(self, idx):
         s = self.samples[idx]
         return {
-            "partition": torch.tensor(s["partition"], dtype=torch.long),
+            "path_id": torch.tensor(s["path_id"], dtype=torch.long),
             "src": torch.tensor(s["src"], dtype=torch.long),
             "dst": torch.tensor(s["dst"], dtype=torch.long),
+            "bw": torch.tensor(s["bw"], dtype=torch.float32),
             "z": torch.from_numpy(s["z"].copy()).float(),
             "success": torch.tensor(s["success"], dtype=torch.float32),
             "delay": torch.tensor(s["delay"], dtype=torch.float32),
@@ -40,15 +41,16 @@ def train_predictor(predictor, train_loader, val_loader, epochs=30, lr=1e-3):
         predictor.train()
         total_loss = 0.0
         for batch in train_loader:
-            partition = batch["partition"]
+            path_id = batch["path_id"]
             src = batch["src"]
             dst = batch["dst"]
+            bw = batch["bw"]
             z = batch["z"]
             success = batch["success"]
             delay = batch["delay"]
 
             optimizer.zero_grad()
-            success_logit, delay_pred = predictor(partition, src, dst, z)
+            success_logit, delay_pred = predictor(path_id, src, dst, bw, z)
             loss = bce(success_logit, success)
             mask = success > 0.5
             if mask.sum() > 0:
@@ -77,7 +79,7 @@ def evaluate_predictor(predictor, loader):
     all_success, all_prob, all_delay, all_delay_pred = [], [], [], []
     with torch.no_grad():
         for batch in loader:
-            logit, delay_pred = predictor(batch["partition"], batch["src"], batch["dst"], batch["z"])
+            logit, delay_pred = predictor(batch["path_id"], batch["src"], batch["dst"], batch["bw"], batch["z"])
             prob = torch.sigmoid(logit).numpy()
             success = batch["success"].numpy()
             delay = batch["delay"].numpy()
@@ -148,9 +150,10 @@ def plot_calibration(predictor, loader, save_path="calibration.png"):
 
 
 def measure_latency(predictor, encoder, mapper, num_runs=1000):
-    partition = torch.tensor([0], dtype=torch.long)
+    path_id = torch.tensor([0], dtype=torch.long)
     src = torch.tensor([0], dtype=torch.long)
     dst = torch.tensor([5], dtype=torch.long)
+    bw = torch.tensor([4.0], dtype=torch.float32)
 
     t0 = time.time()
     for _ in range(num_runs):
@@ -158,10 +161,10 @@ def measure_latency(predictor, encoder, mapper, num_runs=1000):
     enc_ms = (time.time() - t0) / num_runs * 1000
 
     z = torch.from_numpy(encoder.encode(0, 5)).unsqueeze(0).float()
-    _ = predictor(partition, src, dst, z)
+    _ = predictor(path_id, src, dst, bw, z)
     t0 = time.time()
     for _ in range(num_runs):
-        _ = predictor(partition, src, dst, z)
+        _ = predictor(path_id, src, dst, bw, z)
     pred_ms = (time.time() - t0) / num_runs * 1000
 
     mapper.net.reset()

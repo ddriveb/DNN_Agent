@@ -1,5 +1,6 @@
-"""State encoder z_t with ablation variants + coarse binning + noise."""
+"""State encoder z_t with ablation variants + coarse binning + noise + topology conditioning."""
 import numpy as np
+import networkx as nx
 from ksp_fast import k_shortest_paths
 
 
@@ -9,6 +10,38 @@ class Encoder:
         self.k = k
         self._path_cache = {}
         self._precompute_ksp()
+        self._topo_stats = None
+
+    def compute_topology_stats(self):
+        """Compute normalized graph-level topology statistics."""
+        G = self.net.G
+        n = G.number_of_nodes()
+        m = G.number_of_edges()
+        avg_degree = 2 * m / n if n > 0 else 0.0
+        density = nx.density(G)
+        avg_clustering = nx.average_clustering(G)
+        try:
+            diameter = nx.diameter(G)
+            avg_path_len = nx.average_shortest_path_length(G)
+        except nx.NetworkXError:
+            diameter = -1
+            avg_path_len = -1
+        stats = [
+            n / 128.0,
+            m / 500.0,
+            avg_degree / 10.0,
+            diameter / 20.0 if diameter > 0 else 0.0,
+            avg_clustering,
+            avg_path_len / 10.0 if avg_path_len > 0 else 0.0,
+            density,
+        ]
+        self._topo_stats = np.array(stats, dtype=np.float32)
+        return self._topo_stats
+
+    def get_topology_stats(self):
+        if self._topo_stats is None:
+            self.compute_topology_stats()
+        return self._topo_stats
 
     def _precompute_ksp(self):
         n = self.net.NUM_NODES
@@ -58,6 +91,12 @@ class Encoder:
         ]
         path_feats = self._path_histogram(src, dst, mode="summary")
         return np.array(global_feats + path_feats, dtype=np.float32)
+
+    def encode_v2t(self, src, dst, num_bins=4):
+        """v2b + topology-conditioned: append graph-level topology statistics."""
+        z_v2b = self.encode_v2b(src, dst, num_bins=num_bins)
+        topo = self.get_topology_stats()
+        return np.concatenate([z_v2b, topo]).astype(np.float32)
 
     def _global_frag_index(self):
         frags = []

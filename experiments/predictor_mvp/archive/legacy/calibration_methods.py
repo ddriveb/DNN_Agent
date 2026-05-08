@@ -91,7 +91,7 @@ def evaluate_with_calibration(predictor, loader, calibrator=None):
     
     with torch.no_grad():
         for batch in loader:
-            logit, delay_pred = predictor(batch["partition"], batch["src"], batch["dst"], batch["z"])
+            logit, delay_pred = predictor(batch["path_id"], batch["src"], batch["dst"], batch["bw"], batch["z"])
             all_logit.extend(logit.numpy().tolist())
             all_success.extend(batch["success"].numpy().tolist())
             delay = batch["delay"].numpy()
