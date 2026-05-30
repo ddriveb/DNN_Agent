@@ -133,3 +133,75 @@ class OpticalNetwork:
             link = (min(path[i], path[i + 1]), max(path[i], path[i + 1]))
             avail &= ~self.link_states[link]
         return avail
+
+    @staticmethod
+    def _max_consecutive(arr) -> int:
+        if not np.any(arr):
+            return 0
+        max_len = curr = 0
+        for v in arr:
+            if v:
+                curr += 1
+                max_len = max(max_len, curr)
+            else:
+                curr = 0
+        return max_len
+
+    @staticmethod
+    def _count_blocks(arr) -> int:
+        count = 0
+        in_block = False
+        for v in arr:
+            if v and not in_block:
+                count += 1
+                in_block = True
+            elif not v:
+                in_block = False
+        return count
+
+    def summarize_availability(self, free_arr):
+        total_free = int(np.sum(free_arr))
+        max_free = self._max_consecutive(free_arr)
+        free_blocks = self._count_blocks(free_arr)
+        if total_free == 0:
+            frag = 1.0
+        elif total_free == self.num_slots:
+            frag = 0.0
+        else:
+            frag = 1.0 - (max_free / total_free)
+        return {
+            "total_free_slots": total_free,
+            "max_free_slots": max_free,
+            "largest_free_block_ratio": max_free / max(self.num_slots, 1),
+            "free_block_count": free_blocks,
+            "frag_index": float(frag),
+        }
+
+    def get_path_spectrum_stats(self, path):
+        free_arr = self.get_available_slots(path)
+        stats = self.summarize_availability(free_arr)
+        stats["path_length"] = max(len(path) - 1, 0)
+        return stats
+
+    def get_global_spectrum_stats(self):
+        total_slots = len(self.link_states) * self.num_slots
+        occupied = 0
+        frag_vals = []
+        max_free_vals = []
+        free_block_vals = []
+
+        for slots in self.link_states.values():
+            occupied += int(np.sum(slots))
+            free_arr = ~slots
+            stats = self.summarize_availability(free_arr)
+            frag_vals.append(stats["frag_index"])
+            max_free_vals.append(stats["max_free_slots"])
+            free_block_vals.append(stats["free_block_count"])
+
+        return {
+            "spectrum_utilization": occupied / max(total_slots, 1),
+            "avg_frag_index": float(np.mean(frag_vals)) if frag_vals else 0.0,
+            "largest_free_block_ratio": (max(max_free_vals) / max(self.num_slots, 1)) if max_free_vals else 0.0,
+            "avg_free_block_count": float(np.mean(free_block_vals)) if free_block_vals else 0.0,
+            "num_links": len(self.link_states),
+        }

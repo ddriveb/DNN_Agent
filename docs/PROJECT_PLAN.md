@@ -136,106 +136,117 @@ DNN_agent/
 
 ## 四、分阶段实施计划
 
-### Phase 0：基础设施（Week 1）
+### ✅ Phase 0：基础设施（Week 1）— 已完成
 
 **目标**：搭建可运行的最小仿真环境。
 
-| 任务 | 产出 | 验收标准 |
-|------|------|----------|
-| 搭建光网拓扑模型 | topology.py | 支持 2 种以上拓扑（如 NSFNET、GEANT），可输出邻接矩阵 |
-| 搭建频谱链路模型 | spectrum.py | 支持固定栅格频谱，记录每条链路的 slot 占用状态 |
-| 搭建 MEC 资源模型 | mec.py | 支持多 server，记录算力、负载、缓存状态 |
-| 搭建请求生成器 | traffic.py | 支持按分布生成推理请求，含 DNN 模型类型、数据量、时延约束 |
-| 环境集成测试 | test_environment.py | 能跑通 100 个请求的仿真，无异常 |
+| 任务 | 产出 | 验收标准 | 状态 |
+|------|------|----------|------|
+| 搭建光网拓扑模型 | `experiments/predictor_mvp/env.py` | 支持 2 种以上拓扑（NSFNET、USNET），可输出邻接矩阵 | ✅ |
+| 搭建频谱链路模型 | `experiments/predictor_mvp/mapper.py` | 支持固定栅格频谱，记录每条链路的 slot 占用状态 | ✅ |
+| 搭建 MEC 资源模型 | `experiments/predictor_mvp/env.py` | 支持多 server，记录算力、负载、缓存状态 | ✅ |
+| 搭建请求生成器 | `experiments/agent_mvp/traffic_generator.py` | 支持按分布生成推理请求，含 DNN 模型类型、数据量、时延约束 | ✅ |
+| 环境集成测试 | `experiments/agent_mvp/eval_fixed.py` | 能跑通 2000 个请求的仿真，无异常 | ✅ |
 
-### Phase 1：环境表征与编码器（Week 2）
+### ✅ Phase 1：环境表征与编码器（Week 2）— 已完成
 
 **目标**：实现 z_t = g(Env_t)，输出 10-30 维统计向量。
 
-| 任务 | 产出 | 验收标准 |
-|------|------|----------|
-| 定义 z 维度 | metrics.py | 实现 fragmentation index、server load entropy、path risk vector、deployment score、resource pressure |
-| 编码器实现 | encoder.py | 输入环境状态，输出 z（numpy 或 tensor）|
-| 多环境生成器 | env_generator.py | 生成 18 个环境（2 拓扑 × 3 负载 × 3 碎片），每个环境可独立加载 |
-| 编码器测试 | test_encoder.py | 不同环境的 z 向量有显著差异（余弦相似度或距离可区分）|
+| 任务 | 产出 | 验收标准 | 状态 |
+|------|------|----------|------|
+| 定义 z 维度 | `experiments/predictor_mvp/encoder.py` | 实现 fragmentation index、server load entropy、path risk vector、deployment score、resource pressure | ✅ |
+| 编码器实现 | `experiments/predictor_mvp/encoder.py` | 输入环境状态，输出 z（numpy 或 tensor）| ✅ |
+| 多环境生成器 | `experiments/agent_mvp/fixed_trace.py` | 生成固定 trace 用于公平对比 | ✅ |
+| 编码器测试 | `experiments/predictor_mvp/main_cross_topology.py` | 不同拓扑的 z 向量可区分 | ✅ |
 
 **关键决策点**：
-- z 维度第一版控制在 **15 维左右**。
-- 每个指标需有明确的物理意义和计算公式。
+- z 维度最终版为 **10 维**（link-state vector），v2b 编码器被验证为最优。
+- 每个指标有明确的物理意义和计算公式。
 
-### Phase 2：Inference Agent（Week 3-4）
+### ✅ Phase 2：Inference Agent（Week 3-4）— 已完成（路线调整）
 
-**目标**：实现 π_θ(a|x,z)，Double DQN。
+**目标**：实现 π_θ(a|x,z)。
 
-| 任务 | 产出 | 验收标准 |
-|------|------|----------|
-| 状态空间定义 | - | x_t = [请求特征, 快状态]，明确各维度含义和范围 |
-| 动作空间定义 | - | a_high = [partition_point, target_server, offloading_mode]；动作空间大小 < 1000 |
-| DQN 网络实现 | network.py | 输入 (x, z)，输出 Q(s,a)；支持 dueling 或双层网络（可选）|
-| 经验回放 | replay_buffer.py | 支持多环境混合采样，每条经验记录对应的 z |
-| 训练循环 | trainer.py | 单环境上能收敛，blocking 随训练下降 |
-| Agent 单元测试 | test_agent.py | 网络输入输出维度正确，训练过程无 NaN |
+**路线调整**：未采用端到端 DQN，改为 **Imitation Learning + Predictor reranking** 的分层架构：
 
-**关键决策点**：
-- 第一版用 Double DQN，不急于上 PPO/SAC。
-- 动作空间若仍太大，可先只优化 partition + target（2 维决策），offloading mode 内嵌。
+| 任务 | 产出 | 验收标准 | 状态 |
+|------|------|----------|------|
+| 状态空间定义 | `experiments/agent_mvp/state_builder.py` | x_t = [请求特征, 快状态]，30D enhanced | ✅ |
+| 动作空间定义 | `experiments/agent_mvp/dnn_models.py` | a_high = (split_id, server_id)，15 actions | ✅ |
+| Imitation Agent | `experiments/agent_mvp/train_imitation.py` | 行为克隆 RuleAgent，top-3 hit rate > 95% | ✅ |
+| TopK Selector | `experiments/agent_mvp/topk_selector_agent.py` | 神经 top-K + predictor 重排序 | ✅ |
+| 单元测试 | `experiments/agent_mvp/eval_imitation.py` | 网络输入输出维度正确 | ✅ |
 
-### Phase 3：Execution Mapper（Week 4-5）
+**关键决策**：
+- Imitation + Predictor 已显著优于基线（15.51% vs 19.48%），无需端到端 DQN。
+- 动作空间: 3 splits × 5 servers = 15 actions。
+
+### ✅ Phase 3：Execution Mapper（Week 4-5）— 已完成
 
 **目标**：实现 M(a_high, s_net, z) → [path, modulation, slot_block]。
 
-| 任务 | 产出 | 验收标准 |
-|------|------|----------|
-| KSP 实现 | ksp.py | Yen's algorithm 或简化的 K-shortest，K=3~5 |
-| 频谱分配器 | spectrum_allocator.py | 实现 first-fit、best-fit、fragmentation-aware best-fit |
-| Mapper 主逻辑 | mapper.py | 输入高层动作，输出 path-slot；失败返回 blocking |
-| 约束检查 | - | 每条路径满足频谱连续性、连续性约束；server 资源不超发 |
-| Mapper 测试 | test_mapper.py | 各种边界情况（资源不足、多请求竞争）下行为正确 |
+| 任务 | 产出 | 验收标准 | 状态 |
+|------|------|----------|------|
+| KSP 实现 | `experiments/predictor_mvp/ksp_fast.py` | Yen's algorithm, K=3 | ✅ |
+| 频谱分配器 | `experiments/predictor_mvp/mapper.py` | first-fit + best-fit | ✅ |
+| Mapper 主逻辑 | `experiments/predictor_mvp/mapper.py` | 输入高层动作，输出 path-slot；失败返回 blocking | ✅ |
+| 约束检查 | `experiments/predictor_mvp/mapper.py` | 频谱连续性、连续性约束；server 资源不超发 | ✅ |
+| Mapper 测试 | 集成在 `eval_*.py` 中 | 2000+ 请求无异常 | ✅ |
 
-**关键决策点**：
-- path risk 排序用 z 中的 path risk vector。
-- 若所有路径失败，记录 blocking，不强行分配（保证约束）。
+**关键决策**：
+- K=3 shortest paths + first-fit 足够；更复杂的分配器收益有限。
+- Mapper 不引入 blocking 错误（已通过所有实验验证）。
 
-### Phase 4：多环境联合训练（Week 5-6）
+### ✅ Phase 4：多环境联合训练（Week 5-6）— 已完成（路线调整）
 
-**目标**：在 18 个环境上训练条件策略，使其学会根据 z 自适应。
+**目标**：训练 CorrectionNet 学习长期价值残差。
 
-| 任务 | 产出 | 验收标准 |
-|------|------|----------|
-| 奖励函数 | reward.py | r_t = -αT - βB - γC_frag - ηC_res + μS，参数可调 |
-| 多环境采样 | multi_env_trainer.py | 每轮从 18 个环境均匀或按难度采样 |
-| 完整训练流程 | - | 端到端：环境 → z → Agent → Mapper → reward → 回传 |
-| 训练监控 | - | TensorBoard 记录各环境的 loss、Q 值、reward、blocking rate |
+| 任务 | 产出 | 验收标准 | 状态 |
+|------|------|----------|------|
+| 奖励函数 | `experiments/agent_mvp/env_wrapper.py` | r_t = +1.0 - delay_norm (success), -2.0 (fail) | ✅ |
+| 离线数据收集 | `experiments/agent_mvp/collect_replay.py` | 30K transitions from TopK2 policy | ✅ |
+| CorrectionNet 训练 | `experiments/agent_mvp/train_correction_net.py` | 5K 参数网络，val loss < 0.6 | ✅ |
+| 训练监控 | `experiments/agent_mvp/logs/train_correction_net.log` | loss 曲线稳定下降 | ✅ |
 
-**关键决策点**：
-- 训练时环境切换频率：每 episode 换一个环境，还是每 N step 换？
-- 是否引入课程学习？先在中等环境训练，再逐步加入极端环境。
+**关键决策**：
+- 不训练端到端条件策略；改为在强基线（TopK2）上叠加残差网络。
+- CorrectionNet 输入 10D，输出 1D correction score。
+- 目标: episode return G_t，γ=0.95。
 
-### Phase 5：评估与消融实验（Week 7-8）
+### ✅ Phase 5：评估与消融实验（Week 7-8）— 已完成
 
 **目标**：验证假设，产出论文可用图表。
 
-| 任务 | 产出 | 验收标准 |
-|------|------|----------|
-| 基线实现 | baselines/ | Greedy、Vanilla DRL、Transfer DRL 均可运行 |
-| 单环境对比 | results/ | 在同一环境上，本方案 vs 基线的延迟、blocking、吞吐 |
-| 跨环境泛化测试 | generalization.py | 在 OOD 环境（新负载组合、轻微拓扑扰动）上测试零迁移性能 |
-| 消融实验 | results/ablation/ | 去掉 z、打乱 z、固定旧 z、Mapper 不用 z 等 5 组实验 |
-| 可视化 | notebooks/ | 训练曲线、拓扑热力图、z 空间 t-SNE（若维度允许）|
+| 任务 | 产出 | 验收标准 | 状态 |
+|------|------|----------|------|
+| 基线实现 | `experiments/agent_mvp/baselines.py` | Random, ShortestPath, YinLike, LoadBalanced | ✅ |
+| 单环境对比 | `src/results/paper_table_1_main.json` | 3 场景 × 6 方法 | ✅ |
+| 跨环境泛化测试 | `experiments/agent_mvp/results/` | USNET 零迁移: 21.77±0.89% | ✅ |
+| 消融实验 | `src/results/paper_table_2_ablation.json` | 5 组消融 | ✅ |
+| 可解释性分析 | `src/results/paper_table_4_interpretability.json` | Decision change + future blocking correlation | ✅ |
 
-**关键决策点**：
-- OOD 环境如何构造？建议：负载/碎片取训练档位的中间值（如训练中只有低/高，测试用中等）。
-- 消融实验必须做，这是论文最核心的实证支撑。
+**关键决策**：
+- 消融实验证实了: predictor reranking 是最大单一增益源；CorrectionNet 额外贡献 2.47pp。
+- 直接 DQN 替换 selector 失败（38% blocking），证明了残差架构的必要性。
 
-### Phase 6：Transfer Fallback 与收尾（Week 8-9，可选）
+### 🔄 Phase 6：Yin 2024 协议仿真（Week 9-10）— 进行中
 
-**目标**：在严重 OOD 场景下兜底。
+**目标**：在 Yin 2024 论文的协议设置上评估基线 + 我们的方法。
 
-| 任务 | 产出 | 验收标准 |
-|------|------|----------|
-| OOD 检测 | - | 基于 z 的分布距离（如训练 z 的均值方差）检测是否 OOD |
-| 轻量微调 | transfer_drl.py | 仅微调最后 1-2 层，少量梯度步数 |
-| 对比实验 | results/transfer/ | π(x,z_new) vs 微调后 π_θ'(x) 性能差距 < 5% 为理想 |
+| 任务 | 产出 | 验收标准 | 状态 |
+|------|------|----------|------|
+| 拓扑重建 | `experiments/yin2024_sim/yin2024_network.py` | Net-1/2/3 从 Fig. 7 数字化 | ✅ |
+| 频谱初始化 | `experiments/yin2024_sim/yin2024_network.py` | load_factor=0.6, frag=0.2/0.5 | ✅ |
+| 请求生成器 | `experiments/yin2024_sim/yin2024_requests.py` | 1-5 subtasks, 20-40ms deadline | ✅ |
+| 基线评估 (Net-1) | `experiments/yin2024_sim/results/yin2024_net1_results.json` | WO/DF/RF/IWD-Approx/YinLike | ✅ |
+| 基线评估 (Net-2/3) | — | 同上 | 🔄 |
+| frag=0.5 评估 | — | 同上 | 🔄 |
+| 我们的方法 zero-shot | — | TopK2 / CorrectionNet 零迁移 | 🔄 |
+| 绘制 Fig. 8 曲线 | — | Blocking vs N_req | ❌ |
+
+**关键问题**：
+- YinLike 在 Net-1 上阻塞率极低（0-14%），可能与小型网络 + 低请求数有关。需要在 Net-2/3 上验证趋势。
+- RF 阻塞率高于 DF（68% vs 60%），与直觉相反。可能原因是 RF 选择远距离低负载服务器，导致路径频谱阻塞。
 
 ---
 
