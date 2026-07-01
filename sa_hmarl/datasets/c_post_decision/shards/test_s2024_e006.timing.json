@@ -1,0 +1,8 @@
+{
+  "split": "test",
+  "seed": 2024,
+  "episode": 6,
+  "groups": 80,
+  "candidates": 254,
+  "generation_seconds": 11.298049449920654
+}

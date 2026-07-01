@@ -1,0 +1,74 @@
+Loaded frozen PPO Agent-R from sa_hmarl/checkpoints/agent_r_mixed.pt
+============================================================================
+Train PPO Agent-C with Frozen Agent-R
+Topologies: ['snap24_gnutella_reach']
+Episodes: 300, Requests/episode: 80
+Frozen R type: ppo
+Agent-C features: mode=r_feasibility_safe, input_dim=29
+Agent-C shaping: valid_pressure=0.2, no_suitable_block=0.3
+Agent-C risk: fs=0.0 safe_fs=0.0 pressure=0.0 path=0.0 delay_risk=0.0 mask_pressure=0.0 mask_path=0.0 path_metric=min mask_safe_fs=0.0
+Validation seeds: {'snap24_gnutella_reach': [1042]} (episodes_per_seed=5)
+Objective: default
+Episode-level credit: mode=off scale=1.0 block=1.0 no_block=1.0 delay=0.5
+Agent-C activation: tanh
+Env config: slots=20 k_paths=5 max_blocks=10 block_sort=mixed
+Critic input dim: 54
+Checkpoint prefix: agent_c_r_feasibility_safe_s42_s20_r80
+============================================================================
+Ep    0 [snap24_gnutella_reach] blk=0.00 ent=0.0100 kl_c=0.0066
+Ep   10 [snap24_gnutella_reach] blk=0.03 ent=0.0099 kl_c=0.0002
+         Reasons: no_suitable_block=2
+Ep   20 [snap24_gnutella_reach] blk=0.74 ent=0.0098 kl_c=0.0001
+         Reasons: no_suitable_block=59
+Ep   30 [snap24_gnutella_reach] blk=0.68 ent=0.0098 kl_c=0.0004
+         Reasons: no_suitable_block=54
+Ep   40 [snap24_gnutella_reach] blk=0.05 ent=0.0097 kl_c=0.0005
+         Reasons: no_suitable_block=4
+  >> Best frozen-R C @ ep 50: avg_blk=0.273 avg_d=13.1ms avg_obj=0.3736 avg_r=+0.071 | snap24_gnutella_reach=blk0.273/d13.1ms/obj0.3736
+Ep   50 [snap24_gnutella_reach] blk=0.00 ent=0.0096 kl_c=0.0002
+Ep   60 [snap24_gnutella_reach] blk=0.24 ent=0.0095 kl_c=0.0001
+         Reasons: no_suitable_block=19
+Ep   70 [snap24_gnutella_reach] blk=0.66 ent=0.0095 kl_c=0.0003
+         Reasons: no_suitable_block=53
+Ep   80 [snap24_gnutella_reach] blk=0.24 ent=0.0094 kl_c=0.0000
+         Reasons: no_suitable_block=19
+Ep   90 [snap24_gnutella_reach] blk=0.00 ent=0.0093 kl_c=0.0003
+Ep  100 [snap24_gnutella_reach] blk=0.03 ent=0.0092 kl_c=0.0001
+         Reasons: no_suitable_block=2
+Ep  110 [snap24_gnutella_reach] blk=0.00 ent=0.0092 kl_c=0.0006
+Ep  120 [snap24_gnutella_reach] blk=0.70 ent=0.0091 kl_c=0.0007
+         Reasons: no_suitable_block=56
+Ep  130 [snap24_gnutella_reach] blk=0.66 ent=0.0090 kl_c=0.0002
+         Reasons: no_suitable_block=53
+Ep  140 [snap24_gnutella_reach] blk=0.61 ent=0.0089 kl_c=0.0001
+         Reasons: no_suitable_block=49
+Ep  150 [snap24_gnutella_reach] blk=0.00 ent=0.0089 kl_c=0.0003
+Ep  160 [snap24_gnutella_reach] blk=0.01 ent=0.0088 kl_c=0.0001
+         Reasons: no_suitable_block=1
+Ep  170 [snap24_gnutella_reach] blk=0.62 ent=0.0087 kl_c=0.0003
+         Reasons: no_suitable_block=50
+Ep  180 [snap24_gnutella_reach] blk=0.28 ent=0.0086 kl_c=0.0006
+         Reasons: no_suitable_block=22
+Ep  190 [snap24_gnutella_reach] blk=0.19 ent=0.0086 kl_c=0.0001
+         Reasons: no_suitable_block=15
+Ep  200 [snap24_gnutella_reach] blk=0.69 ent=0.0085 kl_c=0.0005
+         Reasons: no_suitable_block=55
+Ep  210 [snap24_gnutella_reach] blk=0.01 ent=0.0084 kl_c=0.0001
+         Reasons: no_suitable_block=1
+Ep  220 [snap24_gnutella_reach] blk=0.00 ent=0.0083 kl_c=0.0002
+Ep  230 [snap24_gnutella_reach] blk=0.68 ent=0.0083 kl_c=0.0003
+         Reasons: no_suitable_block=54
+Ep  240 [snap24_gnutella_reach] blk=0.17 ent=0.0082 kl_c=0.0002
+         Reasons: no_suitable_block=14
+  >> Best frozen-R C @ ep 250: avg_blk=0.253 avg_d=10.1ms avg_obj=0.3299 avg_r=+0.057 | snap24_gnutella_reach=blk0.253/d10.1ms/obj0.3299
+Ep  250 [snap24_gnutella_reach] blk=0.11 ent=0.0081 kl_c=0.0001
+         Reasons: no_suitable_block=8, server_overload=1
+Ep  260 [snap24_gnutella_reach] blk=0.66 ent=0.0080 kl_c=0.0008
+         Reasons: no_suitable_block=53
+Ep  270 [snap24_gnutella_reach] blk=0.00 ent=0.0080 kl_c=0.0006
+Ep  280 [snap24_gnutella_reach] blk=0.00 ent=0.0079 kl_c=0.0013
+Ep  290 [snap24_gnutella_reach] blk=0.60 ent=0.0078 kl_c=0.0006
+         Reasons: no_suitable_block=48
+Ep  299 [snap24_gnutella_reach] blk=0.00 ent=0.0078 kl_c=0.0007
+Best frozen-R Agent-C checkpoint: /mnt/d/project/DNN_Agent/sa_hmarl/checkpoints/agent_c_r_feasibility_safe_s42_s20_r80_best.pt
+Best validation blocking: 0.2525 @ ep 250

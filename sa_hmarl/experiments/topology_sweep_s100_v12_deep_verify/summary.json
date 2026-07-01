@@ -1,0 +1,50 @@
+[
+  {
+    "topology": "metro24",
+    "v12_blocking": 0.0,
+    "deep_blocking": 0.0,
+    "gap_pp": 0.0,
+    "v12_raw": 0.0,
+    "deep_raw": 0.0,
+    "v12_overload": 0.0,
+    "deep_overload": 0.0,
+    "v12_delay": 7.9328595404313464,
+    "deep_delay": 8.367906819607857
+  },
+  {
+    "topology": "metro24_bottleneck",
+    "v12_blocking": 0.003,
+    "deep_blocking": 0.0032500000000000003,
+    "gap_pp": 0.025000000000000022,
+    "v12_raw": 0.003,
+    "deep_raw": 0.0032500000000000003,
+    "v12_overload": 0.003,
+    "deep_overload": 0.0032500000000000003,
+    "v12_delay": 11.045722179497787,
+    "deep_delay": 11.207589442665398
+  },
+  {
+    "topology": "metro24_c_sensitive",
+    "v12_blocking": 0.0,
+    "deep_blocking": 0.0,
+    "gap_pp": 0.0,
+    "v12_raw": 0.0,
+    "deep_raw": 0.0,
+    "v12_overload": 0.0,
+    "deep_overload": 0.0,
+    "v12_delay": 9.602328879090752,
+    "deep_delay": 10.071012569354162
+  },
+  {
+    "topology": "snap24_gnutella_reach",
+    "v12_blocking": 0.008,
+    "deep_blocking": 0.01075,
+    "gap_pp": 0.2749999999999999,
+    "v12_raw": 0.008,
+    "deep_raw": 0.01075,
+    "v12_overload": 0.001,
+    "deep_overload": 0.001,
+    "v12_delay": 8.345935617897108,
+    "deep_delay": 9.981564862772393
+  }
+]

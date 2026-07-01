@@ -1,0 +1,703 @@
+[Thu Jun 18 11:26:07 CST 2026] Evaluating default seed=42
+Loading Agent-C: sa_hmarl/checkpoints/agent_c_default_s42_s20_r80_best.pt
+Loading Agent-R: sa_hmarl/checkpoints/agent_r_mixed.pt
+================================================================================
+K=5 System Comparison — 7 Methods
+Topology: snap24_gnutella_reach  Slots: 20  Servers: 4  k_paths: 5
+Seeds: [42, 123, 456, 789, 101112]  Eps/seed: 20  Requests/ep: 80
+Methods: ['agent', 'wo', 'df', 'rf', 'iwd', 'greedy', 'agent_kspbf']
+C: sa_hmarl/checkpoints/agent_c_default_s42_s20_r80_best.pt
+R: sa_hmarl/checkpoints/agent_r_mixed.pt
+================================================================================
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: Agent-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.3720±0.2907  reward=-0.083  delay=11.8ms  fs=2.26  noC=0.44  avgRacts=4  time=55s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: WO-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4089±0.2922  reward=-0.046  delay=8.0ms  fs=2.60  noC=0.48  avgRacts=4  time=53s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: DF-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4030±0.2844  reward=-0.057  delay=6.7ms  fs=2.58  noC=0.47  avgRacts=3  time=53s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: RF-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4095±0.2904  reward=-0.055  delay=7.8ms  fs=2.61  noC=0.48  avgRacts=4  time=53s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: IWD-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4091±0.2843  reward=-0.086  delay=7.6ms  fs=2.45  noC=0.48  avgRacts=4  time=59s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: Greedy-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4047±0.2845  reward=-0.065  delay=6.6ms  fs=2.58  noC=0.47  avgRacts=4  time=53s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: Agent-C + KSP-BF
+──────────────────────────────────────────────────────────────────────
+  blk=0.3823±0.2868  reward=-0.080  delay=11.8ms  fs=2.35  noC=0.45  avgRacts=3  time=88s  kspbf: 4434/8000 (55.4%) time=38.9s
+
+Total evaluation time: 415s (6.9 min)
+
+==========================================================================================
+RESULTS
+==========================================================================================
+Method                          Blocking   Reward    Delay   AvgFS   Waste   PathKm   noC%  avgRacts
+------------------------------------------------------------------------------------------
+Agent-C + PPO-R                   0.3720   -0.083     11.8    2.26   0.400    634.2 43.5%       4.0
+WO-C + PPO-R                      0.4089   -0.046      8.0    2.60   0.356    644.4 47.7%       3.7
+DF-C + PPO-R                      0.4030   -0.057      6.7    2.58   0.370    508.3 47.3%       3.5
+RF-C + PPO-R                      0.4095   -0.055      7.8    2.61   0.371    627.4 47.7%       3.8
+IWD-C + PPO-R                     0.4091   -0.086      7.6    2.45   0.378    524.9 48.2%       3.7
+Greedy-C + PPO-R                  0.4047   -0.065      6.6    2.58   0.392    529.2 47.2%       4.0
+Agent-C + KSP-BF                  0.3823   -0.080     11.8    2.35   0.375    636.4 44.8%       3.4
+
+------------------------------------------------------------------------------------------
+FAILURE REASONS
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 no_suitable_block=2770 (93.1%), server_overload=206 (6.9%)
+  WO-C + PPO-R                    no_suitable_block=3271 (100.0%)
+  DF-C + PPO-R                    no_suitable_block=3224 (100.0%)
+  RF-C + PPO-R                    no_suitable_block=3276 (100.0%)
+  IWD-C + PPO-R                   no_suitable_block=3218 (98.3%), server_overload=55 (1.7%)
+  Greedy-C + PPO-R                no_suitable_block=3237 (100.0%), server_overload=1 (0.0%)
+  Agent-C + KSP-BF                no_suitable_block=2835 (92.7%), server_overload=223 (7.3%)
+
+------------------------------------------------------------------------------------------
+SPLIT DISTRIBUTION
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 split0=84.6%, split1=7.9%, split2=7.5%
+  WO-C + PPO-R                    split2=49.4%, split0=48.9%, split1=1.7%
+  DF-C + PPO-R                    split2=51.2%, split0=47.8%, split1=1.0%
+  RF-C + PPO-R                    split2=49.7%, split0=48.8%, split1=1.5%
+  IWD-C + PPO-R                   split0=57.1%, split2=29.0%, split1=13.9%
+  Greedy-C + PPO-R                split2=52.0%, split0=47.5%, split1=0.6%
+  Agent-C + KSP-BF                split0=85.6%, split2=7.3%, split1=7.1%
+
+------------------------------------------------------------------------------------------
+SERVER DISTRIBUTION
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 s0=58.8%, s1=16.9%, s3=12.5%, s2=11.8%
+  WO-C + PPO-R                    s0=57.8%, s3=16.3%, s1=13.4%, s2=12.5%
+  DF-C + PPO-R                    s0=72.2%, s3=22.3%, s2=3.1%, s1=2.4%
+  RF-C + PPO-R                    s0=60.8%, s3=17.5%, s1=12.1%, s2=9.5%
+  IWD-C + PPO-R                   s0=72.2%, s3=21.0%, s1=3.8%, s2=3.0%
+  Greedy-C + PPO-R                s0=70.1%, s3=24.4%, s1=3.1%, s2=2.5%
+  Agent-C + KSP-BF                s0=59.9%, s1=16.3%, s3=11.9%, s2=11.8%
+
+------------------------------------------------------------------------------------------
+MODULATION DISTRIBUTION
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 BPSK=66.7%, QPSK=14.5%, 16QAM=12.0%, 8QAM=6.8%
+  WO-C + PPO-R                    BPSK=59.0%, QPSK=21.8%, 16QAM=11.5%, 8QAM=7.6%
+  DF-C + PPO-R                    BPSK=60.8%, QPSK=19.6%, 8QAM=10.5%, 16QAM=9.0%
+  RF-C + PPO-R                    BPSK=60.2%, QPSK=20.3%, 16QAM=12.0%, 8QAM=7.5%
+  IWD-C + PPO-R                   BPSK=66.4%, QPSK=19.2%, 8QAM=9.6%, 16QAM=4.8%
+  Greedy-C + PPO-R                BPSK=58.2%, QPSK=18.4%, 16QAM=14.0%, 8QAM=9.4%
+  Agent-C + KSP-BF                BPSK=82.7%, QPSK=12.5%, 8QAM=4.2%, 16QAM=0.6%
+
+JSON → sa_hmarl/experiments/k5_default_s42_round1.json
+Markdown → sa_hmarl/experiments/k5_default_s42_round1.md
+
+======================================================================
+VERDICT
+======================================================================
+Best method: Agent-C + PPO-R  blocking=0.3720
+Agent-C vs worst heuristic: +0.0375
+✓ Agent-C outperforms all heuristics — spectrum-aware C policy is effective
+  Agent-C blocking=0.3720 > 10% — consider larger k
+R-side gap (Agent-C → KSP-BF): -0.0103 (R action selection near-optimal)
+[Thu Jun 18 11:33:32 CST 2026] Evaluating r_feasibility seed=42
+Loading Agent-C: sa_hmarl/checkpoints/agent_c_r_feasibility_s42_s20_r80_best.pt
+Loading Agent-R: sa_hmarl/checkpoints/agent_r_mixed.pt
+================================================================================
+K=5 System Comparison — 7 Methods
+Topology: snap24_gnutella_reach  Slots: 20  Servers: 4  k_paths: 5
+Seeds: [42, 123, 456, 789, 101112]  Eps/seed: 20  Requests/ep: 80
+Methods: ['agent', 'wo', 'df', 'rf', 'iwd', 'greedy', 'agent_kspbf']
+C: sa_hmarl/checkpoints/agent_c_r_feasibility_s42_s20_r80_best.pt
+R: sa_hmarl/checkpoints/agent_r_mixed.pt
+================================================================================
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: Agent-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.3535±0.2899  reward=-0.076  delay=9.9ms  fs=2.19  noC=0.41  avgRacts=5  time=56s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: WO-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4089±0.2922  reward=-0.046  delay=8.0ms  fs=2.60  noC=0.48  avgRacts=4  time=54s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: DF-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4030±0.2844  reward=-0.057  delay=6.7ms  fs=2.58  noC=0.47  avgRacts=3  time=53s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: RF-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4095±0.2904  reward=-0.055  delay=7.8ms  fs=2.61  noC=0.48  avgRacts=4  time=54s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: IWD-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4091±0.2843  reward=-0.086  delay=7.6ms  fs=2.45  noC=0.48  avgRacts=4  time=60s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: Greedy-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4047±0.2845  reward=-0.065  delay=6.6ms  fs=2.58  noC=0.47  avgRacts=4  time=53s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: Agent-C + KSP-BF
+──────────────────────────────────────────────────────────────────────
+  blk=0.3625±0.2926  reward=-0.073  delay=9.9ms  fs=2.30  noC=0.42  avgRacts=4  time=98s  kspbf: 4636/8000 (58.0%) time=46.8s
+
+Total evaluation time: 428s (7.1 min)
+
+==========================================================================================
+RESULTS
+==========================================================================================
+Method                          Blocking   Reward    Delay   AvgFS   Waste   PathKm   noC%  avgRacts
+------------------------------------------------------------------------------------------
+Agent-C + PPO-R                   0.3535   -0.076      9.9    2.19   0.418    472.9 41.2%       5.0
+WO-C + PPO-R                      0.4089   -0.046      8.0    2.60   0.356    644.4 47.7%       3.7
+DF-C + PPO-R                      0.4030   -0.057      6.7    2.58   0.370    508.3 47.3%       3.5
+RF-C + PPO-R                      0.4095   -0.055      7.8    2.61   0.371    627.4 47.7%       3.8
+IWD-C + PPO-R                     0.4091   -0.086      7.6    2.45   0.378    524.9 48.2%       3.7
+Greedy-C + PPO-R                  0.4047   -0.065      6.6    2.58   0.392    529.2 47.2%       4.0
+Agent-C + KSP-BF                  0.3625   -0.073      9.9    2.30   0.401    487.1 42.1%       4.2
+
+------------------------------------------------------------------------------------------
+FAILURE REASONS
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 no_suitable_block=2411 (85.3%), server_overload=417 (14.7%)
+  WO-C + PPO-R                    no_suitable_block=3271 (100.0%)
+  DF-C + PPO-R                    no_suitable_block=3224 (100.0%)
+  RF-C + PPO-R                    no_suitable_block=3276 (100.0%)
+  IWD-C + PPO-R                   no_suitable_block=3218 (98.3%), server_overload=55 (1.7%)
+  Greedy-C + PPO-R                no_suitable_block=3237 (100.0%), server_overload=1 (0.0%)
+  Agent-C + KSP-BF                no_suitable_block=2549 (87.9%), server_overload=351 (12.1%)
+
+------------------------------------------------------------------------------------------
+SPLIT DISTRIBUTION
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 split0=84.9%, split1=8.0%, split2=7.1%
+  WO-C + PPO-R                    split2=49.4%, split0=48.9%, split1=1.7%
+  DF-C + PPO-R                    split2=51.2%, split0=47.8%, split1=1.0%
+  RF-C + PPO-R                    split2=49.7%, split0=48.8%, split1=1.5%
+  IWD-C + PPO-R                   split0=57.1%, split2=29.0%, split1=13.9%
+  Greedy-C + PPO-R                split2=52.0%, split0=47.5%, split1=0.6%
+  Agent-C + KSP-BF                split0=85.4%, split1=7.6%, split2=7.0%
+
+------------------------------------------------------------------------------------------
+SERVER DISTRIBUTION
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 s0=64.9%, s3=23.2%, s2=6.1%, s1=5.8%
+  WO-C + PPO-R                    s0=57.8%, s3=16.3%, s1=13.4%, s2=12.5%
+  DF-C + PPO-R                    s0=72.2%, s3=22.3%, s2=3.1%, s1=2.4%
+  RF-C + PPO-R                    s0=60.8%, s3=17.5%, s1=12.1%, s2=9.5%
+  IWD-C + PPO-R                   s0=72.2%, s3=21.0%, s1=3.8%, s2=3.0%
+  Greedy-C + PPO-R                s0=70.1%, s3=24.4%, s1=3.1%, s2=2.5%
+  Agent-C + KSP-BF                s0=65.1%, s3=22.7%, s1=6.2%, s2=6.0%
+
+------------------------------------------------------------------------------------------
+MODULATION DISTRIBUTION
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 BPSK=67.7%, 16QAM=13.3%, QPSK=11.9%, 8QAM=7.1%
+  WO-C + PPO-R                    BPSK=59.0%, QPSK=21.8%, 16QAM=11.5%, 8QAM=7.6%
+  DF-C + PPO-R                    BPSK=60.8%, QPSK=19.6%, 8QAM=10.5%, 16QAM=9.0%
+  RF-C + PPO-R                    BPSK=60.2%, QPSK=20.3%, 16QAM=12.0%, 8QAM=7.5%
+  IWD-C + PPO-R                   BPSK=66.4%, QPSK=19.2%, 8QAM=9.6%, 16QAM=4.8%
+  Greedy-C + PPO-R                BPSK=58.2%, QPSK=18.4%, 16QAM=14.0%, 8QAM=9.4%
+  Agent-C + KSP-BF                BPSK=89.9%, QPSK=8.3%, 8QAM=1.7%, 16QAM=0.1%
+
+JSON → sa_hmarl/experiments/k5_r_feasibility_s42_round1.json
+Markdown → sa_hmarl/experiments/k5_r_feasibility_s42_round1.md
+
+======================================================================
+VERDICT
+======================================================================
+Best method: Agent-C + PPO-R  blocking=0.3535
+Agent-C vs worst heuristic: +0.0560
+✓ Agent-C outperforms all heuristics — spectrum-aware C policy is effective
+  Agent-C blocking=0.3535 > 10% — consider larger k
+R-side gap (Agent-C → KSP-BF): -0.0090 (R action selection near-optimal)
+[Thu Jun 18 11:41:09 CST 2026] Evaluating default seed=123
+Loading Agent-C: sa_hmarl/checkpoints/agent_c_default_s123_s20_r80_best.pt
+Loading Agent-R: sa_hmarl/checkpoints/agent_r_mixed.pt
+================================================================================
+K=5 System Comparison — 7 Methods
+Topology: snap24_gnutella_reach  Slots: 20  Servers: 4  k_paths: 5
+Seeds: [42, 123, 456, 789, 101112]  Eps/seed: 20  Requests/ep: 80
+Methods: ['agent', 'wo', 'df', 'rf', 'iwd', 'greedy', 'agent_kspbf']
+C: sa_hmarl/checkpoints/agent_c_default_s123_s20_r80_best.pt
+R: sa_hmarl/checkpoints/agent_r_mixed.pt
+================================================================================
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: Agent-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.3855±0.2850  reward=-0.088  delay=9.7ms  fs=2.40  noC=0.45  avgRacts=3  time=67s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: WO-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4089±0.2922  reward=-0.046  delay=8.0ms  fs=2.60  noC=0.48  avgRacts=4  time=62s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: DF-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4030±0.2844  reward=-0.057  delay=6.7ms  fs=2.58  noC=0.47  avgRacts=3  time=57s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: RF-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4095±0.2904  reward=-0.055  delay=7.8ms  fs=2.61  noC=0.48  avgRacts=4  time=63s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: IWD-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4091±0.2843  reward=-0.086  delay=7.6ms  fs=2.45  noC=0.48  avgRacts=4  time=71s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: Greedy-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4047±0.2845  reward=-0.065  delay=6.6ms  fs=2.58  noC=0.47  avgRacts=4  time=63s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: Agent-C + KSP-BF
+──────────────────────────────────────────────────────────────────────
+  blk=0.3791±0.2948  reward=-0.078  delay=9.8ms  fs=2.49  noC=0.44  avgRacts=3  time=100s  kspbf: 4473/8000 (55.9%) time=41.7s
+
+Total evaluation time: 483s (8.1 min)
+
+==========================================================================================
+RESULTS
+==========================================================================================
+Method                          Blocking   Reward    Delay   AvgFS   Waste   PathKm   noC%  avgRacts
+------------------------------------------------------------------------------------------
+Agent-C + PPO-R                   0.3855   -0.088      9.7    2.40   0.405    600.6 45.1%       3.3
+WO-C + PPO-R                      0.4089   -0.046      8.0    2.60   0.356    644.4 47.7%       3.7
+DF-C + PPO-R                      0.4030   -0.057      6.7    2.58   0.370    508.3 47.3%       3.5
+RF-C + PPO-R                      0.4095   -0.055      7.8    2.61   0.371    627.4 47.7%       3.8
+IWD-C + PPO-R                     0.4091   -0.086      7.6    2.45   0.378    524.9 48.2%       3.7
+Greedy-C + PPO-R                  0.4047   -0.065      6.6    2.58   0.392    529.2 47.2%       4.0
+Agent-C + KSP-BF                  0.3791   -0.078      9.8    2.49   0.399    598.2 44.2%       3.0
+
+------------------------------------------------------------------------------------------
+FAILURE REASONS
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 no_suitable_block=2967 (96.2%), server_overload=117 (3.8%)
+  WO-C + PPO-R                    no_suitable_block=3271 (100.0%)
+  DF-C + PPO-R                    no_suitable_block=3224 (100.0%)
+  RF-C + PPO-R                    no_suitable_block=3276 (100.0%)
+  IWD-C + PPO-R                   no_suitable_block=3218 (98.3%), server_overload=55 (1.7%)
+  Greedy-C + PPO-R                no_suitable_block=3237 (100.0%), server_overload=1 (0.0%)
+  Agent-C + KSP-BF                no_suitable_block=2822 (93.0%), server_overload=211 (7.0%)
+
+------------------------------------------------------------------------------------------
+SPLIT DISTRIBUTION
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 split0=69.0%, split2=20.9%, split1=10.1%
+  WO-C + PPO-R                    split2=49.4%, split0=48.9%, split1=1.7%
+  DF-C + PPO-R                    split2=51.2%, split0=47.8%, split1=1.0%
+  RF-C + PPO-R                    split2=49.7%, split0=48.8%, split1=1.5%
+  IWD-C + PPO-R                   split0=57.1%, split2=29.0%, split1=13.9%
+  Greedy-C + PPO-R                split2=52.0%, split0=47.5%, split1=0.6%
+  Agent-C + KSP-BF                split0=71.8%, split2=18.4%, split1=9.8%
+
+------------------------------------------------------------------------------------------
+SERVER DISTRIBUTION
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 s0=62.5%, s1=14.5%, s3=12.6%, s2=10.4%
+  WO-C + PPO-R                    s0=57.8%, s3=16.3%, s1=13.4%, s2=12.5%
+  DF-C + PPO-R                    s0=72.2%, s3=22.3%, s2=3.1%, s1=2.4%
+  RF-C + PPO-R                    s0=60.8%, s3=17.5%, s1=12.1%, s2=9.5%
+  IWD-C + PPO-R                   s0=72.2%, s3=21.0%, s1=3.8%, s2=3.0%
+  Greedy-C + PPO-R                s0=70.1%, s3=24.4%, s1=3.1%, s2=2.5%
+  Agent-C + KSP-BF                s0=62.3%, s3=14.8%, s1=13.6%, s2=9.2%
+
+------------------------------------------------------------------------------------------
+MODULATION DISTRIBUTION
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 BPSK=65.5%, 16QAM=17.0%, QPSK=13.1%, 8QAM=4.4%
+  WO-C + PPO-R                    BPSK=59.0%, QPSK=21.8%, 16QAM=11.5%, 8QAM=7.6%
+  DF-C + PPO-R                    BPSK=60.8%, QPSK=19.6%, 8QAM=10.5%, 16QAM=9.0%
+  RF-C + PPO-R                    BPSK=60.2%, QPSK=20.3%, 16QAM=12.0%, 8QAM=7.5%
+  IWD-C + PPO-R                   BPSK=66.4%, QPSK=19.2%, 8QAM=9.6%, 16QAM=4.8%
+  Greedy-C + PPO-R                BPSK=58.2%, QPSK=18.4%, 16QAM=14.0%, 8QAM=9.4%
+  Agent-C + KSP-BF                BPSK=84.8%, QPSK=12.5%, 8QAM=2.5%, 16QAM=0.2%
+
+JSON → sa_hmarl/experiments/k5_default_s123_round1.json
+Markdown → sa_hmarl/experiments/k5_default_s123_round1.md
+
+======================================================================
+VERDICT
+======================================================================
+Best method: Agent-C + KSP-BF  blocking=0.3791
+Agent-C vs worst heuristic: +0.0240
+✓ Agent-C outperforms all heuristics — spectrum-aware C policy is effective
+  Agent-C blocking=0.3855 > 10% — consider larger k
+R-side gap (Agent-C → KSP-BF): +0.0064 (R action selection suboptimal)
+[Thu Jun 18 11:49:40 CST 2026] Evaluating r_feasibility seed=123
+Loading Agent-C: sa_hmarl/checkpoints/agent_c_r_feasibility_s123_s20_r80_best.pt
+Loading Agent-R: sa_hmarl/checkpoints/agent_r_mixed.pt
+================================================================================
+K=5 System Comparison — 7 Methods
+Topology: snap24_gnutella_reach  Slots: 20  Servers: 4  k_paths: 5
+Seeds: [42, 123, 456, 789, 101112]  Eps/seed: 20  Requests/ep: 80
+Methods: ['agent', 'wo', 'df', 'rf', 'iwd', 'greedy', 'agent_kspbf']
+C: sa_hmarl/checkpoints/agent_c_r_feasibility_s123_s20_r80_best.pt
+R: sa_hmarl/checkpoints/agent_r_mixed.pt
+================================================================================
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: Agent-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.3723±0.2840  reward=-0.059  delay=8.6ms  fs=2.28  noC=0.44  avgRacts=4  time=67s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: WO-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4089±0.2922  reward=-0.046  delay=8.0ms  fs=2.60  noC=0.48  avgRacts=4  time=66s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: DF-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4030±0.2844  reward=-0.057  delay=6.7ms  fs=2.58  noC=0.47  avgRacts=3  time=63s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: RF-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4095±0.2904  reward=-0.055  delay=7.8ms  fs=2.61  noC=0.48  avgRacts=4  time=64s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: IWD-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4091±0.2843  reward=-0.086  delay=7.6ms  fs=2.45  noC=0.48  avgRacts=4  time=71s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: Greedy-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4047±0.2845  reward=-0.065  delay=6.6ms  fs=2.58  noC=0.47  avgRacts=4  time=64s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: Agent-C + KSP-BF
+──────────────────────────────────────────────────────────────────────
+  blk=0.3810±0.2827  reward=-0.060  delay=8.6ms  fs=2.42  noC=0.45  avgRacts=3  time=107s  kspbf: 4443/8000 (55.5%) time=45.1s
+
+Total evaluation time: 502s (8.4 min)
+
+==========================================================================================
+RESULTS
+==========================================================================================
+Method                          Blocking   Reward    Delay   AvgFS   Waste   PathKm   noC%  avgRacts
+------------------------------------------------------------------------------------------
+Agent-C + PPO-R                   0.3723   -0.059      8.6    2.28   0.391    534.9 43.7%       3.6
+WO-C + PPO-R                      0.4089   -0.046      8.0    2.60   0.356    644.4 47.7%       3.7
+DF-C + PPO-R                      0.4030   -0.057      6.7    2.58   0.370    508.3 47.3%       3.5
+RF-C + PPO-R                      0.4095   -0.055      7.8    2.61   0.371    627.4 47.7%       3.8
+IWD-C + PPO-R                     0.4091   -0.086      7.6    2.45   0.378    524.9 48.2%       3.7
+Greedy-C + PPO-R                  0.4047   -0.065      6.6    2.58   0.392    529.2 47.2%       4.0
+Agent-C + KSP-BF                  0.3810   -0.060      8.6    2.42   0.375    534.4 44.5%       3.2
+
+------------------------------------------------------------------------------------------
+FAILURE REASONS
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 no_suitable_block=2789 (93.7%), server_overload=189 (6.3%)
+  WO-C + PPO-R                    no_suitable_block=3271 (100.0%)
+  DF-C + PPO-R                    no_suitable_block=3224 (100.0%)
+  RF-C + PPO-R                    no_suitable_block=3276 (100.0%)
+  IWD-C + PPO-R                   no_suitable_block=3218 (98.3%), server_overload=55 (1.7%)
+  Greedy-C + PPO-R                no_suitable_block=3237 (100.0%), server_overload=1 (0.0%)
+  Agent-C + KSP-BF                no_suitable_block=2887 (94.7%), server_overload=161 (5.3%)
+
+------------------------------------------------------------------------------------------
+SPLIT DISTRIBUTION
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 split0=68.0%, split2=25.4%, split1=6.7%
+  WO-C + PPO-R                    split2=49.4%, split0=48.9%, split1=1.7%
+  DF-C + PPO-R                    split2=51.2%, split0=47.8%, split1=1.0%
+  RF-C + PPO-R                    split2=49.7%, split0=48.8%, split1=1.5%
+  IWD-C + PPO-R                   split0=57.1%, split2=29.0%, split1=13.9%
+  Greedy-C + PPO-R                split2=52.0%, split0=47.5%, split1=0.6%
+  Agent-C + KSP-BF                split0=68.8%, split2=24.9%, split1=6.3%
+
+------------------------------------------------------------------------------------------
+SERVER DISTRIBUTION
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 s0=63.4%, s3=17.1%, s1=11.9%, s2=7.6%
+  WO-C + PPO-R                    s0=57.8%, s3=16.3%, s1=13.4%, s2=12.5%
+  DF-C + PPO-R                    s0=72.2%, s3=22.3%, s2=3.1%, s1=2.4%
+  RF-C + PPO-R                    s0=60.8%, s3=17.5%, s1=12.1%, s2=9.5%
+  IWD-C + PPO-R                   s0=72.2%, s3=21.0%, s1=3.8%, s2=3.0%
+  Greedy-C + PPO-R                s0=70.1%, s3=24.4%, s1=3.1%, s2=2.5%
+  Agent-C + KSP-BF                s0=63.9%, s3=17.6%, s1=10.8%, s2=7.7%
+
+------------------------------------------------------------------------------------------
+MODULATION DISTRIBUTION
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 BPSK=54.0%, QPSK=19.9%, 16QAM=16.0%, 8QAM=10.2%
+  WO-C + PPO-R                    BPSK=59.0%, QPSK=21.8%, 16QAM=11.5%, 8QAM=7.6%
+  DF-C + PPO-R                    BPSK=60.8%, QPSK=19.6%, 8QAM=10.5%, 16QAM=9.0%
+  RF-C + PPO-R                    BPSK=60.2%, QPSK=20.3%, 16QAM=12.0%, 8QAM=7.5%
+  IWD-C + PPO-R                   BPSK=66.4%, QPSK=19.2%, 8QAM=9.6%, 16QAM=4.8%
+  Greedy-C + PPO-R                BPSK=58.2%, QPSK=18.4%, 16QAM=14.0%, 8QAM=9.4%
+  Agent-C + KSP-BF                BPSK=75.6%, QPSK=17.2%, 8QAM=6.0%, 16QAM=1.2%
+
+JSON → sa_hmarl/experiments/k5_r_feasibility_s123_round1.json
+Markdown → sa_hmarl/experiments/k5_r_feasibility_s123_round1.md
+
+======================================================================
+VERDICT
+======================================================================
+Best method: Agent-C + PPO-R  blocking=0.3723
+Agent-C vs worst heuristic: +0.0372
+✓ Agent-C outperforms all heuristics — spectrum-aware C policy is effective
+  Agent-C blocking=0.3723 > 10% — consider larger k
+R-side gap (Agent-C → KSP-BF): -0.0088 (R action selection near-optimal)
+[Thu Jun 18 11:58:33 CST 2026] Evaluating default seed=456
+Loading Agent-C: sa_hmarl/checkpoints/agent_c_default_s456_s20_r80_best.pt
+Loading Agent-R: sa_hmarl/checkpoints/agent_r_mixed.pt
+================================================================================
+K=5 System Comparison — 7 Methods
+Topology: snap24_gnutella_reach  Slots: 20  Servers: 4  k_paths: 5
+Seeds: [42, 123, 456, 789, 101112]  Eps/seed: 20  Requests/ep: 80
+Methods: ['agent', 'wo', 'df', 'rf', 'iwd', 'greedy', 'agent_kspbf']
+C: sa_hmarl/checkpoints/agent_c_default_s456_s20_r80_best.pt
+R: sa_hmarl/checkpoints/agent_r_mixed.pt
+================================================================================
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: Agent-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4031±0.2786  reward=-0.067  delay=8.0ms  fs=2.48  noC=0.47  avgRacts=3  time=67s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: WO-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4089±0.2922  reward=-0.046  delay=8.0ms  fs=2.60  noC=0.48  avgRacts=4  time=64s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: DF-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4030±0.2844  reward=-0.057  delay=6.7ms  fs=2.58  noC=0.47  avgRacts=3  time=64s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: RF-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4095±0.2904  reward=-0.055  delay=7.8ms  fs=2.61  noC=0.48  avgRacts=4  time=64s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: IWD-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4091±0.2843  reward=-0.086  delay=7.6ms  fs=2.45  noC=0.48  avgRacts=4  time=71s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: Greedy-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4047±0.2845  reward=-0.065  delay=6.6ms  fs=2.58  noC=0.47  avgRacts=4  time=64s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: Agent-C + KSP-BF
+──────────────────────────────────────────────────────────────────────
+  blk=0.4097±0.2805  reward=-0.068  delay=8.0ms  fs=2.64  noC=0.48  avgRacts=2  time=97s  kspbf: 4163/8000 (52.0%) time=36.1s
+
+Total evaluation time: 489s (8.1 min)
+
+==========================================================================================
+RESULTS
+==========================================================================================
+Method                          Blocking   Reward    Delay   AvgFS   Waste   PathKm   noC%  avgRacts
+------------------------------------------------------------------------------------------
+Agent-C + PPO-R                   0.4031   -0.067      8.0    2.48   0.381    620.9 47.1%       2.6
+WO-C + PPO-R                      0.4089   -0.046      8.0    2.60   0.356    644.4 47.7%       3.7
+DF-C + PPO-R                      0.4030   -0.057      6.7    2.58   0.370    508.3 47.3%       3.5
+RF-C + PPO-R                      0.4095   -0.055      7.8    2.61   0.371    627.4 47.7%       3.8
+IWD-C + PPO-R                     0.4091   -0.086      7.6    2.45   0.378    524.9 48.2%       3.7
+Greedy-C + PPO-R                  0.4047   -0.065      6.6    2.58   0.392    529.2 47.2%       4.0
+Agent-C + KSP-BF                  0.4097   -0.068      8.0    2.64   0.365    620.6 48.0%       2.4
+
+------------------------------------------------------------------------------------------
+FAILURE REASONS
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 no_suitable_block=3223 (99.9%), server_overload=2 (0.1%)
+  WO-C + PPO-R                    no_suitable_block=3271 (100.0%)
+  DF-C + PPO-R                    no_suitable_block=3224 (100.0%)
+  RF-C + PPO-R                    no_suitable_block=3276 (100.0%)
+  IWD-C + PPO-R                   no_suitable_block=3218 (98.3%), server_overload=55 (1.7%)
+  Greedy-C + PPO-R                no_suitable_block=3237 (100.0%), server_overload=1 (0.0%)
+  Agent-C + KSP-BF                no_suitable_block=3276 (99.9%), server_overload=2 (0.1%)
+
+------------------------------------------------------------------------------------------
+SPLIT DISTRIBUTION
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 split0=50.7%, split2=44.0%, split1=5.3%
+  WO-C + PPO-R                    split2=49.4%, split0=48.9%, split1=1.7%
+  DF-C + PPO-R                    split2=51.2%, split0=47.8%, split1=1.0%
+  RF-C + PPO-R                    split2=49.7%, split0=48.8%, split1=1.5%
+  IWD-C + PPO-R                   split0=57.1%, split2=29.0%, split1=13.9%
+  Greedy-C + PPO-R                split2=52.0%, split0=47.5%, split1=0.6%
+  Agent-C + KSP-BF                split0=51.7%, split2=43.1%, split1=5.2%
+
+------------------------------------------------------------------------------------------
+SERVER DISTRIBUTION
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 s0=64.3%, s1=14.3%, s3=12.0%, s2=9.3%
+  WO-C + PPO-R                    s0=57.8%, s3=16.3%, s1=13.4%, s2=12.5%
+  DF-C + PPO-R                    s0=72.2%, s3=22.3%, s2=3.1%, s1=2.4%
+  RF-C + PPO-R                    s0=60.8%, s3=17.5%, s1=12.1%, s2=9.5%
+  IWD-C + PPO-R                   s0=72.2%, s3=21.0%, s1=3.8%, s2=3.0%
+  Greedy-C + PPO-R                s0=70.1%, s3=24.4%, s1=3.1%, s2=2.5%
+  Agent-C + KSP-BF                s0=66.1%, s1=14.1%, s3=10.7%, s2=9.1%
+
+------------------------------------------------------------------------------------------
+MODULATION DISTRIBUTION
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 BPSK=55.4%, QPSK=19.1%, 16QAM=17.4%, 8QAM=8.1%
+  WO-C + PPO-R                    BPSK=59.0%, QPSK=21.8%, 16QAM=11.5%, 8QAM=7.6%
+  DF-C + PPO-R                    BPSK=60.8%, QPSK=19.6%, 8QAM=10.5%, 16QAM=9.0%
+  RF-C + PPO-R                    BPSK=60.2%, QPSK=20.3%, 16QAM=12.0%, 8QAM=7.5%
+  IWD-C + PPO-R                   BPSK=66.4%, QPSK=19.2%, 8QAM=9.6%, 16QAM=4.8%
+  Greedy-C + PPO-R                BPSK=58.2%, QPSK=18.4%, 16QAM=14.0%, 8QAM=9.4%
+  Agent-C + KSP-BF                BPSK=75.3%, QPSK=17.8%, 8QAM=6.3%, 16QAM=0.6%
+
+JSON → sa_hmarl/experiments/k5_default_s456_round1.json
+Markdown → sa_hmarl/experiments/k5_default_s456_round1.md
+
+======================================================================
+VERDICT
+======================================================================
+Best method: DF-C + PPO-R  blocking=0.4030
+Agent-C vs worst heuristic: +0.0064
+✗ A heuristic beats Agent-C — C policy may need improvement
+  Agent-C blocking=0.4031 > 10% — consider larger k
+R-side gap (Agent-C → KSP-BF): -0.0066 (R action selection near-optimal)
+[Thu Jun 18 12:07:13 CST 2026] Evaluating r_feasibility seed=456
+Loading Agent-C: sa_hmarl/checkpoints/agent_c_r_feasibility_s456_s20_r80_best.pt
+Loading Agent-R: sa_hmarl/checkpoints/agent_r_mixed.pt
+================================================================================
+K=5 System Comparison — 7 Methods
+Topology: snap24_gnutella_reach  Slots: 20  Servers: 4  k_paths: 5
+Seeds: [42, 123, 456, 789, 101112]  Eps/seed: 20  Requests/ep: 80
+Methods: ['agent', 'wo', 'df', 'rf', 'iwd', 'greedy', 'agent_kspbf']
+C: sa_hmarl/checkpoints/agent_c_r_feasibility_s456_s20_r80_best.pt
+R: sa_hmarl/checkpoints/agent_r_mixed.pt
+================================================================================
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: Agent-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.3604±0.2886  reward=-0.057  delay=8.8ms  fs=2.22  noC=0.42  avgRacts=5  time=69s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: WO-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4089±0.2922  reward=-0.046  delay=8.0ms  fs=2.60  noC=0.48  avgRacts=4  time=64s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: DF-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4030±0.2844  reward=-0.057  delay=6.7ms  fs=2.58  noC=0.47  avgRacts=3  time=65s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: RF-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4095±0.2904  reward=-0.055  delay=7.8ms  fs=2.61  noC=0.48  avgRacts=4  time=61s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: IWD-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4091±0.2843  reward=-0.086  delay=7.6ms  fs=2.45  noC=0.48  avgRacts=4  time=70s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: Greedy-C + PPO-R
+──────────────────────────────────────────────────────────────────────
+  blk=0.4047±0.2845  reward=-0.065  delay=6.6ms  fs=2.58  noC=0.47  avgRacts=4  time=62s
+
+──────────────────────────────────────────────────────────────────────
+Evaluating: Agent-C + KSP-BF
+──────────────────────────────────────────────────────────────────────
+  blk=0.3711±0.2903  reward=-0.057  delay=8.7ms  fs=2.32  noC=0.44  avgRacts=4  time=110s  kspbf: 4517/8000 (56.5%) time=49.9s
+
+Total evaluation time: 502s (8.4 min)
+
+==========================================================================================
+RESULTS
+==========================================================================================
+Method                          Blocking   Reward    Delay   AvgFS   Waste   PathKm   noC%  avgRacts
+------------------------------------------------------------------------------------------
+Agent-C + PPO-R                   0.3604   -0.057      8.8    2.22   0.408    499.0 42.3%       4.7
+WO-C + PPO-R                      0.4089   -0.046      8.0    2.60   0.356    644.4 47.7%       3.7
+DF-C + PPO-R                      0.4030   -0.057      6.7    2.58   0.370    508.3 47.3%       3.5
+RF-C + PPO-R                      0.4095   -0.055      7.8    2.61   0.371    627.4 47.7%       3.8
+IWD-C + PPO-R                     0.4091   -0.086      7.6    2.45   0.378    524.9 48.2%       3.7
+Greedy-C + PPO-R                  0.4047   -0.065      6.6    2.58   0.392    529.2 47.2%       4.0
+Agent-C + KSP-BF                  0.3711   -0.057      8.7    2.32   0.391    507.5 43.6%       4.0
+
+------------------------------------------------------------------------------------------
+FAILURE REASONS
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 no_suitable_block=2797 (97.0%), server_overload=86 (3.0%)
+  WO-C + PPO-R                    no_suitable_block=3271 (100.0%)
+  DF-C + PPO-R                    no_suitable_block=3224 (100.0%)
+  RF-C + PPO-R                    no_suitable_block=3276 (100.0%)
+  IWD-C + PPO-R                   no_suitable_block=3218 (98.3%), server_overload=55 (1.7%)
+  Greedy-C + PPO-R                no_suitable_block=3237 (100.0%), server_overload=1 (0.0%)
+  Agent-C + KSP-BF                no_suitable_block=2892 (97.4%), server_overload=77 (2.6%)
+
+------------------------------------------------------------------------------------------
+SPLIT DISTRIBUTION
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 split0=80.3%, split2=12.4%, split1=7.3%
+  WO-C + PPO-R                    split2=49.4%, split0=48.9%, split1=1.7%
+  DF-C + PPO-R                    split2=51.2%, split0=47.8%, split1=1.0%
+  RF-C + PPO-R                    split2=49.7%, split0=48.8%, split1=1.5%
+  IWD-C + PPO-R                   split0=57.1%, split2=29.0%, split1=13.9%
+  Greedy-C + PPO-R                split2=52.0%, split0=47.5%, split1=0.6%
+  Agent-C + KSP-BF                split0=80.1%, split2=12.3%, split1=7.6%
+
+------------------------------------------------------------------------------------------
+SERVER DISTRIBUTION
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 s0=65.9%, s3=22.0%, s1=7.5%, s2=4.6%
+  WO-C + PPO-R                    s0=57.8%, s3=16.3%, s1=13.4%, s2=12.5%
+  DF-C + PPO-R                    s0=72.2%, s3=22.3%, s2=3.1%, s1=2.4%
+  RF-C + PPO-R                    s0=60.8%, s3=17.5%, s1=12.1%, s2=9.5%
+  IWD-C + PPO-R                   s0=72.2%, s3=21.0%, s1=3.8%, s2=3.0%
+  Greedy-C + PPO-R                s0=70.1%, s3=24.4%, s1=3.1%, s2=2.5%
+  Agent-C + KSP-BF                s0=66.9%, s3=21.1%, s1=7.6%, s2=4.3%
+
+------------------------------------------------------------------------------------------
+MODULATION DISTRIBUTION
+------------------------------------------------------------------------------------------
+  Agent-C + PPO-R                 BPSK=68.7%, 16QAM=11.9%, QPSK=11.6%, 8QAM=7.7%
+  WO-C + PPO-R                    BPSK=59.0%, QPSK=21.8%, 16QAM=11.5%, 8QAM=7.6%
+  DF-C + PPO-R                    BPSK=60.8%, QPSK=19.6%, 8QAM=10.5%, 16QAM=9.0%
+  RF-C + PPO-R                    BPSK=60.2%, QPSK=20.3%, 16QAM=12.0%, 8QAM=7.5%
+  IWD-C + PPO-R                   BPSK=66.4%, QPSK=19.2%, 8QAM=9.6%, 16QAM=4.8%
+  Greedy-C + PPO-R                BPSK=58.2%, QPSK=18.4%, 16QAM=14.0%, 8QAM=9.4%
+  Agent-C + KSP-BF                BPSK=89.6%, QPSK=7.6%, 8QAM=2.4%, 16QAM=0.3%
+
+JSON → sa_hmarl/experiments/k5_r_feasibility_s456_round1.json
+Markdown → sa_hmarl/experiments/k5_r_feasibility_s456_round1.md
+
+======================================================================
+VERDICT
+======================================================================
+Best method: Agent-C + PPO-R  blocking=0.3604
+Agent-C vs worst heuristic: +0.0491
+✓ Agent-C outperforms all heuristics — spectrum-aware C policy is effective
+  Agent-C blocking=0.3604 > 10% — consider larger k
+R-side gap (Agent-C → KSP-BF): -0.0108 (R action selection near-optimal)
+[Thu Jun 18 12:16:06 CST 2026] Round 1 evaluation complete

@@ -1,0 +1,132 @@
+{
+  "rows": [
+    {
+      "method": "ppo_r",
+      "eta_phi": null,
+      "blocking_rate": 0.60175,
+      "raw_mask_empty_rate": 0.603125,
+      "no_suitable_block_rate": 0.53525,
+      "server_overload_rate": 0.0665,
+      "mean_delay_ms": 8.066727232015701,
+      "p95_delay_ms": 15.257423622104145,
+      "avg_fs": 2.424221518809456,
+      "avg_path_km": 554.9426226126468
+    },
+    {
+      "method": "deep_rmsa",
+      "eta_phi": null,
+      "blocking_rate": 0.549375,
+      "raw_mask_empty_rate": 0.552375,
+      "no_suitable_block_rate": 0.47487500000000005,
+      "server_overload_rate": 0.0745,
+      "mean_delay_ms": 8.40538812975814,
+      "p95_delay_ms": 16.23486823307267,
+      "avg_fs": 2.062290848181981,
+      "avg_path_km": 595.6832955464486
+    },
+    {
+      "method": "ksp_bf",
+      "eta_phi": null,
+      "blocking_rate": 0.617875,
+      "raw_mask_empty_rate": 0.619375,
+      "no_suitable_block_rate": 0.5625,
+      "server_overload_rate": 0.055374999999999994,
+      "mean_delay_ms": 7.80640807360623,
+      "p95_delay_ms": 14.204243325786294,
+      "avg_fs": 2.7458372313470334,
+      "avg_path_km": 543.6702697180133
+    },
+    {
+      "method": "counterfactual_rank_only",
+      "eta_phi": 0.0,
+      "blocking_rate": 0.53925,
+      "raw_mask_empty_rate": 0.542625,
+      "no_suitable_block_rate": 0.45874999999999994,
+      "server_overload_rate": 0.08049999999999999,
+      "mean_delay_ms": 8.359525863979309,
+      "p95_delay_ms": 16.78109447260193,
+      "avg_fs": 2.040970188050692,
+      "avg_path_km": 565.3457383131079
+    },
+    {
+      "method": "v1.3_eta_1",
+      "eta_phi": 1.0,
+      "blocking_rate": 0.5418749999999999,
+      "raw_mask_empty_rate": 0.5438750000000001,
+      "no_suitable_block_rate": 0.47474999999999995,
+      "server_overload_rate": 0.067125,
+      "mean_delay_ms": 8.277555032110026,
+      "p95_delay_ms": 16.125345343880305,
+      "avg_fs": 2.050690406024648,
+      "avg_path_km": 567.8239773344583,
+      "delta_blocking_vs_v12": 0.0026249999999998774,
+      "delta_blocking_vs_deeprmsa": -0.007500000000000062,
+      "delta_delay_vs_v12": -0.08197083186928289,
+      "delta_overload_vs_v12": -0.013374999999999984,
+      "dataset_phi_after_mean": 1.0058129611975937,
+      "dataset_phi_after_std": 0.35122754095377473,
+      "dataset_phi_after_range_nonzero_rate": 0.9175351745700886,
+      "training_top1": 0.4573643410852713,
+      "training_spearman": 0.6727841567426647
+    },
+    {
+      "method": "v1.3_eta_0.1",
+      "eta_phi": 0.1,
+      "blocking_rate": 0.5429999999999999,
+      "raw_mask_empty_rate": 0.545,
+      "no_suitable_block_rate": 0.47575,
+      "server_overload_rate": 0.06725,
+      "mean_delay_ms": 8.306456321752929,
+      "p95_delay_ms": 16.2717469171469,
+      "avg_fs": 2.0519255002103978,
+      "avg_path_km": 567.2300214621298,
+      "delta_blocking_vs_v12": 0.00374999999999992,
+      "delta_blocking_vs_deeprmsa": -0.0063750000000000195,
+      "delta_delay_vs_v12": -0.05306954222638005,
+      "delta_overload_vs_v12": -0.013249999999999984,
+      "dataset_phi_after_mean": 1.0058129611975937,
+      "dataset_phi_after_std": 0.35122754095377473,
+      "dataset_phi_after_range_nonzero_rate": 0.9175351745700886,
+      "training_top1": 0.4689922480620155,
+      "training_spearman": 0.6580313656108734
+    }
+  ],
+  "config": {
+    "etas": [
+      0.1,
+      0.3,
+      0.5,
+      1.0
+    ],
+    "train_episodes": 10,
+    "val_episodes": 10,
+    "test_episodes": 10,
+    "screening_seeds": [
+      3030,
+      4040,
+      5050
+    ],
+    "screening_episodes": 5,
+    "formal_seeds": [
+      3030,
+      4040,
+      5050,
+      6060,
+      7070
+    ],
+    "formal_episodes": 20,
+    "top_k_formal": 2,
+    "viability_alpha_kc": 1.0,
+    "viability_beta_kr": 0.3,
+    "viability_mode": "obs_c_after",
+    "skip_generation": false,
+    "skip_training": false,
+    "skip_screening": false,
+    "device": "cpu"
+  },
+  "elapsed_seconds": 1661.6532406806946,
+  "top_etas_formal": [
+    1.0,
+    0.1
+  ]
+}

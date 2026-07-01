@@ -1,0 +1,402 @@
+{
+  "args": {
+    "topology": "snap24_gnutella_reach",
+    "num_slots": 20,
+    "num_servers": 4,
+    "max_blocks": 10,
+    "block_sort_strategy": "mixed",
+    "num_splits": 5,
+    "split_profile": "complex5_v2_lite",
+    "modulation_profile": "default",
+    "slot_bw_hz": 1250000000.0,
+    "guard_band_fs": 1,
+    "k_paths": 5,
+    "seeds": "42,123,456,789,101112",
+    "episodes": 20,
+    "requests_per_episode": 80,
+    "arrival_interval": 0.2,
+    "holding_min": 4.0,
+    "holding_max": 10.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "size_max_mb": 30.0,
+    "edge_cost_min": 0.5,
+    "edge_cost_max": 15.0,
+    "waste_coef": 0.8,
+    "device": "cpu",
+    "agent_c_checkpoint": "sa_hmarl/checkpoints/agent_c_gated_tmf_v2_indppo_s123_s20_r80_best.pt",
+    "agent_r_checkpoint": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+    "out_json": "experiments/k5_v2_s123.json",
+    "out_md": "experiments/k5_v2_s123.md"
+  },
+  "methods": [
+    "agent",
+    "wo",
+    "df",
+    "rf",
+    "iwd",
+    "greedy",
+    "agent_kspbf"
+  ],
+  "method_labels": {
+    "agent": "Agent-C + PPO-R",
+    "wo": "WO-C + PPO-R",
+    "df": "DF-C + PPO-R",
+    "rf": "RF-C + PPO-R",
+    "iwd": "IWD-C + PPO-R",
+    "greedy": "Greedy-C + PPO-R",
+    "agent_kspbf": "Agent-C + KSP-BF"
+  },
+  "total_time_s": 534.4930303096771,
+  "results": {
+    "Agent-C + PPO-R": {
+      "blocking_rate": 0.46362499999999995,
+      "blocking_rate_std": 0.2579734421893075,
+      "success_rate": 0.536375,
+      "success_rate_std": 0.2579734421893075,
+      "avg_reward": -0.16038011715476688,
+      "avg_reward_std": 0.37186297134229473,
+      "avg_delay_ms": 8.489831367772668,
+      "avg_delay_ms_std": 1.980595461566569,
+      "avg_fs": 2.9067829853978804,
+      "avg_fs_std": 0.5737743895165015,
+      "avg_waste": 0.35533286205774545,
+      "avg_waste_std": 0.1570986548142902,
+      "avg_path_len_km": 591.611012264056,
+      "avg_path_len_km_std": 249.61608716514823,
+      "reason_counter": {
+        "no_suitable_block": 3687,
+        "server_overload": 22
+      },
+      "split_counter": {
+        "split2": 669,
+        "split1": 479,
+        "split4": 1613,
+        "split3": 716,
+        "split0": 4523
+      },
+      "server_counter": {
+        "s1": 753,
+        "s0": 5532,
+        "s2": 518,
+        "s3": 1197
+      },
+      "mod_counter": {
+        "BPSK": 2450,
+        "16QAM": 636,
+        "8QAM": 351,
+        "QPSK": 854
+      },
+      "server_overload_counter": {
+        "s0": 22
+      },
+      "no_valid_c_rate": 0.53225,
+      "avg_valid_c_actions": 6.9115,
+      "avg_valid_r_actions": 2.4595,
+      "no_suitable_block_ratio": 0.994068482070639,
+      "server_overload_ratio": 0.005931517929361013,
+      "kspbf_time_s": 0.0,
+      "kspbf_call_count": 0,
+      "kspbf_success_count": 0,
+      "kspbf_success_rate": 0.0
+    },
+    "WO-C + PPO-R": {
+      "blocking_rate": 0.48074999999999996,
+      "blocking_rate_std": 0.2756720197988907,
+      "success_rate": 0.51925,
+      "success_rate_std": 0.2756720197988908,
+      "avg_reward": -0.14878325254569605,
+      "avg_reward_std": 0.43584602900415037,
+      "avg_delay_ms": 8.409195874811186,
+      "avg_delay_ms_std": 1.1842719529857366,
+      "avg_fs": 3.219573391249129,
+      "avg_fs_std": 0.3942593642447597,
+      "avg_waste": 0.3209494561530897,
+      "avg_waste_std": 0.11278079769761241,
+      "avg_path_len_km": 688.5012679857426,
+      "avg_path_len_km_std": 182.7505152923936,
+      "reason_counter": {
+        "no_suitable_block": 3846
+      },
+      "split_counter": {
+        "split4": 3033,
+        "split3": 325,
+        "split1": 129,
+        "split2": 145,
+        "split0": 4368
+      },
+      "server_counter": {
+        "s0": 5075,
+        "s3": 1250,
+        "s1": 901,
+        "s2": 774
+      },
+      "mod_counter": {
+        "16QAM": 472,
+        "8QAM": 589,
+        "BPSK": 2071,
+        "QPSK": 1022
+      },
+      "server_overload_counter": {},
+      "no_valid_c_rate": 0.53925,
+      "avg_valid_c_actions": 6.432875,
+      "avg_valid_r_actions": 2.678875,
+      "no_suitable_block_ratio": 1.0,
+      "server_overload_ratio": 0.0,
+      "kspbf_time_s": 0.0,
+      "kspbf_call_count": 0,
+      "kspbf_success_count": 0,
+      "kspbf_success_rate": 0.0
+    },
+    "DF-C + PPO-R": {
+      "blocking_rate": 0.477,
+      "blocking_rate_std": 0.2677494164326041,
+      "success_rate": 0.523,
+      "success_rate_std": 0.267749416432604,
+      "avg_reward": -0.15792440596896962,
+      "avg_reward_std": 0.4204477393589473,
+      "avg_delay_ms": 7.124444407296927,
+      "avg_delay_ms_std": 1.361252799176112,
+      "avg_fs": 3.144854960211222,
+      "avg_fs_std": 0.5091433869863973,
+      "avg_waste": 0.32996030578122393,
+      "avg_waste_std": 0.08490486638398863,
+      "avg_path_len_km": 546.4042910013247,
+      "avg_path_len_km_std": 203.64066772986504,
+      "reason_counter": {
+        "no_suitable_block": 3798,
+        "server_overload": 18
+      },
+      "split_counter": {
+        "split4": 3137,
+        "split3": 318,
+        "split2": 99,
+        "split1": 55,
+        "split0": 4391
+      },
+      "server_counter": {
+        "s3": 1330,
+        "s1": 167,
+        "s0": 6357,
+        "s2": 146
+      },
+      "mod_counter": {
+        "8QAM": 662,
+        "BPSK": 2154,
+        "QPSK": 909,
+        "16QAM": 459
+      },
+      "server_overload_counter": {
+        "s0": 18
+      },
+      "no_valid_c_rate": 0.545,
+      "avg_valid_c_actions": 7.1405,
+      "avg_valid_r_actions": 2.533125,
+      "no_suitable_block_ratio": 0.9952830188679245,
+      "server_overload_ratio": 0.0047169811320754715,
+      "kspbf_time_s": 0.0,
+      "kspbf_call_count": 0,
+      "kspbf_success_count": 0,
+      "kspbf_success_rate": 0.0
+    },
+    "RF-C + PPO-R": {
+      "blocking_rate": 0.48287499999999994,
+      "blocking_rate_std": 0.274053228178396,
+      "success_rate": 0.5171250000000001,
+      "success_rate_std": 0.27405322817839606,
+      "avg_reward": -0.15756870913162152,
+      "avg_reward_std": 0.42692372845408944,
+      "avg_delay_ms": 8.14104251662402,
+      "avg_delay_ms_std": 0.9893264843796543,
+      "avg_fs": 3.229995331708175,
+      "avg_fs_std": 0.406472999361383,
+      "avg_waste": 0.332978912310814,
+      "avg_waste_std": 0.1153653312422522,
+      "avg_path_len_km": 673.3967710305893,
+      "avg_path_len_km_std": 174.45895908680862,
+      "reason_counter": {
+        "no_suitable_block": 3863
+      },
+      "split_counter": {
+        "split4": 3053,
+        "split3": 318,
+        "split1": 107,
+        "split0": 4387,
+        "split2": 135
+      },
+      "server_counter": {
+        "s0": 5316,
+        "s3": 1286,
+        "s1": 802,
+        "s2": 596
+      },
+      "mod_counter": {
+        "16QAM": 484,
+        "8QAM": 564,
+        "BPSK": 2118,
+        "QPSK": 971
+      },
+      "server_overload_counter": {},
+      "no_valid_c_rate": 0.543125,
+      "avg_valid_c_actions": 6.796125,
+      "avg_valid_r_actions": 2.759625,
+      "no_suitable_block_ratio": 1.0,
+      "server_overload_ratio": 0.0,
+      "kspbf_time_s": 0.0,
+      "kspbf_call_count": 0,
+      "kspbf_success_count": 0,
+      "kspbf_success_rate": 0.0
+    },
+    "IWD-C + PPO-R": {
+      "blocking_rate": 0.435125,
+      "blocking_rate_std": 0.27873427646236837,
+      "success_rate": 0.564875,
+      "success_rate_std": 0.27873427646236837,
+      "avg_reward": -0.12827996708141418,
+      "avg_reward_std": 0.41311839427080277,
+      "avg_delay_ms": 8.589066647814132,
+      "avg_delay_ms_std": 2.2699808815070597,
+      "avg_fs": 2.751663823035993,
+      "avg_fs_std": 0.34290484623921635,
+      "avg_waste": 0.3490525399306676,
+      "avg_waste_std": 0.07282626819364058,
+      "avg_path_len_km": 562.2693868893884,
+      "avg_path_len_km_std": 208.50024605348216,
+      "reason_counter": {
+        "no_suitable_block": 3226,
+        "server_overload": 255
+      },
+      "split_counter": {
+        "split1": 617,
+        "split4": 1055,
+        "split0": 4522,
+        "split2": 787,
+        "split3": 1019
+      },
+      "server_counter": {
+        "s1": 335,
+        "s3": 1386,
+        "s2": 259,
+        "s0": 6020
+      },
+      "mod_counter": {
+        "BPSK": 2647,
+        "8QAM": 549,
+        "QPSK": 1022,
+        "16QAM": 301
+      },
+      "server_overload_counter": {
+        "s0": 255
+      },
+      "no_valid_c_rate": 0.499,
+      "avg_valid_c_actions": 7.65375,
+      "avg_valid_r_actions": 3.196,
+      "no_suitable_block_ratio": 0.9267451881643206,
+      "server_overload_ratio": 0.0732548118356794,
+      "kspbf_time_s": 0.0,
+      "kspbf_call_count": 0,
+      "kspbf_success_count": 0,
+      "kspbf_success_rate": 0.0
+    },
+    "Greedy-C + PPO-R": {
+      "blocking_rate": 0.4795,
+      "blocking_rate_std": 0.26816809094297556,
+      "success_rate": 0.5205000000000001,
+      "success_rate_std": 0.26816809094297556,
+      "avg_reward": -0.16260716914615014,
+      "avg_reward_std": 0.4033750520732421,
+      "avg_delay_ms": 6.885093534330684,
+      "avg_delay_ms_std": 0.9646312918006339,
+      "avg_fs": 3.1645698395556137,
+      "avg_fs_std": 0.4575138069163494,
+      "avg_waste": 0.3437338843019123,
+      "avg_waste_std": 0.12455563600487715,
+      "avg_path_len_km": 561.4736788936481,
+      "avg_path_len_km_std": 169.2459299448332,
+      "reason_counter": {
+        "no_suitable_block": 3836
+      },
+      "split_counter": {
+        "split4": 3249,
+        "split3": 285,
+        "split0": 4359,
+        "split2": 71,
+        "split1": 36
+      },
+      "server_counter": {
+        "s0": 5944,
+        "s3": 1741,
+        "s1": 246,
+        "s2": 69
+      },
+      "mod_counter": {
+        "16QAM": 616,
+        "8QAM": 650,
+        "BPSK": 2067,
+        "QPSK": 831
+      },
+      "server_overload_counter": {},
+      "no_valid_c_rate": 0.543875,
+      "avg_valid_c_actions": 7.74,
+      "avg_valid_r_actions": 2.991625,
+      "no_suitable_block_ratio": 1.0,
+      "server_overload_ratio": 0.0,
+      "kspbf_time_s": 0.0,
+      "kspbf_call_count": 0,
+      "kspbf_success_count": 0,
+      "kspbf_success_rate": 0.0
+    },
+    "Agent-C + KSP-BF": {
+      "blocking_rate": 0.480875,
+      "blocking_rate_std": 0.2587255725184505,
+      "success_rate": 0.5191250000000001,
+      "success_rate_std": 0.2587255725184505,
+      "avg_reward": -0.17060542597756365,
+      "avg_reward_std": 0.38788618681430126,
+      "avg_delay_ms": 8.693918205392077,
+      "avg_delay_ms_std": 2.155904520162893,
+      "avg_fs": 3.187657038036268,
+      "avg_fs_std": 0.5792642489069697,
+      "avg_waste": 0.32532180303052755,
+      "avg_waste_std": 0.1448462466069955,
+      "avg_path_len_km": 606.0646507848122,
+      "avg_path_len_km_std": 259.88806026984014,
+      "reason_counter": {
+        "no_suitable_block": 3821,
+        "server_overload": 26
+      },
+      "split_counter": {
+        "split2": 678,
+        "split1": 451,
+        "split4": 1562,
+        "split3": 657,
+        "split0": 4652
+      },
+      "server_counter": {
+        "s1": 722,
+        "s0": 5607,
+        "s2": 534,
+        "s3": 1137
+      },
+      "mod_counter": {
+        "BPSK": 3239,
+        "QPSK": 685,
+        "8QAM": 208,
+        "16QAM": 21
+      },
+      "server_overload_counter": {
+        "s0": 26
+      },
+      "no_valid_c_rate": 0.547,
+      "avg_valid_c_actions": 6.578125,
+      "avg_valid_r_actions": 2.241125,
+      "no_suitable_block_ratio": 0.9932414868728879,
+      "server_overload_ratio": 0.006758513127112035,
+      "kspbf_time_s": 31.239631175994873,
+      "kspbf_call_count": 8000,
+      "kspbf_success_count": 3624,
+      "kspbf_success_rate": 0.453
+    }
+  }
+}

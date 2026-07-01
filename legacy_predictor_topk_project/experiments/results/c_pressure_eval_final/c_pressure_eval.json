@@ -1,0 +1,2235 @@
+{
+  "aggregate": {
+    "original": {
+      "blocking_rate": 0.53575,
+      "blocking_rate_std": 0.0050373604199024855,
+      "avg_delay_ms": 9.305510458969938,
+      "avg_delay_ms_std": 0.14414809572174953,
+      "objective": 0.6073308496843841,
+      "objective_std": 0.005428518224494878,
+      "avg_reward": -0.24435220639090324,
+      "deadline_sat_rate": 0.46425,
+      "server_overload_ratio": 0.05325,
+      "no_suitable_block_ratio": 0.48250000000000004,
+      "split_distribution": {
+        "split0": 0.6045886626893345,
+        "split1": 0.0801022554768629,
+        "split4": 0.1755698781809856,
+        "split2": 0.05946642866120623,
+        "split3": 0.0802727749916107
+      },
+      "server_distribution": {
+        "s3": 0.9960313634201897,
+        "s2": 0.005006132512327601,
+        "s0": 0.004915458937198068
+      }
+    },
+    "topk_rerank": {
+      "blocking_rate": 0.53575,
+      "blocking_rate_std": 0.0050373604199024855,
+      "avg_delay_ms": 9.119963427293936,
+      "avg_delay_ms_std": 0.1372022590363229,
+      "objective": 0.6059035648253379,
+      "objective_std": 0.005281083602556916,
+      "avg_reward": -0.24152401915248628,
+      "deadline_sat_rate": 0.46425,
+      "server_overload_ratio": 0.05325,
+      "no_suitable_block_ratio": 0.48250000000000004,
+      "split_distribution": {
+        "split0": 0.37429970022100606,
+        "split4": 0.18713061789462143,
+        "split2": 0.2546434137165622,
+        "split3": 0.09617833838430687,
+        "split1": 0.08774792978350351
+      },
+      "server_distribution": {
+        "s3": 0.9990338164251208,
+        "s0": 0.004830917874396135
+      }
+    },
+    "pressureaware": {
+      "blocking_rate": 0.53575,
+      "blocking_rate_std": 0.0050373604199024855,
+      "avg_delay_ms": 8.771763197572021,
+      "avg_delay_ms_std": 0.1858630664204619,
+      "objective": 0.6032251015197848,
+      "objective_std": 0.005246862573828648,
+      "avg_reward": -0.23635871736387082,
+      "deadline_sat_rate": 0.46425,
+      "server_overload_ratio": 0.05325,
+      "no_suitable_block_ratio": 0.48250000000000004,
+      "split_distribution": {
+        "split0": 0.1351407510965639,
+        "split4": 0.5130740519435775,
+        "split3": 0.06338545714489555,
+        "split1": 0.14437984639472123,
+        "split2": 0.14401989342024193
+      },
+      "server_distribution": {
+        "s3": 1.0
+      }
+    },
+    "oracle_r_query": {
+      "blocking_rate": 0.5457500000000001,
+      "blocking_rate_std": 0.009340770846134692,
+      "avg_delay_ms": 10.352867693026404,
+      "avg_delay_ms_std": 0.19767682134283973,
+      "objective": 0.6253874437925109,
+      "objective_std": 0.009930179438718866,
+      "avg_reward": -0.2539670859299777,
+      "deadline_sat_rate": 0.45424999999999993,
+      "server_overload_ratio": 0.049,
+      "no_suitable_block_ratio": 0.49675,
+      "split_distribution": {
+        "split4": 0.9450254672765477,
+        "split3": 0.05497453272345239
+      },
+      "server_distribution": {
+        "s0": 0.45714557796222854,
+        "s3": 0.5428544220377715
+      }
+    },
+    "oracle_pressure": {
+      "blocking_rate": 0.54375,
+      "blocking_rate_std": 0.007541551564499179,
+      "avg_delay_ms": 10.865530595769775,
+      "avg_delay_ms_std": 0.1116041022400772,
+      "objective": 0.6273310045828444,
+      "objective_std": 0.008164515642513144,
+      "avg_reward": -0.24797255494858295,
+      "deadline_sat_rate": 0.45625,
+      "server_overload_ratio": 0.0505,
+      "no_suitable_block_ratio": 0.49325,
+      "split_distribution": {
+        "split4": 0.9443128200088825,
+        "split3": 0.0556871799911175
+      },
+      "server_distribution": {
+        "s0": 0.2645042428681336,
+        "s3": 0.5135004681027303,
+        "s1": 0.2117607495672576,
+        "s2": 0.012793174327347945
+      }
+    },
+    "iwd": {
+      "blocking_rate": 0.53575,
+      "blocking_rate_std": 0.0050373604199024855,
+      "avg_delay_ms": 9.20611606783741,
+      "avg_delay_ms_std": 0.11213997284992087,
+      "objective": 0.6065662774449032,
+      "objective_std": 0.004924079371747136,
+      "avg_reward": -0.24287005028379394,
+      "deadline_sat_rate": 0.46425,
+      "server_overload_ratio": 0.05325,
+      "no_suitable_block_ratio": 0.48250000000000004,
+      "split_distribution": {
+        "split0": 0.16266449923884033,
+        "split1": 0.7052541100147146,
+        "split4": 0.13208139074644515
+      },
+      "server_distribution": {
+        "s3": 1.0
+      }
+    },
+    "df": {
+      "blocking_rate": 0.53575,
+      "blocking_rate_std": 0.0050373604199024855,
+      "avg_delay_ms": 8.483763348382647,
+      "avg_delay_ms_std": 0.23224178256690306,
+      "objective": 0.6010097180644819,
+      "objective_std": 0.0053678910513220365,
+      "avg_reward": -0.22890528102477944,
+      "deadline_sat_rate": 0.46425,
+      "server_overload_ratio": 0.05325,
+      "no_suitable_block_ratio": 0.48250000000000004,
+      "split_distribution": {
+        "split4": 0.9465609716822894,
+        "split3": 0.05343902831771058
+      },
+      "server_distribution": {
+        "s3": 1.0
+      }
+    },
+    "greedy": {
+      "blocking_rate": 0.5417500000000001,
+      "blocking_rate_std": 0.009539392014169451,
+      "avg_delay_ms": 10.040561185549624,
+      "avg_delay_ms_std": 0.2443519709897652,
+      "objective": 0.6189850860426895,
+      "objective_std": 0.00953222312690549,
+      "avg_reward": -0.2439681827555845,
+      "deadline_sat_rate": 0.45824999999999994,
+      "server_overload_ratio": 0.051000000000000004,
+      "no_suitable_block_ratio": 0.4907500000000001,
+      "split_distribution": {
+        "split4": 0.9456356550155485,
+        "split3": 0.05436434498445146
+      },
+      "server_distribution": {
+        "s0": 0.3748641915553911,
+        "s3": 0.625135808444609
+      }
+    },
+    "wo": {
+      "blocking_rate": 0.54525,
+      "blocking_rate_std": 0.007474958193863047,
+      "avg_delay_ms": 11.455053730316958,
+      "avg_delay_ms_std": 0.09617009849399857,
+      "objective": 0.6333657979255151,
+      "objective_std": 0.007552118811826571,
+      "avg_reward": -0.25117759174112547,
+      "deadline_sat_rate": 0.45474999999999993,
+      "server_overload_ratio": 0.0475,
+      "no_suitable_block_ratio": 0.49775,
+      "split_distribution": {
+        "split4": 0.9431926332812633,
+        "split3": 0.05680736671873669
+      },
+      "server_distribution": {
+        "s0": 0.17149683727347892,
+        "s3": 0.28858719530283305,
+        "s1": 0.28012363974309695,
+        "s2": 0.2597923276805911
+      }
+    },
+    "rf": {
+      "blocking_rate": 0.5447500000000001,
+      "blocking_rate_std": 0.00845576726264388,
+      "avg_delay_ms": 11.276790227173533,
+      "avg_delay_ms_std": 0.1577619472772604,
+      "objective": 0.6314945402090271,
+      "objective_std": 0.00895835056383487,
+      "avg_reward": -0.2503789675502822,
+      "deadline_sat_rate": 0.45524999999999993,
+      "server_overload_ratio": 0.04975,
+      "no_suitable_block_ratio": 0.49499999999999994,
+      "split_distribution": {
+        "split4": 0.9443289070467751,
+        "split3": 0.05567109295322496
+      },
+      "server_distribution": {
+        "s0": 0.20466040411991596,
+        "s3": 0.34798247209443856,
+        "s1": 0.25349741284089405,
+        "s2": 0.19385971094475152
+      }
+    }
+  },
+  "per_seed": {
+    "original": [
+      {
+        "blocking_rate": 0.535,
+        "success_rate": 0.465,
+        "avg_reward": -0.2365395210843633,
+        "avg_delay_ms": 9.211304908222573,
+        "deadline_sat_rate": 0.465,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 673.9784946236559,
+        "objective": 0.6058561916017121,
+        "reasons": {
+          "no_suitable_block": 404,
+          "server_overload": 24
+        },
+        "mods": {
+          "16QAM": 187,
+          "BPSK": 185
+        },
+        "splits": {
+          "split0": 105,
+          "split1": 20,
+          "split4": 33,
+          "split2": 14,
+          "split3": 15
+        },
+        "servers": {
+          "s3": 187
+        },
+        "split_distribution": {
+          "split0": 0.5614973262032086,
+          "split1": 0.10695187165775401,
+          "split4": 0.17647058823529413,
+          "split2": 0.0748663101604278,
+          "split3": 0.08021390374331551
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.03,
+        "no_suitable_block_ratio": 0.505
+      },
+      {
+        "blocking_rate": 0.53625,
+        "success_rate": 0.46375,
+        "avg_reward": -0.24195433498451774,
+        "avg_delay_ms": 9.140207081174319,
+        "deadline_sat_rate": 0.46375,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 656.1859838274933,
+        "objective": 0.6065592852398025,
+        "reasons": {
+          "no_suitable_block": 396,
+          "server_overload": 33
+        },
+        "mods": {
+          "16QAM": 205,
+          "BPSK": 164,
+          "8QAM": 1,
+          "QPSK": 1
+        },
+        "splits": {
+          "split0": 125,
+          "split1": 16,
+          "split3": 23,
+          "split4": 31,
+          "split2": 12
+        },
+        "servers": {
+          "s3": 205,
+          "s2": 1,
+          "s0": 1
+        },
+        "split_distribution": {
+          "split0": 0.6038647342995169,
+          "split1": 0.07729468599033816,
+          "split3": 0.1111111111111111,
+          "split4": 0.1497584541062802,
+          "split2": 0.057971014492753624
+        },
+        "server_distribution": {
+          "s3": 0.9903381642512077,
+          "s2": 0.004830917874396135,
+          "s0": 0.004830917874396135
+        },
+        "server_overload_ratio": 0.04125,
+        "no_suitable_block_ratio": 0.495
+      },
+      {
+        "blocking_rate": 0.545,
+        "success_rate": 0.455,
+        "avg_reward": -0.26850113716980034,
+        "avg_delay_ms": 9.45901490378597,
+        "deadline_sat_rate": 0.455,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 664.1346153846154,
+        "objective": 0.6177616531060459,
+        "reasons": {
+          "no_suitable_block": 372,
+          "server_overload": 64
+        },
+        "mods": {
+          "16QAM": 192,
+          "BPSK": 171,
+          "8QAM": 1
+        },
+        "splits": {
+          "split2": 11,
+          "split0": 117,
+          "split4": 34,
+          "split1": 17,
+          "split3": 14
+        },
+        "servers": {
+          "s3": 192,
+          "s2": 1
+        },
+        "split_distribution": {
+          "split2": 0.05699481865284974,
+          "split0": 0.6062176165803109,
+          "split4": 0.17616580310880828,
+          "split1": 0.08808290155440414,
+          "split3": 0.07253886010362694
+        },
+        "server_distribution": {
+          "s3": 0.9948186528497409,
+          "s2": 0.0051813471502590676
+        },
+        "server_overload_ratio": 0.08,
+        "no_suitable_block_ratio": 0.465
+      },
+      {
+        "blocking_rate": 0.53125,
+        "success_rate": 0.46875,
+        "avg_reward": -0.23514169644274768,
+        "avg_delay_ms": 9.497277583162102,
+        "deadline_sat_rate": 0.46875,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 686.6533333333333,
+        "objective": 0.6043059814089392,
+        "reasons": {
+          "no_suitable_block": 386,
+          "server_overload": 39
+        },
+        "mods": {
+          "16QAM": 176,
+          "BPSK": 199
+        },
+        "splits": {
+          "split1": 12,
+          "split0": 112,
+          "split4": 30,
+          "split3": 11,
+          "split2": 11
+        },
+        "servers": {
+          "s3": 176
+        },
+        "split_distribution": {
+          "split1": 0.06818181818181818,
+          "split0": 0.6363636363636364,
+          "split4": 0.17045454545454544,
+          "split3": 0.0625,
+          "split2": 0.0625
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.04875,
+        "no_suitable_block_ratio": 0.4825
+      },
+      {
+        "blocking_rate": 0.53125,
+        "success_rate": 0.46875,
+        "avg_reward": -0.239624342273087,
+        "avg_delay_ms": 9.219747818504718,
+        "deadline_sat_rate": 0.46875,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 664.9066666666666,
+        "objective": 0.6021711370654209,
+        "reasons": {
+          "no_suitable_block": 372,
+          "server_overload": 53
+        },
+        "mods": {
+          "16QAM": 199,
+          "BPSK": 175,
+          "QPSK": 1
+        },
+        "splits": {
+          "split0": 123,
+          "split1": 12,
+          "split2": 9,
+          "split4": 41,
+          "split3": 15
+        },
+        "servers": {
+          "s3": 199,
+          "s0": 1
+        },
+        "split_distribution": {
+          "split0": 0.615,
+          "split1": 0.06,
+          "split2": 0.045,
+          "split4": 0.205,
+          "split3": 0.075
+        },
+        "server_distribution": {
+          "s3": 0.995,
+          "s0": 0.005
+        },
+        "server_overload_ratio": 0.06625,
+        "no_suitable_block_ratio": 0.465
+      }
+    ],
+    "topk_rerank": [
+      {
+        "blocking_rate": 0.535,
+        "success_rate": 0.465,
+        "avg_reward": -0.234082505491955,
+        "avg_delay_ms": 9.071819816323558,
+        "deadline_sat_rate": 0.465,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 673.9784946236559,
+        "objective": 0.6047832293563351,
+        "reasons": {
+          "no_suitable_block": 404,
+          "server_overload": 24
+        },
+        "mods": {
+          "16QAM": 187,
+          "BPSK": 185
+        },
+        "splits": {
+          "split0": 72,
+          "split4": 32,
+          "split2": 50,
+          "split3": 18,
+          "split1": 15
+        },
+        "servers": {
+          "s3": 187
+        },
+        "split_distribution": {
+          "split0": 0.3850267379679144,
+          "split4": 0.1711229946524064,
+          "split2": 0.26737967914438504,
+          "split3": 0.0962566844919786,
+          "split1": 0.08021390374331551
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.03,
+        "no_suitable_block_ratio": 0.505
+      },
+      {
+        "blocking_rate": 0.53625,
+        "success_rate": 0.46375,
+        "avg_reward": -0.23923184526878485,
+        "avg_delay_ms": 8.959292626399357,
+        "deadline_sat_rate": 0.46375,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 655.5795148247978,
+        "objective": 0.6051676355876874,
+        "reasons": {
+          "no_suitable_block": 396,
+          "server_overload": 33
+        },
+        "mods": {
+          "16QAM": 206,
+          "BPSK": 164,
+          "QPSK": 1
+        },
+        "splits": {
+          "split2": 46,
+          "split1": 17,
+          "split3": 29,
+          "split4": 36,
+          "split0": 79
+        },
+        "servers": {
+          "s3": 206,
+          "s0": 1
+        },
+        "split_distribution": {
+          "split2": 0.2222222222222222,
+          "split1": 0.0821256038647343,
+          "split3": 0.14009661835748793,
+          "split4": 0.17391304347826086,
+          "split0": 0.38164251207729466
+        },
+        "server_distribution": {
+          "s3": 0.9951690821256038,
+          "s0": 0.004830917874396135
+        },
+        "server_overload_ratio": 0.04125,
+        "no_suitable_block_ratio": 0.495
+      },
+      {
+        "blocking_rate": 0.545,
+        "success_rate": 0.455,
+        "avg_reward": -0.26563354903506864,
+        "avg_delay_ms": 9.224633100549523,
+        "deadline_sat_rate": 0.455,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 663.5164835164835,
+        "objective": 0.6159587161580733,
+        "reasons": {
+          "no_suitable_block": 372,
+          "server_overload": 64
+        },
+        "mods": {
+          "16QAM": 193,
+          "BPSK": 171
+        },
+        "splits": {
+          "split2": 45,
+          "split1": 19,
+          "split0": 73,
+          "split4": 41,
+          "split3": 15
+        },
+        "servers": {
+          "s3": 193
+        },
+        "split_distribution": {
+          "split2": 0.23316062176165803,
+          "split1": 0.09844559585492228,
+          "split0": 0.37823834196891193,
+          "split4": 0.21243523316062177,
+          "split3": 0.07772020725388601
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.08,
+        "no_suitable_block_ratio": 0.465
+      },
+      {
+        "blocking_rate": 0.53125,
+        "success_rate": 0.46875,
+        "avg_reward": -0.2321019461759196,
+        "avg_delay_ms": 9.329532752277991,
+        "deadline_sat_rate": 0.46875,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 686.6533333333333,
+        "objective": 0.6030156365559846,
+        "reasons": {
+          "no_suitable_block": 386,
+          "server_overload": 39
+        },
+        "mods": {
+          "16QAM": 176,
+          "BPSK": 199
+        },
+        "splits": {
+          "split3": 10,
+          "split1": 19,
+          "split0": 61,
+          "split2": 52,
+          "split4": 34
+        },
+        "servers": {
+          "s3": 176
+        },
+        "split_distribution": {
+          "split3": 0.056818181818181816,
+          "split1": 0.10795454545454546,
+          "split0": 0.3465909090909091,
+          "split2": 0.29545454545454547,
+          "split4": 0.19318181818181818
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.04875,
+        "no_suitable_block_ratio": 0.4825
+      },
+      {
+        "blocking_rate": 0.53125,
+        "success_rate": 0.46875,
+        "avg_reward": -0.2365702497907033,
+        "avg_delay_ms": 9.014538840919245,
+        "deadline_sat_rate": 0.46875,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 662.3333333333334,
+        "objective": 0.6005926064686096,
+        "reasons": {
+          "no_suitable_block": 372,
+          "server_overload": 53
+        },
+        "mods": {
+          "16QAM": 200,
+          "BPSK": 175
+        },
+        "splits": {
+          "split2": 51,
+          "split1": 14,
+          "split4": 37,
+          "split3": 22,
+          "split0": 76
+        },
+        "servers": {
+          "s3": 200
+        },
+        "split_distribution": {
+          "split2": 0.255,
+          "split1": 0.07,
+          "split4": 0.185,
+          "split3": 0.11,
+          "split0": 0.38
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.06625,
+        "no_suitable_block_ratio": 0.465
+      }
+    ],
+    "pressureaware": [
+      {
+        "blocking_rate": 0.535,
+        "success_rate": 0.465,
+        "avg_reward": -0.22838517550456283,
+        "avg_delay_ms": 8.68692597830391,
+        "deadline_sat_rate": 0.465,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 673.9784946236559,
+        "objective": 0.6018225075254147,
+        "reasons": {
+          "no_suitable_block": 404,
+          "server_overload": 24
+        },
+        "mods": {
+          "16QAM": 187,
+          "BPSK": 185
+        },
+        "splits": {
+          "split0": 25,
+          "split4": 98,
+          "split3": 9,
+          "split1": 29,
+          "split2": 26
+        },
+        "servers": {
+          "s3": 187
+        },
+        "split_distribution": {
+          "split0": 0.13368983957219252,
+          "split4": 0.5240641711229946,
+          "split3": 0.0481283422459893,
+          "split1": 0.15508021390374332,
+          "split2": 0.13903743315508021
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.03,
+        "no_suitable_block_ratio": 0.505
+      },
+      {
+        "blocking_rate": 0.53625,
+        "success_rate": 0.46375,
+        "avg_reward": -0.23373662203127657,
+        "avg_delay_ms": 8.519021756972663,
+        "deadline_sat_rate": 0.46375,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 652.978436657682,
+        "objective": 0.6017809365920974,
+        "reasons": {
+          "no_suitable_block": 396,
+          "server_overload": 33
+        },
+        "mods": {
+          "16QAM": 207,
+          "BPSK": 164
+        },
+        "splits": {
+          "split4": 99,
+          "split0": 27,
+          "split2": 31,
+          "split1": 33,
+          "split3": 17
+        },
+        "servers": {
+          "s3": 207
+        },
+        "split_distribution": {
+          "split4": 0.4782608695652174,
+          "split0": 0.13043478260869565,
+          "split2": 0.1497584541062802,
+          "split1": 0.15942028985507245,
+          "split3": 0.0821256038647343
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.04125,
+        "no_suitable_block_ratio": 0.495
+      },
+      {
+        "blocking_rate": 0.545,
+        "success_rate": 0.455,
+        "avg_reward": -0.26009121884601805,
+        "avg_delay_ms": 8.889417928948212,
+        "deadline_sat_rate": 0.455,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 663.5164835164835,
+        "objective": 0.6133801379149862,
+        "reasons": {
+          "no_suitable_block": 372,
+          "server_overload": 64
+        },
+        "mods": {
+          "16QAM": 193,
+          "BPSK": 171
+        },
+        "splits": {
+          "split0": 25,
+          "split4": 97,
+          "split2": 31,
+          "split1": 22,
+          "split3": 18
+        },
+        "servers": {
+          "s3": 193
+        },
+        "split_distribution": {
+          "split0": 0.12953367875647667,
+          "split4": 0.5025906735751295,
+          "split2": 0.16062176165803108,
+          "split1": 0.11398963730569948,
+          "split3": 0.09326424870466321
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.08,
+        "no_suitable_block_ratio": 0.465
+      },
+      {
+        "blocking_rate": 0.53125,
+        "success_rate": 0.46875,
+        "avg_reward": -0.22759140379274265,
+        "avg_delay_ms": 9.06008421646583,
+        "deadline_sat_rate": 0.46875,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 686.6533333333333,
+        "objective": 0.6009429555112756,
+        "reasons": {
+          "no_suitable_block": 386,
+          "server_overload": 39
+        },
+        "mods": {
+          "16QAM": 176,
+          "BPSK": 199
+        },
+        "splits": {
+          "split0": 25,
+          "split4": 96,
+          "split2": 23,
+          "split1": 27,
+          "split3": 5
+        },
+        "servers": {
+          "s3": 176
+        },
+        "split_distribution": {
+          "split0": 0.14204545454545456,
+          "split4": 0.5454545454545454,
+          "split2": 0.13068181818181818,
+          "split1": 0.1534090909090909,
+          "split3": 0.028409090909090908
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.04875,
+        "no_suitable_block_ratio": 0.4825
+      },
+      {
+        "blocking_rate": 0.53125,
+        "success_rate": 0.46875,
+        "avg_reward": -0.2319891666447539,
+        "avg_delay_ms": 8.703366107169485,
+        "deadline_sat_rate": 0.46875,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 662.3333333333334,
+        "objective": 0.5981989700551499,
+        "reasons": {
+          "no_suitable_block": 372,
+          "server_overload": 53
+        },
+        "mods": {
+          "16QAM": 200,
+          "BPSK": 175
+        },
+        "splits": {
+          "split4": 103,
+          "split1": 28,
+          "split3": 13,
+          "split2": 28,
+          "split0": 28
+        },
+        "servers": {
+          "s3": 200
+        },
+        "split_distribution": {
+          "split4": 0.515,
+          "split1": 0.14,
+          "split3": 0.065,
+          "split2": 0.14,
+          "split0": 0.14
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.06625,
+        "no_suitable_block_ratio": 0.465
+      }
+    ],
+    "oracle_r_query": [
+      {
+        "blocking_rate": 0.5475,
+        "success_rate": 0.4525,
+        "avg_reward": -0.25282379176900704,
+        "avg_delay_ms": 10.302442277188586,
+        "deadline_sat_rate": 0.4525,
+        "avg_fs": 2.0110497237569063,
+        "avg_path_len_km": 898.3563535911602,
+        "objective": 0.6267495559783738,
+        "reasons": {
+          "no_suitable_block": 418,
+          "server_overload": 20
+        },
+        "mods": {
+          "QPSK": 83,
+          "16QAM": 96,
+          "BPSK": 182,
+          "8QAM": 1
+        },
+        "splits": {
+          "split4": 175,
+          "split3": 5
+        },
+        "servers": {
+          "s0": 84,
+          "s3": 96
+        },
+        "split_distribution": {
+          "split4": 0.9722222222222222,
+          "split3": 0.027777777777777776
+        },
+        "server_distribution": {
+          "s0": 0.4666666666666667,
+          "s3": 0.5333333333333333
+        },
+        "server_overload_ratio": 0.025,
+        "no_suitable_block_ratio": 0.5225
+      },
+      {
+        "blocking_rate": 0.54375,
+        "success_rate": 0.45625,
+        "avg_reward": -0.24497977235437943,
+        "avg_delay_ms": 10.137182329986812,
+        "deadline_sat_rate": 0.45625,
+        "avg_fs": 2.0082191780821916,
+        "avg_path_len_km": 888.9589041095891,
+        "objective": 0.6217283256152831,
+        "reasons": {
+          "no_suitable_block": 400,
+          "server_overload": 35
+        },
+        "mods": {
+          "QPSK": 89,
+          "16QAM": 114,
+          "BPSK": 162
+        },
+        "splits": {
+          "split4": 188,
+          "split3": 15
+        },
+        "servers": {
+          "s0": 89,
+          "s3": 114
+        },
+        "split_distribution": {
+          "split4": 0.9261083743842364,
+          "split3": 0.07389162561576355
+        },
+        "server_distribution": {
+          "s0": 0.43842364532019706,
+          "s3": 0.5615763546798029
+        },
+        "server_overload_ratio": 0.04375,
+        "no_suitable_block_ratio": 0.5
+      },
+      {
+        "blocking_rate": 0.5625,
+        "success_rate": 0.4375,
+        "avg_reward": -0.2944221444828765,
+        "avg_delay_ms": 10.495922906722416,
+        "deadline_sat_rate": 0.4375,
+        "avg_fs": 2.0228571428571427,
+        "avg_path_len_km": 907.8571428571429,
+        "objective": 0.6432378685132494,
+        "reasons": {
+          "no_suitable_block": 392,
+          "server_overload": 58
+        },
+        "mods": {
+          "QPSK": 88,
+          "16QAM": 96,
+          "BPSK": 166
+        },
+        "splits": {
+          "split4": 169,
+          "split3": 15
+        },
+        "servers": {
+          "s0": 88,
+          "s3": 96
+        },
+        "split_distribution": {
+          "split4": 0.9184782608695652,
+          "split3": 0.08152173913043478
+        },
+        "server_distribution": {
+          "s0": 0.4782608695652174,
+          "s3": 0.5217391304347826
+        },
+        "server_overload_ratio": 0.0725,
+        "no_suitable_block_ratio": 0.49
+      },
+      {
+        "blocking_rate": 0.54,
+        "success_rate": 0.46,
+        "avg_reward": -0.24327947216941212,
+        "avg_delay_ms": 10.657584291007986,
+        "deadline_sat_rate": 0.46,
+        "avg_fs": 2.0081521739130435,
+        "avg_path_len_km": 907.1059782608696,
+        "objective": 0.6219814176231384,
+        "reasons": {
+          "no_suitable_block": 400,
+          "server_overload": 32
+        },
+        "mods": {
+          "QPSK": 83,
+          "16QAM": 87,
+          "BPSK": 198
+        },
+        "splits": {
+          "split4": 163,
+          "split3": 7
+        },
+        "servers": {
+          "s0": 83,
+          "s3": 87
+        },
+        "split_distribution": {
+          "split4": 0.9588235294117647,
+          "split3": 0.041176470588235294
+        },
+        "server_distribution": {
+          "s0": 0.48823529411764705,
+          "s3": 0.5117647058823529
+        },
+        "server_overload_ratio": 0.04,
+        "no_suitable_block_ratio": 0.5
+      },
+      {
+        "blocking_rate": 0.535,
+        "success_rate": 0.465,
+        "avg_reward": -0.23433024887421344,
+        "avg_delay_ms": 10.171206660226227,
+        "deadline_sat_rate": 0.465,
+        "avg_fs": 2.002688172043011,
+        "avg_path_len_km": 875.4569892473119,
+        "objective": 0.6132400512325095,
+        "reasons": {
+          "no_suitable_block": 377,
+          "server_overload": 51
+        },
+        "mods": {
+          "QPSK": 82,
+          "16QAM": 116,
+          "BPSK": 174
+        },
+        "splits": {
+          "split4": 188,
+          "split3": 10
+        },
+        "servers": {
+          "s0": 82,
+          "s3": 116
+        },
+        "split_distribution": {
+          "split4": 0.9494949494949495,
+          "split3": 0.050505050505050504
+        },
+        "server_distribution": {
+          "s0": 0.41414141414141414,
+          "s3": 0.5858585858585859
+        },
+        "server_overload_ratio": 0.06375,
+        "no_suitable_block_ratio": 0.47125
+      }
+    ],
+    "oracle_pressure": [
+      {
+        "blocking_rate": 0.54375,
+        "success_rate": 0.45625,
+        "avg_reward": -0.2438983240470161,
+        "avg_delay_ms": 10.82562641530952,
+        "deadline_sat_rate": 0.45625,
+        "avg_fs": 2.0082191780821916,
+        "avg_path_len_km": 960.2739726027397,
+        "objective": 0.6270240493485347,
+        "reasons": {
+          "no_suitable_block": 410,
+          "server_overload": 25
+        },
+        "mods": {
+          "QPSK": 89,
+          "16QAM": 92,
+          "BPSK": 183,
+          "8QAM": 1
+        },
+        "splits": {
+          "split4": 177,
+          "split3": 5
+        },
+        "servers": {
+          "s0": 52,
+          "s3": 92,
+          "s1": 38
+        },
+        "split_distribution": {
+          "split4": 0.9725274725274725,
+          "split3": 0.027472527472527472
+        },
+        "server_distribution": {
+          "s0": 0.2857142857142857,
+          "s3": 0.5054945054945055,
+          "s1": 0.2087912087912088
+        },
+        "server_overload_ratio": 0.03125,
+        "no_suitable_block_ratio": 0.5125
+      },
+      {
+        "blocking_rate": 0.54375,
+        "success_rate": 0.45625,
+        "avg_reward": -0.24236130623420768,
+        "avg_delay_ms": 10.736122566847083,
+        "deadline_sat_rate": 0.45625,
+        "avg_fs": 2.0082191780821916,
+        "avg_path_len_km": 964.0958904109589,
+        "objective": 0.626335558206516,
+        "reasons": {
+          "no_suitable_block": 402,
+          "server_overload": 33
+        },
+        "mods": {
+          "QPSK": 94,
+          "16QAM": 106,
+          "BPSK": 161,
+          "8QAM": 4
+        },
+        "splits": {
+          "split4": 188,
+          "split3": 16
+        },
+        "servers": {
+          "s0": 44,
+          "s3": 106,
+          "s1": 50,
+          "s2": 4
+        },
+        "split_distribution": {
+          "split4": 0.9215686274509803,
+          "split3": 0.0784313725490196
+        },
+        "server_distribution": {
+          "s0": 0.21568627450980393,
+          "s3": 0.5196078431372549,
+          "s1": 0.24509803921568626,
+          "s2": 0.0196078431372549
+        },
+        "server_overload_ratio": 0.04125,
+        "no_suitable_block_ratio": 0.5025
+      },
+      {
+        "blocking_rate": 0.5575,
+        "success_rate": 0.4425,
+        "avg_reward": -0.28182024426075813,
+        "avg_delay_ms": 11.066839905201123,
+        "deadline_sat_rate": 0.4425,
+        "avg_fs": 2.016949152542373,
+        "avg_path_len_km": 969.4067796610169,
+        "objective": 0.6426295377323163,
+        "reasons": {
+          "no_suitable_block": 387,
+          "server_overload": 59
+        },
+        "mods": {
+          "QPSK": 93,
+          "16QAM": 92,
+          "BPSK": 168,
+          "8QAM": 1
+        },
+        "splits": {
+          "split4": 172,
+          "split3": 14
+        },
+        "servers": {
+          "s0": 55,
+          "s3": 92,
+          "s1": 38,
+          "s2": 1
+        },
+        "split_distribution": {
+          "split4": 0.9247311827956989,
+          "split3": 0.07526881720430108
+        },
+        "server_distribution": {
+          "s0": 0.2956989247311828,
+          "s3": 0.4946236559139785,
+          "s1": 0.20430107526881722,
+          "s2": 0.005376344086021506
+        },
+        "server_overload_ratio": 0.07375,
+        "no_suitable_block_ratio": 0.48375
+      },
+      {
+        "blocking_rate": 0.53625,
+        "success_rate": 0.46375,
+        "avg_reward": -0.23307442227081565,
+        "avg_delay_ms": 10.887619125882598,
+        "deadline_sat_rate": 0.46375,
+        "avg_fs": 2.0053908355795147,
+        "avg_path_len_km": 936.5094339622641,
+        "objective": 0.6200009163529431,
+        "reasons": {
+          "no_suitable_block": 396,
+          "server_overload": 33
+        },
+        "mods": {
+          "QPSK": 79,
+          "16QAM": 93,
+          "BPSK": 198,
+          "8QAM": 1
+        },
+        "splits": {
+          "split4": 165,
+          "split3": 8
+        },
+        "servers": {
+          "s0": 45,
+          "s3": 93,
+          "s1": 34,
+          "s2": 1
+        },
+        "split_distribution": {
+          "split4": 0.953757225433526,
+          "split3": 0.046242774566473986
+        },
+        "server_distribution": {
+          "s0": 0.26011560693641617,
+          "s3": 0.5375722543352601,
+          "s1": 0.19653179190751446,
+          "s2": 0.005780346820809248
+        },
+        "server_overload_ratio": 0.04125,
+        "no_suitable_block_ratio": 0.495
+      },
+      {
+        "blocking_rate": 0.5375,
+        "success_rate": 0.4625,
+        "avg_reward": -0.23870847793011724,
+        "avg_delay_ms": 10.811444965608558,
+        "deadline_sat_rate": 0.4625,
+        "avg_fs": 2.0054054054054054,
+        "avg_path_len_km": 954.7702702702703,
+        "objective": 0.6206649612739119,
+        "reasons": {
+          "no_suitable_block": 378,
+          "server_overload": 52
+        },
+        "mods": {
+          "QPSK": 92,
+          "16QAM": 100,
+          "BPSK": 174,
+          "8QAM": 4
+        },
+        "splits": {
+          "split4": 186,
+          "split3": 10
+        },
+        "servers": {
+          "s0": 52,
+          "s3": 100,
+          "s1": 40,
+          "s2": 4
+        },
+        "split_distribution": {
+          "split4": 0.9489795918367347,
+          "split3": 0.05102040816326531
+        },
+        "server_distribution": {
+          "s0": 0.2653061224489796,
+          "s3": 0.5102040816326531,
+          "s1": 0.20408163265306123,
+          "s2": 0.02040816326530612
+        },
+        "server_overload_ratio": 0.065,
+        "no_suitable_block_ratio": 0.4725
+      }
+    ],
+    "iwd": [
+      {
+        "blocking_rate": 0.535,
+        "success_rate": 0.465,
+        "avg_reward": -0.23527666472704245,
+        "avg_delay_ms": 9.11592403791863,
+        "deadline_sat_rate": 0.465,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 673.9784946236559,
+        "objective": 0.6051224925993741,
+        "reasons": {
+          "no_suitable_block": 404,
+          "server_overload": 24
+        },
+        "mods": {
+          "16QAM": 187,
+          "BPSK": 185
+        },
+        "splits": {
+          "split0": 34,
+          "split1": 132,
+          "split4": 21
+        },
+        "servers": {
+          "s3": 187
+        },
+        "split_distribution": {
+          "split0": 0.18181818181818182,
+          "split1": 0.7058823529411765,
+          "split4": 0.11229946524064172
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.03,
+        "no_suitable_block_ratio": 0.505
+      },
+      {
+        "blocking_rate": 0.53625,
+        "success_rate": 0.46375,
+        "avg_reward": -0.2410692279613136,
+        "avg_delay_ms": 9.071875437182408,
+        "deadline_sat_rate": 0.46375,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 652.978436657682,
+        "objective": 0.6060336572090954,
+        "reasons": {
+          "no_suitable_block": 396,
+          "server_overload": 33
+        },
+        "mods": {
+          "16QAM": 207,
+          "BPSK": 164
+        },
+        "splits": {
+          "split0": 30,
+          "split1": 146,
+          "split4": 31
+        },
+        "servers": {
+          "s3": 207
+        },
+        "split_distribution": {
+          "split0": 0.14492753623188406,
+          "split1": 0.7053140096618358,
+          "split4": 0.1497584541062802
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.04125,
+        "no_suitable_block_ratio": 0.495
+      },
+      {
+        "blocking_rate": 0.545,
+        "success_rate": 0.455,
+        "avg_reward": -0.26596413297372373,
+        "avg_delay_ms": 9.235268460474154,
+        "deadline_sat_rate": 0.455,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 663.5164835164835,
+        "objective": 0.616040526619032,
+        "reasons": {
+          "no_suitable_block": 372,
+          "server_overload": 64
+        },
+        "mods": {
+          "16QAM": 193,
+          "BPSK": 171
+        },
+        "splits": {
+          "split1": 132,
+          "split4": 31,
+          "split0": 30
+        },
+        "servers": {
+          "s3": 193
+        },
+        "split_distribution": {
+          "split1": 0.6839378238341969,
+          "split4": 0.16062176165803108,
+          "split0": 0.15544041450777202
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.08,
+        "no_suitable_block_ratio": 0.465
+      },
+      {
+        "blocking_rate": 0.53125,
+        "success_rate": 0.46875,
+        "avg_reward": -0.23362324323045067,
+        "avg_delay_ms": 9.395420439257496,
+        "deadline_sat_rate": 0.46875,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 686.6533333333333,
+        "objective": 0.6035224649173654,
+        "reasons": {
+          "no_suitable_block": 386,
+          "server_overload": 39
+        },
+        "mods": {
+          "16QAM": 176,
+          "BPSK": 199
+        },
+        "splits": {
+          "split0": 31,
+          "split1": 119,
+          "split4": 26
+        },
+        "servers": {
+          "s3": 176
+        },
+        "split_distribution": {
+          "split0": 0.17613636363636365,
+          "split1": 0.6761363636363636,
+          "split4": 0.14772727272727273
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.04875,
+        "no_suitable_block_ratio": 0.4825
+      },
+      {
+        "blocking_rate": 0.53125,
+        "success_rate": 0.46875,
+        "avg_reward": -0.23841698252643917,
+        "avg_delay_ms": 9.21209196435437,
+        "deadline_sat_rate": 0.46875,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 662.3333333333334,
+        "objective": 0.602112245879649,
+        "reasons": {
+          "no_suitable_block": 372,
+          "server_overload": 53
+        },
+        "mods": {
+          "16QAM": 200,
+          "BPSK": 175
+        },
+        "splits": {
+          "split0": 31,
+          "split1": 151,
+          "split4": 18
+        },
+        "servers": {
+          "s3": 200
+        },
+        "split_distribution": {
+          "split0": 0.155,
+          "split1": 0.755,
+          "split4": 0.09
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.06625,
+        "no_suitable_block_ratio": 0.465
+      }
+    ],
+    "df": [
+      {
+        "blocking_rate": 0.535,
+        "success_rate": 0.465,
+        "avg_reward": -0.22191332520965737,
+        "avg_delay_ms": 8.4381714264863,
+        "deadline_sat_rate": 0.465,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 673.9784946236559,
+        "objective": 0.5999090109729716,
+        "reasons": {
+          "no_suitable_block": 404,
+          "server_overload": 24
+        },
+        "mods": {
+          "16QAM": 187,
+          "BPSK": 185
+        },
+        "splits": {
+          "split4": 182,
+          "split3": 5
+        },
+        "servers": {
+          "s3": 187
+        },
+        "split_distribution": {
+          "split4": 0.9732620320855615,
+          "split3": 0.026737967914438502
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.03,
+        "no_suitable_block_ratio": 0.505
+      },
+      {
+        "blocking_rate": 0.53625,
+        "success_rate": 0.46375,
+        "avg_reward": -0.22477976389922677,
+        "avg_delay_ms": 8.15485092292747,
+        "deadline_sat_rate": 0.46375,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 652.978436657682,
+        "objective": 0.5989796224840575,
+        "reasons": {
+          "no_suitable_block": 396,
+          "server_overload": 33
+        },
+        "mods": {
+          "16QAM": 207,
+          "BPSK": 164
+        },
+        "splits": {
+          "split4": 192,
+          "split3": 15
+        },
+        "servers": {
+          "s3": 207
+        },
+        "split_distribution": {
+          "split4": 0.927536231884058,
+          "split3": 0.07246376811594203
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.04125,
+        "no_suitable_block_ratio": 0.495
+      },
+      {
+        "blocking_rate": 0.545,
+        "success_rate": 0.455,
+        "avg_reward": -0.2533774437996852,
+        "avg_delay_ms": 8.621658184949174,
+        "deadline_sat_rate": 0.455,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 663.5164835164835,
+        "objective": 0.6113204475765321,
+        "reasons": {
+          "no_suitable_block": 372,
+          "server_overload": 64
+        },
+        "mods": {
+          "16QAM": 193,
+          "BPSK": 171
+        },
+        "splits": {
+          "split4": 179,
+          "split3": 14
+        },
+        "servers": {
+          "s3": 193
+        },
+        "split_distribution": {
+          "split4": 0.927461139896373,
+          "split3": 0.07253886010362694
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.08,
+        "no_suitable_block_ratio": 0.465
+      },
+      {
+        "blocking_rate": 0.53125,
+        "success_rate": 0.46875,
+        "avg_reward": -0.22142752877929278,
+        "avg_delay_ms": 8.839146365789597,
+        "deadline_sat_rate": 0.46875,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 686.6533333333333,
+        "objective": 0.5992434335829969,
+        "reasons": {
+          "no_suitable_block": 386,
+          "server_overload": 39
+        },
+        "mods": {
+          "16QAM": 176,
+          "BPSK": 199
+        },
+        "splits": {
+          "split4": 168,
+          "split3": 8
+        },
+        "servers": {
+          "s3": 176
+        },
+        "split_distribution": {
+          "split4": 0.9545454545454546,
+          "split3": 0.045454545454545456
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.04875,
+        "no_suitable_block_ratio": 0.4825
+      },
+      {
+        "blocking_rate": 0.53125,
+        "success_rate": 0.46875,
+        "avg_reward": -0.22302834343603511,
+        "avg_delay_ms": 8.364989841760694,
+        "deadline_sat_rate": 0.46875,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 662.3333333333334,
+        "objective": 0.5955960757058515,
+        "reasons": {
+          "no_suitable_block": 372,
+          "server_overload": 53
+        },
+        "mods": {
+          "16QAM": 200,
+          "BPSK": 175
+        },
+        "splits": {
+          "split4": 190,
+          "split3": 10
+        },
+        "servers": {
+          "s3": 200
+        },
+        "split_distribution": {
+          "split4": 0.95,
+          "split3": 0.05
+        },
+        "server_distribution": {
+          "s3": 1.0
+        },
+        "server_overload_ratio": 0.06625,
+        "no_suitable_block_ratio": 0.465
+      }
+    ],
+    "greedy": [
+      {
+        "blocking_rate": 0.5475,
+        "success_rate": 0.4525,
+        "avg_reward": -0.25115918075178645,
+        "avg_delay_ms": 9.853832041337013,
+        "deadline_sat_rate": 0.4525,
+        "avg_fs": 2.0110497237569063,
+        "avg_path_len_km": 846.6574585635359,
+        "objective": 0.6232987080102848,
+        "reasons": {
+          "no_suitable_block": 418,
+          "server_overload": 20
+        },
+        "mods": {
+          "QPSK": 64,
+          "16QAM": 116,
+          "BPSK": 182
+        },
+        "splits": {
+          "split4": 175,
+          "split3": 5
+        },
+        "servers": {
+          "s0": 64,
+          "s3": 116
+        },
+        "split_distribution": {
+          "split4": 0.9722222222222222,
+          "split3": 0.027777777777777776
+        },
+        "server_distribution": {
+          "s0": 0.35555555555555557,
+          "s3": 0.6444444444444445
+        },
+        "server_overload_ratio": 0.025,
+        "no_suitable_block_ratio": 0.5225
+      },
+      {
+        "blocking_rate": 0.5375,
+        "success_rate": 0.4625,
+        "avg_reward": -0.2289771455695802,
+        "avg_delay_ms": 9.68741519249057,
+        "deadline_sat_rate": 0.4625,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 833.3918918918919,
+        "objective": 0.6120185784037736,
+        "reasons": {
+          "no_suitable_block": 396,
+          "server_overload": 34
+        },
+        "mods": {
+          "QPSK": 69,
+          "16QAM": 137,
+          "BPSK": 164
+        },
+        "splits": {
+          "split4": 191,
+          "split3": 15
+        },
+        "servers": {
+          "s0": 69,
+          "s3": 137
+        },
+        "split_distribution": {
+          "split4": 0.9271844660194175,
+          "split3": 0.07281553398058252
+        },
+        "server_distribution": {
+          "s0": 0.33495145631067963,
+          "s3": 0.6650485436893204
+        },
+        "server_overload_ratio": 0.0425,
+        "no_suitable_block_ratio": 0.495
+      },
+      {
+        "blocking_rate": 0.5575,
+        "success_rate": 0.4425,
+        "avg_reward": -0.28232976481274824,
+        "avg_delay_ms": 10.186926407661284,
+        "deadline_sat_rate": 0.4425,
+        "avg_fs": 2.0141242937853105,
+        "avg_path_len_km": 861.6101694915254,
+        "objective": 0.6358609723666253,
+        "reasons": {
+          "no_suitable_block": 387,
+          "server_overload": 59
+        },
+        "mods": {
+          "QPSK": 72,
+          "16QAM": 114,
+          "BPSK": 168
+        },
+        "splits": {
+          "split4": 172,
+          "split3": 14
+        },
+        "servers": {
+          "s0": 72,
+          "s3": 114
+        },
+        "split_distribution": {
+          "split4": 0.9247311827956989,
+          "split3": 0.07526881720430108
+        },
+        "server_distribution": {
+          "s0": 0.3870967741935484,
+          "s3": 0.6129032258064516
+        },
+        "server_overload_ratio": 0.07375,
+        "no_suitable_block_ratio": 0.48375
+      },
+      {
+        "blocking_rate": 0.53125,
+        "success_rate": 0.46875,
+        "avg_reward": -0.22349966185983688,
+        "avg_delay_ms": 10.378934923685849,
+        "deadline_sat_rate": 0.46875,
+        "avg_fs": 2.0,
+        "avg_path_len_km": 866.7866666666666,
+        "objective": 0.6110879609514296,
+        "reasons": {
+          "no_suitable_block": 385,
+          "server_overload": 40
+        },
+        "mods": {
+          "QPSK": 70,
+          "16QAM": 106,
+          "BPSK": 199
+        },
+        "splits": {
+          "split4": 168,
+          "split3": 8
+        },
+        "servers": {
+          "s0": 70,
+          "s3": 106
+        },
+        "split_distribution": {
+          "split4": 0.9545454545454546,
+          "split3": 0.045454545454545456
+        },
+        "server_distribution": {
+          "s0": 0.3977272727272727,
+          "s3": 0.6022727272727273
+        },
+        "server_overload_ratio": 0.05,
+        "no_suitable_block_ratio": 0.48125
+      },
+      {
+        "blocking_rate": 0.535,
+        "success_rate": 0.465,
+        "avg_reward": -0.23387516078397064,
+        "avg_delay_ms": 10.095697362573409,
+        "deadline_sat_rate": 0.465,
+        "avg_fs": 2.002688172043011,
+        "avg_path_len_km": 867.6747311827957,
+        "objective": 0.612659210481334,
+        "reasons": {
+          "no_suitable_block": 377,
+          "server_overload": 51
+        },
+        "mods": {
+          "QPSK": 79,
+          "16QAM": 119,
+          "BPSK": 174
+        },
+        "splits": {
+          "split4": 188,
+          "split3": 10
+        },
+        "servers": {
+          "s0": 79,
+          "s3": 119
+        },
+        "split_distribution": {
+          "split4": 0.9494949494949495,
+          "split3": 0.050505050505050504
+        },
+        "server_distribution": {
+          "s0": 0.398989898989899,
+          "s3": 0.601010101010101
+        },
+        "server_overload_ratio": 0.06375,
+        "no_suitable_block_ratio": 0.47125
+      }
+    ],
+    "wo": [
+      {
+        "blocking_rate": 0.55125,
+        "success_rate": 0.44875,
+        "avg_reward": -0.26004900344063514,
+        "avg_delay_ms": 11.333228526864541,
+        "deadline_sat_rate": 0.44875,
+        "avg_fs": 2.013927576601671,
+        "avg_path_len_km": 985.6545961002786,
+        "objective": 0.6384286809758811,
+        "reasons": {
+          "no_suitable_block": 423,
+          "server_overload": 18
+        },
+        "mods": {
+          "QPSK": 80,
+          "16QAM": 52,
+          "8QAM": 45,
+          "BPSK": 182
+        },
+        "splits": {
+          "split4": 172,
+          "split3": 5
+        },
+        "servers": {
+          "s0": 30,
+          "s3": 52,
+          "s1": 50,
+          "s2": 45
+        },
+        "split_distribution": {
+          "split4": 0.9717514124293786,
+          "split3": 0.02824858757062147
+        },
+        "server_distribution": {
+          "s0": 0.1694915254237288,
+          "s3": 0.2937853107344633,
+          "s1": 0.2824858757062147,
+          "s2": 0.2542372881355932
+        },
+        "server_overload_ratio": 0.0225,
+        "no_suitable_block_ratio": 0.52875
+      },
+      {
+        "blocking_rate": 0.54375,
+        "success_rate": 0.45625,
+        "avg_reward": -0.24296109366846136,
+        "avg_delay_ms": 11.358140732124511,
+        "deadline_sat_rate": 0.45625,
+        "avg_fs": 2.010958904109589,
+        "avg_path_len_km": 1000.3835616438356,
+        "objective": 0.6311203133240346,
+        "reasons": {
+          "no_suitable_block": 404,
+          "server_overload": 31
+        },
+        "mods": {
+          "QPSK": 92,
+          "16QAM": 59,
+          "8QAM": 55,
+          "BPSK": 159
+        },
+        "splits": {
+          "split4": 191,
+          "split3": 15
+        },
+        "servers": {
+          "s0": 35,
+          "s3": 59,
+          "s1": 58,
+          "s2": 54
+        },
+        "split_distribution": {
+          "split4": 0.9271844660194175,
+          "split3": 0.07281553398058252
+        },
+        "server_distribution": {
+          "s0": 0.16990291262135923,
+          "s3": 0.28640776699029125,
+          "s1": 0.2815533980582524,
+          "s2": 0.2621359223300971
+        },
+        "server_overload_ratio": 0.03875,
+        "no_suitable_block_ratio": 0.505
+      },
+      {
+        "blocking_rate": 0.55625,
+        "success_rate": 0.44375,
+        "avg_reward": -0.2770676435364099,
+        "avg_delay_ms": 11.58730868672407,
+        "deadline_sat_rate": 0.44375,
+        "avg_fs": 2.0140845070422535,
+        "avg_path_len_km": 998.887323943662,
+        "objective": 0.6453831437440314,
+        "reasons": {
+          "no_suitable_block": 392,
+          "server_overload": 53
+        },
+        "mods": {
+          "QPSK": 86,
+          "16QAM": 53,
+          "8QAM": 50,
+          "BPSK": 166
+        },
+        "splits": {
+          "split4": 174,
+          "split3": 15
+        },
+        "servers": {
+          "s0": 32,
+          "s3": 53,
+          "s1": 54,
+          "s2": 50
+        },
+        "split_distribution": {
+          "split4": 0.9206349206349206,
+          "split3": 0.07936507936507936
+        },
+        "server_distribution": {
+          "s0": 0.1693121693121693,
+          "s3": 0.2804232804232804,
+          "s1": 0.2857142857142857,
+          "s2": 0.26455026455026454
+        },
+        "server_overload_ratio": 0.06625,
+        "no_suitable_block_ratio": 0.49
+      },
+      {
+        "blocking_rate": 0.5375,
+        "success_rate": 0.4625,
+        "avg_reward": -0.23850851146570468,
+        "avg_delay_ms": 11.518029592966569,
+        "deadline_sat_rate": 0.4625,
+        "avg_fs": 2.0054054054054054,
+        "avg_path_len_km": 976.3108108108108,
+        "objective": 0.6261002276382044,
+        "reasons": {
+          "no_suitable_block": 392,
+          "server_overload": 38
+        },
+        "mods": {
+          "QPSK": 78,
+          "16QAM": 49,
+          "8QAM": 45,
+          "BPSK": 198
+        },
+        "splits": {
+          "split4": 163,
+          "split3": 9
+        },
+        "servers": {
+          "s0": 30,
+          "s3": 49,
+          "s1": 48,
+          "s2": 45
+        },
+        "split_distribution": {
+          "split4": 0.9476744186046512,
+          "split3": 0.05232558139534884
+        },
+        "server_distribution": {
+          "s0": 0.1744186046511628,
+          "s3": 0.28488372093023256,
+          "s1": 0.27906976744186046,
+          "s2": 0.2616279069767442
+        },
+        "server_overload_ratio": 0.0475,
+        "no_suitable_block_ratio": 0.49
+      },
+      {
+        "blocking_rate": 0.5375,
+        "success_rate": 0.4625,
+        "avg_reward": -0.23730170659441638,
+        "avg_delay_ms": 11.478561112905101,
+        "deadline_sat_rate": 0.4625,
+        "avg_fs": 2.0081081081081082,
+        "avg_path_len_km": 987.0675675675676,
+        "objective": 0.6257966239454238,
+        "reasons": {
+          "no_suitable_block": 380,
+          "server_overload": 50
+        },
+        "mods": {
+          "QPSK": 87,
+          "16QAM": 58,
+          "8QAM": 50,
+          "BPSK": 175
+        },
+        "splits": {
+          "split4": 185,
+          "split3": 10
+        },
+        "servers": {
+          "s0": 34,
+          "s3": 58,
+          "s1": 53,
+          "s2": 50
+        },
+        "split_distribution": {
+          "split4": 0.9487179487179487,
+          "split3": 0.05128205128205128
+        },
+        "server_distribution": {
+          "s0": 0.17435897435897435,
+          "s3": 0.29743589743589743,
+          "s1": 0.2717948717948718,
+          "s2": 0.2564102564102564
+        },
+        "server_overload_ratio": 0.0625,
+        "no_suitable_block_ratio": 0.475
+      }
+    ],
+    "rf": [
+      {
+        "blocking_rate": 0.55125,
+        "success_rate": 0.44875,
+        "avg_reward": -0.26287509023376193,
+        "avg_delay_ms": 11.308574700391102,
+        "deadline_sat_rate": 0.44875,
+        "avg_fs": 2.011142061281337,
+        "avg_path_len_km": 989.3732590529248,
+        "objective": 0.6382390361568546,
+        "reasons": {
+          "no_suitable_block": 417,
+          "server_overload": 24
+        },
+        "mods": {
+          "QPSK": 86,
+          "16QAM": 57,
+          "8QAM": 34,
+          "BPSK": 182
+        },
+        "splits": {
+          "split4": 172,
+          "split3": 5
+        },
+        "servers": {
+          "s0": 39,
+          "s3": 57,
+          "s1": 47,
+          "s2": 34
+        },
+        "split_distribution": {
+          "split4": 0.9717514124293786,
+          "split3": 0.02824858757062147
+        },
+        "server_distribution": {
+          "s0": 0.22033898305084745,
+          "s3": 0.3220338983050847,
+          "s1": 0.2655367231638418,
+          "s2": 0.192090395480226
+        },
+        "server_overload_ratio": 0.03,
+        "no_suitable_block_ratio": 0.52125
+      },
+      {
+        "blocking_rate": 0.5425,
+        "success_rate": 0.4575,
+        "avg_reward": -0.23746106283646362,
+        "avg_delay_ms": 10.97975582639706,
+        "deadline_sat_rate": 0.4575,
+        "avg_fs": 2.010928961748634,
+        "avg_path_len_km": 968.6065573770492,
+        "objective": 0.6269596602030543,
+        "reasons": {
+          "no_suitable_block": 404,
+          "server_overload": 30
+        },
+        "mods": {
+          "QPSK": 88,
+          "16QAM": 78,
+          "8QAM": 42,
+          "BPSK": 158
+        },
+        "splits": {
+          "split4": 193,
+          "split3": 15
+        },
+        "servers": {
+          "s0": 38,
+          "s3": 78,
+          "s1": 50,
+          "s2": 42
+        },
+        "split_distribution": {
+          "split4": 0.9278846153846154,
+          "split3": 0.07211538461538461
+        },
+        "server_distribution": {
+          "s0": 0.18269230769230768,
+          "s3": 0.375,
+          "s1": 0.2403846153846154,
+          "s2": 0.20192307692307693
+        },
+        "server_overload_ratio": 0.0375,
+        "no_suitable_block_ratio": 0.505
+      },
+      {
+        "blocking_rate": 0.5575,
+        "success_rate": 0.4425,
+        "avg_reward": -0.2817886308783422,
+        "avg_delay_ms": 11.453571322199629,
+        "deadline_sat_rate": 0.4425,
+        "avg_fs": 2.016949152542373,
+        "avg_path_len_km": 992.7118644067797,
+        "objective": 0.645604394786151,
+        "reasons": {
+          "no_suitable_block": 388,
+          "server_overload": 58
+        },
+        "mods": {
+          "QPSK": 88,
+          "16QAM": 63,
+          "8QAM": 36,
+          "BPSK": 167
+        },
+        "splits": {
+          "split4": 171,
+          "split3": 16
+        },
+        "servers": {
+          "s0": 38,
+          "s3": 63,
+          "s1": 50,
+          "s2": 36
+        },
+        "split_distribution": {
+          "split4": 0.9144385026737968,
+          "split3": 0.0855614973262032
+        },
+        "server_distribution": {
+          "s0": 0.20320855614973263,
+          "s3": 0.33689839572192515,
+          "s1": 0.26737967914438504,
+          "s2": 0.1925133689839572
+        },
+        "server_overload_ratio": 0.0725,
+        "no_suitable_block_ratio": 0.485
+      },
+      {
+        "blocking_rate": 0.5375,
+        "success_rate": 0.4625,
+        "avg_reward": -0.23784195852998494,
+        "avg_delay_ms": 11.316577771633604,
+        "deadline_sat_rate": 0.4625,
+        "avg_fs": 2.0054054054054054,
+        "avg_path_len_km": 958.081081081081,
+        "objective": 0.6245505982433354,
+        "reasons": {
+          "no_suitable_block": 392,
+          "server_overload": 38
+        },
+        "mods": {
+          "QPSK": 76,
+          "16QAM": 60,
+          "8QAM": 36,
+          "BPSK": 198
+        },
+        "splits": {
+          "split4": 164,
+          "split3": 8
+        },
+        "servers": {
+          "s0": 34,
+          "s3": 60,
+          "s1": 42,
+          "s2": 36
+        },
+        "split_distribution": {
+          "split4": 0.9534883720930233,
+          "split3": 0.046511627906976744
+        },
+        "server_distribution": {
+          "s0": 0.19767441860465115,
+          "s3": 0.3488372093023256,
+          "s1": 0.2441860465116279,
+          "s2": 0.20930232558139536
+        },
+        "server_overload_ratio": 0.0475,
+        "no_suitable_block_ratio": 0.49
+      },
+      {
+        "blocking_rate": 0.535,
+        "success_rate": 0.465,
+        "avg_reward": -0.23192809527285838,
+        "avg_delay_ms": 11.325471515246273,
+        "deadline_sat_rate": 0.465,
+        "avg_fs": 2.002688172043011,
+        "avg_path_len_km": 982.1102150537635,
+        "objective": 0.6221190116557406,
+        "reasons": {
+          "no_suitable_block": 379,
+          "server_overload": 49
+        },
+        "mods": {
+          "QPSK": 92,
+          "16QAM": 70,
+          "8QAM": 34,
+          "BPSK": 176
+        },
+        "splits": {
+          "split4": 187,
+          "split3": 9
+        },
+        "servers": {
+          "s0": 43,
+          "s3": 70,
+          "s1": 49,
+          "s2": 34
+        },
+        "split_distribution": {
+          "split4": 0.9540816326530612,
+          "split3": 0.04591836734693878
+        },
+        "server_distribution": {
+          "s0": 0.2193877551020408,
+          "s3": 0.35714285714285715,
+          "s1": 0.25,
+          "s2": 0.17346938775510204
+        },
+        "server_overload_ratio": 0.06125,
+        "no_suitable_block_ratio": 0.47375
+      }
+    ]
+  },
+  "args": {
+    "topology": "snap24_gnutella_reach",
+    "num_servers": 4,
+    "num_slots": 24,
+    "slot_bw_hz": 1250000000.0,
+    "guard_band_fs": 1,
+    "modulation_profile": "default",
+    "src_node": 16,
+    "requests_per_episode": 80,
+    "arrival_interval": 0.25,
+    "holding_min": 4.0,
+    "holding_max": 10.0,
+    "deadline_min": 40.0,
+    "deadline_max": 120.0,
+    "size_min_mb": 1.0,
+    "size_max_mb": 8.0,
+    "edge_cost_min": 0.5,
+    "edge_cost_max": 15.0,
+    "num_splits": 5,
+    "split_profile": "complex5_v2_lite",
+    "waste_coef": 0.8,
+    "frozen_r_checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/checkpoints/ppo_r_deeprmsa_bc_snap24_best.pt",
+    "original_c_ckpt": "/mnt/d/project/DNN_Agent/sa_hmarl/checkpoints/agent_c_frozen_r_snap24_reach_best.pt",
+    "pressure_c_ckpt": "sa_hmarl/checkpoints/agent_c_pressureaware_snap24_best.pt",
+    "top_k": 3,
+    "pressure_alpha": 2.0,
+    "seed": 42,
+    "device": "cpu",
+    "episodes_per_seed": 10,
+    "output_dir": "experiments/results/c_pressure_eval_final"
+  }
+}

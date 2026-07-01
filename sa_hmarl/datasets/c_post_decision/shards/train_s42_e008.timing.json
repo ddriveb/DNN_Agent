@@ -1,0 +1,8 @@
+{
+  "split": "train",
+  "seed": 42,
+  "episode": 8,
+  "groups": 80,
+  "candidates": 212,
+  "generation_seconds": 9.522247552871704
+}

@@ -1,7 +1,7 @@
 # Project TODO — Prioritized Action Plan
 
-> **Last updated**: 2026-05-09  
-> **Current focus**: Complete Phase F (Yin 2024 protocol sim), then paper polish
+> **Last updated**: 2026-06-28  
+> **Current focus**: SA-HMARL ranking experiments complete. Accept v1.2 static ranker as the final method. Remaining work is paper drafting/figure generation.
 
 ---
 
@@ -30,6 +30,42 @@
 | P0.2.4 Analyze results | Compare vs baselines; if gap is large, plan fine-tuning | 1 hr |
 
 **Expected outcome**: Either (a) zero-shot works → strong generalization story, or (b) gap is large → need fine-tuning data collection.
+
+### P0.3 SA-HMARL Counterfactual Ranking & C-Side Bottleneck Diagnosis
+**Goal**: Determine whether the 0.64 pp gap between the v1 R-ranker (33.45%) and the frozen DeepRMSA teacher (32.81%) is due to R-action selection, C-side return weights, or C-side downstream survivability.
+
+| Subtask | Details | Status |
+|---------|---------|--------|
+| P0.3.1 Train v1 R-ranker | `train_r_counterfactual_ranking.py` with frozen PPO-C + PPO-R | ✅ Done |
+| P0.3.2 Return-weight sweep | v1.1 sweep: no_fs, weak_fs, stronger_block, stronger_nsb | ✅ Done — all FAIL |
+| P0.3.3 C-side look-ahead rerank sweep | `run_c_lookahead_rerank_sweep.py`: top_k_c, λ, β | ✅ Done — FAIL |
+| P0.3.4 Hard-case mining | Find states where ranker blocks but DeepRMSA succeeds | ✅ Done — 0 hard cases |
+| P0.3.5 C-side downstream survivability diagnostic | 3 seeds × 5 eps × 80 req × 16 probes | ✅ Done — **FAIL** |
+| P0.3.6 Trajectory-level divergence diagnosis | Same trace → v1 vs DeepRMSA → align per request → find first divergence and time-to-block | ✅ Done — R-action at request 0, long-term effect |
+| P0.3.7 Run inference-time resource-penalty sweep | λ_path / λ_fs on frozen v1 ranker, no retraining | ✅ Done — mixed_mid 32.40% beats DeepRMSA |
+| P0.3.8 Train v1.2 R-ranker | Bake path/FS preference into return/loss (resource penalty in dataset label) | ✅ Done |
+| P0.3.9 Evaluate v1.2 vs resource-regularized v1 | 5-seed × 20-episode eval; keep the better as final method | ✅ Done |
+
+**Final method**: **v1.2_mixed_low** (or v1.2_fs if optimizing only blocking). The resource preference has been internalized; no inference-time penalty needed.
+
+**Key findings**:
+- v1 R-ranker beats frozen PPO-R by **5.05 pp**, but still trails DeepRMSA by **~0.3–0.6 pp** depending on seed set.
+- Return-weight tuning, C-side reranking, and downstream survivability do **not** explain the gap.
+- PPO-C already selects the candidate with the best downstream survivability 98.79% of the time.
+- Oracle-Phi closed-loop gain is only **0.42 pp**, so a C-ranker is unlikely to help.
+- **Trajectory diagnosis**: first divergence is an **R-action choice at request index 0 in 30/30 episodes**. DeepRMSA systematically picks shorter paths (−104 km) and slightly fewer FS (−0.43), while v1 ranker takes longer paths. The blocking impact appears with a median delay of **12 requests**.
+
+**Decision**: The inference-time penalty sweep **passed**. `mixed_mid` (λ_path=0.10, λ_fs=0.05) reaches **32.40%** blocking, beating both v1 baseline (33.45%) and DeepRMSA (32.81%).
+
+**Next step — train v1.2**:
+- Option A (recommended): modify the counterfactual ranking label to include a soft penalty for path_km / required_fs, then retrain the listwise ranker. This bakes the preference into the model so inference remains a single forward pass.
+- Option B: keep the inference-time penalty as a runtime heuristic and declare v1 + penalty as the final method. Simpler, but slightly slower and adds two hyperparameters.
+- Not recommended: DeepRMSA imitation or joint online fine-tuning.
+
+**Acceptance criteria for v1.2**:
+- Blocking ≤ 32.5% on the standard 5-seed × 20-episode eval.
+- Avg path km and avg FS both decrease vs v1 baseline.
+- NSB and overload do not materially worsen.
 
 ---
 

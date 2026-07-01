@@ -1,0 +1,61 @@
+{
+  "config": {
+    "summary_json": "sa_hmarl/experiments/v12_split_pressure_grid_ext1_summary.json",
+    "scenario_id": "snap24_gnutella_reach_s24_default3_ai0p09_sz30p0_h14p0",
+    "top_n": 2,
+    "include_fail": false,
+    "seeds": [
+      3030,
+      4040,
+      5050,
+      6060,
+      7070
+    ],
+    "episodes": 20,
+    "requests_per_episode": 80,
+    "methods": "ppo_r,counterfactual_rank_only,deep_rmsa,ksp_bf",
+    "topology": "snap24_gnutella_reach",
+    "num_slots": 24,
+    "num_servers": 4,
+    "k_paths": 5,
+    "max_blocks": 10,
+    "block_sort_strategy": "mixed",
+    "device": "cpu",
+    "output_dir": "sa_hmarl/experiments/v12_formal_validation_default3",
+    "agent_c_checkpoint": "sa_hmarl/checkpoints/agent_c_delayaware_v2_snap24_best.pt",
+    "agent_r_checkpoint": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+    "ranking_checkpoint": "sa_hmarl/checkpoints/r_counterfactual_ranking_v1_2_mixed_low/ranking_model.pt",
+    "supervised_checkpoint": "sa_hmarl/checkpoints/r_post_decision_h3_formal/c_post_decision_joint.pt",
+    "deep_rmsa_checkpoint": "sa_hmarl/checkpoints/deep_rmsa_snap24_k5m10_ai015_h4_10_s5_30.pt",
+    "holding_min": 4.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "edge_cost_min": 0.5,
+    "edge_cost_max": 15.0,
+    "modulation_profile": "default"
+  },
+  "rows": [
+    {
+      "scenario_id": "snap24_gnutella_reach_s24_default3_ai0p09_sz30p0_h14p0",
+      "split_profile": "default3",
+      "num_splits": 3,
+      "arrival_interval": 0.09,
+      "size_max_mb": 30.0,
+      "holding_max": 14.0,
+      "v12_blocking_mean": 0.53925,
+      "v12_blocking_std": 0.059039181904901095,
+      "deep_blocking_mean": 0.549375,
+      "deep_blocking_std": 0.05822068736712064,
+      "deep_minus_v12_pp_mean": 1.0125000000000006,
+      "deep_minus_v12_pp_pvalue": 0.0020292584006280446,
+      "v12_delay": 8.359525863979309,
+      "deep_delay": 8.40538812975814,
+      "delay_delta_ms": -0.04586226577883146,
+      "v12_overload": 0.08049999999999999,
+      "deep_overload": 0.0745,
+      "overload_delta_pp": 0.5999999999999992,
+      "formal_json": "sa_hmarl/experiments/v12_formal_validation_default3/snap24_gnutella_reach_s24_default3_ai0p09_sz30p0_h14p0_formal.json"
+    }
+  ]
+}

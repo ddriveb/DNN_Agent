@@ -1,0 +1,45 @@
+# SA-HMARL Network Configuration
+
+# Topology settings
+topology:
+  name: "nsfnet"        # nsfnet | usnet | net1 | net2 | net3
+  num_slots: 128        # Total FS per link
+  seed: 42
+
+# Modulation formats
+modulation:
+  slot_bandwidth_hz: 12.5e9   # 12.5 GHz per slot
+  formats:
+    - name: "BPSK"
+      reach_km: 4000.0
+      spectral_efficiency: 1.0
+    - name: "QPSK"
+      reach_km: 2000.0
+      spectral_efficiency: 2.0
+    - name: "8QAM"
+      reach_km: 1000.0
+      spectral_efficiency: 3.0
+    - name: "16QAM"
+      reach_km: 500.0
+      spectral_efficiency: 4.0
+
+# KSP settings
+ksp:
+  k: 3                    # Number of candidate shortest paths
+
+# Agent-R spectrum block settings
+spectrum_blocks:
+  max_candidates: 5       # B: max candidate blocks per path-mod combo
+  sort_by: "size_desc"    # size_desc | waste_asc | start_asc | center_asc
+
+# FS demand calculation
+fs_demand:
+  prop_speed_km_s: 2.0e5
+  proc_per_hop_s: 1.0e-3
+  setup_time_s: 0.5e-3
+  min_transmit_time_s: 1.0e-6
+  guard_band_fs: 0
+
+# Action mask thresholds
+mask:
+  server_util_threshold: 0.95
