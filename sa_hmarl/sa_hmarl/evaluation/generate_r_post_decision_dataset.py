@@ -65,6 +65,20 @@ FEATURE_NAMES = (
     R_BASE_FEATURE_NAMES + R_CONTEXT_FEATURE_NAMES
     + R_FIELD_FEATURE_NAMES + R_ACTION_FEATURE_NAMES
 )
+STRUCTURAL_SCALAR_FEATURE_NAMES = (
+    "block_start_norm",
+    "block_end_norm",
+    "block_center_norm",
+)
+
+
+def structured_feature_names(env) -> List[str]:
+    """Return v1.2 feature names plus topology-specific structural fields."""
+    edge_names = [
+        f"edge_{min(int(u), int(v))}_{max(int(u), int(v))}"
+        for u, v in sorted(env.net.G.edges())
+    ]
+    return list(FEATURE_NAMES) + list(STRUCTURAL_SCALAR_FEATURE_NAMES) + edge_names
 
 
 def _atomic_save_npz(path: Path, **arrays: np.ndarray) -> None:
@@ -97,6 +111,7 @@ def _rank_desc(values: np.ndarray) -> np.ndarray:
 def _r_feature_vector(
     env, req, obs_c: Dict[str, Any], obs_r: Dict[str, Any],
     r_features: np.ndarray, r_action_idx: int, split_id: int, server_id: int,
+    feature_names: Iterable[str] = None,
 ) -> np.ndarray:
     num_paths = max(len(obs_r["candidate_paths"]), 1)
     num_mods = max(len(obs_r["mod_names"]), 1)
@@ -133,11 +148,49 @@ def _r_feature_vector(
         mod_idx / max(num_mods - 1, 1),
         block_idx / max(max_blocks - 1, 1),
     ], dtype=np.float32)
-    vector = np.concatenate([
+    base_vector = np.concatenate([
         np.asarray(r_features[r_action_idx], dtype=np.float32),
         context, field, action,
     ]).astype(np.float32)
-    if vector.shape != (len(FEATURE_NAMES),) or not np.all(np.isfinite(vector)):
+
+    if feature_names is None:
+        feature_names = FEATURE_NAMES
+    feature_names = list(feature_names)
+
+    if tuple(feature_names) == tuple(FEATURE_NAMES):
+        vector = base_vector
+    else:
+        feature_values = {
+            name: float(value)
+            for name, value in zip(FEATURE_NAMES, base_vector.tolist())
+        }
+
+        blocks = obs_r["candidate_blocks_per_path_mod"][path_idx][mod_idx]
+        if block_idx < len(blocks):
+            block_start = float(blocks[block_idx][0])
+            block_size = float(blocks[block_idx][1])
+            block_end = block_start + block_size
+        else:
+            block_start = block_size = block_end = 0.0
+        num_slots = max(float(obs_r.get("num_slots", env.net.num_slots)), 1.0)
+        feature_values.update({
+            "block_start_norm": block_start / num_slots,
+            "block_end_norm": block_end / num_slots,
+            "block_center_norm": (block_start + 0.5 * block_size) / num_slots,
+        })
+
+        path = obs_r["candidate_paths"][path_idx] if path_idx < len(obs_r["candidate_paths"]) else []
+        path_edges = {
+            (min(int(u), int(v)), max(int(u), int(v)))
+            for u, v in zip(path[:-1], path[1:])
+        }
+        for u, v in sorted(env.net.G.edges()):
+            key = (min(int(u), int(v)), max(int(u), int(v)))
+            feature_values[f"edge_{key[0]}_{key[1]}"] = 1.0 if key in path_edges else 0.0
+
+        vector = np.asarray([feature_values.get(name, 0.0) for name in feature_names], dtype=np.float32)
+
+    if vector.shape != (len(feature_names),) or not np.all(np.isfinite(vector)):
         raise ValueError("Invalid R post-decision feature vector")
     return vector
 

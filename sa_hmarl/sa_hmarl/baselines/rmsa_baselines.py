@@ -29,6 +29,61 @@ def ksp_ff_action(obs: Dict[str, Any]) -> Optional[int]:
     return int(valid[0])
 
 
+def ksp_ff_highest_mod_action(obs: Dict[str, Any]) -> Optional[int]:
+    """Path-ordered KSP-FF with highest feasible modulation.
+
+    This is the stronger EON-style heuristic used for tuned comparisons:
+    scan candidate paths in their provided order, choose the feasible modulation
+    requiring the fewest FS on that path, then choose the lowest-start-slot
+    feasible block (First-Fit).  It assumes the observation's block list is
+    ordered by ``start_asc``; it still checks block starts defensively.
+    """
+    mask = np.asarray(obs["agent_r_mask"], dtype=bool)
+    valid = np.flatnonzero(mask)
+    if len(valid) == 0:
+        return None
+
+    num_paths = len(obs["candidate_paths"])
+    num_mods = len(obs["mod_names"])
+    if num_paths == 0 or num_mods == 0:
+        return None
+    num_blocks = len(mask) // (num_paths * num_mods)
+
+    for path_idx in range(num_paths):
+        best_mod = None
+        best_req_fs = float("inf")
+        for mod_idx in range(num_mods):
+            req_fs = obs["required_fs_per_path_mod"][path_idx][mod_idx]
+            if req_fs is None or req_fs <= 0:
+                continue
+            start = path_idx * num_mods * num_blocks + mod_idx * num_blocks
+            end = start + num_blocks
+            if not mask[start:end].any():
+                continue
+            # Smaller FS demand corresponds to the highest feasible modulation.
+            if float(req_fs) < best_req_fs:
+                best_req_fs = float(req_fs)
+                best_mod = mod_idx
+
+        if best_mod is None:
+            continue
+
+        start = path_idx * num_mods * num_blocks + best_mod * num_blocks
+        blocks = obs["candidate_blocks_per_path_mod"][path_idx][best_mod]
+        valid_blocks = []
+        for block_idx in range(num_blocks):
+            action_idx = start + block_idx
+            if not mask[action_idx]:
+                continue
+            block_start = blocks[block_idx][0] if block_idx < len(blocks) else block_idx
+            valid_blocks.append((block_start, block_idx, action_idx))
+        if valid_blocks:
+            valid_blocks.sort(key=lambda item: (item[0], item[1]))
+            return int(valid_blocks[0][2])
+
+    return None
+
+
 def ksp_bf_action(obs: Dict[str, Any]) -> Optional[int]:
     """Select the valid action with minimum block waste (Best-Fit).
 

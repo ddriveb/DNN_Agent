@@ -1,0 +1,171 @@
+{
+  "dataset": "sa_hmarl/datasets/test_structured_legalctx48",
+  "checkpoint": "sa_hmarl/checkpoints/test_structured_legalctx48_st/ranking_model.pt",
+  "best_val_top1": 0.05,
+  "selection_metric": "kl",
+  "best_selection_score": -0.005625810939818621,
+  "test_metrics": {
+    "top1_accuracy": 0.3,
+    "top3_accuracy": 1.0,
+    "spearman_mean": 0.0,
+    "model_regret_mean": 0.0,
+    "ppo_regret_mean": 0.0,
+    "ppo_agreement": 0.3,
+    "score_std": 0.05369638279080391,
+    "kl": 5.582869052886963e-05
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train": {
+        "top1_accuracy": 0.016666666666666666,
+        "top3_accuracy": 0.3333333333333333,
+        "spearman_mean": -0.12313529403498218,
+        "model_regret_mean": 0.004227782785892487,
+        "ppo_regret_mean": 0.004547100762526194,
+        "ppo_agreement": 0.0,
+        "score_std": 0.040316469967365265,
+        "kl": 0.0005485223994279901,
+        "loss": 0.027243526885285974
+      },
+      "val": {
+        "top1_accuracy": 0.5,
+        "top3_accuracy": 0.5,
+        "spearman_mean": -0.23401491124494866,
+        "model_regret_mean": 0.000898374617099762,
+        "ppo_regret_mean": 0.001259070634841919,
+        "ppo_agreement": 0.3,
+        "score_std": 0.13086816668510437,
+        "kl": 0.008693646639585495
+      }
+    },
+    {
+      "epoch": 2,
+      "train": {
+        "top1_accuracy": 0.06666666666666667,
+        "top3_accuracy": 0.36666666666666664,
+        "spearman_mean": -0.08589276093609222,
+        "model_regret_mean": 0.004904212057590484,
+        "ppo_regret_mean": 0.004547100762526194,
+        "ppo_agreement": 0.016666666666666666,
+        "score_std": 0.05071771517395973,
+        "kl": 0.000517249390638123,
+        "loss": 0.022384620155207813
+      },
+      "val": {
+        "top1_accuracy": 0.5,
+        "top3_accuracy": 0.5,
+        "spearman_mean": -0.24668817032200618,
+        "model_regret_mean": 0.000898374617099762,
+        "ppo_regret_mean": 0.001259070634841919,
+        "ppo_agreement": 0.3,
+        "score_std": 0.12388259917497635,
+        "kl": 0.007722950726747513
+      }
+    },
+    {
+      "epoch": 3,
+      "train": {
+        "top1_accuracy": 0.03333333333333333,
+        "top3_accuracy": 0.2833333333333333,
+        "spearman_mean": -0.11146783170881717,
+        "model_regret_mean": 0.005790355304876964,
+        "ppo_regret_mean": 0.004547100762526194,
+        "ppo_agreement": 0.016666666666666666,
+        "score_std": 0.06966274976730347,
+        "kl": 0.0005074751912616194,
+        "loss": 0.020004781719762832
+      },
+      "val": {
+        "top1_accuracy": 0.5,
+        "top3_accuracy": 0.5,
+        "spearman_mean": -0.24720829259940527,
+        "model_regret_mean": 0.000898374617099762,
+        "ppo_regret_mean": 0.001259070634841919,
+        "ppo_agreement": 0.3,
+        "score_std": 0.1169925406575203,
+        "kl": 0.00674123726785183
+      }
+    },
+    {
+      "epoch": 4,
+      "train": {
+        "top1_accuracy": 0.03333333333333333,
+        "top3_accuracy": 0.23333333333333334,
+        "spearman_mean": -0.0876599073975179,
+        "model_regret_mean": 0.005771434307098389,
+        "ppo_regret_mean": 0.004547100762526194,
+        "ppo_agreement": 0.016666666666666666,
+        "score_std": 0.09080465883016586,
+        "kl": 0.0004327209705176453,
+        "loss": 0.021569168311543763
+      },
+      "val": {
+        "top1_accuracy": 0.05,
+        "top3_accuracy": 0.5,
+        "spearman_mean": -0.2319163533437139,
+        "model_regret_mean": 0.000898374617099762,
+        "ppo_regret_mean": 0.001259070634841919,
+        "ppo_agreement": 0.05,
+        "score_std": 0.11197394877672195,
+        "kl": 0.005980472732335329
+      }
+    },
+    {
+      "epoch": 5,
+      "train": {
+        "top1_accuracy": 0.03333333333333333,
+        "top3_accuracy": 0.18333333333333332,
+        "spearman_mean": -0.11481109568556508,
+        "model_regret_mean": 0.006170044839382172,
+        "ppo_regret_mean": 0.004547100762526194,
+        "ppo_agreement": 0.03333333333333333,
+        "score_std": 0.126442551612854,
+        "kl": 0.0005003695531437794,
+        "loss": 0.041589208878576756
+      },
+      "val": {
+        "top1_accuracy": 0.05,
+        "top3_accuracy": 0.5,
+        "spearman_mean": -0.21651527973280074,
+        "model_regret_mean": 0.000898374617099762,
+        "ppo_regret_mean": 0.001259070634841919,
+        "ppo_agreement": 0.05,
+        "score_std": 0.11101827025413513,
+        "kl": 0.005625810939818621
+      }
+    }
+  ],
+  "config": {
+    "dataset_dir": "sa_hmarl/datasets/test_structured_legalctx48",
+    "output_dir": "sa_hmarl/checkpoints/test_structured_legalctx48_st",
+    "model_type": "set_transformer",
+    "selection_metric": "kl",
+    "hidden_dims": [
+      128,
+      64
+    ],
+    "dropout": 0.0,
+    "epochs": 5,
+    "batch_size": 8,
+    "eval_batch_size": 16,
+    "lr": 0.0003,
+    "weight_decay": 1e-05,
+    "max_grad_norm": 1.0,
+    "tau_label": 0.5,
+    "tau_model": 1.0,
+    "reg_weight": 0.1,
+    "feature_std_floor": 0.05,
+    "patience": 15,
+    "min_delta": 0.0001,
+    "seed": 42,
+    "device": "cpu",
+    "log_every": 5,
+    "balanced_sampler": true,
+    "balance_alpha": 1.0,
+    "balance_beta": 1.0,
+    "balance_gamma": 1.0,
+    "_start_time": 1782905531.1440856
+  },
+  "elapsed_seconds": 13.3956880569458
+}

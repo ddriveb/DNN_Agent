@@ -16,6 +16,7 @@ import numpy as np
 from sa_hmarl.evaluation.generate_r_post_decision_dataset import (
     FEATURE_NAMES,
     _r_feature_vector,
+    structured_feature_names,
 )
 
 
@@ -28,10 +29,12 @@ def build_r_ranker_feature(
     r_action_idx: int,
     split_id: int,
     server_id: int,
+    feature_names: Iterable[str] = None,
 ) -> np.ndarray:
     """为单个 R 候选动作构造 v1.2 的标准 planner-distillation 特征。"""
     return _r_feature_vector(
-        env, req, obs_c, obs_r, r_features, int(r_action_idx), split_id, server_id
+        env, req, obs_c, obs_r, r_features, int(r_action_idx), split_id, server_id,
+        feature_names=feature_names,
     )
 
 
@@ -44,11 +47,21 @@ def build_r_ranker_feature_batch(
     action_indices: Iterable[int],
     split_id: int,
     server_id: int,
+    feature_names: Iterable[str] = None,
 ) -> np.ndarray:
     """为同一个决策状态下的一组合法 R 候选动作构造特征矩阵。"""
     return np.stack([
         build_r_ranker_feature(
-            env, req, obs_c, obs_r, r_features, int(action_idx), split_id, server_id
+            env, req, obs_c, obs_r, r_features, int(action_idx), split_id, server_id,
+            feature_names=feature_names,
         )
         for action_idx in action_indices
     ]).astype(np.float32)
+
+
+__all__ = [
+    "FEATURE_NAMES",
+    "structured_feature_names",
+    "build_r_ranker_feature",
+    "build_r_ranker_feature_batch",
+]

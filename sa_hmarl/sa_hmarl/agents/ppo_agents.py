@@ -1,8 +1,7 @@
-"""Agent-C 和 Agent-R 使用的 masked PPO actor。
+"""Masked PPO actors for Agent-C and Agent-R.
 
-这些 actor 复用已有“每个候选动作一条特征向量”的设计，但不再像
-DQN 那样取 Q 值 argmax，而是在合法动作 mask 上构造 categorical
-policy，用 PPO 更新策略。
+These actors keep the existing variable-length action feature design but use a
+categorical policy over masked valid actions instead of DQN argmax scores.
 """
 from __future__ import annotations
 
@@ -27,10 +26,9 @@ ACTIVATION_MAP = {
 
 
 class MaskedPPOActorNetwork(nn.Module):
-    """共享 MLP：对每个候选动作独立输出一个 policy logit。"""
+    """Shared MLP producing one policy logit per candidate action."""
 
     def __init__(self, input_dim: int, hidden_dims=(128, 64), activation: str = "tanh"):
-        """创建普通 masked PPO actor 的候选动作打分网络。"""
         super().__init__()
         act_fn = ACTIVATION_MAP.get(activation, nn.Tanh)
         layers = []
@@ -42,26 +40,26 @@ class MaskedPPOActorNetwork(nn.Module):
         self.net = nn.Sequential(*layers)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        """输入 ``(batch, num_actions, input_dim)``，输出每个动作的 logit。"""
         batch_size, num_actions, input_dim = x.shape
         return self.net(x.reshape(-1, input_dim)).view(batch_size, num_actions)
 
 
 class GatedMaskedPPOActorNetwork(nn.Module):
-    """带门控的 PPO actor，用于学习何时使用 mean-field 特征。
+    """Gated shared MLP that learns when to use mean-field features.
 
-    结构：
+    Architecture:
         h_base = base_encoder(x_base)
         h_mf   = mf_encoder(x_mf)
         gate   = sigmoid(gate_net(concat(x_base, x_mf)))   # scalar per action
         h      = h_base + gate * h_mf
         logit  = output_head(h)
 
-    gate 初始接近 0，因此网络默认更信任基础特征；只有当 mean-field
-    对动作选择有帮助时，训练才会学会打开 gate。
+    The scalar gate is initialized near 0 (bias = -2.0 => sigmoid(-2) ~ 0.12)
+    so the network defaults to base features and must learn to open the gate
+    when mean-field information is useful.
 
-    输入向量格式是 ``[x_base, x_mf]``，和 AgentC.build_action_features
-    中的拼接方式一致。
+    The input tensor is the concatenation [x_base, x_mf] along the last axis,
+    matching the existing feature construction in AgentC.build_action_features.
     """
 
     def __init__(
@@ -72,7 +70,6 @@ class GatedMaskedPPOActorNetwork(nn.Module):
         activation: str = "tanh",
         gate_init_bias: float = -2.0,
     ):
-        """创建基础特征编码器、mean-field 编码器和逐动作 gate。"""
         super().__init__()
         self.base_dim = base_dim
         self.mf_dim = mf_dim
@@ -109,7 +106,6 @@ class GatedMaskedPPOActorNetwork(nn.Module):
         self.output_head = nn.Linear(hidden_dims[-1], 1)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        """返回门控融合后的每个候选动作 logit。"""
         batch_size, num_actions, total_dim = x.shape
         x = x.reshape(-1, total_dim)
         x_base = x[..., : self.base_dim]
@@ -126,9 +122,9 @@ class GatedMaskedPPOActorNetwork(nn.Module):
     def forward_with_gate(
         self, x: torch.Tensor
     ) -> Tuple[torch.Tensor, torch.Tensor]:
-        """同时返回 policy logits 和每个动作的 gate 值。
+        """Return policy logits and per-action scalar gate values.
 
-        gate 形状为 ``(batch_size, num_actions)``，取值范围是 ``[0, 1]``。
+        Gate shape: (batch_size, num_actions).  Values in [0, 1].
         """
         batch_size, num_actions, total_dim = x.shape
         x = x.reshape(-1, total_dim)
@@ -146,7 +142,7 @@ class GatedMaskedPPOActorNetwork(nn.Module):
 
 
 class _MaskedPPOBase:
-    """C/R 两端共用的 masked categorical PPO actor 基类。"""
+    """Common masked categorical PPO actor logic."""
 
     def __init__(
         self,
@@ -160,7 +156,6 @@ class _MaskedPPOBase:
         policy_net: Optional[nn.Module] = None,
         gate_reg_coef: float = 0.0,
     ):
-        """初始化 PPO actor 网络、优化器和通用训练超参数。"""
         self.input_dim = input_dim
         self.hidden_dims = tuple(hidden_dims)
         self.entropy_coef = entropy_coef
@@ -180,7 +175,6 @@ class _MaskedPPOBase:
         features: np.ndarray,
         mask: np.ndarray,
     ) -> Optional[torch.distributions.Categorical]:
-        """把候选动作特征和合法 mask 转成 masked categorical 分布。"""
         if len(mask) == 0 or not np.any(mask) or features.size == 0:
             return None
         x = torch.tensor(features, dtype=torch.float32, device=self.device).unsqueeze(0)
@@ -194,7 +188,6 @@ class _MaskedPPOBase:
         mask: np.ndarray,
         deterministic: bool = False,
     ) -> Tuple[Optional[int], float, float]:
-        """从 masked policy 中选择动作，并返回动作、log_prob 和 entropy。"""
         dist = self._distribution_from_features(features, mask)
         if dist is None:
             return None, 0.0, 0.0
@@ -207,7 +200,7 @@ class _MaskedPPOBase:
         return int(action_t.item()), float(log_prob.item()), float(entropy.item())
 
     def _pad_features_masks(self, features_list, masks_list):
-        """把不同长度的候选动作集合 padding 成统一 batch tensor。"""
+        """Pad variable-length action features to a uniform batch tensor."""
         max_actions = max(len(m) for m in masks_list)
         padded_features = []
         padded_masks = []
@@ -229,7 +222,6 @@ class _MaskedPPOBase:
         return features_t, masks_t
 
     def _log_probs_entropy_batch(self, features_list, masks_list, actions):
-        """批量计算旧 rollout 动作在当前策略下的 log_prob 和 entropy。"""
         features_t, masks_t = self._pad_features_masks(features_list, masks_list)
         actions_t = torch.tensor(actions, dtype=torch.long, device=self.device)
 
@@ -238,9 +230,9 @@ class _MaskedPPOBase:
         return dist.log_prob(actions_t), dist.entropy()
 
     def _gate_binary_loss(self, features_list, masks_list) -> torch.Tensor:
-        """鼓励 gate 接近 0 或 1，而不是长期停在 0.5 附近。
+        """Encourage scalar gates to be near 0 or 1, not 0.5.
 
-        非 gated policy 返回 0，不影响普通 PPO actor。
+        Returns 0 for non-gated policies.
         """
         if self.gate_reg_coef <= 0.0:
             return torch.tensor(0.0, device=self.device)
@@ -267,12 +259,6 @@ class _MaskedPPOBase:
         reference_policy: Optional[MaskedPPOActorNetwork] = None,
         ref_kl_coef: float = 0.0,
     ) -> Tuple[float, float, float, float]:
-        """执行一次 full-batch PPO actor 更新。
-
-        输入来自当前 on-policy rollout：旧 log_prob、advantage 和动作。
-        该函数只更新 actor，不访问 critic；如果提供 reference_policy，
-        会额外加入 KL(reference || current) 正则，常用于限制 R 端遗忘。
-        """
         old_log_probs_t = torch.tensor(old_log_probs, dtype=torch.float32, device=self.device)
         advantages_t = torch.tensor(advantages, dtype=torch.float32, device=self.device)
 
@@ -346,7 +332,7 @@ class _MaskedPPOBase:
 
 
 class PPOAgentC(_MaskedPPOBase):
-    """高层 Agent-C 的 PPO actor，负责选择 ``(split, server)``。"""
+    """PPO actor for high-level split/server selection."""
 
     def __init__(
         self,
@@ -364,7 +350,6 @@ class PPOAgentC(_MaskedPPOBase):
         gate_reg_coef: float = 0.0,
         fixed_blend_alpha: float = 0.5,
     ):
-        """根据 C 端 feature_mode 自动确定输入维度并创建 PPO-C。"""
         if ablation and zero_spectrum:
             raise ValueError("Cannot use both ablation and zero_spectrum")
         if ablation and feature_mode in ("mean_field", "typed_mean_field", "gated_typed_mean_field"):
@@ -456,11 +441,9 @@ class PPOAgentC(_MaskedPPOBase):
         )
 
     def build_action_features(self, obs: Dict[str, Any]) -> Tuple[np.ndarray, np.ndarray]:
-        """把 C 端 observation 转成每个 ``split/server`` 候选的特征和 mask。"""
         return AgentC.build_action_features(self, obs)
 
     def select_action(self, obs: Dict[str, Any], deterministic: bool = True) -> Optional[int]:
-        """在线选择一个 C 动作，返回展平后的 ``split/server`` action id。"""
         features, mask = self.build_action_features(obs)
         action, _, _ = self.select_from_features(features, mask, deterministic)
         return action
@@ -476,10 +459,18 @@ class PPOAgentC(_MaskedPPOBase):
         w_delay: float = 0.25,
         deterministic: bool = True,
     ) -> Optional[int]:
-        """先取 PPO-C top-K 候选，再用资源压力分数做轻量 rerank。
+        """Select action by reranking top-K policy candidates with pressure scores.
 
-        这是 C 端诊断/增强路径，不是当前主表默认的 PPO-C 选择方式。
-        最终分数大致为 ``policy_logit - alpha * pressure_score``。
+        Args:
+            obs: Agent-C observation dict.
+            top_k: Number of top policy-probability candidates to consider.
+            pressure_alpha: Weight for pressure penalty in reranking.
+                Final score = log_prob - alpha * pressure_score.
+            w_spectrum, w_server, w_frag, w_delay: Pressure component weights.
+            deterministic: If True, top-K by probability; if False, sample then rerank.
+
+        Returns:
+            Selected flat action index or None.
         """
         import numpy as np
 
@@ -568,7 +559,7 @@ class PPOAgentC(_MaskedPPOBase):
 
 
 class PPOAgentR(_MaskedPPOBase):
-    """低层 Agent-R 的 PPO actor，负责选择 ``(path, modulation, block)``。"""
+    """PPO actor for low-level RMSA selection."""
 
     def __init__(
         self,
@@ -581,7 +572,6 @@ class PPOAgentR(_MaskedPPOBase):
         device: str = "cpu",
         feature_mode: str = "default",
     ):
-        """初始化 PPO-R，并复用 AgentR 的候选动作特征构造逻辑。"""
         if feature_mode not in ("default", "frag_aware", "c_aware"):
             raise ValueError(f"Unknown Agent-R feature_mode: {feature_mode}")
         self.mod_registry = mod_registry
@@ -589,11 +579,9 @@ class PPOAgentR(_MaskedPPOBase):
         super().__init__(input_dim, hidden_dims, lr, entropy_coef, max_grad_norm, device)
 
     def build_action_features(self, obs: Dict[str, Any]) -> Tuple[np.ndarray, np.ndarray]:
-        """把 R 端 observation 转成每个 RMSA 候选动作的特征和 mask。"""
         return AgentR.build_action_features(self, obs)
 
     def select_action(self, obs: Dict[str, Any], deterministic: bool = True) -> Optional[int]:
-        """在线选择一个 R 动作，返回展平后的 ``path/mod/block`` action id。"""
         features, mask = self.build_action_features(obs)
         action, _, _ = self.select_from_features(features, mask, deterministic)
         return action

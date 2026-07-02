@@ -25,7 +25,10 @@ import torch
 import torch.nn.functional as F
 from scipy import stats
 
-from sa_hmarl.agents.counterfactual_r_ranker import CounterfactualActionValueRanker
+from sa_hmarl.agents.counterfactual_r_ranker import (
+    CounterfactualActionValueRanker,
+    build_counterfactual_r_ranker,
+)
 
 
 def _atomic_write_json(path: Path, payload: Dict[str, Any]) -> None:
@@ -50,6 +53,13 @@ def _feasibility_mask(features: np.ndarray, feature_names: List[str]) -> np.ndar
 
 def _masked_softmax(values: torch.Tensor, mask: torch.Tensor, temperature: float) -> torch.Tensor:
     """Softmax over valid entries with temperature.  Invalid entries get zero weight."""
+    if not mask.any(dim=-1).all():
+        # Keep behavior defined for defensive use; valid datasets should have
+        # at least two feasible candidates per group.
+        mask = mask.clone()
+        empty = ~mask.any(dim=-1)
+        if empty.any():
+            mask[empty, 0] = True
     logits = values.masked_fill(~mask, float("-inf")) / temperature
     probs = F.softmax(logits, dim=-1)
     probs = probs.masked_fill(~mask, 0.0)
@@ -135,6 +145,21 @@ def _compute_group_metrics(
     }
 
 
+def _selection_score(metrics: Dict[str, Any], metric_name: str) -> float:
+    """Return a higher-is-better score for checkpoint selection."""
+    if metric_name == "top1":
+        return float(metrics["top1_accuracy"])
+    if metric_name == "top3":
+        return float(metrics["top3_accuracy"])
+    if metric_name == "spearman":
+        return float(metrics["spearman_mean"])
+    if metric_name == "kl":
+        return -float(metrics["kl"])
+    if metric_name == "regret":
+        return -float(metrics["model_regret_mean"])
+    raise ValueError(f"Unknown selection metric: {metric_name}")
+
+
 def _evaluate(
     features: torch.Tensor,
     returns: torch.Tensor,
@@ -156,7 +181,7 @@ def _evaluate(
         for start in range(0, features.size(0), batch_size):
             end = min(start + batch_size, features.size(0))
             x = features[start:end].to(device)
-            scores = model(x)  # [B, C]
+            scores = model(x, eff_mask[start:end].to(device))  # [B, C]
             all_scores.append(scores.cpu().numpy())
     scores = np.concatenate(all_scores, axis=0)
     metrics = _compute_group_metrics(scores, returns.numpy(), eff_mask.numpy(), ppo_action_index.numpy())
@@ -168,14 +193,64 @@ def _evaluate(
         for start in range(0, features.size(0), batch_size):
             end = min(start + batch_size, features.size(0))
             x = features[start:end].to(device)
-            scores_t = model(x)
-            returns_t = returns[start:end].to(device)
             mask_t = eff_mask[start:end].to(device)
+            scores_t = model(x, mask_t)
+            returns_t = returns[start:end].to(device)
             kl = _ranking_loss(scores_t, returns_t, mask_t, tau_label, tau_model)
             total_kl += float(kl.item()) * (end - start)
             total_groups += (end - start)
     metrics["kl"] = total_kl / max(total_groups, 1)
     return metrics
+
+
+def _compute_group_weights(
+    train_data: Dict[str, np.ndarray],
+    metadata: Dict[str, Any],
+    args: argparse.Namespace,
+) -> np.ndarray:
+    """Return normalized sampling weights for each training group."""
+    returns = train_data["returns"]
+    mask = train_data["mask"]
+    n = returns.shape[0]
+    if n == 0:
+        return np.ones(1, dtype=float) / 1.0
+
+    # Return contrast per group.
+    ranges = np.zeros(n, dtype=float)
+    for i in range(n):
+        valid = returns[i, mask[i]]
+        if valid.size > 0:
+            ranges[i] = float(valid.max() - valid.min())
+    global_std = float(np.std(ranges)) + 1e-8
+    norm_ranges = ranges / global_std
+
+    # Pressure proxy: 1 - raw_r_valid_ratio (higher = fewer legal R actions).
+    feature_names = list(metadata.get("feature_names", []))
+    try:
+        rvr_idx = feature_names.index("raw_r_valid_ratio")
+        pressures = np.zeros(n, dtype=float)
+        for i in range(n):
+            valid_vals = train_data["features"][i, mask[i], rvr_idx]
+            if valid_vals.size > 0:
+                pressures[i] = 1.0 - float(np.mean(valid_vals))
+    except ValueError:
+        pressures = np.zeros(n, dtype=float)
+
+    # Future NSB positive indicator.
+    nsb = train_data.get("future_nsb_counts", np.zeros_like(mask, dtype=np.int64))
+    nsb_positive = np.array([
+        int(np.any(nsb[i, mask[i]] > 0)) for i in range(n)
+    ], dtype=float)
+
+    weights = (
+        1.0
+        + float(args.balance_alpha) * norm_ranges
+        + float(args.balance_beta) * pressures
+        + float(args.balance_gamma) * nsb_positive
+    )
+    weights = np.maximum(weights, 1e-6)
+    weights /= weights.sum()
+    return weights
 
 
 def train(args: argparse.Namespace) -> Dict[str, Any]:
@@ -191,7 +266,10 @@ def train(args: argparse.Namespace) -> Dict[str, Any]:
     test_data = dict(np.load(root / "test.npz", allow_pickle=False))
 
     mean = np.asarray(metadata["train_feature_mean"], dtype=np.float32)
-    std = np.asarray(metadata["train_feature_std"], dtype=np.float32)
+    std = np.maximum(
+        np.asarray(metadata["train_feature_std"], dtype=np.float32),
+        float(args.feature_std_floor),
+    )
     input_dim = train_data["features"].shape[2]
 
     # Compute feasibility masks on raw features before normalization.
@@ -220,18 +298,27 @@ def train(args: argparse.Namespace) -> Dict[str, Any]:
     return_mean = float(np.mean(valid_returns))
     return_std = float(np.std(valid_returns))
 
-    model = CounterfactualActionValueRanker(input_dim, args.hidden_dims, args.dropout).to(args.device)
+    model = build_counterfactual_r_ranker(
+        args.model_type, input_dim, args.hidden_dims, args.dropout
+    ).to(args.device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
 
     n = train_t["features"].size(0)
     best_val_top1 = -1.0
+    best_selection_score = float("-inf")
     best_state = None
     patience_left = args.patience
     history: List[Dict[str, Any]] = []
 
+    # Optional group-level balanced sampling weights.
+    group_weights = _compute_group_weights(train_data, metadata, args) if args.balanced_sampler else None
+
     for epoch in range(1, args.epochs + 1):
         model.train()
-        order = np.random.permutation(n)
+        if group_weights is not None:
+            order = np.random.choice(n, size=n, replace=True, p=group_weights)
+        else:
+            order = np.random.permutation(n)
         train_losses = []
         for start in range(0, n, args.batch_size):
             indices = order[start:start + args.batch_size]
@@ -241,7 +328,7 @@ def train(args: argparse.Namespace) -> Dict[str, Any]:
             feas_m = train_t["feas"][indices].to(args.device)
             eff_m = m & feas_m
 
-            scores = model(x)  # [B, C]
+            scores = model(x, eff_m)  # [B, C]
             loss_rank = _ranking_loss(scores, r, eff_m, args.tau_label, args.tau_model)
             loss_reg = _regression_loss(scores, r, eff_m, return_mean, return_std)
             loss = loss_rank + args.reg_weight * loss_reg
@@ -282,8 +369,10 @@ def train(args: argparse.Namespace) -> Dict[str, Any]:
                 flush=True,
             )
 
-        if val_metrics["top1_accuracy"] > best_val_top1 + args.min_delta:
+        current_selection_score = _selection_score(val_metrics, args.selection_metric)
+        if current_selection_score > best_selection_score + args.min_delta:
             best_val_top1 = val_metrics["top1_accuracy"]
+            best_selection_score = current_selection_score
             best_state = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
             patience_left = args.patience
         else:
@@ -310,6 +399,7 @@ def train(args: argparse.Namespace) -> Dict[str, Any]:
         "input_dim": input_dim,
         "hidden_dims": list(args.hidden_dims),
         "dropout": args.dropout,
+        "model_type": args.model_type,
         "feature_names": metadata["feature_names"],
         "feature_mean": mean.astype(np.float32),
         "feature_std": std.astype(np.float32),
@@ -318,13 +408,23 @@ def train(args: argparse.Namespace) -> Dict[str, Any]:
         "tau_label": args.tau_label,
         "tau_model": args.tau_model,
         "best_val_top1": best_val_top1,
+        "selection_metric": args.selection_metric,
+        "best_selection_score": best_selection_score,
         "test_metrics": test_metrics,
+        "candidate_mode": metadata.get("candidate_mode", "v1"),
+        "max_candidates": metadata.get("max_candidates", args.batch_size),
+        "ppo_top_k": metadata.get("ppo_top_k", 8),
+        "num_random_candidates": metadata.get("num_random_candidates", 5),
+        "min_candidates": metadata.get("min_candidates", 15),
+        "candidate_seed": metadata.get("candidate_seed", 12345),
     }, checkpoint_path)
 
     report = {
         "dataset": str(root),
         "checkpoint": str(checkpoint_path),
         "best_val_top1": best_val_top1,
+        "selection_metric": args.selection_metric,
+        "best_selection_score": best_selection_score,
         "test_metrics": test_metrics,
         "history": history,
         "config": vars(args),
@@ -352,9 +452,13 @@ def _write_markdown(path: Path, report: Dict[str, Any], metadata: Dict[str, Any]
         ),
         f"- Horizon: {metadata['horizon']}",
         f"- Checkpoint: `{report['checkpoint']}`", "",
+        f"- Model type: `{report['config'].get('model_type', 'mlp')}`", "",
+        f"- Selection metric: `{report.get('selection_metric', 'top1')}`", "",
         "| Metric | Value |",
         "|---|---:|",
-        f"| Best val top-1 | {report['best_val_top1']:.2%} |",
+        f"| Best checkpoint val top-1 | {report['best_val_top1']:.2%} |",
+        f"| Best `{report.get('selection_metric', 'top1')}` selection score | "
+        f"{report.get('best_selection_score', 0):.4f} |",
         f"| Test top-1 | {test['top1_accuracy']:.2%} |",
         f"| Test top-3 | {test['top3_accuracy']:.2%} |",
         f"| Test Spearman mean | {test['spearman_mean']:.3f} |",
@@ -371,6 +475,13 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dataset_dir", default="sa_hmarl/datasets/r_counterfactual_ranking_v1_2_mixed_low")
     parser.add_argument("--output_dir", default="sa_hmarl/checkpoints/r_counterfactual_ranking_v1_2_mixed_low")
+    parser.add_argument(
+        "--model_type",
+        default="mlp",
+        choices=["mlp", "deepset", "set_transformer"],
+    )
+    parser.add_argument("--selection_metric", default="top1",
+                        choices=["top1", "top3", "spearman", "kl", "regret"])
     parser.add_argument("--hidden_dims", type=lambda value: tuple(int(x) for x in value.split(",")), default=(128, 64))
     parser.add_argument("--dropout", type=float, default=0.0)
     parser.add_argument("--epochs", type=int, default=80)
@@ -382,11 +493,20 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--tau_label", type=float, default=0.5)
     parser.add_argument("--tau_model", type=float, default=1.0)
     parser.add_argument("--reg_weight", type=float, default=0.1)
+    parser.add_argument("--feature_std_floor", type=float, default=1e-6)
     parser.add_argument("--patience", type=int, default=15)
     parser.add_argument("--min_delta", type=float, default=1e-4)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--device", default="cpu")
     parser.add_argument("--log_every", type=int, default=5)
+    parser.add_argument("--balanced_sampler", action="store_true",
+                        help="Use group-level weighted sampling: upweight high return-contrast / high-pressure / NSB-positive groups.")
+    parser.add_argument("--balance_alpha", type=float, default=1.0,
+                        help="Weight on normalized return range.")
+    parser.add_argument("--balance_beta", type=float, default=1.0,
+                        help="Weight on pressure (1 - raw_r_valid_ratio).")
+    parser.add_argument("--balance_gamma", type=float, default=1.0,
+                        help="Weight on future-NSB-positive indicator.")
     return parser
 
 
@@ -395,6 +515,8 @@ if __name__ == "__main__":
     args._start_time = time.time()
     report = train(args)
     print(
-        f"Training complete. Best val top-1={report['best_val_top1']:.2%} "
+        f"Training complete. Best checkpoint val top-1={report['best_val_top1']:.2%} "
+        f"selection_metric={report.get('selection_metric', 'top1')} "
+        f"selection_score={report.get('best_selection_score', 0):.4f} "
         f"Test top-1={report['test_metrics']['top1_accuracy']:.2%}"
     )

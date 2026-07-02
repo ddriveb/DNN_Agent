@@ -9,7 +9,8 @@ setting to a more realistic S100 setting.  It evaluates both:
 
 Default methods:
     ppo_c+v12, ppo_c+deep_rmsa, ppo_c+ppo_r, ppo_c+ksp_bf, ppo_c+ksp_ff,
-    greedy_c+v12, df_c+v12, rf_c+v12, wo_c+v12, iwd_c+v12
+    ppo_c+ksp_ff_k50_hops, greedy_c+v12, df_c+v12, rf_c+v12, wo_c+v12,
+    iwd_c+v12
 """
 from __future__ import annotations
 
@@ -22,7 +23,11 @@ from typing import Any, Dict, List, Optional
 import numpy as np
 
 from sa_hmarl.agents.r_ranker_policy import CounterfactualRRankerPolicy
-from sa_hmarl.baselines.rmsa_baselines import ksp_bf_action, ksp_ff_action
+from sa_hmarl.baselines.rmsa_baselines import (
+    ksp_bf_action,
+    ksp_ff_action,
+    ksp_ff_highest_mod_action,
+)
 from sa_hmarl.env.observation_builder import (
     build_agent_c_observation,
     build_agent_r_observation,
@@ -47,6 +52,17 @@ from sa_hmarl.evaluation.diagnose_r_action_horizon_oracle import (
 from sa_hmarl.evaluation.offloading_baselines import select_offloading_action
 from sa_hmarl.network.modulation import ModulationRegistry
 from sa_hmarl.training.utils import generate_requests, make_env
+
+
+def _r_backend_env_config(r_mode: str, args: argparse.Namespace) -> tuple[int, str, str]:
+    """Return the R-side path breadth/order for a backend.
+
+    PPO-C is kept on the main experiment path configuration.  Tuned R-only
+    heuristic baselines can override the R observation and execution path set.
+    """
+    if r_mode in ("ksp_ff_k50_hops", "v12_k50_hops"):
+        return args.ksp_ff_k50_hops_k_paths, "hops", "start_asc"
+    return args.k_paths, args.path_sort_strategy, args.block_sort_strategy
 
 
 def _parse_methods(spec: str) -> List[tuple[str, str, str]]:
@@ -103,7 +119,7 @@ def _select_r_action_idx(
     server_id: int,
     deep_rmsa,
 ) -> Optional[int]:
-    if r_mode == "v12":
+    if r_mode in ("v12", "v12_k50_hops"):
         return rank_policy.select_action(env, req, obs_c, obs_r, agent_r, split_id, server_id)
     if r_mode == "deep_rmsa":
         return deep_rmsa.select_action(obs_r) if deep_rmsa is not None else None
@@ -113,6 +129,8 @@ def _select_r_action_idx(
         return ksp_bf_action(obs_r)
     if r_mode == "ksp_ff":
         return ksp_ff_action(obs_r)
+    if r_mode == "ksp_ff_k50_hops":
+        return ksp_ff_highest_mod_action(obs_r)
     raise ValueError(f"Unknown R mode: {r_mode}")
 
 
@@ -137,6 +155,10 @@ def _run_episode(
         started = time.perf_counter()
         env.advance_time(req.arrival_time)
 
+        # Keep the C-side policy fixed on the main experiment configuration.
+        env.k = args.k_paths
+        env.path_sort_strategy = args.path_sort_strategy
+        env.block_sort_strategy = args.block_sort_strategy
         obs_c = build_agent_c_observation(env, req)
         c_idx, raw_c_mask = _select_c_action(
             c_mode, agent_c, env, req, obs_c, args, rng, server_selected_count
@@ -144,6 +166,10 @@ def _run_episode(
         split_id, server_id = decode_agent_c_action(c_idx, args.num_servers)
         server_selected_count[server_id] += 1
 
+        # R-side tuned baselines may use a wider/differently ordered path set.
+        env.k, env.path_sort_strategy, env.block_sort_strategy = _r_backend_env_config(
+            r_mode, args
+        )
         obs_r = build_agent_r_observation(env, req, split_id, server_id)
         r_idx = _select_r_action_idx(
             r_mode, env, req, obs_c, obs_r, agent_r, rank_policy,
@@ -189,15 +215,26 @@ def evaluate(args: argparse.Namespace) -> Dict[str, Any]:
         max_blocks=args.max_blocks,
         block_sort_strategy=args.block_sort_strategy,
         k=args.k_paths,
+        path_sort_strategy=args.path_sort_strategy,
     )
     mod_reg = ModulationRegistry.from_profile(args.modulation_profile)
     agent_c = _load_ppo_c(args.agent_c_checkpoint, args.device)
     agent_r = _load_ppo_r(args.agent_r_checkpoint, mod_reg, args.device)
-    rank_model, rank_mean, rank_std, _ = load_ranking_checkpoint(
+    rank_model, rank_mean, rank_std, rank_ckpt = load_ranking_checkpoint(
         args.ranking_checkpoint, args.device
     )
     rank_policy = CounterfactualRRankerPolicy(
-        rank_model, rank_mean, rank_std, device=args.device
+        rank_model,
+        rank_mean,
+        rank_std,
+        device=args.device,
+        feature_names=rank_ckpt.get("feature_names"),
+        candidate_mode=rank_ckpt.get("candidate_mode", "all_legal"),
+        max_candidates=rank_ckpt.get("max_candidates", 48),
+        ppo_top_k=rank_ckpt.get("ppo_top_k", 8),
+        num_random_candidates=rank_ckpt.get("num_random_candidates", 5),
+        min_candidates=rank_ckpt.get("min_candidates", 15),
+        candidate_seed=rank_ckpt.get("candidate_seed", 12345),
     )
 
     deep_rmsa = None
@@ -250,6 +287,7 @@ def evaluate(args: argparse.Namespace) -> Dict[str, Any]:
                     max_blocks=args.max_blocks,
                     block_sort_strategy=args.block_sort_strategy,
                     k=args.k_paths,
+                    path_sort_strategy=args.path_sort_strategy,
                 )
                 env.reset(requests)
                 _run_episode(
@@ -296,7 +334,8 @@ def _write_markdown(path: Path, report: Dict[str, Any]) -> None:
     for key in [
         "topology", "num_slots", "split_profile", "arrival_interval",
         "holding_min", "holding_max", "size_min_mb", "size_max_mb",
-        "seeds", "episodes", "requests_per_episode",
+        "seeds", "episodes", "requests_per_episode", "k_paths",
+        "path_sort_strategy", "ksp_ff_k50_hops_k_paths",
     ]:
         lines.append(f"- `{key}`: `{cfg[key]}`")
 
@@ -348,7 +387,8 @@ def build_parser() -> argparse.ArgumentParser:
         "--methods",
         default=(
             "ppo_c+v12,ppo_c+deep_rmsa,ppo_c+ppo_r,ppo_c+ksp_bf,ppo_c+ksp_ff,"
-            "greedy_c+v12,df_c+v12,rf_c+v12,wo_c+v12,iwd_c+v12"
+            "ppo_c+ksp_ff_k50_hops,greedy_c+v12,df_c+v12,rf_c+v12,"
+            "wo_c+v12,iwd_c+v12"
         ),
     )
     parser.add_argument("--seeds", default="3030,4040,5050,6060,7070")
@@ -358,6 +398,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--num_slots", type=int, default=100)
     parser.add_argument("--num_servers", type=int, default=4)
     parser.add_argument("--k_paths", type=int, default=5)
+    parser.add_argument("--path_sort_strategy", default="km", choices=["km", "hops"])
+    parser.add_argument("--ksp_ff_k50_hops_k_paths", type=int, default=50)
     parser.add_argument("--max_blocks", type=int, default=10)
     parser.add_argument("--block_sort_strategy", default="mixed")
     parser.add_argument("--split_profile", default="default3")

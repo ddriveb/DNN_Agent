@@ -1,4 +1,4 @@
-"""Generate planner-distillation data for the v1.2 R-side controller.
+"""Generate a counterfactual R-side ranking dataset.
 
 For each sampled state we:
   1. Freeze PPO-C and use it to pick split/server.
@@ -11,10 +11,8 @@ For each sampled state we:
   5. Compute an H-step return and store the candidate features/returns as one
      ranked group.
 
-The H-step branch evaluation is the finite-horizon planner.  The downstream
-ranker is trained to imitate/distill this planner's within-state action ranking,
-so online inference can avoid rollout and use a single neural forward pass over
-the current legal RMSA candidates.
+The dataset trains a listwise ranking model that learns relative preference over
+actions in the same decision state.
 """
 from __future__ import annotations
 
@@ -30,6 +28,7 @@ import numpy as np
 import torch
 from scipy import stats
 
+from sa_hmarl.agents.counterfactual_r_ranker import build_counterfactual_r_ranker
 from sa_hmarl.env.observation_builder import (
     build_agent_c_observation,
     build_agent_r_observation,
@@ -46,7 +45,11 @@ from sa_hmarl.evaluation.diagnose_r_action_horizon_oracle import (
     _select_r_action_from_obs,
     _snapshot_before_r_decision,
 )
-from sa_hmarl.evaluation.generate_r_post_decision_dataset import FEATURE_NAMES, _r_feature_vector
+from sa_hmarl.evaluation.generate_r_post_decision_dataset import (
+    FEATURE_NAMES,
+    _r_feature_vector,
+    structured_feature_names,
+)
 from sa_hmarl.network.modulation import ModulationRegistry
 from sa_hmarl.training.utils import generate_requests, make_env
 
@@ -70,6 +73,64 @@ R_FEATURE_ORDER = {
     "block_waste": 9,
     "path_mod_feasible": 10,
 }
+
+
+def _load_trajectory_ranker(checkpoint_path: str, device: str):
+    """Load a v1.2 ranker checkpoint and wrap it for online trajectory use.
+
+    The returned policy can be used as the deployed R-side policy during dataset
+    generation (DAgger-lite).  Candidate-selection hyperparameters are taken from
+    the checkpoint when available, otherwise callers must ensure they match the
+    training configuration via the generation script arguments.
+    """
+    from sa_hmarl.agents.r_ranker_policy import CounterfactualRRankerPolicy
+
+    ckpt = torch.load(checkpoint_path, map_location=device, weights_only=False)
+
+    model_type = ckpt.get("model_type", "mlp")
+    input_dim = int(ckpt["input_dim"])
+    hidden_dims = ckpt.get("hidden_dims", (128, 64))
+    dropout = ckpt.get("dropout", 0.0)
+
+    model = build_counterfactual_r_ranker(
+        model_type=model_type,
+        input_dim=input_dim,
+        hidden_dims=hidden_dims,
+        dropout=dropout,
+    )
+    model.load_state_dict(ckpt["model_state_dict"])
+    model.to(device)
+    model.eval()
+
+    feature_mean = ckpt["feature_mean"]
+    feature_std = ckpt["feature_std"]
+    feature_names = ckpt.get("feature_names")
+
+    # Candidate-selection fields are not always stored in older checkpoints.
+    # Defaults here match the CounterfactualRRankerPolicy constructor defaults.
+    metadata = ckpt.get("metadata", {})
+    candidate_mode = ckpt.get("candidate_mode", metadata.get("candidate_mode", "all_legal"))
+    max_candidates = ckpt.get("max_candidates", metadata.get("max_candidates", 48))
+    ppo_top_k = ckpt.get("ppo_top_k", metadata.get("ppo_top_k", 8))
+    num_random_candidates = ckpt.get(
+        "num_random_candidates", metadata.get("num_random_candidates", 5)
+    )
+    min_candidates = ckpt.get("min_candidates", metadata.get("min_candidates", 15))
+    candidate_seed = ckpt.get("candidate_seed", metadata.get("candidate_seed", 12345))
+
+    return CounterfactualRRankerPolicy(
+        model=model,
+        feature_mean=feature_mean,
+        feature_std=feature_std,
+        device=device,
+        feature_names=feature_names,
+        candidate_mode=candidate_mode,
+        max_candidates=max_candidates,
+        ppo_top_k=ppo_top_k,
+        num_random_candidates=num_random_candidates,
+        min_candidates=min_candidates,
+        candidate_seed=candidate_seed,
+    )
 
 
 def _atomic_save_npz(path: Path, **arrays: np.ndarray) -> None:
@@ -381,6 +442,41 @@ def _select_candidate_actions_highest_se(
     return deduped
 
 
+def _select_candidate_actions_legalctx48(
+    agent_r,
+    obs_r: Dict[str, Any],
+    r_features: np.ndarray,
+    legal: List[int],
+    max_blocks: int,
+    args: argparse.Namespace,
+) -> List[int]:
+    """v1 core subset + highest-logit legal fillers up to max_candidates."""
+    core = _select_candidate_actions_v1(agent_r, obs_r, r_features, legal, max_blocks, args)
+    if len(core) >= args.max_candidates:
+        return core[: args.max_candidates]
+
+    logits = _get_r_logits(agent_r, obs_r)
+    core_set = set(core)
+    remaining = [a for a in legal if a not in core_set]
+    if not remaining:
+        return core
+
+    # Sort remaining by PPO-R logits descending.
+    legal_indices = {int(a): i for i, a in enumerate(legal)}
+    remaining_sorted = sorted(
+        remaining,
+        key=lambda a: -logits[legal_indices[int(a)]],
+    )
+    fill = remaining_sorted[: args.max_candidates - len(core)]
+    return core + [int(a) for a in fill]
+
+
+def _select_candidate_actions_all_legal(
+    legal: List[int],
+) -> List[int]:
+    return list(legal)
+
+
 def _select_candidate_actions(
     agent_r,
     obs_r: Dict[str, Any],
@@ -390,6 +486,10 @@ def _select_candidate_actions(
     args: argparse.Namespace,
 ) -> List[int]:
     """Dispatch to the requested candidate selection strategy."""
+    if args.candidate_mode == "all_legal":
+        return _select_candidate_actions_all_legal(legal)
+    if args.candidate_mode == "legalctx48":
+        return _select_candidate_actions_legalctx48(agent_r, obs_r, r_features, legal, max_blocks, args)
     if args.candidate_mode in ("highest_se_path_block", "top2_se_path_block"):
         return _select_candidate_actions_highest_se(obs_r, r_features, legal, max_blocks, args)
     return _select_candidate_actions_v1(agent_r, obs_r, r_features, legal, max_blocks, args)
@@ -410,12 +510,15 @@ def _generate_episode(
     seed: int,
     episode_index: int,
     args: argparse.Namespace,
+    trajectory_ranker_policy=None,
 ) -> Tuple[List[Dict[str, Any]], int, int]:
     """Return (groups, sampled_states, skipped_groups) for one episode."""
     groups: List[Dict[str, Any]] = []
     env.reset(requests)
     sampled_states = 0
     skipped_groups = 0
+    use_ranker_trajectory = args.trajectory_policy == "ranker"
+    epsilon = float(getattr(args, "trajectory_ranker_epsilon", 0.0))
 
     for request_index, req in enumerate(requests):
         env.advance_time(req.arrival_time)
@@ -427,8 +530,22 @@ def _generate_episode(
         r_features, r_mask = agent_r.build_action_features(obs_r)
         legal = np.flatnonzero(np.asarray(r_mask, dtype=bool)).tolist()
 
-        # Always select PPO-R action for the deployed trajectory.
+        # Always record PPO-R action for diagnostics / regret computation.
         ppo_r_idx, _ = _select_r_action_from_obs(agent_r, obs_r, env.max_blocks)
+
+        # Choose the action that actually advances the deployed trajectory.
+        deployed_r_idx = int(ppo_r_idx)
+        if use_ranker_trajectory:
+            rng = np.random.RandomState(seed + episode_index * 100000 + request_index)
+            use_ppo_fallback = epsilon > 0 and rng.random_sample() < epsilon
+            if not use_ppo_fallback:
+                ranker_idx = trajectory_ranker_policy.select_action(
+                    env, req, obs_c, obs_r, agent_r, split_id, server_id
+                )
+                if ranker_idx is not None:
+                    deployed_r_idx = int(ranker_idx)
+                else:
+                    deployed_r_idx = int(ppo_r_idx)
 
         if len(legal) >= 2:
             sampled_states += 1
@@ -472,7 +589,8 @@ def _generate_episode(
                     ret_v12 = _compute_return(info, future, args, path_km_norm, required_fs_norm)
                     ret = ret_v12 + args.viability_phi_coef * phi_after
                     features.append(_r_feature_vector(
-                        env, req, obs_c, obs_r, r_features, int(r_action_idx), split_id, server_id
+                        env, req, obs_c, obs_r, r_features, int(r_action_idx), split_id, server_id,
+                        feature_names=args._feature_names,
                     ))
                     returns.append(ret)
                     action_ids.append(int(r_action_idx))
@@ -507,9 +625,13 @@ def _generate_episode(
                     "phi_after": np.asarray(phi_after_values, dtype=np.float32),
                 })
 
-        # Advance the real trajectory with PPO-R.
-        ppo_action = decode_agent_r_action(int(ppo_r_idx), len(obs_r["mod_names"]), env.max_blocks)
-        env.step((split_id, server_id), ppo_action)
+        # Advance the real trajectory with the deployed R action.
+        # When trajectory_policy=ranker this steps through states the ranker
+        # itself creates, which is the core of DAgger-lite data collection.
+        deployed_action = decode_agent_r_action(
+            int(deployed_r_idx), len(obs_r["mod_names"]), env.max_blocks
+        )
+        env.step((split_id, server_id), deployed_action)
 
     return groups, sampled_states, skipped_groups
 
@@ -668,11 +790,48 @@ def generate_dataset(args: argparse.Namespace) -> Dict[str, Any]:
     started = time.time()
     out = Path(args.output_dir)
     out.mkdir(parents=True, exist_ok=True)
+
+    # Determine feature schema up front so it is consistent across the run.
+    env_proto = make_env(
+        args.topology, args.num_slots, args.num_servers, 42,
+        modulation_profile=args.modulation_profile,
+        max_blocks=args.max_blocks, block_sort_strategy=args.block_sort_strategy,
+        k=args.k_paths,
+    )
+    if args.use_structured_features:
+        args._feature_names = structured_feature_names(env_proto)
+    else:
+        args._feature_names = list(FEATURE_NAMES)
+    del env_proto
     splits = [s.strip() for s in args.splits.split(",") if s.strip()]
     mod_reg = ModulationRegistry.from_profile(args.modulation_profile)
     agent_c = _load_ppo_c(args.agent_c_checkpoint, args.device)
     agent_r = _load_ppo_r(args.agent_r_checkpoint, mod_reg, args.device)
     r_before = {k: v.clone() for k, v in agent_r.policy_net.state_dict().items()}
+
+    trajectory_ranker_policy = None
+    if args.trajectory_policy == "ranker":
+        if not args.trajectory_ranker_checkpoint:
+            raise ValueError(
+                "--trajectory_ranker_checkpoint is required when --trajectory_policy=ranker"
+            )
+        trajectory_ranker_policy = _load_trajectory_ranker(
+            args.trajectory_ranker_checkpoint, args.device
+        )
+        # Force the ranker's online candidate set to match the generation config.
+        # Checkpoints produced by v1.2 training may not store these fields.
+        trajectory_ranker_policy.candidate_mode = args.candidate_mode
+        trajectory_ranker_policy.max_candidates = int(args.max_candidates)
+        trajectory_ranker_policy.ppo_top_k = int(args.ppo_top_k)
+        trajectory_ranker_policy.num_random_candidates = int(args.num_random_candidates)
+        trajectory_ranker_policy.min_candidates = int(args.min_candidates)
+        trajectory_ranker_policy.candidate_seed = int(args.candidate_seed)
+        trajectory_ranker_policy.feature_names = list(args._feature_names)
+        print(
+            f"[DAgger-lite] Loaded trajectory ranker from {args.trajectory_ranker_checkpoint} "
+            f"(candidate_mode={args.candidate_mode}, max_candidates={args.max_candidates})",
+            flush=True,
+        )
 
     split_episodes = {
         split: getattr(args, f"{split}_episodes", None) or args.episodes
@@ -710,7 +869,8 @@ def generate_dataset(args: argparse.Namespace) -> Dict[str, Any]:
                 )
                 t0 = time.time()
                 groups, sampled, skipped = _generate_episode(
-                    env, requests, agent_c, agent_r, split, seed, episode, args
+                    env, requests, agent_c, agent_r, split, seed, episode, args,
+                    trajectory_ranker_policy=trajectory_ranker_policy,
                 )
                 all_groups[split].extend(groups)
                 sampled_states[split] += sampled
@@ -757,8 +917,8 @@ def generate_dataset(args: argparse.Namespace) -> Dict[str, Any]:
     )
 
     metadata = {
-        "feature_names": FEATURE_NAMES,
-        "feature_dim": len(FEATURE_NAMES),
+        "feature_names": args._feature_names,
+        "feature_dim": len(args._feature_names),
         "return_coefs": {
             "current_block": args.return_current_block_coef,
             "future_block": args.return_future_block_coef,
@@ -777,6 +937,14 @@ def generate_dataset(args: argparse.Namespace) -> Dict[str, Any]:
         "agent_r_unchanged": r_unchanged,
         "elapsed_seconds": time.time() - started,
         "candidate_mode": args.candidate_mode,
+        "max_candidates": args.max_candidates,
+        "ppo_top_k": args.ppo_top_k,
+        "num_random_candidates": args.num_random_candidates,
+        "min_candidates": args.min_candidates,
+        "candidate_seed": args.candidate_seed,
+        "trajectory_policy": args.trajectory_policy,
+        "trajectory_ranker_checkpoint": args.trajectory_ranker_checkpoint,
+        "trajectory_ranker_epsilon": args.trajectory_ranker_epsilon,
         "viability": {
             "viability_phi_coef": args.viability_phi_coef,
             "viability_alpha_kc": args.viability_alpha_kc,
@@ -820,8 +988,16 @@ def _write_report(path: Path, metadata: Dict[str, Any]) -> None:
         "# Counterfactual R-Side Ranking Dataset Generation", "",
         f"- Candidate mode: `{metadata.get('candidate_mode', 'v1')}`",
         f"- Horizon H: {metadata['horizon']}",
-        return_line,
+        f"- Trajectory policy: `{metadata.get('trajectory_policy', 'ppo_r')}`",
     ]
+    if metadata.get("trajectory_ranker_checkpoint"):
+        lines.append(
+            f"- Trajectory ranker checkpoint: `{metadata['trajectory_ranker_checkpoint']}`"
+        )
+        lines.append(
+            f"- Trajectory ranker epsilon: {metadata.get('trajectory_ranker_epsilon', 0.0)}"
+        )
+    lines.append(return_line)
     if viability_line:
         lines.append(viability_line)
     lines += ["",
@@ -868,6 +1044,23 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--agent_c_checkpoint", default="sa_hmarl/checkpoints/agent_c_delayaware_v2_snap24_best.pt")
     parser.add_argument("--agent_r_checkpoint", default="sa_hmarl/checkpoints/agent_r_mixed.pt")
+    parser.add_argument(
+        "--trajectory_policy",
+        default="ppo_r",
+        choices=["ppo_r", "ranker"],
+        help="Policy used to advance the deployed R-side trajectory during dataset generation.",
+    )
+    parser.add_argument(
+        "--trajectory_ranker_checkpoint",
+        default=None,
+        help="Checkpoint path for trajectory_policy=ranker.",
+    )
+    parser.add_argument(
+        "--trajectory_ranker_epsilon",
+        type=float,
+        default=0.0,
+        help="Probability of falling back to PPO-R when trajectory_policy=ranker.",
+    )
     parser.add_argument("--output_dir", default="sa_hmarl/datasets/r_counterfactual_ranking_k5m10_h5")
     parser.add_argument("--splits", default="train,val,test")
     parser.add_argument("--episodes", type=int, default=1)
@@ -921,8 +1114,10 @@ def build_parser() -> argparse.ArgumentParser:
                         help="Weight on normalized log of total feasible R actions in Phi_after.")
     parser.add_argument("--viability_mode", default="obs_c_after", choices=["obs_c_after", "future_type_probe"],
                         help="How to compute Phi_after. obs_c_after uses the next-request C-observation.")
-    parser.add_argument("--candidate_mode", default="v1", choices=["v1", "highest_se_path_block", "top2_se_path_block"],
-                        help="Candidate selection strategy.")
+    parser.add_argument("--candidate_mode", default="v1", choices=["v1", "highest_se_path_block", "top2_se_path_block", "legalctx48", "all_legal"],
+                        help="Candidate selection strategy. 'legalctx48' keeps the v1 subset and fills with high-logit legal actions up to --max_candidates. 'all_legal' enumerates every raw-mask-legal action.")
+    parser.add_argument("--use_structured_features", action="store_true",
+                        help="Append block-position scalars and topology edge bitmap to the candidate feature vector.")
     parser.add_argument("--min_nonzero_range_rate", type=float, default=0.20)
     parser.add_argument("--min_oracle_headroom_pp", type=float, default=0.01)
     parser.add_argument("--device", default="cpu")

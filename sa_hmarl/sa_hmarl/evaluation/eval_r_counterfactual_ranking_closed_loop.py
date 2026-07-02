@@ -10,7 +10,7 @@ from typing import Any, Dict, List, Tuple
 import numpy as np
 import torch
 
-from sa_hmarl.agents.counterfactual_r_ranker import CounterfactualActionValueRanker
+from sa_hmarl.agents.counterfactual_r_ranker import build_counterfactual_r_ranker
 from sa_hmarl.agents.r_ranker_policy import CounterfactualRRankerPolicy
 from sa_hmarl.baselines.rmsa_baselines import ksp_bf_action
 from sa_hmarl.env.observation_builder import (
@@ -39,10 +39,14 @@ from sa_hmarl.training.utils import generate_requests, make_env
 
 def load_ranking_checkpoint(path: str, device: str):
     ckpt = torch.load(path, map_location=device, weights_only=False)
-    if ckpt.get("feature_names") != FEATURE_NAMES:
-        raise ValueError("Ranking checkpoint feature schema mismatch")
-    model = CounterfactualActionValueRanker(
-        ckpt["input_dim"], ckpt["hidden_dims"], ckpt["dropout"]
+    feature_names = ckpt.get("feature_names", FEATURE_NAMES)
+    if len(feature_names) != int(ckpt["input_dim"]):
+        raise ValueError("Ranking checkpoint feature schema/input_dim mismatch")
+    model = build_counterfactual_r_ranker(
+        ckpt.get("model_type", "mlp"),
+        ckpt["input_dim"],
+        ckpt["hidden_dims"],
+        ckpt.get("dropout", 0.0),
     ).to(device)
     model.load_state_dict(ckpt["model_state_dict"])
     model.eval()
@@ -56,10 +60,14 @@ def load_ranking_checkpoint(path: str, device: str):
 
 def load_supervised_checkpoint(path: str, device: str):
     ckpt = torch.load(path, map_location=device, weights_only=False)
-    if ckpt.get("feature_names") != FEATURE_NAMES:
-        raise ValueError("Supervised checkpoint feature schema mismatch")
-    model = CounterfactualActionValueRanker(
-        ckpt["input_dim"], ckpt["hidden_dims"], ckpt.get("dropout", 0.0)
+    feature_names = ckpt.get("feature_names", FEATURE_NAMES)
+    if len(feature_names) != int(ckpt["input_dim"]):
+        raise ValueError("Supervised checkpoint feature schema/input_dim mismatch")
+    model = build_counterfactual_r_ranker(
+        ckpt.get("model_type", "mlp"),
+        ckpt["input_dim"],
+        ckpt["hidden_dims"],
+        ckpt.get("dropout", 0.0),
     ).to(device)
     model.load_state_dict(ckpt["model_state_dict"])
     model.eval()

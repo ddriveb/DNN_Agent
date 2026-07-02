@@ -1,18 +1,26 @@
 """K-Shortest Paths (Yen's algorithm) for Agent-R candidate path generation.
 
-Returns up to k simple paths ordered by total edge weight.
-Deduplicated — no duplicate paths in the result.
+Returns up to k simple paths.  By default paths are ordered by total edge
+weight.  Evaluation baselines can optionally re-order the returned candidate
+set by hop count to reproduce hops-ordered KSP-FF comparisons.
 """
 import networkx as nx
 from typing import List
 
 
-def get_k_shortest_paths(graph, src: int, dst: int, k: int, weight: str = "length_km") -> List[List[int]]:
+def get_k_shortest_paths(
+    graph,
+    src: int,
+    dst: int,
+    k: int,
+    weight: str = "length_km",
+    sort_by: str = "km",
+) -> List[List[int]]:
     """Return up to k shortest simple paths from src to dst.
 
     Uses Yen's algorithm with graph copies.  Paths are guaranteed to be
-    simple (no repeated nodes), deduplicated, and sorted by total weight
-    in ascending order.
+    simple (no repeated nodes), deduplicated, and sorted by the requested
+    output criterion.
 
     Args:
         graph: A networkx Graph.  Each edge must have the specified weight attribute.
@@ -20,6 +28,8 @@ def get_k_shortest_paths(graph, src: int, dst: int, k: int, weight: str = "lengt
         dst: Destination node.
         k: Maximum number of paths to return.
         weight: Edge attribute to use as path cost.  Default "length_km".
+        sort_by: Output ordering.  ``"km"`` preserves the classic weighted
+            KSP order.  ``"hops"`` sorts by hop count, then by path length.
 
     Returns:
         List of paths, each path is a list of node IDs.
@@ -33,6 +43,24 @@ def get_k_shortest_paths(graph, src: int, dst: int, k: int, weight: str = "lengt
 
     if src == dst:
         return [[src]]
+    if sort_by not in ("km", "hops"):
+        raise ValueError(f"Unknown path sort strategy: {sort_by}")
+
+    def _path_cost(path: List[int]) -> float:
+        return sum(graph[u][v][weight] for u, v in zip(path[:-1], path[1:]))
+
+    if sort_by == "hops":
+        try:
+            path_iter = nx.shortest_simple_paths(graph, src, dst, weight=None)
+            paths = []
+            for path in path_iter:
+                paths.append(path)
+                if len(paths) >= k:
+                    break
+        except nx.NetworkXNoPath:
+            return []
+        paths.sort(key=lambda path: (max(len(path) - 1, 0), _path_cost(path)))
+        return paths
 
     try:
         shortest = nx.shortest_path(graph, src, dst, weight=weight)
@@ -81,10 +109,9 @@ def get_k_shortest_paths(graph, src: int, dst: int, k: int, weight: str = "lengt
         if not candidates:
             break
 
-        def _path_cost(path: List[int]) -> float:
-            return sum(graph[u][v][weight] for u, v in zip(path[:-1], path[1:]))
-
         candidates.sort(key=_path_cost)
         paths.append(candidates.pop(0))
+
+    paths.sort(key=_path_cost)
 
     return paths

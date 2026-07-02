@@ -20,6 +20,7 @@ def make_env(topology: str = "net1", num_slots: int = 32,
              modulation_profile: str = "default",
              max_blocks: int = 5,
              block_sort_strategy: str = "size_desc",
+             path_sort_strategy: str = "km",
              k: int = 3):
     """Create a standard environment.
 
@@ -36,6 +37,8 @@ def make_env(topology: str = "net1", num_slots: int = 32,
         max_blocks: Number of candidate spectrum blocks exposed per path/mod.
         block_sort_strategy: Candidate block ranking strategy.  Use "mixed"
             to combine size_desc, waste_asc, start_asc, and center_asc.
+        path_sort_strategy: Candidate path output ordering, either "km" or
+            "hops".
         k: Number of shortest paths to offer (R action space breadth).
     """
     net = OpticalNetwork(topology, num_slots=num_slots)
@@ -73,6 +76,7 @@ def make_env(topology: str = "net1", num_slots: int = 32,
         k=k,
         max_blocks=max_blocks,
         block_sort_strategy=block_sort_strategy,
+        path_sort_strategy=path_sort_strategy,
     )
     return env
 
