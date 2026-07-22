@@ -1,0 +1,54 @@
+{
+  "aggregate": {
+    "k50_empty_events": 14191,
+    "k100_available": 0,
+    "k200_available": 0,
+    "k500_available": 0,
+    "k500_ceiling_rate": 0.0,
+    "strict_rescue_success": 0,
+    "preferred_rescue_success": 0,
+    "remaining_blocked_after_k500_rescue": 14191
+  },
+  "per_topology": [
+    {
+      "topology": "xlron_cost239_ptrnet_real",
+      "k50_empty_events": 3582,
+      "k100_available": 0,
+      "k200_available": 0,
+      "k500_available": 0,
+      "k500_ceiling_rate": 0.0,
+      "strict_rescue_success": 0,
+      "preferred_rescue_success": 0
+    },
+    {
+      "topology": "xlron_nsfnet_deeprmsa",
+      "k50_empty_events": 3495,
+      "k100_available": 0,
+      "k200_available": 0,
+      "k500_available": 0,
+      "k500_ceiling_rate": 0.0,
+      "strict_rescue_success": 0,
+      "preferred_rescue_success": 0
+    },
+    {
+      "topology": "xlron_usnet_gcnrmsa",
+      "k50_empty_events": 3524,
+      "k100_available": 0,
+      "k200_available": 0,
+      "k500_available": 0,
+      "k500_ceiling_rate": 0.0,
+      "strict_rescue_success": 0,
+      "preferred_rescue_success": 0
+    },
+    {
+      "topology": "xlron_jpn48",
+      "k50_empty_events": 3590,
+      "k100_available": 0,
+      "k200_available": 0,
+      "k500_available": 0,
+      "k500_ceiling_rate": 0.0,
+      "strict_rescue_success": 0,
+      "preferred_rescue_success": 0
+    }
+  ]
+}

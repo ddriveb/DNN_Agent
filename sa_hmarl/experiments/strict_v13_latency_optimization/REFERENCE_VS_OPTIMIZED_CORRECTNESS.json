@@ -1,0 +1,1300 @@
+{
+  "config": {
+    "agent_r_checkpoint": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+    "strict_ranker_checkpoint": "sa_hmarl/experiments/v13_strict_fixed/strict_loss_rerun/checkpoints/full_state_uniform_strict/seed_42/ranking_model.pt",
+    "num_slots": 320,
+    "num_servers": 4,
+    "k_paths_r": 50,
+    "path_sort_strategy_r": "hops",
+    "block_sort_strategy_r": "start_asc",
+    "modulation_profile": "default",
+    "max_blocks": 10,
+    "split_profile": "default3",
+    "num_splits": 3,
+    "arrival_interval": 0.3,
+    "holding_min": 20.0,
+    "holding_max": 30.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "size_max_mb": 30.0,
+    "edge_cost_min": 0.1,
+    "edge_cost_max": 2.2,
+    "seeds": "6101,6102,6103,6104,6105",
+    "requests_per_episode": 6000,
+    "warmup_requests": 500,
+    "poisson_arrivals": false,
+    "exponential_holding": false,
+    "device": "cpu",
+    "output_dir": "sa_hmarl/experiments/strict_v13_latency_optimization",
+    "max_workers": 0,
+    "skip_smoke": false,
+    "skip_done_check": false,
+    "fixed_split_id": 0,
+    "profile_seed": 6101,
+    "profile_eval_requests": 1000,
+    "equivalence_states": 500,
+    "equivalence_sample_limit": 50,
+    "repeats": 3,
+    "topologies": "xlron_nsfnet_deeprmsa,xlron_usnet_gcnrmsa,xlron_jpn48",
+    "profile_methods": "strict_reference,strict_optimized,ksp_ff,ff_ksp",
+    "skip_equivalence": false,
+    "skip_profile": false
+  },
+  "equivalence": [
+    {
+      "topology": "xlron_nsfnet_deeprmsa",
+      "seed": 6101,
+      "target_states": 500,
+      "checked_states": 500,
+      "passed": true,
+      "action_mismatches": 0,
+      "topk_mismatches": 0,
+      "legal_mismatches": 0,
+      "request_mismatches": 0,
+      "max_legal_logit_error": 0.0,
+      "max_raw_feature_error": 0.0,
+      "max_normalized_feature_error": 0.0,
+      "max_ranker_score_error": 0.0,
+      "first_failure": null,
+      "samples": [
+        {
+          "step": 500,
+          "req_id": 500,
+          "candidate_count": 6,
+          "selected_action": 5,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 501,
+          "req_id": 501,
+          "candidate_count": 23,
+          "selected_action": 47,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 502,
+          "req_id": 502,
+          "candidate_count": 29,
+          "selected_action": 14,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 503,
+          "req_id": 503,
+          "candidate_count": 23,
+          "selected_action": 47,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 504,
+          "req_id": 504,
+          "candidate_count": 30,
+          "selected_action": 22,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 506,
+          "req_id": 506,
+          "candidate_count": 16,
+          "selected_action": 5,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 507,
+          "req_id": 507,
+          "candidate_count": 6,
+          "selected_action": 5,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 509,
+          "req_id": 509,
+          "candidate_count": 22,
+          "selected_action": 6,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 510,
+          "req_id": 510,
+          "candidate_count": 30,
+          "selected_action": 23,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 511,
+          "req_id": 511,
+          "candidate_count": 14,
+          "selected_action": 4,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 512,
+          "req_id": 512,
+          "candidate_count": 13,
+          "selected_action": 124,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 513,
+          "req_id": 513,
+          "candidate_count": 4,
+          "selected_action": 30,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 514,
+          "req_id": 514,
+          "candidate_count": 29,
+          "selected_action": 362,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 515,
+          "req_id": 515,
+          "candidate_count": 28,
+          "selected_action": 49,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 516,
+          "req_id": 516,
+          "candidate_count": 27,
+          "selected_action": 89,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 517,
+          "req_id": 517,
+          "candidate_count": 30,
+          "selected_action": 4,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 518,
+          "req_id": 518,
+          "candidate_count": 30,
+          "selected_action": 22,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 519,
+          "req_id": 519,
+          "candidate_count": 14,
+          "selected_action": 125,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 520,
+          "req_id": 520,
+          "candidate_count": 14,
+          "selected_action": 6,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 521,
+          "req_id": 521,
+          "candidate_count": 13,
+          "selected_action": 5,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 523,
+          "req_id": 523,
+          "candidate_count": 4,
+          "selected_action": 30,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 524,
+          "req_id": 524,
+          "candidate_count": 30,
+          "selected_action": 11,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 525,
+          "req_id": 525,
+          "candidate_count": 28,
+          "selected_action": 21,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 526,
+          "req_id": 526,
+          "candidate_count": 3,
+          "selected_action": 1,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 528,
+          "req_id": 528,
+          "candidate_count": 9,
+          "selected_action": 1,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 529,
+          "req_id": 529,
+          "candidate_count": 4,
+          "selected_action": 1,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 530,
+          "req_id": 530,
+          "candidate_count": 24,
+          "selected_action": 365,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 531,
+          "req_id": 531,
+          "candidate_count": 16,
+          "selected_action": 11,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 532,
+          "req_id": 532,
+          "candidate_count": 14,
+          "selected_action": 10,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 533,
+          "req_id": 533,
+          "candidate_count": 29,
+          "selected_action": 20,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 534,
+          "req_id": 534,
+          "candidate_count": 17,
+          "selected_action": 42,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 535,
+          "req_id": 535,
+          "candidate_count": 7,
+          "selected_action": 5,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 536,
+          "req_id": 536,
+          "candidate_count": 23,
+          "selected_action": 686,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 537,
+          "req_id": 537,
+          "candidate_count": 4,
+          "selected_action": 30,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 538,
+          "req_id": 538,
+          "candidate_count": 30,
+          "selected_action": 405,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 539,
+          "req_id": 539,
+          "candidate_count": 19,
+          "selected_action": 5,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 540,
+          "req_id": 540,
+          "candidate_count": 30,
+          "selected_action": 4,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 541,
+          "req_id": 541,
+          "candidate_count": 30,
+          "selected_action": 11,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 542,
+          "req_id": 542,
+          "candidate_count": 30,
+          "selected_action": 365,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 543,
+          "req_id": 543,
+          "candidate_count": 11,
+          "selected_action": 5,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 544,
+          "req_id": 544,
+          "candidate_count": 12,
+          "selected_action": 2,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 545,
+          "req_id": 545,
+          "candidate_count": 16,
+          "selected_action": 10,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 546,
+          "req_id": 546,
+          "candidate_count": 16,
+          "selected_action": 126,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 547,
+          "req_id": 547,
+          "candidate_count": 12,
+          "selected_action": 44,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 548,
+          "req_id": 548,
+          "candidate_count": 15,
+          "selected_action": 84,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 549,
+          "req_id": 549,
+          "candidate_count": 30,
+          "selected_action": 11,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 550,
+          "req_id": 550,
+          "candidate_count": 16,
+          "selected_action": 46,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 551,
+          "req_id": 551,
+          "candidate_count": 27,
+          "selected_action": 21,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 552,
+          "req_id": 552,
+          "candidate_count": 17,
+          "selected_action": 4,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 553,
+          "req_id": 553,
+          "candidate_count": 8,
+          "selected_action": 0,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        }
+      ]
+    },
+    {
+      "topology": "xlron_usnet_gcnrmsa",
+      "seed": 6101,
+      "target_states": 500,
+      "checked_states": 500,
+      "passed": true,
+      "action_mismatches": 0,
+      "topk_mismatches": 0,
+      "legal_mismatches": 0,
+      "request_mismatches": 0,
+      "max_legal_logit_error": 0.0,
+      "max_raw_feature_error": 0.0,
+      "max_normalized_feature_error": 0.0,
+      "max_ranker_score_error": 0.0,
+      "first_failure": null,
+      "samples": [
+        {
+          "step": 500,
+          "req_id": 500,
+          "candidate_count": 30,
+          "selected_action": 486,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 501,
+          "req_id": 501,
+          "candidate_count": 30,
+          "selected_action": 32,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 502,
+          "req_id": 502,
+          "candidate_count": 30,
+          "selected_action": 12,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 503,
+          "req_id": 503,
+          "candidate_count": 30,
+          "selected_action": 1240,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 504,
+          "req_id": 504,
+          "candidate_count": 30,
+          "selected_action": 447,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 505,
+          "req_id": 505,
+          "candidate_count": 30,
+          "selected_action": 31,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 506,
+          "req_id": 506,
+          "candidate_count": 30,
+          "selected_action": 525,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 507,
+          "req_id": 507,
+          "candidate_count": 30,
+          "selected_action": 11,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 508,
+          "req_id": 508,
+          "candidate_count": 30,
+          "selected_action": 27,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 511,
+          "req_id": 511,
+          "candidate_count": 30,
+          "selected_action": 32,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 512,
+          "req_id": 512,
+          "candidate_count": 30,
+          "selected_action": 31,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 514,
+          "req_id": 514,
+          "candidate_count": 30,
+          "selected_action": 481,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 515,
+          "req_id": 515,
+          "candidate_count": 4,
+          "selected_action": 30,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 516,
+          "req_id": 516,
+          "candidate_count": 30,
+          "selected_action": 687,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 517,
+          "req_id": 517,
+          "candidate_count": 30,
+          "selected_action": 321,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 518,
+          "req_id": 518,
+          "candidate_count": 30,
+          "selected_action": 33,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 519,
+          "req_id": 519,
+          "candidate_count": 30,
+          "selected_action": 1162,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 520,
+          "req_id": 520,
+          "candidate_count": 30,
+          "selected_action": 163,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 521,
+          "req_id": 521,
+          "candidate_count": 30,
+          "selected_action": 401,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 522,
+          "req_id": 522,
+          "candidate_count": 30,
+          "selected_action": 1005,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 523,
+          "req_id": 523,
+          "candidate_count": 30,
+          "selected_action": 1326,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 524,
+          "req_id": 524,
+          "candidate_count": 30,
+          "selected_action": 1045,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 525,
+          "req_id": 525,
+          "candidate_count": 30,
+          "selected_action": 882,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 526,
+          "req_id": 526,
+          "candidate_count": 30,
+          "selected_action": 965,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 527,
+          "req_id": 527,
+          "candidate_count": 30,
+          "selected_action": 721,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 528,
+          "req_id": 528,
+          "candidate_count": 30,
+          "selected_action": 245,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 529,
+          "req_id": 529,
+          "candidate_count": 30,
+          "selected_action": 83,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 530,
+          "req_id": 530,
+          "candidate_count": 30,
+          "selected_action": 404,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 531,
+          "req_id": 531,
+          "candidate_count": 30,
+          "selected_action": 1324,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 532,
+          "req_id": 532,
+          "candidate_count": 30,
+          "selected_action": 404,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 533,
+          "req_id": 533,
+          "candidate_count": 30,
+          "selected_action": 11,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 534,
+          "req_id": 534,
+          "candidate_count": 30,
+          "selected_action": 32,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 535,
+          "req_id": 535,
+          "candidate_count": 30,
+          "selected_action": 80,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 536,
+          "req_id": 536,
+          "candidate_count": 30,
+          "selected_action": 489,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 537,
+          "req_id": 537,
+          "candidate_count": 30,
+          "selected_action": 28,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 538,
+          "req_id": 538,
+          "candidate_count": 30,
+          "selected_action": 406,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 539,
+          "req_id": 539,
+          "candidate_count": 30,
+          "selected_action": 34,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 540,
+          "req_id": 540,
+          "candidate_count": 30,
+          "selected_action": 28,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 541,
+          "req_id": 541,
+          "candidate_count": 30,
+          "selected_action": 32,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 543,
+          "req_id": 543,
+          "candidate_count": 30,
+          "selected_action": 845,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 544,
+          "req_id": 544,
+          "candidate_count": 30,
+          "selected_action": 1084,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 545,
+          "req_id": 545,
+          "candidate_count": 30,
+          "selected_action": 695,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 546,
+          "req_id": 546,
+          "candidate_count": 30,
+          "selected_action": 80,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 547,
+          "req_id": 547,
+          "candidate_count": 4,
+          "selected_action": 30,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 548,
+          "req_id": 548,
+          "candidate_count": 30,
+          "selected_action": 280,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 549,
+          "req_id": 549,
+          "candidate_count": 30,
+          "selected_action": 0,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 550,
+          "req_id": 550,
+          "candidate_count": 30,
+          "selected_action": 80,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 551,
+          "req_id": 551,
+          "candidate_count": 30,
+          "selected_action": 28,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 552,
+          "req_id": 552,
+          "candidate_count": 30,
+          "selected_action": 2,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 553,
+          "req_id": 553,
+          "candidate_count": 30,
+          "selected_action": 10,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        }
+      ]
+    },
+    {
+      "topology": "xlron_jpn48",
+      "seed": 6101,
+      "target_states": 500,
+      "checked_states": 500,
+      "passed": true,
+      "action_mismatches": 0,
+      "topk_mismatches": 0,
+      "legal_mismatches": 0,
+      "request_mismatches": 0,
+      "max_legal_logit_error": 0.0,
+      "max_raw_feature_error": 0.0,
+      "max_normalized_feature_error": 0.0,
+      "max_ranker_score_error": 0.0,
+      "first_failure": null,
+      "samples": [
+        {
+          "step": 500,
+          "req_id": 500,
+          "candidate_count": 30,
+          "selected_action": 969,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 501,
+          "req_id": 501,
+          "candidate_count": 30,
+          "selected_action": 1729,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 502,
+          "req_id": 502,
+          "candidate_count": 30,
+          "selected_action": 73,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 503,
+          "req_id": 503,
+          "candidate_count": 30,
+          "selected_action": 1693,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 504,
+          "req_id": 504,
+          "candidate_count": 30,
+          "selected_action": 1925,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 505,
+          "req_id": 505,
+          "candidate_count": 30,
+          "selected_action": 1895,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 506,
+          "req_id": 506,
+          "candidate_count": 30,
+          "selected_action": 1368,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 507,
+          "req_id": 507,
+          "candidate_count": 30,
+          "selected_action": 1964,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 508,
+          "req_id": 508,
+          "candidate_count": 30,
+          "selected_action": 495,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 509,
+          "req_id": 509,
+          "candidate_count": 30,
+          "selected_action": 1377,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 510,
+          "req_id": 510,
+          "candidate_count": 30,
+          "selected_action": 1613,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 511,
+          "req_id": 511,
+          "candidate_count": 30,
+          "selected_action": 1889,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 512,
+          "req_id": 512,
+          "candidate_count": 4,
+          "selected_action": 30,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 513,
+          "req_id": 513,
+          "candidate_count": 30,
+          "selected_action": 1893,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 514,
+          "req_id": 514,
+          "candidate_count": 30,
+          "selected_action": 1645,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 515,
+          "req_id": 515,
+          "candidate_count": 30,
+          "selected_action": 1963,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 516,
+          "req_id": 516,
+          "candidate_count": 30,
+          "selected_action": 1377,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 517,
+          "req_id": 517,
+          "candidate_count": 30,
+          "selected_action": 1015,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 518,
+          "req_id": 518,
+          "candidate_count": 30,
+          "selected_action": 1767,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 519,
+          "req_id": 519,
+          "candidate_count": 30,
+          "selected_action": 1929,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 520,
+          "req_id": 520,
+          "candidate_count": 30,
+          "selected_action": 1889,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 521,
+          "req_id": 521,
+          "candidate_count": 30,
+          "selected_action": 566,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 522,
+          "req_id": 522,
+          "candidate_count": 30,
+          "selected_action": 366,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 523,
+          "req_id": 523,
+          "candidate_count": 30,
+          "selected_action": 1173,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 524,
+          "req_id": 524,
+          "candidate_count": 30,
+          "selected_action": 1854,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 525,
+          "req_id": 525,
+          "candidate_count": 30,
+          "selected_action": 10,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 526,
+          "req_id": 526,
+          "candidate_count": 4,
+          "selected_action": 30,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 527,
+          "req_id": 527,
+          "candidate_count": 4,
+          "selected_action": 30,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 528,
+          "req_id": 528,
+          "candidate_count": 30,
+          "selected_action": 1608,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 529,
+          "req_id": 529,
+          "candidate_count": 30,
+          "selected_action": 1413,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 530,
+          "req_id": 530,
+          "candidate_count": 30,
+          "selected_action": 1969,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 531,
+          "req_id": 531,
+          "candidate_count": 30,
+          "selected_action": 0,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 532,
+          "req_id": 532,
+          "candidate_count": 30,
+          "selected_action": 22,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 533,
+          "req_id": 533,
+          "candidate_count": 30,
+          "selected_action": 774,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 534,
+          "req_id": 534,
+          "candidate_count": 30,
+          "selected_action": 927,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 535,
+          "req_id": 535,
+          "candidate_count": 30,
+          "selected_action": 689,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 536,
+          "req_id": 536,
+          "candidate_count": 30,
+          "selected_action": 1087,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 537,
+          "req_id": 537,
+          "candidate_count": 30,
+          "selected_action": 689,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 538,
+          "req_id": 538,
+          "candidate_count": 30,
+          "selected_action": 1287,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 539,
+          "req_id": 539,
+          "candidate_count": 30,
+          "selected_action": 889,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 540,
+          "req_id": 540,
+          "candidate_count": 30,
+          "selected_action": 33,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 541,
+          "req_id": 541,
+          "candidate_count": 30,
+          "selected_action": 1291,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 542,
+          "req_id": 542,
+          "candidate_count": 30,
+          "selected_action": 1649,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 543,
+          "req_id": 543,
+          "candidate_count": 30,
+          "selected_action": 489,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 544,
+          "req_id": 544,
+          "candidate_count": 30,
+          "selected_action": 1619,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 545,
+          "req_id": 545,
+          "candidate_count": 30,
+          "selected_action": 61,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 546,
+          "req_id": 546,
+          "candidate_count": 30,
+          "selected_action": 1449,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 547,
+          "req_id": 547,
+          "candidate_count": 30,
+          "selected_action": 1409,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 548,
+          "req_id": 548,
+          "candidate_count": 30,
+          "selected_action": 1849,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        },
+        {
+          "step": 549,
+          "req_id": 549,
+          "candidate_count": 30,
+          "selected_action": 1448,
+          "max_feature_error": 0.0,
+          "max_score_error": 0.0
+        }
+      ]
+    }
+  ]
+}

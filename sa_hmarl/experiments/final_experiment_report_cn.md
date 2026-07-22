@@ -1,5 +1,9 @@
 # SA-HMARL 当前完整实验报告（中文注释版）
 
+> 作用说明：这份报告属于历史 `independent PPO-R` 研究线，不是当前
+> `PPO-C + v1.2 static counterfactual ranker` 主线总表。统一命名见
+> `CANONICAL_NAMES.md`。
+
 > 更新日期：2026-06-11。本文把当前关键实验整理成一份中文报告，
 > 重点区分 C 端贡献、R 端贡献、教师迁移基线和诊断性实验。
 

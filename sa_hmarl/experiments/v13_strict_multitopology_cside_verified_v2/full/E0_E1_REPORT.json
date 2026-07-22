@@ -1,0 +1,35 @@
+{
+  "e_stratum_counts": {
+    "E=1": {
+      "evaluated": 253984,
+      "admitted": 253984,
+      "blocked": 0
+    },
+    "D=2": {
+      "evaluated": 77965,
+      "admitted": 77965,
+      "blocked": 0
+    },
+    "D=3": {
+      "evaluated": 121652,
+      "admitted": 121652,
+      "blocked": 0
+    },
+    "D=1": {
+      "evaluated": 54367,
+      "admitted": 54367,
+      "blocked": 0
+    },
+    "E=0": {
+      "evaluated": 246720,
+      "admitted": 246720,
+      "blocked": 0
+    },
+    "D=0": {
+      "evaluated": 246720,
+      "admitted": 246720,
+      "blocked": 0
+    }
+  },
+  "depth_stratum_counts": {}
+}

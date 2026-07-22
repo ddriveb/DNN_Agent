@@ -1,0 +1,212 @@
+{
+  "config": {
+    "agent_r_checkpoint": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+    "strict_ranker_checkpoint": "sa_hmarl/experiments/v13_strict_fixed/strict_loss_rerun/checkpoints/full_state_uniform_strict/seed_42/ranking_model.pt",
+    "num_slots": 320,
+    "num_servers": 4,
+    "k_paths_r": 50,
+    "path_sort_strategy_r": "hops",
+    "block_sort_strategy_r": "start_asc",
+    "modulation_profile": "default",
+    "max_blocks": 10,
+    "split_profile": "default3",
+    "num_splits": 3,
+    "arrival_interval": 0.3,
+    "holding_min": 20.0,
+    "holding_max": 30.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "size_max_mb": 30.0,
+    "edge_cost_min": 0.1,
+    "edge_cost_max": 2.2,
+    "seeds": null,
+    "requests_per_episode": 6000,
+    "warmup_requests": 500,
+    "poisson_arrivals": false,
+    "exponential_holding": false,
+    "device": "cpu",
+    "output_dir": "sa_hmarl/experiments/r_mask_empty_expanded_path_rescue_phase_r0",
+    "max_workers": 8,
+    "skip_smoke": true,
+    "skip_done_check": false,
+    "fixed_split_id": 0,
+    "smoke_requests": 2000,
+    "smoke_only": false
+  },
+  "code_hash": "5b29e8c45487f5abba63c2d2",
+  "topology_hashes": {
+    "xlron_cost239_ptrnet_real": "46df9dfbe46bb38298e6b5d8",
+    "xlron_nsfnet_deeprmsa": "191f7d9673f191a1f2a8a77a",
+    "xlron_usnet_gcnrmsa": "974d997cbcb929c4ec7c2d90",
+    "xlron_jpn48": "8a2aa12bd99250e594f5c20e"
+  },
+  "config_hash": "5f4453c5236573bf3ed3dec1",
+  "checkpoint_hashes": {
+    "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+    "ranker": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+  },
+  "per_task": [
+    {
+      "topology": "xlron_cost239_ptrnet_real",
+      "seed": 5001,
+      "request_trace_hash": "1bcc5102c35f1c026b51a2ea",
+      "elapsed_seconds": 517.6371761910268
+    },
+    {
+      "topology": "xlron_cost239_ptrnet_real",
+      "seed": 5002,
+      "request_trace_hash": "20e3c09c46be6885c96751bd",
+      "elapsed_seconds": 523.9260672939708
+    },
+    {
+      "topology": "xlron_cost239_ptrnet_real",
+      "seed": 5003,
+      "request_trace_hash": "7fc0aa9d657528208e7d4fb7",
+      "elapsed_seconds": 515.3569595019799
+    },
+    {
+      "topology": "xlron_cost239_ptrnet_real",
+      "seed": 5004,
+      "request_trace_hash": "edbcc2d5dbd2201ea671c889",
+      "elapsed_seconds": 529.4697996899486
+    },
+    {
+      "topology": "xlron_cost239_ptrnet_real",
+      "seed": 5005,
+      "request_trace_hash": "2df3a54634ef160431206607",
+      "elapsed_seconds": 547.6979201899958
+    },
+    {
+      "topology": "xlron_nsfnet_deeprmsa",
+      "seed": 6101,
+      "request_trace_hash": "3573332f53d297858eb70db4",
+      "elapsed_seconds": 307.25524547096575
+    },
+    {
+      "topology": "xlron_nsfnet_deeprmsa",
+      "seed": 6102,
+      "request_trace_hash": "19774bb9070749f9f39fa4cd",
+      "elapsed_seconds": 295.23613716702675
+    },
+    {
+      "topology": "xlron_nsfnet_deeprmsa",
+      "seed": 6103,
+      "request_trace_hash": "98e6640feacc33cc5371dbc6",
+      "elapsed_seconds": 299.4434881370398
+    },
+    {
+      "topology": "xlron_nsfnet_deeprmsa",
+      "seed": 6104,
+      "request_trace_hash": "7da589d8d53aa220feb087ba",
+      "elapsed_seconds": 302.7664780250052
+    },
+    {
+      "topology": "xlron_nsfnet_deeprmsa",
+      "seed": 6105,
+      "request_trace_hash": "c087633b860f5b0f1f517232",
+      "elapsed_seconds": 309.7639932319871
+    },
+    {
+      "topology": "xlron_usnet_gcnrmsa",
+      "seed": 6101,
+      "request_trace_hash": "8fcc1b313a68b8dce369f8e2",
+      "elapsed_seconds": 726.6192627900164
+    },
+    {
+      "topology": "xlron_usnet_gcnrmsa",
+      "seed": 6102,
+      "request_trace_hash": "85010d12075e24158a92fd59",
+      "elapsed_seconds": 733.2072335110279
+    },
+    {
+      "topology": "xlron_usnet_gcnrmsa",
+      "seed": 6103,
+      "request_trace_hash": "b144e1860aa07dea0575bb27",
+      "elapsed_seconds": 693.5503159780055
+    },
+    {
+      "topology": "xlron_usnet_gcnrmsa",
+      "seed": 6104,
+      "request_trace_hash": "064b0bd97e67b5d7b2d43636",
+      "elapsed_seconds": 695.2667109169997
+    },
+    {
+      "topology": "xlron_usnet_gcnrmsa",
+      "seed": 6105,
+      "request_trace_hash": "4ebd565353bfdc88f3c99b31",
+      "elapsed_seconds": 675.3179546380416
+    },
+    {
+      "topology": "xlron_jpn48",
+      "seed": 6101,
+      "request_trace_hash": "c53c925915e5dc2a2d47d8d1",
+      "elapsed_seconds": 910.2503844759776
+    },
+    {
+      "topology": "xlron_jpn48",
+      "seed": 6102,
+      "request_trace_hash": "ac3266598a6b6b2c82ce8396",
+      "elapsed_seconds": 849.7119417900103
+    },
+    {
+      "topology": "xlron_jpn48",
+      "seed": 6103,
+      "request_trace_hash": "2b761706d086200e44d22a53",
+      "elapsed_seconds": 893.4645777849946
+    },
+    {
+      "topology": "xlron_jpn48",
+      "seed": 6104,
+      "request_trace_hash": "418296c711b57c9dd67d1610",
+      "elapsed_seconds": 731.362726108986
+    },
+    {
+      "topology": "xlron_jpn48",
+      "seed": 6105,
+      "request_trace_hash": "0c42a7973b6276ca17b4e343",
+      "elapsed_seconds": 700.7600901459809
+    }
+  ],
+  "topology_node_link_counts": {
+    "xlron_cost239_ptrnet_real": {
+      "num_nodes": 11,
+      "num_links": 26
+    },
+    "xlron_nsfnet_deeprmsa": {
+      "num_nodes": 14,
+      "num_links": 22
+    },
+    "xlron_usnet_gcnrmsa": {
+      "num_nodes": 24,
+      "num_links": 43
+    },
+    "xlron_jpn48": {
+      "num_nodes": 48,
+      "num_links": 82
+    }
+  },
+  "output_files": [
+    "PROTOCOL_LOCK.md",
+    "IMPLEMENTATION_AUDIT.md",
+    "PATH_EXPANSION_AUDIT.md",
+    "REQUEST_TRACE_AUDIT.md",
+    "EXPERIMENT_MANIFEST.json",
+    "SMOKE_RESULTS.json",
+    "SMOKE_RESULTS.md",
+    "per_seed_summary.csv",
+    "mask_empty_rescue_events.jsonl.gz",
+    "paired_block_identity.jsonl.gz",
+    "COST239_RESULTS.md",
+    "COST239_RESULTS.json",
+    "NSFNET_RESULTS.md",
+    "NSFNET_RESULTS.json",
+    "USNET_RESULTS.md",
+    "USNET_RESULTS.json",
+    "JPN48_RESULTS.md",
+    "JPN48_RESULTS.json",
+    "RESCUE_CEILING_SUMMARY.md",
+    "RESCUE_CEILING_SUMMARY.json",
+    "NEXT_STEP_DECISION.md"
+  ]
+}

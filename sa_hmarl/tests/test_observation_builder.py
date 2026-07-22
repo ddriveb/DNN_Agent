@@ -269,6 +269,39 @@ def test_observation_builder_no_mutation():
     print("test_observation_builder_no_mutation PASSED")
 
 
+def test_agent_r_observation_paths_match_env_ordering():
+    env = _make_env(num_servers=2)
+    request = _make_request(num_splits=1)
+
+    for sort_by in ("km", "hops"):
+        env.path_sort_strategy = sort_by
+        obs = build_agent_r_observation(env, request, split_id=0, server_id=0)
+        expected_paths = env.get_candidate_paths(request.src_node, env.mec.servers[0].node_id)
+        assert obs["candidate_paths"] == expected_paths, (
+            f"Agent-R candidate paths must match env.get_candidate_paths() for sort={sort_by}"
+        )
+
+    print("test_agent_r_observation_paths_match_env_ordering PASSED")
+
+
+def test_agent_c_observation_server_paths_match_env_ordering():
+    env = _make_env(num_servers=2)
+    request = _make_request(num_splits=1)
+
+    for sort_by in ("km", "hops"):
+        env.path_sort_strategy = sort_by
+        obs = build_agent_c_observation(env, request)
+        expected = [
+            env.get_candidate_paths(request.src_node, server.node_id)
+            for server in env.mec.servers
+        ]
+        assert obs["_per_server_paths"] == expected, (
+            f"Agent-C per-server paths must match env.get_candidate_paths() for sort={sort_by}"
+        )
+
+    print("test_agent_c_observation_server_paths_match_env_ordering PASSED")
+
+
 def test_agent_c_mask_masks_overloaded_server():
     """When server is already loaded so that cost > available_compute,
     Agent-C mask should mask that split-server.
@@ -352,6 +385,8 @@ if __name__ == "__main__":
     test_decode_agent_c_action()
     test_decode_agent_r_action()
     test_observation_builder_no_mutation()
+    test_agent_r_observation_paths_match_env_ordering()
+    test_agent_c_observation_server_paths_match_env_ordering()
     test_agent_c_mask_masks_overloaded_server()
     test_agent_r_observation_invalid_split_id()
     test_agent_r_observation_invalid_server_id()

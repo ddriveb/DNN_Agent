@@ -1,0 +1,12 @@
+[eval] Saved sa_hmarl/experiments/v13_strict_multitopology_cside_corrected/per_task/xlron_cost239_ptrnet_real/seed_5050/results.json and sa_hmarl/experiments/v13_strict_multitopology_cside_corrected/per_task/xlron_cost239_ptrnet_real/seed_5050/eval.log
+ing=11.0600% overload=0.0000% nsb=0.0000% c_no=16 r_no=0 r_decisions=4984 policy_ms=0.848 audit_ms=1.966 ppo_agree=9.4302%
+[xlron_cost239_ptrnet_real][seed=5050][ppo_c+strict_v13] blocking=31.9400% overload=0.0000% nsb=5.1400% c_no=0 r_no=0 r_decisions=5000 policy_ms=11.092 audit_ms=1.952 ppo_agree=6.0200%
+[xlron_cost239_ptrnet_real][seed=5050][ppo_c+old_v13] blocking=37.1000% overload=0.0000% nsb=4.2400% c_no=0 r_no=0 r_decisions=5000 policy_ms=10.980 audit_ms=1.965 ppo_agree=4.6800%
+[xlron_cost239_ptrnet_real][seed=5050][df_c+ppo_r_top1] blocking=18.1800% overload=0.0000% nsb=9.3400% c_no=9 r_no=0 r_decisions=4991 policy_ms=0.113 audit_ms=3.100 ppo_agree=100.0000%
+[xlron_cost239_ptrnet_real][seed=5050][df_c+ksp_ff_highest] blocking=12.3800% overload=0.0000% nsb=0.0000% c_no=24 r_no=0 r_decisions=4976 policy_ms=0.146 audit_ms=3.055 ppo_agree=0.4823%
+[xlron_cost239_ptrnet_real][seed=5050][df_c+strict_v13] blocking=18.7800% overload=0.0000% nsb=8.5400% c_no=6 r_no=0 r_decisions=4994 policy_ms=14.330 audit_ms=2.793 ppo_agree=3.5843%
+[xlron_cost239_ptrnet_real][seed=5050][df_c+old_v13] blocking=23.1200% overload=0.0000% nsb=6.8800% c_no=8 r_no=0 r_decisions=4992 policy_ms=14.290 audit_ms=2.797 ppo_agree=5.6290%
+[xlron_cost239_ptrnet_real][seed=5050][ppo_c_snap24+ppo_r_top1] blocking=20.5000% overload=0.4600% nsb=7.5400% c_no=233 r_no=0 r_decisions=4767 policy_ms=0.419 audit_ms=2.074 ppo_agree=100.0000%
+[xlron_cost239_ptrnet_real][seed=5050][ppo_c_snap24+ksp_ff_highest] blocking=9.1600% overload=0.3600% nsb=0.0000% c_no=38 r_no=0 r_decisions=4962 policy_ms=0.457 audit_ms=2.265 ppo_agree=7.3156%
+[xlron_cost239_ptrnet_real][seed=5050][ppo_c_snap24+strict_v13] blocking=35.7000% overload=0.2600% nsb=4.8000% c_no=178 r_no=0 r_decisions=4822 policy_ms=10.847 audit_ms=2.012 ppo_agree=6.8229%
+[xlron_cost239_ptrnet_real][seed=5050][ppo_c_snap24+old_v13] blocking=45.3000% overload=0.1400% nsb=7.0600% c_no=164 r_no=0 r_decisions=4836 policy_ms=10.406 audit_ms=1.950 ppo_agree=6.3689%

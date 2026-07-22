@@ -1,0 +1,133 @@
+{
+  "c_side": "PPO_C",
+  "summaries": {
+    "strict_v1.3": {
+      "display_name": "PPO-C + Strict v1.3",
+      "n": 20,
+      "blocking_rate_mean": 0.06793333333333335,
+      "blocking_rate_std": 0.014089666903454192,
+      "blocking_rate_median": 0.06316666666666666,
+      "blocking_rate_p25": 0.057708333333333334,
+      "blocking_rate_p75": 0.07641666666666666,
+      "blocking_rate_min": 0.051,
+      "blocking_rate_max": 0.101,
+      "overload_rate_mean": 0.067925,
+      "nsb_rate_mean": 8.333333333333334e-06,
+      "avg_delay_ms_mean": 9.593879826688779,
+      "avg_fs_mean": 3.142084085836905,
+      "avg_decision_ms_mean": 18.28055097260731,
+      "ppo_r_agreement_mean": 0.11157500000000002
+    },
+    "ksp_ff_k50_hops": {
+      "display_name": "PPO-C + KSP-FF K=50 hops",
+      "n": 20,
+      "blocking_rate_mean": 0.09232499999999999,
+      "blocking_rate_std": 0.01564541999010147,
+      "blocking_rate_median": 0.09025,
+      "blocking_rate_p25": 0.07858333333333334,
+      "blocking_rate_p75": 0.10625,
+      "blocking_rate_min": 0.0715,
+      "blocking_rate_max": 0.1235,
+      "overload_rate_mean": 0.09230833333333333,
+      "nsb_rate_mean": 8.333333333333334e-06,
+      "avg_delay_ms_mean": 8.69369466062225,
+      "avg_fs_mean": 2.313934892877312,
+      "avg_decision_ms_mean": 9.104045467758503,
+      "ppo_r_agreement_mean": 0.1599833333333333
+    },
+    "ppo_r_top1": {
+      "display_name": "PPO-C + PPO-R Top-1",
+      "n": 20,
+      "blocking_rate_mean": 0.06684999999999999,
+      "blocking_rate_std": 0.014338422189250565,
+      "blocking_rate_median": 0.0635,
+      "blocking_rate_p25": 0.05558333333333333,
+      "blocking_rate_p75": 0.07695833333333334,
+      "blocking_rate_min": 0.04083333333333333,
+      "blocking_rate_max": 0.09516666666666666,
+      "overload_rate_mean": 0.06684999999999999,
+      "nsb_rate_mean": 0.0,
+      "avg_delay_ms_mean": 8.636376983832982,
+      "avg_fs_mean": 3.1938807581558364,
+      "avg_decision_ms_mean": 9.521761354364084,
+      "ppo_r_agreement_mean": 1.0
+    },
+    "legacy_e1": {
+      "display_name": "PPO-C + Legacy E1-trained gated baseline",
+      "n": 20,
+      "blocking_rate_mean": 0.06791666666666667,
+      "blocking_rate_std": 0.013292976204532564,
+      "blocking_rate_median": 0.06458333333333333,
+      "blocking_rate_p25": 0.057999999999999996,
+      "blocking_rate_p75": 0.074375,
+      "blocking_rate_min": 0.049166666666666664,
+      "blocking_rate_max": 0.09733333333333333,
+      "overload_rate_mean": 0.06790833333333333,
+      "nsb_rate_mean": 8.333333333333334e-06,
+      "avg_delay_ms_mean": 9.707114781880044,
+      "avg_fs_mean": 3.056019254330103,
+      "avg_decision_ms_mean": 18.668743519642156,
+      "ppo_r_agreement_mean": 0.09388333333333333
+    }
+  },
+  "strict_vs_ksp": {
+    "n": 20,
+    "mean_diff": -0.024391666666666666,
+    "median_diff": -0.02066666666666667,
+    "mean_diff_pp": "-2.44pp",
+    "bootstrap_95_ci": [
+      -0.02843333333333333,
+      -0.020591666666666668
+    ],
+    "bootstrap_95_ci_pp": [
+      "-2.8433%",
+      "-2.0592%"
+    ],
+    "wilcoxon_p": 8.844915021211901e-05,
+    "sign_flip_permutation_p": 2e-06,
+    "wins_a_lower": 20,
+    "losses_a_lower": 0,
+    "ties": 0,
+    "relative_reduction": -0.2641935192706923
+  },
+  "strict_vs_ppo_r": {
+    "n": 20,
+    "mean_diff": 0.0010833333333333333,
+    "median_diff": 0.0015000000000000013,
+    "mean_diff_pp": "0.11pp",
+    "bootstrap_95_ci": [
+      -0.0014000000000000015,
+      0.0034249999999999997
+    ],
+    "bootstrap_95_ci_pp": [
+      "-0.1400%",
+      "0.3425%"
+    ],
+    "wilcoxon_p": 0.26259749441976243,
+    "sign_flip_permutation_p": 0.406955,
+    "wins_a_lower": 7,
+    "losses_a_lower": 13,
+    "ties": 0,
+    "relative_reduction": 0.016205435053602595
+  },
+  "ksp_vs_ppo_r": {
+    "n": 20,
+    "mean_diff": 0.025474999999999998,
+    "median_diff": 0.02375,
+    "mean_diff_pp": "2.55pp",
+    "bootstrap_95_ci": [
+      0.02065833333333333,
+      0.030725000000000002
+    ],
+    "bootstrap_95_ci_pp": [
+      "2.0658%",
+      "3.0725%"
+    ],
+    "wilcoxon_p": 1.9073486328125e-06,
+    "sign_flip_permutation_p": 2e-06,
+    "wins_a_lower": 0,
+    "losses_a_lower": 20,
+    "ties": 0,
+    "relative_reduction": 0.38107703814510097
+  }
+}

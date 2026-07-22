@@ -1,0 +1,1965 @@
+{
+  "stage": "D_deeprmsa_eval",
+  "protocol_id": "DEEPRMSA_VS_KSP_FF_PAPER_PARITY_V1",
+  "warmup": 3000,
+  "evaluated": 10000,
+  "test_seeds": [
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110
+  ],
+  "results": [
+    {
+      "topology": "cost239",
+      "training_seed": 42,
+      "checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/experiments/deeprmsa_vs_ksp_ff_paper_parity/checkpoints/cost239/seed_42/best.pt",
+      "checkpoint_meta": {
+        "requests": 950000,
+        "updates": 4734,
+        "val_blocking": 0.10955555555555556
+      },
+      "per_seed": {
+        "101": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 8770,
+          "blocked": 1230,
+          "blocking_rate": 0.123,
+          "avg_fs": 3.9851767388825543,
+          "avg_slot_hops": 7.009692132269099,
+          "avg_path_len_km": 1676.636259977195,
+          "avg_hop_count": 1.6737742303306729,
+          "mod_counts": {
+            "8QAM": 2422,
+            "QPSK": 4569,
+            "BPSK": 1344,
+            "16QAM": 435
+          },
+          "block_reasons": {
+            "no_feasible_path": 1230
+          },
+          "mean_utilization": 0.49675146153846156,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11453,
+            "releases": 11453,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "102": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 8766,
+          "blocked": 1234,
+          "blocking_rate": 0.1234,
+          "avg_fs": 3.9577914670317136,
+          "avg_slot_hops": 6.988135979922427,
+          "avg_path_len_km": 1672.3089208304814,
+          "avg_hop_count": 1.6825233858088067,
+          "mod_counts": {
+            "QPSK": 4550,
+            "16QAM": 373,
+            "BPSK": 1311,
+            "8QAM": 2532
+          },
+          "block_reasons": {
+            "no_feasible_path": 1234
+          },
+          "mean_utilization": 0.4916399423076923,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11484,
+            "releases": 11484,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "103": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 8761,
+          "blocked": 1239,
+          "blocking_rate": 0.1239,
+          "avg_fs": 3.953201689304874,
+          "avg_slot_hops": 6.910398356352014,
+          "avg_path_len_km": 1653.878552676635,
+          "avg_hop_count": 1.6615683141193927,
+          "mod_counts": {
+            "BPSK": 1332,
+            "QPSK": 4427,
+            "8QAM": 2579,
+            "16QAM": 423
+          },
+          "block_reasons": {
+            "no_feasible_path": 1239
+          },
+          "mean_utilization": 0.4873145192307692,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11449,
+            "releases": 11449,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "104": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 8766,
+          "blocked": 1234,
+          "blocking_rate": 0.1234,
+          "avg_fs": 3.9982888432580426,
+          "avg_slot_hops": 7.069929272187999,
+          "avg_path_len_km": 1684.7444672598676,
+          "avg_hop_count": 1.6840063883185032,
+          "mod_counts": {
+            "8QAM": 2414,
+            "QPSK": 4554,
+            "BPSK": 1385,
+            "16QAM": 413
+          },
+          "block_reasons": {
+            "no_feasible_path": 1234
+          },
+          "mean_utilization": 0.4915701923076924,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11435,
+            "releases": 11435,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "105": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 8927,
+          "blocked": 1073,
+          "blocking_rate": 0.1073,
+          "avg_fs": 3.9904783241850565,
+          "avg_slot_hops": 7.009521675814943,
+          "avg_path_len_km": 1662.6044583846758,
+          "avg_hop_count": 1.6704379970874874,
+          "mod_counts": {
+            "QPSK": 4554,
+            "8QAM": 2557,
+            "16QAM": 442,
+            "BPSK": 1374
+          },
+          "block_reasons": {
+            "no_feasible_path": 1073
+          },
+          "mean_utilization": 0.48601813461538457,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11656,
+            "releases": 11656,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "106": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 8816,
+          "blocked": 1184,
+          "blocking_rate": 0.1184,
+          "avg_fs": 3.9804900181488203,
+          "avg_slot_hops": 6.960866606170599,
+          "avg_path_len_km": 1672.258393829401,
+          "avg_hop_count": 1.669010889292196,
+          "mod_counts": {
+            "QPSK": 4599,
+            "8QAM": 2499,
+            "BPSK": 1325,
+            "16QAM": 393
+          },
+          "block_reasons": {
+            "no_feasible_path": 1184
+          },
+          "mean_utilization": 0.49409792307692313,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11473,
+            "releases": 11473,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "107": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 8821,
+          "blocked": 1179,
+          "blocking_rate": 0.1179,
+          "avg_fs": 3.99931980501077,
+          "avg_slot_hops": 7.011109851490761,
+          "avg_path_len_km": 1681.4125382609682,
+          "avg_hop_count": 1.6732796735064053,
+          "mod_counts": {
+            "QPSK": 4614,
+            "8QAM": 2457,
+            "16QAM": 403,
+            "BPSK": 1347
+          },
+          "block_reasons": {
+            "no_feasible_path": 1179
+          },
+          "mean_utilization": 0.4912389807692308,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11475,
+            "releases": 11475,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "108": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 8771,
+          "blocked": 1229,
+          "blocking_rate": 0.1229,
+          "avg_fs": 3.984722380572341,
+          "avg_slot_hops": 7.0250826587618285,
+          "avg_path_len_km": 1674.9082202713487,
+          "avg_hop_count": 1.6809941853836508,
+          "mod_counts": {
+            "BPSK": 1293,
+            "QPSK": 4681,
+            "8QAM": 2417,
+            "16QAM": 380
+          },
+          "block_reasons": {
+            "no_feasible_path": 1229
+          },
+          "mean_utilization": 0.4870434423076923,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11457,
+            "releases": 11457,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "109": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 8756,
+          "blocked": 1244,
+          "blocking_rate": 0.1244,
+          "avg_fs": 3.978643216080402,
+          "avg_slot_hops": 6.995317496573778,
+          "avg_path_len_km": 1680.8063042485153,
+          "avg_hop_count": 1.6762220191868433,
+          "mod_counts": {
+            "QPSK": 4580,
+            "8QAM": 2401,
+            "BPSK": 1372,
+            "16QAM": 403
+          },
+          "block_reasons": {
+            "no_feasible_path": 1244
+          },
+          "mean_utilization": 0.49114955769230767,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11456,
+            "releases": 11456,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "110": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 8894,
+          "blocked": 1106,
+          "blocking_rate": 0.1106,
+          "avg_fs": 3.9709916797841243,
+          "avg_slot_hops": 6.9573870024735776,
+          "avg_path_len_km": 1675.742073307848,
+          "avg_hop_count": 1.6702271194063414,
+          "mod_counts": {
+            "BPSK": 1399,
+            "8QAM": 2517,
+            "QPSK": 4591,
+            "16QAM": 387
+          },
+          "block_reasons": {
+            "no_feasible_path": 1106
+          },
+          "mean_utilization": 0.4860308269230769,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11574,
+            "releases": 11574,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        }
+      },
+      "mean_blocking_rate": 0.11952,
+      "std_blocking_rate": 0.0060499403119186005
+    },
+    {
+      "topology": "cost239",
+      "training_seed": 43,
+      "checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/experiments/deeprmsa_vs_ksp_ff_paper_parity/checkpoints/cost239/seed_43/best.pt",
+      "checkpoint_meta": {
+        "requests": 750000,
+        "updates": 3734,
+        "val_blocking": 0.08466666666666667
+      },
+      "per_seed": {
+        "101": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9014,
+          "blocked": 986,
+          "blocking_rate": 0.0986,
+          "avg_fs": 4.014643887286443,
+          "avg_slot_hops": 6.774018193920568,
+          "avg_path_len_km": 1652.3796316840471,
+          "avg_hop_count": 1.6058353672065675,
+          "mod_counts": {
+            "8QAM": 2343,
+            "QPSK": 4709,
+            "BPSK": 1417,
+            "16QAM": 545
+          },
+          "block_reasons": {
+            "no_feasible_path": 986
+          },
+          "mean_utilization": 0.4918530769230769,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11754,
+            "releases": 11754,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "102": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9033,
+          "blocked": 967,
+          "blocking_rate": 0.0967,
+          "avg_fs": 3.984169157533488,
+          "avg_slot_hops": 6.71947304328573,
+          "avg_path_len_km": 1643.4761430311082,
+          "avg_hop_count": 1.6016827189195173,
+          "mod_counts": {
+            "16QAM": 509,
+            "QPSK": 4639,
+            "8QAM": 2485,
+            "BPSK": 1400
+          },
+          "block_reasons": {
+            "no_feasible_path": 967
+          },
+          "mean_utilization": 0.48418392307692304,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11821,
+            "releases": 11821,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "103": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9058,
+          "blocked": 942,
+          "blocking_rate": 0.0942,
+          "avg_fs": 3.9622433208213734,
+          "avg_slot_hops": 6.6504747184809005,
+          "avg_path_len_km": 1631.0311327003753,
+          "avg_hop_count": 1.5961580922941048,
+          "mod_counts": {
+            "BPSK": 1354,
+            "QPSK": 4659,
+            "8QAM": 2511,
+            "16QAM": 534
+          },
+          "block_reasons": {
+            "no_feasible_path": 942
+          },
+          "mean_utilization": 0.48449113461538457,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11827,
+            "releases": 11827,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "104": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9023,
+          "blocked": 977,
+          "blocking_rate": 0.0977,
+          "avg_fs": 4.008755402859359,
+          "avg_slot_hops": 6.75473789205364,
+          "avg_path_len_km": 1653.780339133326,
+          "avg_hop_count": 1.6065610107503048,
+          "mod_counts": {
+            "8QAM": 2382,
+            "QPSK": 4708,
+            "BPSK": 1402,
+            "16QAM": 531
+          },
+          "block_reasons": {
+            "no_feasible_path": 977
+          },
+          "mean_utilization": 0.487037923076923,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11758,
+            "releases": 11758,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "105": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9177,
+          "blocked": 823,
+          "blocking_rate": 0.0823,
+          "avg_fs": 4.02179361447096,
+          "avg_slot_hops": 6.818132287239838,
+          "avg_path_len_km": 1651.6454178925576,
+          "avg_hop_count": 1.6107660455486543,
+          "mod_counts": {
+            "QPSK": 4710,
+            "8QAM": 2463,
+            "BPSK": 1460,
+            "16QAM": 544
+          },
+          "block_reasons": {
+            "no_feasible_path": 823
+          },
+          "mean_utilization": 0.4825886730769231,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11947,
+            "releases": 11947,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "106": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9129,
+          "blocked": 871,
+          "blocking_rate": 0.0871,
+          "avg_fs": 4.010954102311316,
+          "avg_slot_hops": 6.765582210537846,
+          "avg_path_len_km": 1650.9201445941505,
+          "avg_hop_count": 1.604337824515281,
+          "mod_counts": {
+            "QPSK": 4756,
+            "8QAM": 2404,
+            "BPSK": 1434,
+            "16QAM": 535
+          },
+          "block_reasons": {
+            "no_feasible_path": 871
+          },
+          "mean_utilization": 0.4906911153846154,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11814,
+            "releases": 11814,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "107": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9088,
+          "blocked": 912,
+          "blocking_rate": 0.0912,
+          "avg_fs": 4.019146126760563,
+          "avg_slot_hops": 6.72887323943662,
+          "avg_path_len_km": 1649.7205105633802,
+          "avg_hop_count": 1.595400528169014,
+          "mod_counts": {
+            "8QAM": 2407,
+            "QPSK": 4744,
+            "BPSK": 1411,
+            "16QAM": 526
+          },
+          "block_reasons": {
+            "no_feasible_path": 912
+          },
+          "mean_utilization": 0.48696211538461537,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11808,
+            "releases": 11808,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "108": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9084,
+          "blocked": 916,
+          "blocking_rate": 0.0916,
+          "avg_fs": 4.010457948040511,
+          "avg_slot_hops": 6.764310876265962,
+          "avg_path_len_km": 1654.8161602818143,
+          "avg_hop_count": 1.6067811536767944,
+          "mod_counts": {
+            "BPSK": 1411,
+            "QPSK": 4808,
+            "8QAM": 2368,
+            "16QAM": 497
+          },
+          "block_reasons": {
+            "no_feasible_path": 916
+          },
+          "mean_utilization": 0.4854216730769231,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11837,
+            "releases": 11837,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "109": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9002,
+          "blocked": 998,
+          "blocking_rate": 0.0998,
+          "avg_fs": 3.9888913574761165,
+          "avg_slot_hops": 6.724394578982448,
+          "avg_path_len_km": 1654.2168407020663,
+          "avg_hop_count": 1.604865585425461,
+          "mod_counts": {
+            "QPSK": 4729,
+            "8QAM": 2340,
+            "BPSK": 1408,
+            "16QAM": 525
+          },
+          "block_reasons": {
+            "no_feasible_path": 998
+          },
+          "mean_utilization": 0.4871913076923077,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11757,
+            "releases": 11757,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "110": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9110,
+          "blocked": 890,
+          "blocking_rate": 0.089,
+          "avg_fs": 3.9908891328210756,
+          "avg_slot_hops": 6.693633369923162,
+          "avg_path_len_km": 1657.967069154775,
+          "avg_hop_count": 1.5983534577387486,
+          "mod_counts": {
+            "BPSK": 1453,
+            "8QAM": 2432,
+            "QPSK": 4721,
+            "16QAM": 504
+          },
+          "block_reasons": {
+            "no_feasible_path": 890
+          },
+          "mean_utilization": 0.4815772115384616,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11879,
+            "releases": 11879,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        }
+      },
+      "mean_blocking_rate": 0.09282,
+      "std_blocking_rate": 0.005627274848647631
+    },
+    {
+      "topology": "cost239",
+      "training_seed": 44,
+      "checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/experiments/deeprmsa_vs_ksp_ff_paper_parity/checkpoints/cost239/seed_44/best.pt",
+      "checkpoint_meta": {
+        "requests": 875000,
+        "updates": 4359,
+        "val_blocking": 0.06788888888888889
+      },
+      "per_seed": {
+        "101": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9243,
+          "blocked": 757,
+          "blocking_rate": 0.0757,
+          "avg_fs": 4.099967543005517,
+          "avg_slot_hops": 7.224061451909553,
+          "avg_path_len_km": 1721.5211511414043,
+          "avg_hop_count": 1.6667748566482743,
+          "mod_counts": {
+            "8QAM": 2433,
+            "QPSK": 4571,
+            "BPSK": 1740,
+            "16QAM": 499
+          },
+          "block_reasons": {
+            "no_feasible_path": 757
+          },
+          "mean_utilization": 0.5382246730769231,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12035,
+            "releases": 12035,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "102": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9256,
+          "blocked": 744,
+          "blocking_rate": 0.0744,
+          "avg_fs": 4.073249783923941,
+          "avg_slot_hops": 7.194684528954192,
+          "avg_path_len_km": 1716.2208297320658,
+          "avg_hop_count": 1.6681071737251512,
+          "mod_counts": {
+            "16QAM": 444,
+            "BPSK": 1714,
+            "QPSK": 4530,
+            "8QAM": 2568
+          },
+          "block_reasons": {
+            "no_feasible_path": 744
+          },
+          "mean_utilization": 0.531333673076923,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12074,
+            "releases": 12074,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "103": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9273,
+          "blocked": 727,
+          "blocking_rate": 0.0727,
+          "avg_fs": 4.07031165750027,
+          "avg_slot_hops": 7.142240914482907,
+          "avg_path_len_km": 1706.0541356626766,
+          "avg_hop_count": 1.6558826701175455,
+          "mod_counts": {
+            "BPSK": 1750,
+            "QPSK": 4449,
+            "8QAM": 2579,
+            "16QAM": 495
+          },
+          "block_reasons": {
+            "no_feasible_path": 727
+          },
+          "mean_utilization": 0.530695326923077,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12087,
+            "releases": 12087,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "104": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9205,
+          "blocked": 795,
+          "blocking_rate": 0.0795,
+          "avg_fs": 4.096577946768061,
+          "avg_slot_hops": 7.25844649646931,
+          "avg_path_len_km": 1720.9570885388375,
+          "avg_hop_count": 1.6732210755024444,
+          "mod_counts": {
+            "8QAM": 2463,
+            "QPSK": 4527,
+            "BPSK": 1726,
+            "16QAM": 489
+          },
+          "block_reasons": {
+            "no_feasible_path": 795
+          },
+          "mean_utilization": 0.5320904423076923,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11981,
+            "releases": 11981,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "105": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9344,
+          "blocked": 656,
+          "blocking_rate": 0.0656,
+          "avg_fs": 4.106806506849315,
+          "avg_slot_hops": 7.241652397260274,
+          "avg_path_len_km": 1713.7200342465753,
+          "avg_hop_count": 1.6650256849315068,
+          "mod_counts": {
+            "QPSK": 4493,
+            "8QAM": 2564,
+            "16QAM": 489,
+            "BPSK": 1798
+          },
+          "block_reasons": {
+            "no_feasible_path": 656
+          },
+          "mean_utilization": 0.5258560961538462,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12175,
+            "releases": 12175,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "106": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9254,
+          "blocked": 746,
+          "blocking_rate": 0.0746,
+          "avg_fs": 4.081694402420575,
+          "avg_slot_hops": 7.162524313810244,
+          "avg_path_len_km": 1714.4759023125134,
+          "avg_hop_count": 1.6607953317484332,
+          "mod_counts": {
+            "QPSK": 4602,
+            "8QAM": 2484,
+            "BPSK": 1702,
+            "16QAM": 466
+          },
+          "block_reasons": {
+            "no_feasible_path": 746
+          },
+          "mean_utilization": 0.5288244230769231,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11991,
+            "releases": 11991,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "107": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9252,
+          "blocked": 748,
+          "blocking_rate": 0.0748,
+          "avg_fs": 4.115218331171638,
+          "avg_slot_hops": 7.2342196281885,
+          "avg_path_len_km": 1721.0224816255945,
+          "avg_hop_count": 1.66147859922179,
+          "mod_counts": {
+            "16QAM": 465,
+            "QPSK": 4577,
+            "BPSK": 1733,
+            "8QAM": 2477
+          },
+          "block_reasons": {
+            "no_feasible_path": 748
+          },
+          "mean_utilization": 0.5283710961538461,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12026,
+            "releases": 12026,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "108": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9244,
+          "blocked": 756,
+          "blocking_rate": 0.0756,
+          "avg_fs": 4.083405452185201,
+          "avg_slot_hops": 7.184876676763306,
+          "avg_path_len_km": 1719.8615318044137,
+          "avg_hop_count": 1.668325400259628,
+          "mod_counts": {
+            "QPSK": 4647,
+            "8QAM": 2468,
+            "16QAM": 439,
+            "BPSK": 1690
+          },
+          "block_reasons": {
+            "no_feasible_path": 756
+          },
+          "mean_utilization": 0.5237391538461538,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12035,
+            "releases": 12035,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "109": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9182,
+          "blocked": 818,
+          "blocking_rate": 0.0818,
+          "avg_fs": 4.07329557830538,
+          "avg_slot_hops": 7.1481158788934875,
+          "avg_path_len_km": 1719.2223916358091,
+          "avg_hop_count": 1.6632541929862774,
+          "mod_counts": {
+            "QPSK": 4579,
+            "8QAM": 2417,
+            "BPSK": 1712,
+            "16QAM": 474
+          },
+          "block_reasons": {
+            "no_feasible_path": 818
+          },
+          "mean_utilization": 0.5326004423076923,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11972,
+            "releases": 11972,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "110": {
+          "topology": "cost239_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9286,
+          "blocked": 714,
+          "blocking_rate": 0.0714,
+          "avg_fs": 4.080012922679302,
+          "avg_slot_hops": 7.166379496015507,
+          "avg_path_len_km": 1725.0581520568599,
+          "avg_hop_count": 1.6621796252423002,
+          "mod_counts": {
+            "BPSK": 1784,
+            "8QAM": 2528,
+            "QPSK": 4527,
+            "16QAM": 447
+          },
+          "block_reasons": {
+            "no_feasible_path": 714
+          },
+          "mean_utilization": 0.5231207499999999,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12099,
+            "releases": 12099,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        }
+      },
+      "mean_blocking_rate": 0.07461,
+      "std_blocking_rate": 0.004384176091353994
+    },
+    {
+      "topology": "nsfnet",
+      "training_seed": 42,
+      "checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/experiments/deeprmsa_vs_ksp_ff_paper_parity/checkpoints/nsfnet/seed_42/best.pt",
+      "checkpoint_meta": {
+        "requests": 675000,
+        "updates": 3359,
+        "val_blocking": 0.059222222222222225
+      },
+      "per_seed": {
+        "101": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9348,
+          "blocked": 652,
+          "blocking_rate": 0.0652,
+          "avg_fs": 4.517543859649122,
+          "avg_slot_hops": 11.197582370560548,
+          "avg_path_len_km": 2066.415275994865,
+          "avg_hop_count": 2.3014548566538298,
+          "mod_counts": {
+            "QPSK": 3227,
+            "BPSK": 3444,
+            "16QAM": 1009,
+            "8QAM": 1668
+          },
+          "block_reasons": {
+            "no_feasible_path": 652
+          },
+          "mean_utilization": 0.4230492727272727,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12163,
+            "releases": 12163,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "102": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9322,
+          "blocked": 678,
+          "blocking_rate": 0.0678,
+          "avg_fs": 4.533361939497961,
+          "avg_slot_hops": 11.364621325895731,
+          "avg_path_len_km": 2086.3065865694057,
+          "avg_hop_count": 2.3216048058356575,
+          "mod_counts": {
+            "8QAM": 1711,
+            "QPSK": 3148,
+            "BPSK": 3498,
+            "16QAM": 965
+          },
+          "block_reasons": {
+            "no_feasible_path": 678
+          },
+          "mean_utilization": 0.41757320454545455,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12125,
+            "releases": 12125,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "103": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9376,
+          "blocked": 624,
+          "blocking_rate": 0.0624,
+          "avg_fs": 4.505226109215017,
+          "avg_slot_hops": 11.229628839590443,
+          "avg_path_len_km": 2075.8745733788396,
+          "avg_hop_count": 2.3162329351535837,
+          "mod_counts": {
+            "QPSK": 3193,
+            "BPSK": 3454,
+            "16QAM": 987,
+            "8QAM": 1742
+          },
+          "block_reasons": {
+            "no_feasible_path": 624
+          },
+          "mean_utilization": 0.4174956590909091,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12210,
+            "releases": 12210,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "104": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9439,
+          "blocked": 561,
+          "blocking_rate": 0.0561,
+          "avg_fs": 4.548257230638839,
+          "avg_slot_hops": 11.375145672211039,
+          "avg_path_len_km": 2069.5836423349933,
+          "avg_hop_count": 2.3148638626973197,
+          "mod_counts": {
+            "16QAM": 1016,
+            "BPSK": 3528,
+            "QPSK": 3093,
+            "8QAM": 1802
+          },
+          "block_reasons": {
+            "no_feasible_path": 561
+          },
+          "mean_utilization": 0.4103080681818182,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12233,
+            "releases": 12233,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "105": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9390,
+          "blocked": 610,
+          "blocking_rate": 0.061,
+          "avg_fs": 4.524387646432375,
+          "avg_slot_hops": 11.249840255591055,
+          "avg_path_len_km": 2080.543130990415,
+          "avg_hop_count": 2.308306709265176,
+          "mod_counts": {
+            "BPSK": 3466,
+            "8QAM": 1768,
+            "QPSK": 3145,
+            "16QAM": 1011
+          },
+          "block_reasons": {
+            "no_feasible_path": 610
+          },
+          "mean_utilization": 0.41212538636363644,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12226,
+            "releases": 12226,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "106": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9339,
+          "blocked": 661,
+          "blocking_rate": 0.0661,
+          "avg_fs": 4.535496305814327,
+          "avg_slot_hops": 11.340614626833709,
+          "avg_path_len_km": 2080.758111146804,
+          "avg_hop_count": 2.3166291894207087,
+          "mod_counts": {
+            "8QAM": 1716,
+            "QPSK": 3152,
+            "BPSK": 3473,
+            "16QAM": 998
+          },
+          "block_reasons": {
+            "no_feasible_path": 661
+          },
+          "mean_utilization": 0.41905018181818177,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12144,
+            "releases": 12144,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "107": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9360,
+          "blocked": 640,
+          "blocking_rate": 0.064,
+          "avg_fs": 4.548611111111111,
+          "avg_slot_hops": 11.397008547008546,
+          "avg_path_len_km": 2077.371794871795,
+          "avg_hop_count": 2.3212606837606837,
+          "mod_counts": {
+            "BPSK": 3516,
+            "QPSK": 3093,
+            "8QAM": 1701,
+            "16QAM": 1050
+          },
+          "block_reasons": {
+            "no_feasible_path": 640
+          },
+          "mean_utilization": 0.4225672045454545,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12130,
+            "releases": 12130,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "108": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9323,
+          "blocked": 677,
+          "blocking_rate": 0.0677,
+          "avg_fs": 4.529014265794272,
+          "avg_slot_hops": 11.328327791483428,
+          "avg_path_len_km": 2079.0035396331655,
+          "avg_hop_count": 2.315992706210447,
+          "mod_counts": {
+            "BPSK": 3467,
+            "QPSK": 3081,
+            "16QAM": 978,
+            "8QAM": 1797
+          },
+          "block_reasons": {
+            "no_feasible_path": 677
+          },
+          "mean_utilization": 0.42140377272727275,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12164,
+            "releases": 12164,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "109": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9372,
+          "blocked": 628,
+          "blocking_rate": 0.0628,
+          "avg_fs": 4.515044814340589,
+          "avg_slot_hops": 11.2544814340589,
+          "avg_path_len_km": 2055.0256081946222,
+          "avg_hop_count": 2.303883909517712,
+          "mod_counts": {
+            "8QAM": 1695,
+            "16QAM": 1094,
+            "BPSK": 3465,
+            "QPSK": 3118
+          },
+          "block_reasons": {
+            "no_feasible_path": 628
+          },
+          "mean_utilization": 0.4123664545454545,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12201,
+            "releases": 12201,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "110": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9342,
+          "blocked": 658,
+          "blocking_rate": 0.0658,
+          "avg_fs": 4.538749732391351,
+          "avg_slot_hops": 11.365018197388139,
+          "avg_path_len_km": 2081.2780989081566,
+          "avg_hop_count": 2.325090986940698,
+          "mod_counts": {
+            "BPSK": 3456,
+            "8QAM": 1704,
+            "QPSK": 3182,
+            "16QAM": 1000
+          },
+          "block_reasons": {
+            "no_feasible_path": 658
+          },
+          "mean_utilization": 0.4135346136363636,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12158,
+            "releases": 12158,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        }
+      },
+      "mean_blocking_rate": 0.06388999999999999,
+      "std_blocking_rate": 0.0035356753244606617
+    },
+    {
+      "topology": "nsfnet",
+      "training_seed": 43,
+      "checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/experiments/deeprmsa_vs_ksp_ff_paper_parity/checkpoints/nsfnet/seed_43/best.pt",
+      "checkpoint_meta": {
+        "requests": 1000000,
+        "updates": 4984,
+        "val_blocking": 0.0868888888888889
+      },
+      "per_seed": {
+        "101": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9043,
+          "blocked": 957,
+          "blocking_rate": 0.0957,
+          "avg_fs": 4.738361163330753,
+          "avg_slot_hops": 12.75284750635851,
+          "avg_path_len_km": 2272.260311843415,
+          "avg_hop_count": 2.5100077407939843,
+          "mod_counts": {
+            "BPSK": 4127,
+            "QPSK": 2776,
+            "16QAM": 836,
+            "8QAM": 1304
+          },
+          "block_reasons": {
+            "no_feasible_path": 957
+          },
+          "mean_utilization": 0.4631730909090909,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11775,
+            "releases": 11775,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "102": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9040,
+          "blocked": 960,
+          "blocking_rate": 0.096,
+          "avg_fs": 4.756194690265486,
+          "avg_slot_hops": 12.835287610619469,
+          "avg_path_len_km": 2291.150442477876,
+          "avg_hop_count": 2.519137168141593,
+          "mod_counts": {
+            "8QAM": 1318,
+            "BPSK": 4225,
+            "QPSK": 2678,
+            "16QAM": 819
+          },
+          "block_reasons": {
+            "no_feasible_path": 960
+          },
+          "mean_utilization": 0.45221909090909096,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11763,
+            "releases": 11763,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "103": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9037,
+          "blocked": 963,
+          "blocking_rate": 0.0963,
+          "avg_fs": 4.729998893438088,
+          "avg_slot_hops": 12.757220316476706,
+          "avg_path_len_km": 2270.8476264246983,
+          "avg_hop_count": 2.5209693482350337,
+          "mod_counts": {
+            "QPSK": 2813,
+            "BPSK": 4098,
+            "16QAM": 803,
+            "8QAM": 1323
+          },
+          "block_reasons": {
+            "no_feasible_path": 963
+          },
+          "mean_utilization": 0.4634368636363637,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11776,
+            "releases": 11776,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "104": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9146,
+          "blocked": 854,
+          "blocking_rate": 0.0854,
+          "avg_fs": 4.7976164443472555,
+          "avg_slot_hops": 13.04122020555434,
+          "avg_path_len_km": 2290.115897660179,
+          "avg_hop_count": 2.533894598731686,
+          "mod_counts": {
+            "8QAM": 1446,
+            "BPSK": 4328,
+            "QPSK": 2531,
+            "16QAM": 841
+          },
+          "block_reasons": {
+            "no_feasible_path": 854
+          },
+          "mean_utilization": 0.4557608409090909,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11854,
+            "releases": 11854,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "105": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9113,
+          "blocked": 887,
+          "blocking_rate": 0.0887,
+          "avg_fs": 4.735652364753649,
+          "avg_slot_hops": 12.810380774717437,
+          "avg_path_len_km": 2287.117304948974,
+          "avg_hop_count": 2.5271590036212004,
+          "mod_counts": {
+            "BPSK": 4186,
+            "8QAM": 1357,
+            "QPSK": 2707,
+            "16QAM": 863
+          },
+          "block_reasons": {
+            "no_feasible_path": 887
+          },
+          "mean_utilization": 0.4532915909090909,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11881,
+            "releases": 11881,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "106": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9045,
+          "blocked": 955,
+          "blocking_rate": 0.0955,
+          "avg_fs": 4.757987838584853,
+          "avg_slot_hops": 12.829187396351575,
+          "avg_path_len_km": 2283.4660033167497,
+          "avg_hop_count": 2.517191818684356,
+          "mod_counts": {
+            "QPSK": 2752,
+            "16QAM": 836,
+            "8QAM": 1303,
+            "BPSK": 4154
+          },
+          "block_reasons": {
+            "no_feasible_path": 955
+          },
+          "mean_utilization": 0.4619118863636364,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11775,
+            "releases": 11775,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "107": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9061,
+          "blocked": 939,
+          "blocking_rate": 0.0939,
+          "avg_fs": 4.757642644299747,
+          "avg_slot_hops": 12.812382739212007,
+          "avg_path_len_km": 2274.566824853769,
+          "avg_hop_count": 2.5147334731265865,
+          "mod_counts": {
+            "BPSK": 4186,
+            "QPSK": 2638,
+            "8QAM": 1350,
+            "16QAM": 887
+          },
+          "block_reasons": {
+            "no_feasible_path": 939
+          },
+          "mean_utilization": 0.45908202272727267,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11761,
+            "releases": 11761,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "108": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9055,
+          "blocked": 945,
+          "blocking_rate": 0.0945,
+          "avg_fs": 4.767863059083379,
+          "avg_slot_hops": 12.853561568194367,
+          "avg_path_len_km": 2285.7150745444505,
+          "avg_hop_count": 2.5117614577581446,
+          "mod_counts": {
+            "BPSK": 4220,
+            "QPSK": 2628,
+            "16QAM": 849,
+            "8QAM": 1358
+          },
+          "block_reasons": {
+            "no_feasible_path": 945
+          },
+          "mean_utilization": 0.46265431818181824,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11782,
+            "releases": 11782,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "109": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9081,
+          "blocked": 919,
+          "blocking_rate": 0.0919,
+          "avg_fs": 4.751459090408545,
+          "avg_slot_hops": 12.828983592115407,
+          "avg_path_len_km": 2255.8143376280145,
+          "avg_hop_count": 2.513599823807951,
+          "mod_counts": {
+            "BPSK": 4211,
+            "16QAM": 905,
+            "8QAM": 1365,
+            "QPSK": 2600
+          },
+          "block_reasons": {
+            "no_feasible_path": 919
+          },
+          "mean_utilization": 0.45597913636363635,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11835,
+            "releases": 11835,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "110": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9039,
+          "blocked": 961,
+          "blocking_rate": 0.0961,
+          "avg_fs": 4.782498063945127,
+          "avg_slot_hops": 12.9498838367076,
+          "avg_path_len_km": 2288.0683703949553,
+          "avg_hop_count": 2.532581037725412,
+          "mod_counts": {
+            "BPSK": 4188,
+            "8QAM": 1322,
+            "QPSK": 2715,
+            "16QAM": 814
+          },
+          "block_reasons": {
+            "no_feasible_path": 961
+          },
+          "mean_utilization": 0.4569028181818181,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 11757,
+            "releases": 11757,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        }
+      },
+      "mean_blocking_rate": 0.0934,
+      "std_blocking_rate": 0.003681183384607605
+    },
+    {
+      "topology": "nsfnet",
+      "training_seed": 44,
+      "checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/experiments/deeprmsa_vs_ksp_ff_paper_parity/checkpoints/nsfnet/seed_44/best.pt",
+      "checkpoint_meta": {
+        "requests": 850000,
+        "updates": 4234,
+        "val_blocking": 0.05522222222222222
+      },
+      "per_seed": {
+        "101": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9363,
+          "blocked": 637,
+          "blocking_rate": 0.0637,
+          "avg_fs": 4.553134679055858,
+          "avg_slot_hops": 11.639218199295097,
+          "avg_path_len_km": 2111.374559436078,
+          "avg_hop_count": 2.333653743458293,
+          "mod_counts": {
+            "QPSK": 2999,
+            "BPSK": 3581,
+            "16QAM": 1074,
+            "8QAM": 1709
+          },
+          "block_reasons": {
+            "no_feasible_path": 637
+          },
+          "mean_utilization": 0.43967981818181817,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12181,
+            "releases": 12181,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "102": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9385,
+          "blocked": 615,
+          "blocking_rate": 0.0615,
+          "avg_fs": 4.560895045285029,
+          "avg_slot_hops": 11.749493873201917,
+          "avg_path_len_km": 2131.134789557805,
+          "avg_hop_count": 2.3503462972828983,
+          "mod_counts": {
+            "8QAM": 1788,
+            "BPSK": 3652,
+            "QPSK": 2921,
+            "16QAM": 1024
+          },
+          "block_reasons": {
+            "no_feasible_path": 615
+          },
+          "mean_utilization": 0.43229465909090903,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12222,
+            "releases": 12222,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "103": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9415,
+          "blocked": 585,
+          "blocking_rate": 0.0585,
+          "avg_fs": 4.5632501327668615,
+          "avg_slot_hops": 11.760382368560807,
+          "avg_path_len_km": 2120.568242166755,
+          "avg_hop_count": 2.3558151885289433,
+          "mod_counts": {
+            "QPSK": 2958,
+            "BPSK": 3642,
+            "16QAM": 1043,
+            "8QAM": 1772
+          },
+          "block_reasons": {
+            "no_feasible_path": 585
+          },
+          "mean_utilization": 0.43848377272727274,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12255,
+            "releases": 12255,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "104": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9513,
+          "blocked": 487,
+          "blocking_rate": 0.0487,
+          "avg_fs": 4.600441501103753,
+          "avg_slot_hops": 11.904761904761905,
+          "avg_path_len_km": 2118.1646168401135,
+          "avg_hop_count": 2.3525701671397035,
+          "mod_counts": {
+            "16QAM": 1088,
+            "BPSK": 3716,
+            "QPSK": 2853,
+            "8QAM": 1856
+          },
+          "block_reasons": {
+            "no_feasible_path": 487
+          },
+          "mean_utilization": 0.43292536363636364,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12333,
+            "releases": 12333,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "105": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9436,
+          "blocked": 564,
+          "blocking_rate": 0.0564,
+          "avg_fs": 4.564434082238236,
+          "avg_slot_hops": 11.785184400169564,
+          "avg_path_len_km": 2123.860746078847,
+          "avg_hop_count": 2.3552352691818568,
+          "mod_counts": {
+            "BPSK": 3621,
+            "8QAM": 1801,
+            "QPSK": 2948,
+            "16QAM": 1066
+          },
+          "block_reasons": {
+            "no_feasible_path": 564
+          },
+          "mean_utilization": 0.43500811363636366,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12304,
+            "releases": 12304,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "106": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9404,
+          "blocked": 596,
+          "blocking_rate": 0.0596,
+          "avg_fs": 4.58188005104211,
+          "avg_slot_hops": 11.797320289238622,
+          "avg_path_len_km": 2124.819225861336,
+          "avg_hop_count": 2.3478307103360274,
+          "mod_counts": {
+            "8QAM": 1755,
+            "16QAM": 1058,
+            "BPSK": 3643,
+            "QPSK": 2948
+          },
+          "block_reasons": {
+            "no_feasible_path": 596
+          },
+          "mean_utilization": 0.4386778181818181,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12237,
+            "releases": 12237,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "107": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9413,
+          "blocked": 587,
+          "blocking_rate": 0.0587,
+          "avg_fs": 4.580580048868586,
+          "avg_slot_hops": 11.808243917985765,
+          "avg_path_len_km": 2120.8594496972273,
+          "avg_hop_count": 2.355040900881759,
+          "mod_counts": {
+            "BPSK": 3647,
+            "QPSK": 2935,
+            "8QAM": 1724,
+            "16QAM": 1107
+          },
+          "block_reasons": {
+            "no_feasible_path": 587
+          },
+          "mean_utilization": 0.43601265909090914,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12212,
+            "releases": 12212,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "108": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9357,
+          "blocked": 643,
+          "blocking_rate": 0.0643,
+          "avg_fs": 4.560329165330768,
+          "avg_slot_hops": 11.836592925082826,
+          "avg_path_len_km": 2116.2231484450144,
+          "avg_hop_count": 2.358234476862242,
+          "mod_counts": {
+            "BPSK": 3588,
+            "QPSK": 2864,
+            "16QAM": 1062,
+            "8QAM": 1843
+          },
+          "block_reasons": {
+            "no_feasible_path": 643
+          },
+          "mean_utilization": 0.43990100000000004,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12206,
+            "releases": 12206,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "109": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9426,
+          "blocked": 574,
+          "blocking_rate": 0.0574,
+          "avg_fs": 4.571822618289836,
+          "avg_slot_hops": 11.794610651389773,
+          "avg_path_len_km": 2093.9847231063018,
+          "avg_hop_count": 2.3390621684701887,
+          "mod_counts": {
+            "8QAM": 1747,
+            "16QAM": 1149,
+            "BPSK": 3631,
+            "QPSK": 2899
+          },
+          "block_reasons": {
+            "no_feasible_path": 574
+          },
+          "mean_utilization": 0.43489061363636355,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12282,
+            "releases": 12282,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        },
+        "110": {
+          "topology": "xlron_nsfnet_deeprmsa",
+          "k_paths": 5,
+          "path_sort": "km",
+          "warmup": 3000,
+          "evaluated": 10000,
+          "admitted": 9389,
+          "blocked": 611,
+          "blocking_rate": 0.0611,
+          "avg_fs": 4.572904462669081,
+          "avg_slot_hops": 11.792097134945148,
+          "avg_path_len_km": 2123.836404302908,
+          "avg_hop_count": 2.354989881776547,
+          "mod_counts": {
+            "BPSK": 3620,
+            "8QAM": 1741,
+            "QPSK": 2948,
+            "16QAM": 1080
+          },
+          "block_reasons": {
+            "no_feasible_path": 611
+          },
+          "mean_utilization": 0.4355312272727273,
+          "final_utilization": 0.0,
+          "conservation": {
+            "allocations": 12221,
+            "releases": 12221,
+            "final_active": 0,
+            "spectrum_empty_after_drain": true
+          }
+        }
+      },
+      "mean_blocking_rate": 0.05899,
+      "std_blocking_rate": 0.004434072620063862
+    }
+  ],
+  "elapsed_seconds": 156.87832050699944
+}

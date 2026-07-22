@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "config": {
+    "agent_r_checkpoint": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+    "strict_ranker_checkpoint": "sa_hmarl/experiments/v13_strict_fixed/strict_loss_rerun/checkpoints/full_state_uniform_strict/seed_42/ranking_model.pt",
+    "num_slots": 320,
+    "num_servers": 4,
+    "k_paths_r": 50,
+    "path_sort_strategy_r": "hops",
+    "block_sort_strategy_r": "start_asc",
+    "modulation_profile": "default",
+    "max_blocks": 10,
+    "split_profile": "default3",
+    "num_splits": 3,
+    "arrival_interval": 0.3,
+    "holding_min": 20.0,
+    "holding_max": 30.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "size_max_mb": 30.0,
+    "edge_cost_min": 0.1,
+    "edge_cost_max": 2.2,
+    "seeds": "6101",
+    "requests_per_episode": 100,
+    "warmup_requests": 20,
+    "poisson_arrivals": false,
+    "exponential_holding": false,
+    "device": "cpu",
+    "output_dir": "sa_hmarl/experiments/strict_v13_latency_optimization/regression_smoke",
+    "max_workers": 1,
+    "skip_smoke": false,
+    "skip_done_check": false,
+    "fixed_split_id": 0,
+    "topologies": "xlron_nsfnet_deeprmsa"
+  },
+  "checkpoint_hashes": {
+    "ppo_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+    "ranker": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+  },
+  "results": [
+    {
+      "topology": "xlron_nsfnet_deeprmsa",
+      "seed": 6101,
+      "evaluated_requests": 100,
+      "request_trace_hash": "5f12321f139e273f575ad0d1",
+      "reference_blocked": 5,
+      "optimized_blocked": 5,
+      "reference_blocking_rate": 0.05,
+      "optimized_blocking_rate": 0.05,
+      "action_mismatches": 0,
+      "outcome_mismatches": 0,
+      "blocked_identity_mismatches": 0,
+      "first_mismatch": null,
+      "passed": true
+    }
+  ],
+  "totals": {
+    "evaluated_requests": 100,
+    "action_mismatches": 0,
+    "outcome_mismatches": 0,
+    "blocked_identity_mismatches": 0
+  }
+}

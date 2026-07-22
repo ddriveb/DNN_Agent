@@ -1,0 +1,86 @@
+{
+  "42": {
+    "best_checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/experiments/deeprmsa_source_semantic_paper_primary_k50/checkpoints/seed_42/best.pt",
+    "best_checkpoint_sha256": "8dd03eb5742806b8305dfb88586532842a26fdd4cbd5fa624a17e57cb99ea883",
+    "best_validation_blocking_rate": 0.5377777777777778,
+    "selected_epoch": null,
+    "training_summary": {
+      "protocol_id": "DEEPRMSA_SOURCE_SEMANTIC_PAPER_PRIMARY_K50",
+      "implementation_label": "DeepRMSA source-semantic unmasked PyTorch port",
+      "best_validation_blocking_rate": 0.5377777777777778,
+      "best_checkpoint": "sa_hmarl/experiments/deeprmsa_source_semantic_paper_primary_k50/checkpoints/seed_42/best.pt",
+      "best_checkpoint_sha256": "8dd03eb5742806b8305dfb88586532842a26fdd4cbd5fa624a17e57cb99ea883",
+      "elapsed_seconds": 964.4660317149828,
+      "args": {
+        "seed": 42,
+        "epochs": 80,
+        "train_warmup": 1000,
+        "train_requests": 5000,
+        "arrival_interval": 0.025,
+        "eval_every": 5,
+        "validation_seeds": "42001,42002,42003",
+        "validation_warmup": 1000,
+        "validation_requests": 3000,
+        "lr": 1e-05,
+        "device": "cpu",
+        "output_dir": "sa_hmarl/experiments/deeprmsa_source_semantic_paper_primary_k50/checkpoints"
+      }
+    }
+  },
+  "123": {
+    "best_checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/experiments/deeprmsa_source_semantic_paper_primary_k50/checkpoints/seed_123/best.pt",
+    "best_checkpoint_sha256": "a7a002e3c6779baeb24a4d563052f5687ae084c361e0fed78d1616063081fd6c",
+    "best_validation_blocking_rate": 0.4368888888888889,
+    "selected_epoch": null,
+    "training_summary": {
+      "protocol_id": "DEEPRMSA_SOURCE_SEMANTIC_PAPER_PRIMARY_K50",
+      "implementation_label": "DeepRMSA source-semantic unmasked PyTorch port",
+      "best_validation_blocking_rate": 0.4368888888888889,
+      "best_checkpoint": "sa_hmarl/experiments/deeprmsa_source_semantic_paper_primary_k50/checkpoints/seed_123/best.pt",
+      "best_checkpoint_sha256": "a7a002e3c6779baeb24a4d563052f5687ae084c361e0fed78d1616063081fd6c",
+      "elapsed_seconds": 956.5417242170079,
+      "args": {
+        "seed": 123,
+        "epochs": 80,
+        "train_warmup": 1000,
+        "train_requests": 5000,
+        "arrival_interval": 0.025,
+        "eval_every": 5,
+        "validation_seeds": "42001,42002,42003",
+        "validation_warmup": 1000,
+        "validation_requests": 3000,
+        "lr": 1e-05,
+        "device": "cpu",
+        "output_dir": "sa_hmarl/experiments/deeprmsa_source_semantic_paper_primary_k50/checkpoints"
+      }
+    }
+  },
+  "456": {
+    "best_checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/experiments/deeprmsa_source_semantic_paper_primary_k50/checkpoints/seed_456/best.pt",
+    "best_checkpoint_sha256": "def39ab2ae5de51421e13568a4ddadfdea226fac7e43bef09a36f549f52a5676",
+    "best_validation_blocking_rate": 0.4321111111111111,
+    "selected_epoch": null,
+    "training_summary": {
+      "protocol_id": "DEEPRMSA_SOURCE_SEMANTIC_PAPER_PRIMARY_K50",
+      "implementation_label": "DeepRMSA source-semantic unmasked PyTorch port",
+      "best_validation_blocking_rate": 0.4321111111111111,
+      "best_checkpoint": "sa_hmarl/experiments/deeprmsa_source_semantic_paper_primary_k50/checkpoints/seed_456/best.pt",
+      "best_checkpoint_sha256": "def39ab2ae5de51421e13568a4ddadfdea226fac7e43bef09a36f549f52a5676",
+      "elapsed_seconds": 947.1437352100038,
+      "args": {
+        "seed": 456,
+        "epochs": 80,
+        "train_warmup": 1000,
+        "train_requests": 5000,
+        "arrival_interval": 0.025,
+        "eval_every": 5,
+        "validation_seeds": "42001,42002,42003",
+        "validation_warmup": 1000,
+        "validation_requests": 3000,
+        "lr": 1e-05,
+        "device": "cpu",
+        "output_dir": "sa_hmarl/experiments/deeprmsa_source_semantic_paper_primary_k50/checkpoints"
+      }
+    }
+  }
+}

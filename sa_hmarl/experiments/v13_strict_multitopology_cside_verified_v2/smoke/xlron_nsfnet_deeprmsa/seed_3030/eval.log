@@ -1,0 +1,6 @@
+[eval] Saved sa_hmarl/experiments/v13_strict_multitopology_cside_verified_v2/smoke/xlron_nsfnet_deeprmsa/seed_3030/results.json and sa_hmarl/experiments/v13_strict_multitopology_cside_verified_v2/smoke/xlron_nsfnet_deeprmsa/seed_3030/eval.log
+0 r_reached=50 r_decisions=50 policy_ms=0.530 audit_ms=2.645 ppo_agree=0.38
+[xlron_nsfnet_deeprmsa][seed=3030][ppo_c+strict_v13] blocking=0.0000% c_no=0 r_no=0 r_reached=50 r_decisions=50 policy_ms=4.399 audit_ms=3.221 ppo_agree=0.16
+[xlron_nsfnet_deeprmsa][seed=3030][df_c+ppo_r_top1] blocking=0.0000% c_no=0 r_no=0 r_reached=50 r_decisions=50 policy_ms=0.142 audit_ms=4.244 ppo_agree=1.0
+[xlron_nsfnet_deeprmsa][seed=3030][df_c+ksp_ff_highest] blocking=0.0000% c_no=0 r_no=0 r_reached=50 r_decisions=50 policy_ms=0.126 audit_ms=2.927 ppo_agree=0.64
+[xlron_nsfnet_deeprmsa][seed=3030][df_c+strict_v13] blocking=0.0000% c_no=0 r_no=0 r_reached=50 r_decisions=50 policy_ms=5.931 audit_ms=2.898 ppo_agree=0.1

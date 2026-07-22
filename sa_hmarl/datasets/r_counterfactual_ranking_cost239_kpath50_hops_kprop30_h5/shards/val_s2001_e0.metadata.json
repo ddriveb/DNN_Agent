@@ -1,0 +1,10 @@
+{
+  "shard_id": "val_s2001_e0",
+  "config_hash": "d5cd3658fd77da12",
+  "status": "ok",
+  "groups": 429,
+  "elapsed_sec": 692.903235433987,
+  "checksum": "a5d1e8af8f6e5f2b",
+  "version": "1.3",
+  "schema": "r_counterfactual_ranking_v1.3"
+}

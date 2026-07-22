@@ -1,0 +1,3149 @@
+{
+  "schema_version": "v1.3-verified-2026-07-14",
+  "config": {
+    "topology": "xlron_cost239_ptrnet_real",
+    "seed": 3030,
+    "c_modes": "ppo_c,df_c",
+    "c_checkpoints": "sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_last.pt,_heuristic_",
+    "r_modes": "ppo_r_top1,ksp_ff_highest,strict_v13",
+    "ranker_specs": [
+      "strict_v13=/mnt/d/project/DNN_Agent/sa_hmarl/experiments/v13_strict_fixed/strict_loss_rerun/checkpoints/full_state_uniform_strict/seed_42/ranking_model.pt"
+    ],
+    "agent_r_checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/checkpoints/agent_r_mixed.pt",
+    "num_slots": 320,
+    "num_servers": 4,
+    "k_paths_c": 5,
+    "k_paths_r": 50,
+    "path_sort_strategy_c": "hops",
+    "path_sort_strategy_r": "hops",
+    "block_sort_strategy_c": "start_asc",
+    "block_sort_strategy_r": "start_asc",
+    "modulation_profile": "default",
+    "max_blocks": 10,
+    "split_profile": "default3",
+    "num_splits": 3,
+    "arrival_interval": 0.0625,
+    "holding_min": 20.0,
+    "holding_max": 30.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "size_max_mb": 30.0,
+    "edge_cost_min": 0.1,
+    "edge_cost_max": 2.2,
+    "warmup_requests": 20,
+    "requests_per_episode": 50,
+    "poisson_arrivals": true,
+    "exponential_holding": true,
+    "device": "cpu",
+    "output_dir": "sa_hmarl/experiments/v13_strict_multitopology_cside_verified_v2/smoke/xlron_cost239_ptrnet_real/seed_3030",
+    "output_json": "results.json",
+    "output_log": "eval.log",
+    "runner_code_hash": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+    "analyzer_code_hash": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9"
+  },
+  "request_trace_hash": "055e358a45a92041bf5084462d47d7492f4a251bf31b9a2656268a98acda743c",
+  "config_hash": "2f44117e0322d2efb49a619c7a66910ef67420ba874349fa790602424296aea9",
+  "evaluator_code_hash": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+  "runner_code_hash": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+  "analyzer_code_hash": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+  "source_manifest": {
+    "sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+    "sa_hmarl/sa_hmarl/evaluation/run_strict_v13_multitopology_cside_verified.py": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+    "sa_hmarl/sa_hmarl/evaluation/analyze_strict_v13_multitopology_cside_verified.py": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+    "sa_hmarl/sa_hmarl/evaluation/diagnose_r_action_horizon_oracle.py": "0755899405bd6fa9f9f70a96b3cc8fd78fc2bdb59a799f2e2638f938cd7b7423",
+    "sa_hmarl/sa_hmarl/evaluation/generate_r_counterfactual_ranking_cost239_kpath50_hops_kprop30_h5.py": "1eaa3d1400ffffb3508eba94d8c6a803bb7da30804b54a41b381591166d3441d",
+    "sa_hmarl/sa_hmarl/baselines/rmsa_baselines.py": "d284ee2220fc5613754fa3e3f773400d70af05e6ead94853057f27583e6cf441",
+    "sa_hmarl/sa_hmarl/network/ksp.py": "816ea52353dca4d329e6521230d3ee4ff8b66d6203ef1f76cfed95b1a073ed6d",
+    "sa_hmarl/sa_hmarl/env/event_env.py": "7bf4dbe2628abec32c811fb687db3c59288116573a380ba39c4b59769e982662",
+    "sa_hmarl/sa_hmarl/env/action_mask.py": "c5cf40c34dfced5ddb54cbbb9748e7aafcf8e1589d509530f5bfe17a00742d67",
+    "sa_hmarl/sa_hmarl/env/observation_builder.py": "d9062b190fd1435d4d63f03b2a808548dd1d3b109d2c9f5b6c28b158d2821a31",
+    "sa_hmarl/sa_hmarl/agents/r_agent.py": "9924e02d63e19c88628d16a85412edb45359c23a50900d0cfd7ec4e00651d479",
+    "sa_hmarl/sa_hmarl/agents/ppo_agents.py": "079babd7a57771db1e07b2132900d0dec58a1840ed1d80a567d5b8417e34a8a6",
+    "sa_hmarl/sa_hmarl/agents/c_agent.py": "5c186b67fc103a70e3c892ab32b32eac07b0cc57d02367afa070a1fd2cd5545b",
+    "sa_hmarl/sa_hmarl/evaluation/offloading_baselines.py": "a71bd64c81020dd4dafc3073532b9390bc856cfe8ef36605dca132ca5e32b33f",
+    "sa_hmarl/sa_hmarl/evaluation/eval_long_horizon_system_comparison.py": "884f5f8ef6e2b1c5564f4684b445db1c194f86faa4a13e276552622a1a2e0064"
+  },
+  "checkpoint_sha256s": {
+    "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+    "ppo_c": "a5c9eb39bc33cf3b77a06d80e9c45315880dcb963ad9c3c95663eadaded9f2c8",
+    "df_c": "heuristic",
+    "strict_v13": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+  },
+  "results": [
+    {
+      "schema_version": "v1.3-verified-2026-07-14",
+      "topology": "xlron_cost239_ptrnet_real",
+      "seed": 3030,
+      "c_mode": "ppo_c",
+      "r_mode": "ppo_r_top1",
+      "method_name": "ppo_c+ppo_r_top1",
+      "evaluated_requests": 50,
+      "admitted": 50,
+      "blocked": 0,
+      "blocking_rate": 0.0,
+      "admitted_rate": 1.0,
+      "r_reached": 50,
+      "r_decisions": 50,
+      "r_no_valid_action": 0,
+      "c_no_valid_action": 0,
+      "c_no_valid_action_rate": 0.0,
+      "r_no_valid_action_rate": 0.0,
+      "c_raw_mask_empty": 0,
+      "c_effective_mask_empty": 0,
+      "c_action_not_in_effective_mask": 0,
+      "r_mask_empty": 0,
+      "server_overload": 0,
+      "overload_rate": 0.0,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "deadline_failure": 0,
+      "deadline_failure_rate": 0.0,
+      "other_failure": 0,
+      "other_rate": 0.0,
+      "failure_reason_distribution": {},
+      "avg_delay_ms": 6.563755456527962,
+      "delay_p50_ms": 8.219939770970715,
+      "delay_p90_ms": 11.865633131208863,
+      "delay_p95_ms": 12.281377978158833,
+      "avg_fs": 2.58,
+      "avg_decision_ms": 12.383941339794546,
+      "decision_p95_ms": 17.67591690004337,
+      "avg_c_policy_ms": 0.8913796802517027,
+      "avg_r_proposer_ms": 0.0,
+      "avg_ranker_or_ksp_ms": 0.0,
+      "avg_total_policy_ms": 0.8913796802517027,
+      "avg_audit_ms": 1.842952161678113,
+      "c_policy_ms_p95": 1.3843886015820317,
+      "r_proposer_ms_p95": 0.0,
+      "ranker_or_ksp_ms_p95": 0.0,
+      "avg_path_length_km": 733.6,
+      "avg_hop_count": 1.78,
+      "ppo_agreement_rate": 1.0,
+      "ppo_agreement_numerator": 50,
+      "ppo_agreement_denominator": 50,
+      "admitted_path_idx_distribution": {
+        "raw_counts": {
+          "0": 29,
+          "7": 3,
+          "1": 10,
+          "2": 3,
+          "3": 2,
+          "8": 1,
+          "4": 1,
+          "10": 1
+        },
+        "normalized": {
+          "0": 0.58,
+          "7": 0.06,
+          "1": 0.2,
+          "2": 0.06,
+          "3": 0.04,
+          "8": 0.02,
+          "4": 0.02,
+          "10": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_block_start_distribution": {
+        "raw_counts": {
+          "11": 1,
+          "0": 22,
+          "24": 1,
+          "13": 1,
+          "2": 2,
+          "17": 1,
+          "26": 1,
+          "28": 1,
+          "30": 2,
+          "32": 1,
+          "34": 1,
+          "36": 1,
+          "38": 1,
+          "40": 1,
+          "43": 2,
+          "6": 1,
+          "8": 1,
+          "45": 1,
+          "47": 1,
+          "49": 1,
+          "51": 2,
+          "56": 1,
+          "59": 2,
+          "62": 1
+        },
+        "normalized": {
+          "11": 0.02,
+          "0": 0.44,
+          "24": 0.02,
+          "13": 0.02,
+          "2": 0.04,
+          "17": 0.02,
+          "26": 0.02,
+          "28": 0.02,
+          "30": 0.04,
+          "32": 0.02,
+          "34": 0.02,
+          "36": 0.02,
+          "38": 0.02,
+          "40": 0.02,
+          "43": 0.04,
+          "6": 0.02,
+          "8": 0.02,
+          "45": 0.02,
+          "47": 0.02,
+          "49": 0.02,
+          "51": 0.04,
+          "56": 0.02,
+          "59": 0.04,
+          "62": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_required_fs_distribution": {
+        "raw_counts": {
+          "2": 28,
+          "3": 17,
+          "5": 2,
+          "4": 3
+        },
+        "normalized": {
+          "2": 0.56,
+          "3": 0.34,
+          "5": 0.04,
+          "4": 0.06
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_hop_count_distribution": {
+        "raw_counts": {
+          "3.0": 18,
+          "0.0": 19,
+          "4.0": 5,
+          "2.0": 7,
+          "1.0": 1
+        },
+        "normalized": {
+          "3.0": 0.36,
+          "0.0": 0.38,
+          "4.0": 0.1,
+          "2.0": 0.14,
+          "1.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_path_length_distribution": {
+        "raw_counts": {
+          "1620.0": 4,
+          "0.0": 19,
+          "1354.0": 3,
+          "1050.0": 3,
+          "1090.0": 3,
+          "1034.0": 4,
+          "1440.0": 1,
+          "984.0": 2,
+          "1150.0": 1,
+          "854.0": 2,
+          "870.0": 1,
+          "1530.0": 1,
+          "1314.0": 1,
+          "1290.0": 1,
+          "904.0": 1,
+          "1404.0": 1,
+          "1264.0": 1,
+          "740.0": 1
+        },
+        "normalized": {
+          "1620.0": 0.08,
+          "0.0": 0.38,
+          "1354.0": 0.06,
+          "1050.0": 0.06,
+          "1090.0": 0.06,
+          "1034.0": 0.08,
+          "1440.0": 0.02,
+          "984.0": 0.04,
+          "1150.0": 0.02,
+          "854.0": 0.04,
+          "870.0": 0.02,
+          "1530.0": 0.02,
+          "1314.0": 0.02,
+          "1290.0": 0.02,
+          "904.0": 0.02,
+          "1404.0": 0.02,
+          "1264.0": 0.02,
+          "740.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_mod_distribution": {
+        "raw_counts": {
+          "QPSK": 26,
+          "BPSK": 24
+        },
+        "normalized": {
+          "QPSK": 0.52,
+          "BPSK": 0.48
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_idx_distribution": {
+        "raw_counts": {
+          "0": 29,
+          "7": 3,
+          "1": 10,
+          "2": 3,
+          "3": 2,
+          "8": 1,
+          "4": 1,
+          "10": 1
+        },
+        "normalized": {
+          "0": 0.58,
+          "7": 0.06,
+          "1": 0.2,
+          "2": 0.06,
+          "3": 0.04,
+          "8": 0.02,
+          "4": 0.02,
+          "10": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_mod_distribution": {
+        "raw_counts": {
+          "QPSK": 26,
+          "BPSK": 24
+        },
+        "normalized": {
+          "QPSK": 0.52,
+          "BPSK": 0.48
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_block_start_distribution": {
+        "raw_counts": {
+          "11": 1,
+          "0": 22,
+          "24": 1,
+          "13": 1,
+          "2": 2,
+          "17": 1,
+          "26": 1,
+          "28": 1,
+          "30": 2,
+          "32": 1,
+          "34": 1,
+          "36": 1,
+          "38": 1,
+          "40": 1,
+          "43": 2,
+          "6": 1,
+          "8": 1,
+          "45": 1,
+          "47": 1,
+          "49": 1,
+          "51": 2,
+          "56": 1,
+          "59": 2,
+          "62": 1
+        },
+        "normalized": {
+          "11": 0.02,
+          "0": 0.44,
+          "24": 0.02,
+          "13": 0.02,
+          "2": 0.04,
+          "17": 0.02,
+          "26": 0.02,
+          "28": 0.02,
+          "30": 0.04,
+          "32": 0.02,
+          "34": 0.02,
+          "36": 0.02,
+          "38": 0.02,
+          "40": 0.02,
+          "43": 0.04,
+          "6": 0.02,
+          "8": 0.02,
+          "45": 0.02,
+          "47": 0.02,
+          "49": 0.02,
+          "51": 0.04,
+          "56": 0.02,
+          "59": 0.04,
+          "62": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_required_fs_distribution": {
+        "raw_counts": {
+          "2": 28,
+          "3": 17,
+          "5": 2,
+          "4": 3
+        },
+        "normalized": {
+          "2": 0.56,
+          "3": 0.34,
+          "5": 0.04,
+          "4": 0.06
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_hop_count_distribution": {
+        "raw_counts": {
+          "3.0": 18,
+          "0.0": 19,
+          "4.0": 5,
+          "2.0": 7,
+          "1.0": 1
+        },
+        "normalized": {
+          "3.0": 0.36,
+          "0.0": 0.38,
+          "4.0": 0.1,
+          "2.0": 0.14,
+          "1.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_length_distribution": {
+        "raw_counts": {
+          "1620.0": 4,
+          "0.0": 19,
+          "1354.0": 3,
+          "1050.0": 3,
+          "1090.0": 3,
+          "1034.0": 4,
+          "1440.0": 1,
+          "984.0": 2,
+          "1150.0": 1,
+          "854.0": 2,
+          "870.0": 1,
+          "1530.0": 1,
+          "1314.0": 1,
+          "1290.0": 1,
+          "904.0": 1,
+          "1404.0": 1,
+          "1264.0": 1,
+          "740.0": 1
+        },
+        "normalized": {
+          "1620.0": 0.08,
+          "0.0": 0.38,
+          "1354.0": 0.06,
+          "1050.0": 0.06,
+          "1090.0": 0.06,
+          "1034.0": 0.08,
+          "1440.0": 0.02,
+          "984.0": 0.04,
+          "1150.0": 0.02,
+          "854.0": 0.04,
+          "870.0": 0.02,
+          "1530.0": 0.02,
+          "1314.0": 0.02,
+          "1290.0": 0.02,
+          "904.0": 0.02,
+          "1404.0": 0.02,
+          "1264.0": 0.02,
+          "740.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "split_distribution": {
+        "raw_counts": {
+          "2": 45,
+          "1": 5
+        },
+        "normalized": {
+          "2": 0.9,
+          "1": 0.1
+        },
+        "sum_normalized": 1.0
+      },
+      "server_distribution": {
+        "raw_counts": {
+          "0": 10,
+          "2": 11,
+          "1": 16,
+          "3": 13
+        },
+        "normalized": {
+          "0": 0.2,
+          "2": 0.22,
+          "1": 0.32,
+          "3": 0.26
+        },
+        "sum_normalized": 1.0
+      },
+      "split_server_joint_distribution": {
+        "raw_counts": {
+          "(2, 0)": 9,
+          "(2, 2)": 11,
+          "(1, 1)": 2,
+          "(2, 3)": 11,
+          "(2, 1)": 14,
+          "(1, 3)": 2,
+          "(1, 0)": 1
+        },
+        "normalized": {
+          "(2, 0)": 0.18,
+          "(2, 2)": 0.22,
+          "(1, 1)": 0.04,
+          "(2, 3)": 0.22,
+          "(2, 1)": 0.28,
+          "(1, 3)": 0.04,
+          "(1, 0)": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "e_stratum_counts": {
+        "E=1": {
+          "evaluated": 31,
+          "admitted": 31,
+          "blocked": 0
+        },
+        "D=3": {
+          "evaluated": 27,
+          "admitted": 27,
+          "blocked": 0
+        },
+        "E=0": {
+          "evaluated": 19,
+          "admitted": 19,
+          "blocked": 0
+        },
+        "D=0": {
+          "evaluated": 19,
+          "admitted": 19,
+          "blocked": 0
+        },
+        "D=2": {
+          "evaluated": 4,
+          "admitted": 4,
+          "blocked": 0
+        }
+      },
+      "depth_stratum_counts": {},
+      "initial_event_queue_length": 70,
+      "consumed_request_count": 70,
+      "final_event_queue_length": 0,
+      "request_id_mismatch_count": 0,
+      "selected_mask_false_count": 0,
+      "invalid_path_after_legal_action_count": 0,
+      "modulation_reach_after_legal_action_count": 0,
+      "no_suitable_block_after_legal_action_count": 0,
+      "action_observation_consistency_error_count": 0,
+      "request_trace_hash": "055e358a45a92041bf5084462d47d7492f4a251bf31b9a2656268a98acda743c",
+      "selected_action_hash": "a2f96341adcf7ecef02b1363d26533b19ee3e00c7a178dfab1ae8b7af0edaef7",
+      "config_hash": "2f44117e0322d2efb49a619c7a66910ef67420ba874349fa790602424296aea9",
+      "evaluator_code_hash": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+      "runner_code_hash": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+      "analyzer_code_hash": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+      "source_manifest": {
+        "sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+        "sa_hmarl/sa_hmarl/evaluation/run_strict_v13_multitopology_cside_verified.py": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+        "sa_hmarl/sa_hmarl/evaluation/analyze_strict_v13_multitopology_cside_verified.py": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+        "sa_hmarl/sa_hmarl/evaluation/diagnose_r_action_horizon_oracle.py": "0755899405bd6fa9f9f70a96b3cc8fd78fc2bdb59a799f2e2638f938cd7b7423",
+        "sa_hmarl/sa_hmarl/evaluation/generate_r_counterfactual_ranking_cost239_kpath50_hops_kprop30_h5.py": "1eaa3d1400ffffb3508eba94d8c6a803bb7da30804b54a41b381591166d3441d",
+        "sa_hmarl/sa_hmarl/baselines/rmsa_baselines.py": "d284ee2220fc5613754fa3e3f773400d70af05e6ead94853057f27583e6cf441",
+        "sa_hmarl/sa_hmarl/network/ksp.py": "816ea52353dca4d329e6521230d3ee4ff8b66d6203ef1f76cfed95b1a073ed6d",
+        "sa_hmarl/sa_hmarl/env/event_env.py": "7bf4dbe2628abec32c811fb687db3c59288116573a380ba39c4b59769e982662",
+        "sa_hmarl/sa_hmarl/env/action_mask.py": "c5cf40c34dfced5ddb54cbbb9748e7aafcf8e1589d509530f5bfe17a00742d67",
+        "sa_hmarl/sa_hmarl/env/observation_builder.py": "d9062b190fd1435d4d63f03b2a808548dd1d3b109d2c9f5b6c28b158d2821a31",
+        "sa_hmarl/sa_hmarl/agents/r_agent.py": "9924e02d63e19c88628d16a85412edb45359c23a50900d0cfd7ec4e00651d479",
+        "sa_hmarl/sa_hmarl/agents/ppo_agents.py": "079babd7a57771db1e07b2132900d0dec58a1840ed1d80a567d5b8417e34a8a6",
+        "sa_hmarl/sa_hmarl/agents/c_agent.py": "5c186b67fc103a70e3c892ab32b32eac07b0cc57d02367afa070a1fd2cd5545b",
+        "sa_hmarl/sa_hmarl/evaluation/offloading_baselines.py": "a71bd64c81020dd4dafc3073532b9390bc856cfe8ef36605dca132ca5e32b33f",
+        "sa_hmarl/sa_hmarl/evaluation/eval_long_horizon_system_comparison.py": "884f5f8ef6e2b1c5564f4684b445db1c194f86faa4a13e276552622a1a2e0064"
+      },
+      "checkpoint_sha256s": {
+        "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+        "ppo_c": "a5c9eb39bc33cf3b77a06d80e9c45315880dcb963ad9c3c95663eadaded9f2c8",
+        "df_c": "heuristic",
+        "strict_v13": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+      }
+    },
+    {
+      "schema_version": "v1.3-verified-2026-07-14",
+      "topology": "xlron_cost239_ptrnet_real",
+      "seed": 3030,
+      "c_mode": "ppo_c",
+      "r_mode": "ksp_ff_highest",
+      "method_name": "ppo_c+ksp_ff_highest",
+      "evaluated_requests": 50,
+      "admitted": 50,
+      "blocked": 0,
+      "blocking_rate": 0.0,
+      "admitted_rate": 1.0,
+      "r_reached": 50,
+      "r_decisions": 50,
+      "r_no_valid_action": 0,
+      "c_no_valid_action": 0,
+      "c_no_valid_action_rate": 0.0,
+      "r_no_valid_action_rate": 0.0,
+      "c_raw_mask_empty": 0,
+      "c_effective_mask_empty": 0,
+      "c_action_not_in_effective_mask": 0,
+      "r_mask_empty": 0,
+      "server_overload": 0,
+      "overload_rate": 0.0,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "deadline_failure": 0,
+      "deadline_failure_rate": 0.0,
+      "other_failure": 0,
+      "other_rate": 0.0,
+      "failure_reason_distribution": {},
+      "avg_delay_ms": 6.345403516129391,
+      "delay_p50_ms": 7.978494722344873,
+      "delay_p90_ms": 12.13967351719815,
+      "delay_p95_ms": 13.561315834120817,
+      "avg_fs": 2.2,
+      "avg_decision_ms": 10.9711139195133,
+      "decision_p95_ms": 16.21355270181084,
+      "avg_c_policy_ms": 0.8789333200547844,
+      "avg_r_proposer_ms": 0.0,
+      "avg_ranker_or_ksp_ms": 0.018402260611765087,
+      "avg_total_policy_ms": 0.8973355806665495,
+      "avg_audit_ms": 1.7473594774492085,
+      "c_policy_ms_p95": 1.3482088994351216,
+      "r_proposer_ms_p95": 0.0,
+      "ranker_or_ksp_ms_p95": 0.02810627192957326,
+      "avg_path_length_km": 786.2,
+      "avg_hop_count": 1.22,
+      "ppo_agreement_rate": 0.32,
+      "ppo_agreement_numerator": 16,
+      "ppo_agreement_denominator": 50,
+      "admitted_path_idx_distribution": {
+        "raw_counts": {
+          "0": 50
+        },
+        "normalized": {
+          "0": 1.0
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_block_start_distribution": {
+        "raw_counts": {
+          "7": 1,
+          "0": 22,
+          "4": 2,
+          "3": 1,
+          "6": 2,
+          "2": 2,
+          "9": 2,
+          "11": 2,
+          "19": 1,
+          "15": 1,
+          "21": 1,
+          "23": 1,
+          "8": 1,
+          "10": 1,
+          "13": 2,
+          "25": 1,
+          "12": 1,
+          "27": 1,
+          "14": 1,
+          "30": 1,
+          "32": 1,
+          "17": 1,
+          "35": 1
+        },
+        "normalized": {
+          "7": 0.02,
+          "0": 0.44,
+          "4": 0.04,
+          "3": 0.02,
+          "6": 0.04,
+          "2": 0.04,
+          "9": 0.04,
+          "11": 0.04,
+          "19": 0.02,
+          "15": 0.02,
+          "21": 0.02,
+          "23": 0.02,
+          "8": 0.02,
+          "10": 0.02,
+          "13": 0.04,
+          "25": 0.02,
+          "12": 0.02,
+          "27": 0.02,
+          "14": 0.02,
+          "30": 0.02,
+          "32": 0.02,
+          "17": 0.02,
+          "35": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_required_fs_distribution": {
+        "raw_counts": {
+          "2": 40,
+          "3": 10
+        },
+        "normalized": {
+          "2": 0.8,
+          "3": 0.2
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_hop_count_distribution": {
+        "raw_counts": {
+          "2.0": 26,
+          "0.0": 19,
+          "1.0": 3,
+          "3.0": 2
+        },
+        "normalized": {
+          "2.0": 0.52,
+          "0.0": 0.38,
+          "1.0": 0.06,
+          "3.0": 0.04
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_path_length_distribution": {
+        "raw_counts": {
+          "1110.0": 2,
+          "0.0": 19,
+          "1050.0": 10,
+          "1270.0": 1,
+          "1480.0": 2,
+          "2050.0": 5,
+          "1090.0": 3,
+          "870.0": 3,
+          "390.0": 1,
+          "1300.0": 2,
+          "1620.0": 2
+        },
+        "normalized": {
+          "1110.0": 0.04,
+          "0.0": 0.38,
+          "1050.0": 0.2,
+          "1270.0": 0.02,
+          "1480.0": 0.04,
+          "2050.0": 0.1,
+          "1090.0": 0.06,
+          "870.0": 0.06,
+          "390.0": 0.02,
+          "1300.0": 0.04,
+          "1620.0": 0.04
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_mod_distribution": {
+        "raw_counts": {
+          "BPSK": 23,
+          "QPSK": 26,
+          "16QAM": 1
+        },
+        "normalized": {
+          "BPSK": 0.46,
+          "QPSK": 0.52,
+          "16QAM": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_idx_distribution": {
+        "raw_counts": {
+          "0": 50
+        },
+        "normalized": {
+          "0": 1.0
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_mod_distribution": {
+        "raw_counts": {
+          "BPSK": 23,
+          "QPSK": 26,
+          "16QAM": 1
+        },
+        "normalized": {
+          "BPSK": 0.46,
+          "QPSK": 0.52,
+          "16QAM": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_block_start_distribution": {
+        "raw_counts": {
+          "7": 1,
+          "0": 22,
+          "4": 2,
+          "3": 1,
+          "6": 2,
+          "2": 2,
+          "9": 2,
+          "11": 2,
+          "19": 1,
+          "15": 1,
+          "21": 1,
+          "23": 1,
+          "8": 1,
+          "10": 1,
+          "13": 2,
+          "25": 1,
+          "12": 1,
+          "27": 1,
+          "14": 1,
+          "30": 1,
+          "32": 1,
+          "17": 1,
+          "35": 1
+        },
+        "normalized": {
+          "7": 0.02,
+          "0": 0.44,
+          "4": 0.04,
+          "3": 0.02,
+          "6": 0.04,
+          "2": 0.04,
+          "9": 0.04,
+          "11": 0.04,
+          "19": 0.02,
+          "15": 0.02,
+          "21": 0.02,
+          "23": 0.02,
+          "8": 0.02,
+          "10": 0.02,
+          "13": 0.04,
+          "25": 0.02,
+          "12": 0.02,
+          "27": 0.02,
+          "14": 0.02,
+          "30": 0.02,
+          "32": 0.02,
+          "17": 0.02,
+          "35": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_required_fs_distribution": {
+        "raw_counts": {
+          "2": 40,
+          "3": 10
+        },
+        "normalized": {
+          "2": 0.8,
+          "3": 0.2
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_hop_count_distribution": {
+        "raw_counts": {
+          "2.0": 26,
+          "0.0": 19,
+          "1.0": 3,
+          "3.0": 2
+        },
+        "normalized": {
+          "2.0": 0.52,
+          "0.0": 0.38,
+          "1.0": 0.06,
+          "3.0": 0.04
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_length_distribution": {
+        "raw_counts": {
+          "1110.0": 2,
+          "0.0": 19,
+          "1050.0": 10,
+          "1270.0": 1,
+          "1480.0": 2,
+          "2050.0": 5,
+          "1090.0": 3,
+          "870.0": 3,
+          "390.0": 1,
+          "1300.0": 2,
+          "1620.0": 2
+        },
+        "normalized": {
+          "1110.0": 0.04,
+          "0.0": 0.38,
+          "1050.0": 0.2,
+          "1270.0": 0.02,
+          "1480.0": 0.04,
+          "2050.0": 0.1,
+          "1090.0": 0.06,
+          "870.0": 0.06,
+          "390.0": 0.02,
+          "1300.0": 0.04,
+          "1620.0": 0.04
+        },
+        "sum_normalized": 1.0
+      },
+      "split_distribution": {
+        "raw_counts": {
+          "1": 17,
+          "2": 31,
+          "0": 2
+        },
+        "normalized": {
+          "1": 0.34,
+          "2": 0.62,
+          "0": 0.04
+        },
+        "sum_normalized": 1.0
+      },
+      "server_distribution": {
+        "raw_counts": {
+          "2": 10,
+          "0": 13,
+          "3": 12,
+          "1": 15
+        },
+        "normalized": {
+          "2": 0.2,
+          "0": 0.26,
+          "3": 0.24,
+          "1": 0.3
+        },
+        "sum_normalized": 1.0
+      },
+      "split_server_joint_distribution": {
+        "raw_counts": {
+          "(1, 2)": 2,
+          "(2, 2)": 8,
+          "(1, 0)": 5,
+          "(2, 3)": 9,
+          "(2, 1)": 8,
+          "(1, 1)": 7,
+          "(0, 0)": 2,
+          "(1, 3)": 3,
+          "(2, 0)": 6
+        },
+        "normalized": {
+          "(1, 2)": 0.04,
+          "(2, 2)": 0.16,
+          "(1, 0)": 0.1,
+          "(2, 3)": 0.18,
+          "(2, 1)": 0.16,
+          "(1, 1)": 0.14,
+          "(0, 0)": 0.04,
+          "(1, 3)": 0.06,
+          "(2, 0)": 0.12
+        },
+        "sum_normalized": 1.0
+      },
+      "e_stratum_counts": {
+        "E=1": {
+          "evaluated": 31,
+          "admitted": 31,
+          "blocked": 0
+        },
+        "D=3": {
+          "evaluated": 31,
+          "admitted": 31,
+          "blocked": 0
+        },
+        "E=0": {
+          "evaluated": 19,
+          "admitted": 19,
+          "blocked": 0
+        },
+        "D=0": {
+          "evaluated": 19,
+          "admitted": 19,
+          "blocked": 0
+        }
+      },
+      "depth_stratum_counts": {},
+      "initial_event_queue_length": 70,
+      "consumed_request_count": 70,
+      "final_event_queue_length": 0,
+      "request_id_mismatch_count": 0,
+      "selected_mask_false_count": 0,
+      "invalid_path_after_legal_action_count": 0,
+      "modulation_reach_after_legal_action_count": 0,
+      "no_suitable_block_after_legal_action_count": 0,
+      "action_observation_consistency_error_count": 0,
+      "request_trace_hash": "055e358a45a92041bf5084462d47d7492f4a251bf31b9a2656268a98acda743c",
+      "selected_action_hash": "2bf7bf4b90ca8b72a6791f525ade3ac6126526b51b6c7a97b982b2bd5b235e41",
+      "config_hash": "2f44117e0322d2efb49a619c7a66910ef67420ba874349fa790602424296aea9",
+      "evaluator_code_hash": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+      "runner_code_hash": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+      "analyzer_code_hash": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+      "source_manifest": {
+        "sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+        "sa_hmarl/sa_hmarl/evaluation/run_strict_v13_multitopology_cside_verified.py": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+        "sa_hmarl/sa_hmarl/evaluation/analyze_strict_v13_multitopology_cside_verified.py": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+        "sa_hmarl/sa_hmarl/evaluation/diagnose_r_action_horizon_oracle.py": "0755899405bd6fa9f9f70a96b3cc8fd78fc2bdb59a799f2e2638f938cd7b7423",
+        "sa_hmarl/sa_hmarl/evaluation/generate_r_counterfactual_ranking_cost239_kpath50_hops_kprop30_h5.py": "1eaa3d1400ffffb3508eba94d8c6a803bb7da30804b54a41b381591166d3441d",
+        "sa_hmarl/sa_hmarl/baselines/rmsa_baselines.py": "d284ee2220fc5613754fa3e3f773400d70af05e6ead94853057f27583e6cf441",
+        "sa_hmarl/sa_hmarl/network/ksp.py": "816ea52353dca4d329e6521230d3ee4ff8b66d6203ef1f76cfed95b1a073ed6d",
+        "sa_hmarl/sa_hmarl/env/event_env.py": "7bf4dbe2628abec32c811fb687db3c59288116573a380ba39c4b59769e982662",
+        "sa_hmarl/sa_hmarl/env/action_mask.py": "c5cf40c34dfced5ddb54cbbb9748e7aafcf8e1589d509530f5bfe17a00742d67",
+        "sa_hmarl/sa_hmarl/env/observation_builder.py": "d9062b190fd1435d4d63f03b2a808548dd1d3b109d2c9f5b6c28b158d2821a31",
+        "sa_hmarl/sa_hmarl/agents/r_agent.py": "9924e02d63e19c88628d16a85412edb45359c23a50900d0cfd7ec4e00651d479",
+        "sa_hmarl/sa_hmarl/agents/ppo_agents.py": "079babd7a57771db1e07b2132900d0dec58a1840ed1d80a567d5b8417e34a8a6",
+        "sa_hmarl/sa_hmarl/agents/c_agent.py": "5c186b67fc103a70e3c892ab32b32eac07b0cc57d02367afa070a1fd2cd5545b",
+        "sa_hmarl/sa_hmarl/evaluation/offloading_baselines.py": "a71bd64c81020dd4dafc3073532b9390bc856cfe8ef36605dca132ca5e32b33f",
+        "sa_hmarl/sa_hmarl/evaluation/eval_long_horizon_system_comparison.py": "884f5f8ef6e2b1c5564f4684b445db1c194f86faa4a13e276552622a1a2e0064"
+      },
+      "checkpoint_sha256s": {
+        "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+        "ppo_c": "a5c9eb39bc33cf3b77a06d80e9c45315880dcb963ad9c3c95663eadaded9f2c8",
+        "df_c": "heuristic",
+        "strict_v13": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+      }
+    },
+    {
+      "schema_version": "v1.3-verified-2026-07-14",
+      "topology": "xlron_cost239_ptrnet_real",
+      "seed": 3030,
+      "c_mode": "ppo_c",
+      "r_mode": "strict_v13",
+      "method_name": "ppo_c+strict_v13",
+      "evaluated_requests": 50,
+      "admitted": 50,
+      "blocked": 0,
+      "blocking_rate": 0.0,
+      "admitted_rate": 1.0,
+      "r_reached": 50,
+      "r_decisions": 50,
+      "r_no_valid_action": 0,
+      "c_no_valid_action": 0,
+      "c_no_valid_action_rate": 0.0,
+      "r_no_valid_action_rate": 0.0,
+      "c_raw_mask_empty": 0,
+      "c_effective_mask_empty": 0,
+      "c_action_not_in_effective_mask": 0,
+      "r_mask_empty": 0,
+      "server_overload": 0,
+      "overload_rate": 0.0,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "deadline_failure": 0,
+      "deadline_failure_rate": 0.0,
+      "other_failure": 0,
+      "other_rate": 0.0,
+      "failure_reason_distribution": {},
+      "avg_delay_ms": 9.22634499792276,
+      "delay_p50_ms": 10.080794045015057,
+      "delay_p90_ms": 18.8223577653697,
+      "delay_p95_ms": 19.617224899066958,
+      "avg_fs": 2.86,
+      "avg_decision_ms": 17.443215139210224,
+      "decision_p95_ms": 25.493114191340283,
+      "avg_c_policy_ms": 0.9081042796606198,
+      "avg_r_proposer_ms": 1.4126744406530634,
+      "avg_ranker_or_ksp_ms": 4.9612607777817175,
+      "avg_total_policy_ms": 7.282039498095401,
+      "avg_audit_ms": 1.8583181814756244,
+      "c_policy_ms_p95": 1.2039361012284644,
+      "r_proposer_ms_p95": 2.577642949472647,
+      "ranker_or_ksp_ms_p95": 8.036896109115329,
+      "avg_path_length_km": 1199.44,
+      "avg_hop_count": 2.08,
+      "ppo_agreement_rate": 0.06,
+      "ppo_agreement_numerator": 3,
+      "ppo_agreement_denominator": 50,
+      "admitted_path_idx_distribution": {
+        "raw_counts": {
+          "1": 3,
+          "0": 26,
+          "41": 2,
+          "5": 1,
+          "44": 1,
+          "6": 2,
+          "3": 1,
+          "30": 2,
+          "10": 1,
+          "2": 1,
+          "32": 1,
+          "7": 2,
+          "40": 1,
+          "12": 1,
+          "4": 1,
+          "26": 1,
+          "9": 1,
+          "25": 1,
+          "35": 1
+        },
+        "normalized": {
+          "1": 0.06,
+          "0": 0.52,
+          "41": 0.04,
+          "5": 0.02,
+          "44": 0.02,
+          "6": 0.04,
+          "3": 0.02,
+          "30": 0.04,
+          "10": 0.02,
+          "2": 0.02,
+          "32": 0.02,
+          "7": 0.04,
+          "40": 0.02,
+          "12": 0.02,
+          "4": 0.02,
+          "26": 0.02,
+          "9": 0.02,
+          "25": 0.02,
+          "35": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_block_start_distribution": {
+        "raw_counts": {
+          "12": 2,
+          "0": 20,
+          "14": 4,
+          "7": 1,
+          "20": 4,
+          "30": 1,
+          "4": 1,
+          "10": 1,
+          "18": 3,
+          "32": 1,
+          "5": 1,
+          "15": 1,
+          "23": 1,
+          "34": 1,
+          "37": 3,
+          "39": 1,
+          "26": 1,
+          "29": 1,
+          "44": 2
+        },
+        "normalized": {
+          "12": 0.04,
+          "0": 0.4,
+          "14": 0.08,
+          "7": 0.02,
+          "20": 0.08,
+          "30": 0.02,
+          "4": 0.02,
+          "10": 0.02,
+          "18": 0.06,
+          "32": 0.02,
+          "5": 0.02,
+          "15": 0.02,
+          "23": 0.02,
+          "34": 0.02,
+          "37": 0.06,
+          "39": 0.02,
+          "26": 0.02,
+          "29": 0.02,
+          "44": 0.04
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_required_fs_distribution": {
+        "raw_counts": {
+          "2": 30,
+          "4": 2,
+          "6": 2,
+          "3": 12,
+          "10": 1,
+          "5": 2,
+          "7": 1
+        },
+        "normalized": {
+          "2": 0.6,
+          "4": 0.04,
+          "6": 0.04,
+          "3": 0.24,
+          "10": 0.02,
+          "5": 0.04,
+          "7": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_hop_count_distribution": {
+        "raw_counts": {
+          "3.0": 10,
+          "0.0": 19,
+          "5.0": 5,
+          "2.0": 6,
+          "4.0": 9,
+          "1.0": 1
+        },
+        "normalized": {
+          "3.0": 0.2,
+          "0.0": 0.38,
+          "5.0": 0.1,
+          "2.0": 0.12,
+          "4.0": 0.18,
+          "1.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_path_length_distribution": {
+        "raw_counts": {
+          "1870.0": 2,
+          "0.0": 19,
+          "2730.0": 1,
+          "2580.0": 1,
+          "1300.0": 2,
+          "2740.0": 1,
+          "3050.0": 1,
+          "1880.0": 2,
+          "1480.0": 1,
+          "1384.0": 1,
+          "970.0": 2,
+          "2670.0": 1,
+          "1340.0": 1,
+          "1090.0": 2,
+          "1290.0": 2,
+          "2530.0": 1,
+          "2920.0": 1,
+          "1354.0": 1,
+          "2650.0": 1,
+          "1790.0": 1,
+          "2200.0": 1,
+          "2600.0": 1,
+          "1820.0": 1,
+          "2630.0": 1,
+          "2360.0": 1,
+          "2344.0": 1
+        },
+        "normalized": {
+          "1870.0": 0.04,
+          "0.0": 0.38,
+          "2730.0": 0.02,
+          "2580.0": 0.02,
+          "1300.0": 0.04,
+          "2740.0": 0.02,
+          "3050.0": 0.02,
+          "1880.0": 0.04,
+          "1480.0": 0.02,
+          "1384.0": 0.02,
+          "970.0": 0.04,
+          "2670.0": 0.02,
+          "1340.0": 0.02,
+          "1090.0": 0.04,
+          "1290.0": 0.04,
+          "2530.0": 0.02,
+          "2920.0": 0.02,
+          "1354.0": 0.02,
+          "2650.0": 0.02,
+          "1790.0": 0.02,
+          "2200.0": 0.02,
+          "2600.0": 0.02,
+          "1820.0": 0.02,
+          "2630.0": 0.02,
+          "2360.0": 0.02,
+          "2344.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_mod_distribution": {
+        "raw_counts": {
+          "QPSK": 5,
+          "16QAM": 17,
+          "BPSK": 27,
+          "8QAM": 1
+        },
+        "normalized": {
+          "QPSK": 0.1,
+          "16QAM": 0.34,
+          "BPSK": 0.54,
+          "8QAM": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_idx_distribution": {
+        "raw_counts": {
+          "1": 3,
+          "0": 26,
+          "41": 2,
+          "5": 1,
+          "44": 1,
+          "6": 2,
+          "3": 1,
+          "30": 2,
+          "10": 1,
+          "2": 1,
+          "32": 1,
+          "7": 2,
+          "40": 1,
+          "12": 1,
+          "4": 1,
+          "26": 1,
+          "9": 1,
+          "25": 1,
+          "35": 1
+        },
+        "normalized": {
+          "1": 0.06,
+          "0": 0.52,
+          "41": 0.04,
+          "5": 0.02,
+          "44": 0.02,
+          "6": 0.04,
+          "3": 0.02,
+          "30": 0.04,
+          "10": 0.02,
+          "2": 0.02,
+          "32": 0.02,
+          "7": 0.04,
+          "40": 0.02,
+          "12": 0.02,
+          "4": 0.02,
+          "26": 0.02,
+          "9": 0.02,
+          "25": 0.02,
+          "35": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_mod_distribution": {
+        "raw_counts": {
+          "QPSK": 5,
+          "16QAM": 17,
+          "BPSK": 27,
+          "8QAM": 1
+        },
+        "normalized": {
+          "QPSK": 0.1,
+          "16QAM": 0.34,
+          "BPSK": 0.54,
+          "8QAM": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_block_start_distribution": {
+        "raw_counts": {
+          "12": 2,
+          "0": 20,
+          "14": 4,
+          "7": 1,
+          "20": 4,
+          "30": 1,
+          "4": 1,
+          "10": 1,
+          "18": 3,
+          "32": 1,
+          "5": 1,
+          "15": 1,
+          "23": 1,
+          "34": 1,
+          "37": 3,
+          "39": 1,
+          "26": 1,
+          "29": 1,
+          "44": 2
+        },
+        "normalized": {
+          "12": 0.04,
+          "0": 0.4,
+          "14": 0.08,
+          "7": 0.02,
+          "20": 0.08,
+          "30": 0.02,
+          "4": 0.02,
+          "10": 0.02,
+          "18": 0.06,
+          "32": 0.02,
+          "5": 0.02,
+          "15": 0.02,
+          "23": 0.02,
+          "34": 0.02,
+          "37": 0.06,
+          "39": 0.02,
+          "26": 0.02,
+          "29": 0.02,
+          "44": 0.04
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_required_fs_distribution": {
+        "raw_counts": {
+          "2": 30,
+          "4": 2,
+          "6": 2,
+          "3": 12,
+          "10": 1,
+          "5": 2,
+          "7": 1
+        },
+        "normalized": {
+          "2": 0.6,
+          "4": 0.04,
+          "6": 0.04,
+          "3": 0.24,
+          "10": 0.02,
+          "5": 0.04,
+          "7": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_hop_count_distribution": {
+        "raw_counts": {
+          "3.0": 10,
+          "0.0": 19,
+          "5.0": 5,
+          "2.0": 6,
+          "4.0": 9,
+          "1.0": 1
+        },
+        "normalized": {
+          "3.0": 0.2,
+          "0.0": 0.38,
+          "5.0": 0.1,
+          "2.0": 0.12,
+          "4.0": 0.18,
+          "1.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_length_distribution": {
+        "raw_counts": {
+          "1870.0": 2,
+          "0.0": 19,
+          "2730.0": 1,
+          "2580.0": 1,
+          "1300.0": 2,
+          "2740.0": 1,
+          "3050.0": 1,
+          "1880.0": 2,
+          "1480.0": 1,
+          "1384.0": 1,
+          "970.0": 2,
+          "2670.0": 1,
+          "1340.0": 1,
+          "1090.0": 2,
+          "1290.0": 2,
+          "2530.0": 1,
+          "2920.0": 1,
+          "1354.0": 1,
+          "2650.0": 1,
+          "1790.0": 1,
+          "2200.0": 1,
+          "2600.0": 1,
+          "1820.0": 1,
+          "2630.0": 1,
+          "2360.0": 1,
+          "2344.0": 1
+        },
+        "normalized": {
+          "1870.0": 0.04,
+          "0.0": 0.38,
+          "2730.0": 0.02,
+          "2580.0": 0.02,
+          "1300.0": 0.04,
+          "2740.0": 0.02,
+          "3050.0": 0.02,
+          "1880.0": 0.04,
+          "1480.0": 0.02,
+          "1384.0": 0.02,
+          "970.0": 0.04,
+          "2670.0": 0.02,
+          "1340.0": 0.02,
+          "1090.0": 0.04,
+          "1290.0": 0.04,
+          "2530.0": 0.02,
+          "2920.0": 0.02,
+          "1354.0": 0.02,
+          "2650.0": 0.02,
+          "1790.0": 0.02,
+          "2200.0": 0.02,
+          "2600.0": 0.02,
+          "1820.0": 0.02,
+          "2630.0": 0.02,
+          "2360.0": 0.02,
+          "2344.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "split_distribution": {
+        "raw_counts": {
+          "1": 9,
+          "2": 40,
+          "0": 1
+        },
+        "normalized": {
+          "1": 0.18,
+          "2": 0.8,
+          "0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "server_distribution": {
+        "raw_counts": {
+          "0": 24,
+          "2": 7,
+          "1": 10,
+          "3": 9
+        },
+        "normalized": {
+          "0": 0.48,
+          "2": 0.14,
+          "1": 0.2,
+          "3": 0.18
+        },
+        "sum_normalized": 1.0
+      },
+      "split_server_joint_distribution": {
+        "raw_counts": {
+          "(1, 0)": 7,
+          "(2, 2)": 7,
+          "(2, 1)": 9,
+          "(2, 3)": 8,
+          "(2, 0)": 16,
+          "(0, 0)": 1,
+          "(1, 3)": 1,
+          "(1, 1)": 1
+        },
+        "normalized": {
+          "(1, 0)": 0.14,
+          "(2, 2)": 0.14,
+          "(2, 1)": 0.18,
+          "(2, 3)": 0.16,
+          "(2, 0)": 0.32,
+          "(0, 0)": 0.02,
+          "(1, 3)": 0.02,
+          "(1, 1)": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "e_stratum_counts": {
+        "E=1": {
+          "evaluated": 31,
+          "admitted": 31,
+          "blocked": 0
+        },
+        "D=3": {
+          "evaluated": 30,
+          "admitted": 30,
+          "blocked": 0
+        },
+        "E=0": {
+          "evaluated": 19,
+          "admitted": 19,
+          "blocked": 0
+        },
+        "D=0": {
+          "evaluated": 19,
+          "admitted": 19,
+          "blocked": 0
+        },
+        "D=2": {
+          "evaluated": 1,
+          "admitted": 1,
+          "blocked": 0
+        }
+      },
+      "depth_stratum_counts": {},
+      "initial_event_queue_length": 70,
+      "consumed_request_count": 70,
+      "final_event_queue_length": 0,
+      "request_id_mismatch_count": 0,
+      "selected_mask_false_count": 0,
+      "invalid_path_after_legal_action_count": 0,
+      "modulation_reach_after_legal_action_count": 0,
+      "no_suitable_block_after_legal_action_count": 0,
+      "action_observation_consistency_error_count": 0,
+      "request_trace_hash": "055e358a45a92041bf5084462d47d7492f4a251bf31b9a2656268a98acda743c",
+      "selected_action_hash": "ab850d1ea9d4f8097327b55d7e61e25dcda4b71926dfa42259dae3b86d6ed8ad",
+      "config_hash": "2f44117e0322d2efb49a619c7a66910ef67420ba874349fa790602424296aea9",
+      "evaluator_code_hash": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+      "runner_code_hash": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+      "analyzer_code_hash": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+      "source_manifest": {
+        "sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+        "sa_hmarl/sa_hmarl/evaluation/run_strict_v13_multitopology_cside_verified.py": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+        "sa_hmarl/sa_hmarl/evaluation/analyze_strict_v13_multitopology_cside_verified.py": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+        "sa_hmarl/sa_hmarl/evaluation/diagnose_r_action_horizon_oracle.py": "0755899405bd6fa9f9f70a96b3cc8fd78fc2bdb59a799f2e2638f938cd7b7423",
+        "sa_hmarl/sa_hmarl/evaluation/generate_r_counterfactual_ranking_cost239_kpath50_hops_kprop30_h5.py": "1eaa3d1400ffffb3508eba94d8c6a803bb7da30804b54a41b381591166d3441d",
+        "sa_hmarl/sa_hmarl/baselines/rmsa_baselines.py": "d284ee2220fc5613754fa3e3f773400d70af05e6ead94853057f27583e6cf441",
+        "sa_hmarl/sa_hmarl/network/ksp.py": "816ea52353dca4d329e6521230d3ee4ff8b66d6203ef1f76cfed95b1a073ed6d",
+        "sa_hmarl/sa_hmarl/env/event_env.py": "7bf4dbe2628abec32c811fb687db3c59288116573a380ba39c4b59769e982662",
+        "sa_hmarl/sa_hmarl/env/action_mask.py": "c5cf40c34dfced5ddb54cbbb9748e7aafcf8e1589d509530f5bfe17a00742d67",
+        "sa_hmarl/sa_hmarl/env/observation_builder.py": "d9062b190fd1435d4d63f03b2a808548dd1d3b109d2c9f5b6c28b158d2821a31",
+        "sa_hmarl/sa_hmarl/agents/r_agent.py": "9924e02d63e19c88628d16a85412edb45359c23a50900d0cfd7ec4e00651d479",
+        "sa_hmarl/sa_hmarl/agents/ppo_agents.py": "079babd7a57771db1e07b2132900d0dec58a1840ed1d80a567d5b8417e34a8a6",
+        "sa_hmarl/sa_hmarl/agents/c_agent.py": "5c186b67fc103a70e3c892ab32b32eac07b0cc57d02367afa070a1fd2cd5545b",
+        "sa_hmarl/sa_hmarl/evaluation/offloading_baselines.py": "a71bd64c81020dd4dafc3073532b9390bc856cfe8ef36605dca132ca5e32b33f",
+        "sa_hmarl/sa_hmarl/evaluation/eval_long_horizon_system_comparison.py": "884f5f8ef6e2b1c5564f4684b445db1c194f86faa4a13e276552622a1a2e0064"
+      },
+      "checkpoint_sha256s": {
+        "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+        "ppo_c": "a5c9eb39bc33cf3b77a06d80e9c45315880dcb963ad9c3c95663eadaded9f2c8",
+        "df_c": "heuristic",
+        "strict_v13": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+      },
+      "avg_candidate_count": 20.12,
+      "candidate_count_p95": 30.0,
+      "fallback_rate": 0.0,
+      "ranker_top1_in_candidates_rate": 1.0,
+      "avg_score_margin": 0.050275398045778276,
+      "score_margin_p95": 0.12017061710357665,
+      "feature_finite_rate": 1.0,
+      "nan_inf_feature_count": 0,
+      "nan_inf_score_count": 0
+    },
+    {
+      "schema_version": "v1.3-verified-2026-07-14",
+      "topology": "xlron_cost239_ptrnet_real",
+      "seed": 3030,
+      "c_mode": "df_c",
+      "r_mode": "ppo_r_top1",
+      "method_name": "df_c+ppo_r_top1",
+      "evaluated_requests": 50,
+      "admitted": 50,
+      "blocked": 0,
+      "blocking_rate": 0.0,
+      "admitted_rate": 1.0,
+      "r_reached": 50,
+      "r_decisions": 50,
+      "r_no_valid_action": 0,
+      "c_no_valid_action": 0,
+      "c_no_valid_action_rate": 0.0,
+      "r_no_valid_action_rate": 0.0,
+      "c_raw_mask_empty": 0,
+      "c_effective_mask_empty": 0,
+      "c_action_not_in_effective_mask": 0,
+      "r_mask_empty": 0,
+      "server_overload": 0,
+      "overload_rate": 0.0,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "deadline_failure": 0,
+      "deadline_failure_rate": 0.0,
+      "other_failure": 0,
+      "other_rate": 0.0,
+      "failure_reason_distribution": {},
+      "avg_delay_ms": 6.688249861939486,
+      "delay_p50_ms": 5.729564397479058,
+      "delay_p90_ms": 11.837202772956026,
+      "delay_p95_ms": 11.989575533263388,
+      "avg_fs": 2.46,
+      "avg_decision_ms": 14.579599257558584,
+      "decision_p95_ms": 17.23737800493836,
+      "avg_c_policy_ms": 0.10194083966780454,
+      "avg_r_proposer_ms": 0.0,
+      "avg_ranker_or_ksp_ms": 0.0,
+      "avg_total_policy_ms": 0.10194083966780454,
+      "avg_audit_ms": 3.666243819752708,
+      "c_policy_ms_p95": 0.13206555013312024,
+      "r_proposer_ms_p95": 0.0,
+      "ranker_or_ksp_ms_p95": 0.0,
+      "avg_path_length_km": 739.44,
+      "avg_hop_count": 1.9,
+      "ppo_agreement_rate": 1.0,
+      "ppo_agreement_numerator": 50,
+      "ppo_agreement_denominator": 50,
+      "admitted_path_idx_distribution": {
+        "raw_counts": {
+          "0": 30,
+          "4": 2,
+          "3": 5,
+          "7": 1,
+          "1": 7,
+          "2": 3,
+          "8": 1,
+          "10": 1
+        },
+        "normalized": {
+          "0": 0.6,
+          "4": 0.04,
+          "3": 0.1,
+          "7": 0.02,
+          "1": 0.14,
+          "2": 0.06,
+          "8": 0.02,
+          "10": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_block_start_distribution": {
+        "raw_counts": {
+          "5": 1,
+          "14": 1,
+          "4": 1,
+          "3": 1,
+          "9": 2,
+          "6": 1,
+          "11": 1,
+          "13": 3,
+          "17": 3,
+          "16": 2,
+          "15": 1,
+          "19": 4,
+          "21": 3,
+          "23": 3,
+          "26": 1,
+          "29": 2,
+          "25": 1,
+          "27": 2,
+          "32": 2,
+          "34": 4,
+          "30": 1,
+          "37": 2,
+          "39": 2,
+          "36": 1,
+          "31": 1,
+          "40": 1,
+          "43": 2,
+          "45": 1
+        },
+        "normalized": {
+          "5": 0.02,
+          "14": 0.02,
+          "4": 0.02,
+          "3": 0.02,
+          "9": 0.04,
+          "6": 0.02,
+          "11": 0.02,
+          "13": 0.06,
+          "17": 0.06,
+          "16": 0.04,
+          "15": 0.02,
+          "19": 0.08,
+          "21": 0.06,
+          "23": 0.06,
+          "26": 0.02,
+          "29": 0.04,
+          "25": 0.02,
+          "27": 0.04,
+          "32": 0.04,
+          "34": 0.08,
+          "30": 0.02,
+          "37": 0.04,
+          "39": 0.04,
+          "36": 0.02,
+          "31": 0.02,
+          "40": 0.02,
+          "43": 0.04,
+          "45": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_required_fs_distribution": {
+        "raw_counts": {
+          "2": 34,
+          "3": 11,
+          "4": 3,
+          "5": 2
+        },
+        "normalized": {
+          "2": 0.68,
+          "3": 0.22,
+          "4": 0.06,
+          "5": 0.04
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_hop_count_distribution": {
+        "raw_counts": {
+          "2.0": 8,
+          "3.0": 14,
+          "1.0": 25,
+          "4.0": 3
+        },
+        "normalized": {
+          "2.0": 0.16,
+          "3.0": 0.28,
+          "1.0": 0.5,
+          "4.0": 0.06
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_path_length_distribution": {
+        "raw_counts": {
+          "1270.0": 1,
+          "1074.0": 1,
+          "660.0": 3,
+          "550.0": 1,
+          "880.0": 5,
+          "390.0": 11,
+          "1610.0": 1,
+          "1290.0": 1,
+          "450.0": 4,
+          "1060.0": 1,
+          "340.0": 5,
+          "1030.0": 1,
+          "210.0": 3,
+          "600.0": 2,
+          "1430.0": 1,
+          "1050.0": 2,
+          "1440.0": 2,
+          "1620.0": 2,
+          "504.0": 1,
+          "1530.0": 1,
+          "1404.0": 1
+        },
+        "normalized": {
+          "1270.0": 0.02,
+          "1074.0": 0.02,
+          "660.0": 0.06,
+          "550.0": 0.02,
+          "880.0": 0.1,
+          "390.0": 0.22,
+          "1610.0": 0.02,
+          "1290.0": 0.02,
+          "450.0": 0.08,
+          "1060.0": 0.02,
+          "340.0": 0.1,
+          "1030.0": 0.02,
+          "210.0": 0.06,
+          "600.0": 0.04,
+          "1430.0": 0.02,
+          "1050.0": 0.04,
+          "1440.0": 0.04,
+          "1620.0": 0.04,
+          "504.0": 0.02,
+          "1530.0": 0.02,
+          "1404.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_mod_distribution": {
+        "raw_counts": {
+          "QPSK": 25,
+          "8QAM": 14,
+          "BPSK": 11
+        },
+        "normalized": {
+          "QPSK": 0.5,
+          "8QAM": 0.28,
+          "BPSK": 0.22
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_idx_distribution": {
+        "raw_counts": {
+          "0": 30,
+          "4": 2,
+          "3": 5,
+          "7": 1,
+          "1": 7,
+          "2": 3,
+          "8": 1,
+          "10": 1
+        },
+        "normalized": {
+          "0": 0.6,
+          "4": 0.04,
+          "3": 0.1,
+          "7": 0.02,
+          "1": 0.14,
+          "2": 0.06,
+          "8": 0.02,
+          "10": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_mod_distribution": {
+        "raw_counts": {
+          "QPSK": 25,
+          "8QAM": 14,
+          "BPSK": 11
+        },
+        "normalized": {
+          "QPSK": 0.5,
+          "8QAM": 0.28,
+          "BPSK": 0.22
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_block_start_distribution": {
+        "raw_counts": {
+          "5": 1,
+          "14": 1,
+          "4": 1,
+          "3": 1,
+          "9": 2,
+          "6": 1,
+          "11": 1,
+          "13": 3,
+          "17": 3,
+          "16": 2,
+          "15": 1,
+          "19": 4,
+          "21": 3,
+          "23": 3,
+          "26": 1,
+          "29": 2,
+          "25": 1,
+          "27": 2,
+          "32": 2,
+          "34": 4,
+          "30": 1,
+          "37": 2,
+          "39": 2,
+          "36": 1,
+          "31": 1,
+          "40": 1,
+          "43": 2,
+          "45": 1
+        },
+        "normalized": {
+          "5": 0.02,
+          "14": 0.02,
+          "4": 0.02,
+          "3": 0.02,
+          "9": 0.04,
+          "6": 0.02,
+          "11": 0.02,
+          "13": 0.06,
+          "17": 0.06,
+          "16": 0.04,
+          "15": 0.02,
+          "19": 0.08,
+          "21": 0.06,
+          "23": 0.06,
+          "26": 0.02,
+          "29": 0.04,
+          "25": 0.02,
+          "27": 0.04,
+          "32": 0.04,
+          "34": 0.08,
+          "30": 0.02,
+          "37": 0.04,
+          "39": 0.04,
+          "36": 0.02,
+          "31": 0.02,
+          "40": 0.02,
+          "43": 0.04,
+          "45": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_required_fs_distribution": {
+        "raw_counts": {
+          "2": 34,
+          "3": 11,
+          "4": 3,
+          "5": 2
+        },
+        "normalized": {
+          "2": 0.68,
+          "3": 0.22,
+          "4": 0.06,
+          "5": 0.04
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_hop_count_distribution": {
+        "raw_counts": {
+          "2.0": 8,
+          "3.0": 14,
+          "1.0": 25,
+          "4.0": 3
+        },
+        "normalized": {
+          "2.0": 0.16,
+          "3.0": 0.28,
+          "1.0": 0.5,
+          "4.0": 0.06
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_length_distribution": {
+        "raw_counts": {
+          "1270.0": 1,
+          "1074.0": 1,
+          "660.0": 3,
+          "550.0": 1,
+          "880.0": 5,
+          "390.0": 11,
+          "1610.0": 1,
+          "1290.0": 1,
+          "450.0": 4,
+          "1060.0": 1,
+          "340.0": 5,
+          "1030.0": 1,
+          "210.0": 3,
+          "600.0": 2,
+          "1430.0": 1,
+          "1050.0": 2,
+          "1440.0": 2,
+          "1620.0": 2,
+          "504.0": 1,
+          "1530.0": 1,
+          "1404.0": 1
+        },
+        "normalized": {
+          "1270.0": 0.02,
+          "1074.0": 0.02,
+          "660.0": 0.06,
+          "550.0": 0.02,
+          "880.0": 0.1,
+          "390.0": 0.22,
+          "1610.0": 0.02,
+          "1290.0": 0.02,
+          "450.0": 0.08,
+          "1060.0": 0.02,
+          "340.0": 0.1,
+          "1030.0": 0.02,
+          "210.0": 0.06,
+          "600.0": 0.04,
+          "1430.0": 0.02,
+          "1050.0": 0.04,
+          "1440.0": 0.04,
+          "1620.0": 0.04,
+          "504.0": 0.02,
+          "1530.0": 0.02,
+          "1404.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "split_distribution": {
+        "raw_counts": {
+          "2": 50
+        },
+        "normalized": {
+          "2": 1.0
+        },
+        "sum_normalized": 1.0
+      },
+      "server_distribution": {
+        "raw_counts": {
+          "1": 16,
+          "3": 11,
+          "0": 14,
+          "2": 9
+        },
+        "normalized": {
+          "1": 0.32,
+          "3": 0.22,
+          "0": 0.28,
+          "2": 0.18
+        },
+        "sum_normalized": 1.0
+      },
+      "split_server_joint_distribution": {
+        "raw_counts": {
+          "(2, 1)": 16,
+          "(2, 3)": 11,
+          "(2, 0)": 14,
+          "(2, 2)": 9
+        },
+        "normalized": {
+          "(2, 1)": 0.32,
+          "(2, 3)": 0.22,
+          "(2, 0)": 0.28,
+          "(2, 2)": 0.18
+        },
+        "sum_normalized": 1.0
+      },
+      "e_stratum_counts": {
+        "E=1": {
+          "evaluated": 50,
+          "admitted": 50,
+          "blocked": 0
+        },
+        "D=3": {
+          "evaluated": 45,
+          "admitted": 45,
+          "blocked": 0
+        },
+        "D=2": {
+          "evaluated": 5,
+          "admitted": 5,
+          "blocked": 0
+        }
+      },
+      "depth_stratum_counts": {},
+      "initial_event_queue_length": 70,
+      "consumed_request_count": 70,
+      "final_event_queue_length": 0,
+      "request_id_mismatch_count": 0,
+      "selected_mask_false_count": 0,
+      "invalid_path_after_legal_action_count": 0,
+      "modulation_reach_after_legal_action_count": 0,
+      "no_suitable_block_after_legal_action_count": 0,
+      "action_observation_consistency_error_count": 0,
+      "request_trace_hash": "055e358a45a92041bf5084462d47d7492f4a251bf31b9a2656268a98acda743c",
+      "selected_action_hash": "9a5ae53257a13687b2a61e2613f1213eb26c5b8b5edcb8f5425f94c2e8033ba2",
+      "config_hash": "2f44117e0322d2efb49a619c7a66910ef67420ba874349fa790602424296aea9",
+      "evaluator_code_hash": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+      "runner_code_hash": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+      "analyzer_code_hash": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+      "source_manifest": {
+        "sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+        "sa_hmarl/sa_hmarl/evaluation/run_strict_v13_multitopology_cside_verified.py": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+        "sa_hmarl/sa_hmarl/evaluation/analyze_strict_v13_multitopology_cside_verified.py": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+        "sa_hmarl/sa_hmarl/evaluation/diagnose_r_action_horizon_oracle.py": "0755899405bd6fa9f9f70a96b3cc8fd78fc2bdb59a799f2e2638f938cd7b7423",
+        "sa_hmarl/sa_hmarl/evaluation/generate_r_counterfactual_ranking_cost239_kpath50_hops_kprop30_h5.py": "1eaa3d1400ffffb3508eba94d8c6a803bb7da30804b54a41b381591166d3441d",
+        "sa_hmarl/sa_hmarl/baselines/rmsa_baselines.py": "d284ee2220fc5613754fa3e3f773400d70af05e6ead94853057f27583e6cf441",
+        "sa_hmarl/sa_hmarl/network/ksp.py": "816ea52353dca4d329e6521230d3ee4ff8b66d6203ef1f76cfed95b1a073ed6d",
+        "sa_hmarl/sa_hmarl/env/event_env.py": "7bf4dbe2628abec32c811fb687db3c59288116573a380ba39c4b59769e982662",
+        "sa_hmarl/sa_hmarl/env/action_mask.py": "c5cf40c34dfced5ddb54cbbb9748e7aafcf8e1589d509530f5bfe17a00742d67",
+        "sa_hmarl/sa_hmarl/env/observation_builder.py": "d9062b190fd1435d4d63f03b2a808548dd1d3b109d2c9f5b6c28b158d2821a31",
+        "sa_hmarl/sa_hmarl/agents/r_agent.py": "9924e02d63e19c88628d16a85412edb45359c23a50900d0cfd7ec4e00651d479",
+        "sa_hmarl/sa_hmarl/agents/ppo_agents.py": "079babd7a57771db1e07b2132900d0dec58a1840ed1d80a567d5b8417e34a8a6",
+        "sa_hmarl/sa_hmarl/agents/c_agent.py": "5c186b67fc103a70e3c892ab32b32eac07b0cc57d02367afa070a1fd2cd5545b",
+        "sa_hmarl/sa_hmarl/evaluation/offloading_baselines.py": "a71bd64c81020dd4dafc3073532b9390bc856cfe8ef36605dca132ca5e32b33f",
+        "sa_hmarl/sa_hmarl/evaluation/eval_long_horizon_system_comparison.py": "884f5f8ef6e2b1c5564f4684b445db1c194f86faa4a13e276552622a1a2e0064"
+      },
+      "checkpoint_sha256s": {
+        "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+        "ppo_c": "a5c9eb39bc33cf3b77a06d80e9c45315880dcb963ad9c3c95663eadaded9f2c8",
+        "df_c": "heuristic",
+        "strict_v13": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+      }
+    },
+    {
+      "schema_version": "v1.3-verified-2026-07-14",
+      "topology": "xlron_cost239_ptrnet_real",
+      "seed": 3030,
+      "c_mode": "df_c",
+      "r_mode": "ksp_ff_highest",
+      "method_name": "df_c+ksp_ff_highest",
+      "evaluated_requests": 50,
+      "admitted": 50,
+      "blocked": 0,
+      "blocking_rate": 0.0,
+      "admitted_rate": 1.0,
+      "r_reached": 50,
+      "r_decisions": 50,
+      "r_no_valid_action": 0,
+      "c_no_valid_action": 0,
+      "c_no_valid_action_rate": 0.0,
+      "r_no_valid_action_rate": 0.0,
+      "c_raw_mask_empty": 0,
+      "c_effective_mask_empty": 0,
+      "c_action_not_in_effective_mask": 0,
+      "r_mask_empty": 0,
+      "server_overload": 0,
+      "overload_rate": 0.0,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "deadline_failure": 0,
+      "deadline_failure_rate": 0.0,
+      "other_failure": 0,
+      "other_rate": 0.0,
+      "failure_reason_distribution": {},
+      "avg_delay_ms": 5.743049861939486,
+      "delay_p50_ms": 4.5495551626731086,
+      "delay_p90_ms": 9.426092035338803,
+      "delay_p95_ms": 10.781210114475837,
+      "avg_fs": 2.2,
+      "avg_decision_ms": 15.233703301055357,
+      "decision_p95_ms": 17.397946667915676,
+      "avg_c_policy_ms": 0.11441558075603098,
+      "avg_r_proposer_ms": 0.0,
+      "avg_ranker_or_ksp_ms": 0.02228887809906155,
+      "avg_total_policy_ms": 0.13670445885509253,
+      "avg_audit_ms": 3.1288553029298782,
+      "c_policy_ms_p95": 0.17287249502260235,
+      "r_proposer_ms_p95": 0.0,
+      "ranker_or_ksp_ms_p95": 0.025927256501745426,
+      "avg_path_length_km": 662.4,
+      "avg_hop_count": 1.34,
+      "ppo_agreement_rate": 0.22,
+      "ppo_agreement_numerator": 11,
+      "ppo_agreement_denominator": 50,
+      "admitted_path_idx_distribution": {
+        "raw_counts": {
+          "0": 50
+        },
+        "normalized": {
+          "0": 1.0
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_block_start_distribution": {
+        "raw_counts": {
+          "5": 1,
+          "8": 4,
+          "4": 3,
+          "10": 4,
+          "13": 3,
+          "6": 5,
+          "15": 2,
+          "2": 3,
+          "0": 2,
+          "7": 1,
+          "9": 2,
+          "11": 2,
+          "12": 3,
+          "14": 3,
+          "17": 1,
+          "19": 1,
+          "16": 2,
+          "18": 2,
+          "21": 2,
+          "23": 1,
+          "25": 1,
+          "20": 1,
+          "22": 1
+        },
+        "normalized": {
+          "5": 0.02,
+          "8": 0.08,
+          "4": 0.06,
+          "10": 0.08,
+          "13": 0.06,
+          "6": 0.1,
+          "15": 0.04,
+          "2": 0.06,
+          "0": 0.04,
+          "7": 0.02,
+          "9": 0.04,
+          "11": 0.04,
+          "12": 0.06,
+          "14": 0.06,
+          "17": 0.02,
+          "19": 0.02,
+          "16": 0.04,
+          "18": 0.04,
+          "21": 0.04,
+          "23": 0.02,
+          "25": 0.02,
+          "20": 0.02,
+          "22": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_required_fs_distribution": {
+        "raw_counts": {
+          "2": 43,
+          "3": 4,
+          "4": 3
+        },
+        "normalized": {
+          "2": 0.86,
+          "3": 0.08,
+          "4": 0.06
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_hop_count_distribution": {
+        "raw_counts": {
+          "2.0": 11,
+          "1.0": 36,
+          "3.0": 3
+        },
+        "normalized": {
+          "2.0": 0.22,
+          "1.0": 0.72,
+          "3.0": 0.06
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_path_length_distribution": {
+        "raw_counts": {
+          "1270.0": 1,
+          "550.0": 9,
+          "660.0": 3,
+          "390.0": 12,
+          "1620.0": 3,
+          "1300.0": 4,
+          "450.0": 4,
+          "1110.0": 1,
+          "340.0": 5,
+          "740.0": 1,
+          "210.0": 3,
+          "1050.0": 4
+        },
+        "normalized": {
+          "1270.0": 0.02,
+          "550.0": 0.18,
+          "660.0": 0.06,
+          "390.0": 0.24,
+          "1620.0": 0.06,
+          "1300.0": 0.08,
+          "450.0": 0.08,
+          "1110.0": 0.02,
+          "340.0": 0.1,
+          "740.0": 0.02,
+          "210.0": 0.06,
+          "1050.0": 0.08
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_mod_distribution": {
+        "raw_counts": {
+          "QPSK": 31,
+          "BPSK": 15,
+          "16QAM": 3,
+          "8QAM": 1
+        },
+        "normalized": {
+          "QPSK": 0.62,
+          "BPSK": 0.3,
+          "16QAM": 0.06,
+          "8QAM": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_idx_distribution": {
+        "raw_counts": {
+          "0": 50
+        },
+        "normalized": {
+          "0": 1.0
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_mod_distribution": {
+        "raw_counts": {
+          "QPSK": 31,
+          "BPSK": 15,
+          "16QAM": 3,
+          "8QAM": 1
+        },
+        "normalized": {
+          "QPSK": 0.62,
+          "BPSK": 0.3,
+          "16QAM": 0.06,
+          "8QAM": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_block_start_distribution": {
+        "raw_counts": {
+          "5": 1,
+          "8": 4,
+          "4": 3,
+          "10": 4,
+          "13": 3,
+          "6": 5,
+          "15": 2,
+          "2": 3,
+          "0": 2,
+          "7": 1,
+          "9": 2,
+          "11": 2,
+          "12": 3,
+          "14": 3,
+          "17": 1,
+          "19": 1,
+          "16": 2,
+          "18": 2,
+          "21": 2,
+          "23": 1,
+          "25": 1,
+          "20": 1,
+          "22": 1
+        },
+        "normalized": {
+          "5": 0.02,
+          "8": 0.08,
+          "4": 0.06,
+          "10": 0.08,
+          "13": 0.06,
+          "6": 0.1,
+          "15": 0.04,
+          "2": 0.06,
+          "0": 0.04,
+          "7": 0.02,
+          "9": 0.04,
+          "11": 0.04,
+          "12": 0.06,
+          "14": 0.06,
+          "17": 0.02,
+          "19": 0.02,
+          "16": 0.04,
+          "18": 0.04,
+          "21": 0.04,
+          "23": 0.02,
+          "25": 0.02,
+          "20": 0.02,
+          "22": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_required_fs_distribution": {
+        "raw_counts": {
+          "2": 43,
+          "3": 4,
+          "4": 3
+        },
+        "normalized": {
+          "2": 0.86,
+          "3": 0.08,
+          "4": 0.06
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_hop_count_distribution": {
+        "raw_counts": {
+          "2.0": 11,
+          "1.0": 36,
+          "3.0": 3
+        },
+        "normalized": {
+          "2.0": 0.22,
+          "1.0": 0.72,
+          "3.0": 0.06
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_length_distribution": {
+        "raw_counts": {
+          "1270.0": 1,
+          "550.0": 9,
+          "660.0": 3,
+          "390.0": 12,
+          "1620.0": 3,
+          "1300.0": 4,
+          "450.0": 4,
+          "1110.0": 1,
+          "340.0": 5,
+          "740.0": 1,
+          "210.0": 3,
+          "1050.0": 4
+        },
+        "normalized": {
+          "1270.0": 0.02,
+          "550.0": 0.18,
+          "660.0": 0.06,
+          "390.0": 0.24,
+          "1620.0": 0.06,
+          "1300.0": 0.08,
+          "450.0": 0.08,
+          "1110.0": 0.02,
+          "340.0": 0.1,
+          "740.0": 0.02,
+          "210.0": 0.06,
+          "1050.0": 0.08
+        },
+        "sum_normalized": 1.0
+      },
+      "split_distribution": {
+        "raw_counts": {
+          "2": 50
+        },
+        "normalized": {
+          "2": 1.0
+        },
+        "sum_normalized": 1.0
+      },
+      "server_distribution": {
+        "raw_counts": {
+          "1": 16,
+          "3": 11,
+          "0": 14,
+          "2": 9
+        },
+        "normalized": {
+          "1": 0.32,
+          "3": 0.22,
+          "0": 0.28,
+          "2": 0.18
+        },
+        "sum_normalized": 1.0
+      },
+      "split_server_joint_distribution": {
+        "raw_counts": {
+          "(2, 1)": 16,
+          "(2, 3)": 11,
+          "(2, 0)": 14,
+          "(2, 2)": 9
+        },
+        "normalized": {
+          "(2, 1)": 0.32,
+          "(2, 3)": 0.22,
+          "(2, 0)": 0.28,
+          "(2, 2)": 0.18
+        },
+        "sum_normalized": 1.0
+      },
+      "e_stratum_counts": {
+        "E=1": {
+          "evaluated": 50,
+          "admitted": 50,
+          "blocked": 0
+        },
+        "D=3": {
+          "evaluated": 50,
+          "admitted": 50,
+          "blocked": 0
+        }
+      },
+      "depth_stratum_counts": {},
+      "initial_event_queue_length": 70,
+      "consumed_request_count": 70,
+      "final_event_queue_length": 0,
+      "request_id_mismatch_count": 0,
+      "selected_mask_false_count": 0,
+      "invalid_path_after_legal_action_count": 0,
+      "modulation_reach_after_legal_action_count": 0,
+      "no_suitable_block_after_legal_action_count": 0,
+      "action_observation_consistency_error_count": 0,
+      "request_trace_hash": "055e358a45a92041bf5084462d47d7492f4a251bf31b9a2656268a98acda743c",
+      "selected_action_hash": "274fa3cc85b8f46e024af0e4742359d201b8216cef2da627dd1891193268f769",
+      "config_hash": "2f44117e0322d2efb49a619c7a66910ef67420ba874349fa790602424296aea9",
+      "evaluator_code_hash": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+      "runner_code_hash": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+      "analyzer_code_hash": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+      "source_manifest": {
+        "sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+        "sa_hmarl/sa_hmarl/evaluation/run_strict_v13_multitopology_cside_verified.py": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+        "sa_hmarl/sa_hmarl/evaluation/analyze_strict_v13_multitopology_cside_verified.py": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+        "sa_hmarl/sa_hmarl/evaluation/diagnose_r_action_horizon_oracle.py": "0755899405bd6fa9f9f70a96b3cc8fd78fc2bdb59a799f2e2638f938cd7b7423",
+        "sa_hmarl/sa_hmarl/evaluation/generate_r_counterfactual_ranking_cost239_kpath50_hops_kprop30_h5.py": "1eaa3d1400ffffb3508eba94d8c6a803bb7da30804b54a41b381591166d3441d",
+        "sa_hmarl/sa_hmarl/baselines/rmsa_baselines.py": "d284ee2220fc5613754fa3e3f773400d70af05e6ead94853057f27583e6cf441",
+        "sa_hmarl/sa_hmarl/network/ksp.py": "816ea52353dca4d329e6521230d3ee4ff8b66d6203ef1f76cfed95b1a073ed6d",
+        "sa_hmarl/sa_hmarl/env/event_env.py": "7bf4dbe2628abec32c811fb687db3c59288116573a380ba39c4b59769e982662",
+        "sa_hmarl/sa_hmarl/env/action_mask.py": "c5cf40c34dfced5ddb54cbbb9748e7aafcf8e1589d509530f5bfe17a00742d67",
+        "sa_hmarl/sa_hmarl/env/observation_builder.py": "d9062b190fd1435d4d63f03b2a808548dd1d3b109d2c9f5b6c28b158d2821a31",
+        "sa_hmarl/sa_hmarl/agents/r_agent.py": "9924e02d63e19c88628d16a85412edb45359c23a50900d0cfd7ec4e00651d479",
+        "sa_hmarl/sa_hmarl/agents/ppo_agents.py": "079babd7a57771db1e07b2132900d0dec58a1840ed1d80a567d5b8417e34a8a6",
+        "sa_hmarl/sa_hmarl/agents/c_agent.py": "5c186b67fc103a70e3c892ab32b32eac07b0cc57d02367afa070a1fd2cd5545b",
+        "sa_hmarl/sa_hmarl/evaluation/offloading_baselines.py": "a71bd64c81020dd4dafc3073532b9390bc856cfe8ef36605dca132ca5e32b33f",
+        "sa_hmarl/sa_hmarl/evaluation/eval_long_horizon_system_comparison.py": "884f5f8ef6e2b1c5564f4684b445db1c194f86faa4a13e276552622a1a2e0064"
+      },
+      "checkpoint_sha256s": {
+        "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+        "ppo_c": "a5c9eb39bc33cf3b77a06d80e9c45315880dcb963ad9c3c95663eadaded9f2c8",
+        "df_c": "heuristic",
+        "strict_v13": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+      }
+    },
+    {
+      "schema_version": "v1.3-verified-2026-07-14",
+      "topology": "xlron_cost239_ptrnet_real",
+      "seed": 3030,
+      "c_mode": "df_c",
+      "r_mode": "strict_v13",
+      "method_name": "df_c+strict_v13",
+      "evaluated_requests": 50,
+      "admitted": 50,
+      "blocked": 0,
+      "blocking_rate": 0.0,
+      "admitted_rate": 1.0,
+      "r_reached": 50,
+      "r_decisions": 50,
+      "r_no_valid_action": 0,
+      "c_no_valid_action": 0,
+      "c_no_valid_action_rate": 0.0,
+      "r_no_valid_action_rate": 0.0,
+      "c_raw_mask_empty": 0,
+      "c_effective_mask_empty": 0,
+      "c_action_not_in_effective_mask": 0,
+      "r_mask_empty": 0,
+      "server_overload": 0,
+      "overload_rate": 0.0,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "deadline_failure": 0,
+      "deadline_failure_rate": 0.0,
+      "other_failure": 0,
+      "other_rate": 0.0,
+      "failure_reason_distribution": {},
+      "avg_delay_ms": 11.489449861939486,
+      "delay_p50_ms": 10.892751596183524,
+      "delay_p90_ms": 19.47457933492354,
+      "delay_p95_ms": 19.80677448445846,
+      "avg_fs": 3.18,
+      "avg_decision_ms": 23.43586236005649,
+      "decision_p95_ms": 27.22427064436488,
+      "avg_c_policy_ms": 0.10823831835296005,
+      "avg_r_proposer_ms": 2.133438260643743,
+      "avg_ranker_or_ksp_ms": 6.616583300055936,
+      "avg_total_policy_ms": 8.858259879052639,
+      "avg_audit_ms": 3.029457563534379,
+      "c_policy_ms_p95": 0.17487723962403826,
+      "r_proposer_ms_p95": 2.647754711506422,
+      "ranker_or_ksp_ms_p95": 8.095676757511683,
+      "avg_path_length_km": 1507.68,
+      "avg_hop_count": 2.86,
+      "ppo_agreement_rate": 0.0,
+      "ppo_agreement_numerator": 0,
+      "ppo_agreement_denominator": 50,
+      "admitted_path_idx_distribution": {
+        "raw_counts": {
+          "1": 4,
+          "28": 1,
+          "0": 14,
+          "8": 1,
+          "14": 1,
+          "3": 5,
+          "5": 2,
+          "23": 2,
+          "27": 1,
+          "30": 1,
+          "4": 1,
+          "6": 3,
+          "12": 1,
+          "2": 8,
+          "22": 1,
+          "31": 1,
+          "9": 1,
+          "34": 1,
+          "15": 1
+        },
+        "normalized": {
+          "1": 0.08,
+          "28": 0.02,
+          "0": 0.28,
+          "8": 0.02,
+          "14": 0.02,
+          "3": 0.1,
+          "5": 0.04,
+          "23": 0.04,
+          "27": 0.02,
+          "30": 0.02,
+          "4": 0.02,
+          "6": 0.06,
+          "12": 0.02,
+          "2": 0.16,
+          "22": 0.02,
+          "31": 0.02,
+          "9": 0.02,
+          "34": 0.02,
+          "15": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_block_start_distribution": {
+        "raw_counts": {
+          "3": 2,
+          "24": 1,
+          "2": 2,
+          "14": 2,
+          "28": 2,
+          "11": 2,
+          "30": 3,
+          "33": 2,
+          "6": 3,
+          "43": 3,
+          "20": 2,
+          "0": 1,
+          "17": 1,
+          "10": 1,
+          "45": 3,
+          "5": 1,
+          "36": 1,
+          "39": 4,
+          "48": 2,
+          "42": 1,
+          "32": 1,
+          "51": 2,
+          "19": 1,
+          "35": 1,
+          "37": 1,
+          "54": 1,
+          "56": 1,
+          "59": 2,
+          "64": 1
+        },
+        "normalized": {
+          "3": 0.04,
+          "24": 0.02,
+          "2": 0.04,
+          "14": 0.04,
+          "28": 0.04,
+          "11": 0.04,
+          "30": 0.06,
+          "33": 0.04,
+          "6": 0.06,
+          "43": 0.06,
+          "20": 0.04,
+          "0": 0.02,
+          "17": 0.02,
+          "10": 0.02,
+          "45": 0.06,
+          "5": 0.02,
+          "36": 0.02,
+          "39": 0.08,
+          "48": 0.04,
+          "42": 0.02,
+          "32": 0.02,
+          "51": 0.04,
+          "19": 0.02,
+          "35": 0.02,
+          "37": 0.02,
+          "54": 0.02,
+          "56": 0.02,
+          "59": 0.04,
+          "64": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_required_fs_distribution": {
+        "raw_counts": {
+          "3": 18,
+          "4": 5,
+          "2": 20,
+          "6": 5,
+          "10": 1,
+          "5": 1
+        },
+        "normalized": {
+          "3": 0.36,
+          "4": 0.1,
+          "2": 0.4,
+          "6": 0.1,
+          "10": 0.02,
+          "5": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_hop_count_distribution": {
+        "raw_counts": {
+          "2.0": 7,
+          "5.0": 8,
+          "1.0": 11,
+          "4.0": 6,
+          "3.0": 18
+        },
+        "normalized": {
+          "2.0": 0.14,
+          "5.0": 0.16,
+          "1.0": 0.22,
+          "4.0": 0.12,
+          "3.0": 0.36
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_path_length_distribution": {
+        "raw_counts": {
+          "1290.0": 4,
+          "2780.0": 1,
+          "660.0": 1,
+          "1354.0": 1,
+          "2690.0": 1,
+          "1080.0": 1,
+          "880.0": 1,
+          "2580.0": 1,
+          "2754.0": 1,
+          "2720.0": 1,
+          "1110.0": 1,
+          "340.0": 2,
+          "1414.0": 1,
+          "1300.0": 2,
+          "210.0": 3,
+          "2650.0": 1,
+          "390.0": 2,
+          "2520.0": 1,
+          "1840.0": 1,
+          "2360.0": 1,
+          "2480.0": 1,
+          "1160.0": 1,
+          "2700.0": 1,
+          "1130.0": 2,
+          "450.0": 2,
+          "3084.0": 1,
+          "1684.0": 1,
+          "550.0": 1,
+          "1440.0": 1,
+          "1450.0": 2,
+          "3180.0": 1,
+          "1034.0": 1,
+          "1620.0": 1,
+          "2200.0": 1,
+          "2080.0": 1,
+          "1870.0": 1,
+          "1730.0": 1,
+          "1850.0": 1,
+          "1420.0": 1
+        },
+        "normalized": {
+          "1290.0": 0.08,
+          "2780.0": 0.02,
+          "660.0": 0.02,
+          "1354.0": 0.02,
+          "2690.0": 0.02,
+          "1080.0": 0.02,
+          "880.0": 0.02,
+          "2580.0": 0.02,
+          "2754.0": 0.02,
+          "2720.0": 0.02,
+          "1110.0": 0.02,
+          "340.0": 0.04,
+          "1414.0": 0.02,
+          "1300.0": 0.04,
+          "210.0": 0.06,
+          "2650.0": 0.02,
+          "390.0": 0.04,
+          "2520.0": 0.02,
+          "1840.0": 0.02,
+          "2360.0": 0.02,
+          "2480.0": 0.02,
+          "1160.0": 0.02,
+          "2700.0": 0.02,
+          "1130.0": 0.04,
+          "450.0": 0.04,
+          "3084.0": 0.02,
+          "1684.0": 0.02,
+          "550.0": 0.02,
+          "1440.0": 0.02,
+          "1450.0": 0.04,
+          "3180.0": 0.02,
+          "1034.0": 0.02,
+          "1620.0": 0.02,
+          "2200.0": 0.02,
+          "2080.0": 0.02,
+          "1870.0": 0.02,
+          "1730.0": 0.02,
+          "1850.0": 0.02,
+          "1420.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_mod_distribution": {
+        "raw_counts": {
+          "BPSK": 39,
+          "8QAM": 2,
+          "16QAM": 8,
+          "QPSK": 1
+        },
+        "normalized": {
+          "BPSK": 0.78,
+          "8QAM": 0.04,
+          "16QAM": 0.16,
+          "QPSK": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_idx_distribution": {
+        "raw_counts": {
+          "1": 4,
+          "28": 1,
+          "0": 14,
+          "8": 1,
+          "14": 1,
+          "3": 5,
+          "5": 2,
+          "23": 2,
+          "27": 1,
+          "30": 1,
+          "4": 1,
+          "6": 3,
+          "12": 1,
+          "2": 8,
+          "22": 1,
+          "31": 1,
+          "9": 1,
+          "34": 1,
+          "15": 1
+        },
+        "normalized": {
+          "1": 0.08,
+          "28": 0.02,
+          "0": 0.28,
+          "8": 0.02,
+          "14": 0.02,
+          "3": 0.1,
+          "5": 0.04,
+          "23": 0.04,
+          "27": 0.02,
+          "30": 0.02,
+          "4": 0.02,
+          "6": 0.06,
+          "12": 0.02,
+          "2": 0.16,
+          "22": 0.02,
+          "31": 0.02,
+          "9": 0.02,
+          "34": 0.02,
+          "15": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_mod_distribution": {
+        "raw_counts": {
+          "BPSK": 39,
+          "8QAM": 2,
+          "16QAM": 8,
+          "QPSK": 1
+        },
+        "normalized": {
+          "BPSK": 0.78,
+          "8QAM": 0.04,
+          "16QAM": 0.16,
+          "QPSK": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_block_start_distribution": {
+        "raw_counts": {
+          "3": 2,
+          "24": 1,
+          "2": 2,
+          "14": 2,
+          "28": 2,
+          "11": 2,
+          "30": 3,
+          "33": 2,
+          "6": 3,
+          "43": 3,
+          "20": 2,
+          "0": 1,
+          "17": 1,
+          "10": 1,
+          "45": 3,
+          "5": 1,
+          "36": 1,
+          "39": 4,
+          "48": 2,
+          "42": 1,
+          "32": 1,
+          "51": 2,
+          "19": 1,
+          "35": 1,
+          "37": 1,
+          "54": 1,
+          "56": 1,
+          "59": 2,
+          "64": 1
+        },
+        "normalized": {
+          "3": 0.04,
+          "24": 0.02,
+          "2": 0.04,
+          "14": 0.04,
+          "28": 0.04,
+          "11": 0.04,
+          "30": 0.06,
+          "33": 0.04,
+          "6": 0.06,
+          "43": 0.06,
+          "20": 0.04,
+          "0": 0.02,
+          "17": 0.02,
+          "10": 0.02,
+          "45": 0.06,
+          "5": 0.02,
+          "36": 0.02,
+          "39": 0.08,
+          "48": 0.04,
+          "42": 0.02,
+          "32": 0.02,
+          "51": 0.04,
+          "19": 0.02,
+          "35": 0.02,
+          "37": 0.02,
+          "54": 0.02,
+          "56": 0.02,
+          "59": 0.04,
+          "64": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_required_fs_distribution": {
+        "raw_counts": {
+          "3": 18,
+          "4": 5,
+          "2": 20,
+          "6": 5,
+          "10": 1,
+          "5": 1
+        },
+        "normalized": {
+          "3": 0.36,
+          "4": 0.1,
+          "2": 0.4,
+          "6": 0.1,
+          "10": 0.02,
+          "5": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_hop_count_distribution": {
+        "raw_counts": {
+          "2.0": 7,
+          "5.0": 8,
+          "1.0": 11,
+          "4.0": 6,
+          "3.0": 18
+        },
+        "normalized": {
+          "2.0": 0.14,
+          "5.0": 0.16,
+          "1.0": 0.22,
+          "4.0": 0.12,
+          "3.0": 0.36
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_length_distribution": {
+        "raw_counts": {
+          "1290.0": 4,
+          "2780.0": 1,
+          "660.0": 1,
+          "1354.0": 1,
+          "2690.0": 1,
+          "1080.0": 1,
+          "880.0": 1,
+          "2580.0": 1,
+          "2754.0": 1,
+          "2720.0": 1,
+          "1110.0": 1,
+          "340.0": 2,
+          "1414.0": 1,
+          "1300.0": 2,
+          "210.0": 3,
+          "2650.0": 1,
+          "390.0": 2,
+          "2520.0": 1,
+          "1840.0": 1,
+          "2360.0": 1,
+          "2480.0": 1,
+          "1160.0": 1,
+          "2700.0": 1,
+          "1130.0": 2,
+          "450.0": 2,
+          "3084.0": 1,
+          "1684.0": 1,
+          "550.0": 1,
+          "1440.0": 1,
+          "1450.0": 2,
+          "3180.0": 1,
+          "1034.0": 1,
+          "1620.0": 1,
+          "2200.0": 1,
+          "2080.0": 1,
+          "1870.0": 1,
+          "1730.0": 1,
+          "1850.0": 1,
+          "1420.0": 1
+        },
+        "normalized": {
+          "1290.0": 0.08,
+          "2780.0": 0.02,
+          "660.0": 0.02,
+          "1354.0": 0.02,
+          "2690.0": 0.02,
+          "1080.0": 0.02,
+          "880.0": 0.02,
+          "2580.0": 0.02,
+          "2754.0": 0.02,
+          "2720.0": 0.02,
+          "1110.0": 0.02,
+          "340.0": 0.04,
+          "1414.0": 0.02,
+          "1300.0": 0.04,
+          "210.0": 0.06,
+          "2650.0": 0.02,
+          "390.0": 0.04,
+          "2520.0": 0.02,
+          "1840.0": 0.02,
+          "2360.0": 0.02,
+          "2480.0": 0.02,
+          "1160.0": 0.02,
+          "2700.0": 0.02,
+          "1130.0": 0.04,
+          "450.0": 0.04,
+          "3084.0": 0.02,
+          "1684.0": 0.02,
+          "550.0": 0.02,
+          "1440.0": 0.02,
+          "1450.0": 0.04,
+          "3180.0": 0.02,
+          "1034.0": 0.02,
+          "1620.0": 0.02,
+          "2200.0": 0.02,
+          "2080.0": 0.02,
+          "1870.0": 0.02,
+          "1730.0": 0.02,
+          "1850.0": 0.02,
+          "1420.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "split_distribution": {
+        "raw_counts": {
+          "2": 50
+        },
+        "normalized": {
+          "2": 1.0
+        },
+        "sum_normalized": 1.0
+      },
+      "server_distribution": {
+        "raw_counts": {
+          "1": 16,
+          "3": 11,
+          "0": 14,
+          "2": 9
+        },
+        "normalized": {
+          "1": 0.32,
+          "3": 0.22,
+          "0": 0.28,
+          "2": 0.18
+        },
+        "sum_normalized": 1.0
+      },
+      "split_server_joint_distribution": {
+        "raw_counts": {
+          "(2, 1)": 16,
+          "(2, 3)": 11,
+          "(2, 0)": 14,
+          "(2, 2)": 9
+        },
+        "normalized": {
+          "(2, 1)": 0.32,
+          "(2, 3)": 0.22,
+          "(2, 0)": 0.28,
+          "(2, 2)": 0.18
+        },
+        "sum_normalized": 1.0
+      },
+      "e_stratum_counts": {
+        "E=1": {
+          "evaluated": 50,
+          "admitted": 50,
+          "blocked": 0
+        },
+        "D=3": {
+          "evaluated": 31,
+          "admitted": 31,
+          "blocked": 0
+        },
+        "D=2": {
+          "evaluated": 19,
+          "admitted": 19,
+          "blocked": 0
+        }
+      },
+      "depth_stratum_counts": {},
+      "initial_event_queue_length": 70,
+      "consumed_request_count": 70,
+      "final_event_queue_length": 0,
+      "request_id_mismatch_count": 0,
+      "selected_mask_false_count": 0,
+      "invalid_path_after_legal_action_count": 0,
+      "modulation_reach_after_legal_action_count": 0,
+      "no_suitable_block_after_legal_action_count": 0,
+      "action_observation_consistency_error_count": 0,
+      "request_trace_hash": "055e358a45a92041bf5084462d47d7492f4a251bf31b9a2656268a98acda743c",
+      "selected_action_hash": "16d0bd1ecc5124d7ae7171731433afb977161edaa59f93c646bc7f20c8c6f628",
+      "config_hash": "2f44117e0322d2efb49a619c7a66910ef67420ba874349fa790602424296aea9",
+      "evaluator_code_hash": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+      "runner_code_hash": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+      "analyzer_code_hash": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+      "source_manifest": {
+        "sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+        "sa_hmarl/sa_hmarl/evaluation/run_strict_v13_multitopology_cside_verified.py": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+        "sa_hmarl/sa_hmarl/evaluation/analyze_strict_v13_multitopology_cside_verified.py": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+        "sa_hmarl/sa_hmarl/evaluation/diagnose_r_action_horizon_oracle.py": "0755899405bd6fa9f9f70a96b3cc8fd78fc2bdb59a799f2e2638f938cd7b7423",
+        "sa_hmarl/sa_hmarl/evaluation/generate_r_counterfactual_ranking_cost239_kpath50_hops_kprop30_h5.py": "1eaa3d1400ffffb3508eba94d8c6a803bb7da30804b54a41b381591166d3441d",
+        "sa_hmarl/sa_hmarl/baselines/rmsa_baselines.py": "d284ee2220fc5613754fa3e3f773400d70af05e6ead94853057f27583e6cf441",
+        "sa_hmarl/sa_hmarl/network/ksp.py": "816ea52353dca4d329e6521230d3ee4ff8b66d6203ef1f76cfed95b1a073ed6d",
+        "sa_hmarl/sa_hmarl/env/event_env.py": "7bf4dbe2628abec32c811fb687db3c59288116573a380ba39c4b59769e982662",
+        "sa_hmarl/sa_hmarl/env/action_mask.py": "c5cf40c34dfced5ddb54cbbb9748e7aafcf8e1589d509530f5bfe17a00742d67",
+        "sa_hmarl/sa_hmarl/env/observation_builder.py": "d9062b190fd1435d4d63f03b2a808548dd1d3b109d2c9f5b6c28b158d2821a31",
+        "sa_hmarl/sa_hmarl/agents/r_agent.py": "9924e02d63e19c88628d16a85412edb45359c23a50900d0cfd7ec4e00651d479",
+        "sa_hmarl/sa_hmarl/agents/ppo_agents.py": "079babd7a57771db1e07b2132900d0dec58a1840ed1d80a567d5b8417e34a8a6",
+        "sa_hmarl/sa_hmarl/agents/c_agent.py": "5c186b67fc103a70e3c892ab32b32eac07b0cc57d02367afa070a1fd2cd5545b",
+        "sa_hmarl/sa_hmarl/evaluation/offloading_baselines.py": "a71bd64c81020dd4dafc3073532b9390bc856cfe8ef36605dca132ca5e32b33f",
+        "sa_hmarl/sa_hmarl/evaluation/eval_long_horizon_system_comparison.py": "884f5f8ef6e2b1c5564f4684b445db1c194f86faa4a13e276552622a1a2e0064"
+      },
+      "checkpoint_sha256s": {
+        "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+        "ppo_c": "a5c9eb39bc33cf3b77a06d80e9c45315880dcb963ad9c3c95663eadaded9f2c8",
+        "df_c": "heuristic",
+        "strict_v13": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+      },
+      "avg_candidate_count": 30.0,
+      "candidate_count_p95": 30.0,
+      "fallback_rate": 0.0,
+      "ranker_top1_in_candidates_rate": 1.0,
+      "avg_score_margin": 0.01672255516052246,
+      "score_margin_p95": 0.05421878248453137,
+      "feature_finite_rate": 1.0,
+      "nan_inf_feature_count": 0,
+      "nan_inf_score_count": 0
+    }
+  ],
+  "logs": [
+    "[xlron_cost239_ptrnet_real][seed=3030][ppo_c+ppo_r_top1] blocking=0.0000% c_no=0 r_no=0 r_reached=50 r_decisions=50 policy_ms=0.891 audit_ms=1.843 ppo_agree=1.0",
+    "[xlron_cost239_ptrnet_real][seed=3030][ppo_c+ksp_ff_highest] blocking=0.0000% c_no=0 r_no=0 r_reached=50 r_decisions=50 policy_ms=0.897 audit_ms=1.747 ppo_agree=0.32",
+    "[xlron_cost239_ptrnet_real][seed=3030][ppo_c+strict_v13] blocking=0.0000% c_no=0 r_no=0 r_reached=50 r_decisions=50 policy_ms=7.282 audit_ms=1.858 ppo_agree=0.06",
+    "[xlron_cost239_ptrnet_real][seed=3030][df_c+ppo_r_top1] blocking=0.0000% c_no=0 r_no=0 r_reached=50 r_decisions=50 policy_ms=0.102 audit_ms=3.666 ppo_agree=1.0",
+    "[xlron_cost239_ptrnet_real][seed=3030][df_c+ksp_ff_highest] blocking=0.0000% c_no=0 r_no=0 r_reached=50 r_decisions=50 policy_ms=0.137 audit_ms=3.129 ppo_agree=0.22",
+    "[xlron_cost239_ptrnet_real][seed=3030][df_c+strict_v13] blocking=0.0000% c_no=0 r_no=0 r_reached=50 r_decisions=50 policy_ms=8.858 audit_ms=3.029 ppo_agree=0.0"
+  ]
+}

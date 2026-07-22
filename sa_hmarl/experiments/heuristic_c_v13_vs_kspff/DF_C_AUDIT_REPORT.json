@@ -1,0 +1,66 @@
+[
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "file": "sa_hmarl/experiments/heuristic_c_v13_vs_kspff/xlron_cost239_ptrnet_real_df_full.json",
+    "exists": true,
+    "compliant": false,
+    "mismatches": [
+      "ranker_candidate_mode: expected 'legalctx48', got None",
+      "ranker_max_candidates: expected 48, got None",
+      "ranker_ensure_ksp: expected True, got False"
+    ],
+    "methods_present": [
+      "df_c+ksp_ff_k50_hops",
+      "df_c+v12_k50_hops"
+    ],
+    "methods_missing": []
+  },
+  {
+    "topology": "xlron_german17",
+    "file": "sa_hmarl/experiments/heuristic_c_v13_vs_kspff/xlron_german17_df_full.json",
+    "exists": true,
+    "compliant": false,
+    "mismatches": [
+      "ranker_candidate_mode: expected 'legalctx48', got None",
+      "ranker_max_candidates: expected 48, got None",
+      "ranker_ensure_ksp: expected True, got False"
+    ],
+    "methods_present": [
+      "df_c+ksp_ff_k50_hops",
+      "df_c+v12_k50_hops"
+    ],
+    "methods_missing": []
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "file": "sa_hmarl/experiments/heuristic_c_v13_vs_kspff/xlron_nsfnet_deeprmsa_df_full.json",
+    "exists": true,
+    "compliant": false,
+    "mismatches": [
+      "ranker_candidate_mode: expected 'legalctx48', got None",
+      "ranker_max_candidates: expected 48, got None",
+      "ranker_ensure_ksp: expected True, got False"
+    ],
+    "methods_present": [
+      "df_c+ksp_ff_k50_hops",
+      "df_c+v12_k50_hops"
+    ],
+    "methods_missing": []
+  },
+  {
+    "topology": "xlron_jpn48",
+    "file": "sa_hmarl/experiments/heuristic_c_v13_vs_kspff/xlron_jpn48_df_full.json",
+    "exists": true,
+    "compliant": false,
+    "mismatches": [
+      "ranker_candidate_mode: expected 'legalctx48', got None",
+      "ranker_max_candidates: expected 48, got None",
+      "ranker_ensure_ksp: expected True, got False"
+    ],
+    "methods_present": [
+      "df_c+ksp_ff_k50_hops",
+      "df_c+v12_k50_hops"
+    ],
+    "methods_missing": []
+  }
+]

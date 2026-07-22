@@ -1,0 +1,301 @@
+{
+  "protocol_id": "DEEPRMSA_ADAPTED_TO_PAPER_PRIMARY_K50",
+  "protocol_config": {
+    "topology": "xlron_cost239_ptrnet_real",
+    "num_slots": 100,
+    "k_paths": 50,
+    "max_blocks": 10,
+    "path_sort_strategy": "hops",
+    "block_sort_strategy": "start_asc",
+    "modulation_profile": "default",
+    "slot_bw_hz": 12500000000.0,
+    "guard_band_fs": 1,
+    "mean_holding_time": 10.0,
+    "bitrate_min_gbps": 25,
+    "bitrate_max_gbps": 100
+  },
+  "seeds": [
+    3030,
+    4040,
+    5050,
+    6060,
+    7070,
+    8080,
+    9090,
+    1010,
+    2020,
+    3031,
+    4041,
+    5051
+  ],
+  "warmup": 3000,
+  "evaluated": 10000,
+  "arrival_interval": 0.025,
+  "baseline_json": "sa_hmarl/experiments/v135_optical_only_rmsa_audit/pilot.json",
+  "baselines": {
+    "ksp_ff_highest": {
+      "mean_blocking_rate": 0.132,
+      "std_blocking_rate": 0.00611124150457767
+    },
+    "strict_v13": {
+      "mean_blocking_rate": 0.1605666666666667,
+      "std_blocking_rate": 0.007865266953029899
+    },
+    "ppo_r_top1": {
+      "mean_blocking_rate": 0.252825,
+      "std_blocking_rate": 0.005113284836402311
+    }
+  },
+  "methods": {
+    "deeprmsa_k50_m1_native": {
+      "checkpoint": "sa_hmarl/experiments/deeprmsa_adapted_paper_primary_k50/checkpoints/m1/seed_42/best.pt",
+      "checkpoint_sha256": "d5a1320bad0334a216d5de464aa4422ead86ae9f32d653a3c450b6aa2b0f87f6",
+      "implementation_label": "PyTorch DeepRMSA-style masked A2C adapter",
+      "k_path": 50,
+      "m_blocks": 1,
+      "training_seed": 42,
+      "selected_epoch": 75,
+      "per_seed": {
+        "3030": {
+          "seed": 3030,
+          "evaluated_requests": 10000,
+          "admitted": 8474,
+          "blocked": 1526,
+          "blocking_rate": 0.1526,
+          "r_no_valid_action": 1526,
+          "invalid_execution": 0,
+          "avg_fs": 3.233655888600425,
+          "avg_slot_hops": 5.422232711824404,
+          "avg_path_length_km": 877.8338447014397,
+          "avg_hop_count": 1.60054283691291,
+          "request_trace_hash": "efb30b11eba772e3488f58c42df1d001d27fe95568f238cdf300fbd816ff7da3",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "4040": {
+          "seed": 4040,
+          "evaluated_requests": 10000,
+          "admitted": 8602,
+          "blocked": 1398,
+          "blocking_rate": 0.1398,
+          "r_no_valid_action": 1398,
+          "invalid_execution": 0,
+          "avg_fs": 3.2365728900255752,
+          "avg_slot_hops": 5.385724250174378,
+          "avg_path_length_km": 879.4371076493838,
+          "avg_hop_count": 1.5953266682166938,
+          "request_trace_hash": "492d38b2c6bc90de697e9389aefb1b63f93df8b5ab262e4226eff53e29f5c835",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "5050": {
+          "seed": 5050,
+          "evaluated_requests": 10000,
+          "admitted": 8593,
+          "blocked": 1407,
+          "blocking_rate": 0.1407,
+          "r_no_valid_action": 1407,
+          "invalid_execution": 0,
+          "avg_fs": 3.2296054928430116,
+          "avg_slot_hops": 5.334807401373211,
+          "avg_path_length_km": 873.3615733736763,
+          "avg_hop_count": 1.5810543465611544,
+          "request_trace_hash": "0a8664eccf43d936f818fcc9e56405812cf9206a5eba2cd9f7691dde9b810fa0",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "6060": {
+          "seed": 6060,
+          "evaluated_requests": 10000,
+          "admitted": 8499,
+          "blocked": 1501,
+          "blocking_rate": 0.1501,
+          "r_no_valid_action": 1501,
+          "invalid_execution": 0,
+          "avg_fs": 3.2410871867278503,
+          "avg_slot_hops": 5.4246381927285565,
+          "avg_path_length_km": 886.4151076597246,
+          "avg_hop_count": 1.6021884927638546,
+          "request_trace_hash": "dc119850b6a76325253c3d5e9a0cc75373f49a6b089f548926cd5b7b223fe1f6",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "7070": {
+          "seed": 7070,
+          "evaluated_requests": 10000,
+          "admitted": 8499,
+          "blocked": 1501,
+          "blocking_rate": 0.1501,
+          "r_no_valid_action": 1501,
+          "invalid_execution": 0,
+          "avg_fs": 3.22743852217908,
+          "avg_slot_hops": 5.374279326979645,
+          "avg_path_length_km": 877.0297682080245,
+          "avg_hop_count": 1.5944228732792094,
+          "request_trace_hash": "583905750ebf51989731ce70cbbdd208acf122de84b61456d4445bbbe7943e72",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "8080": {
+          "seed": 8080,
+          "evaluated_requests": 10000,
+          "admitted": 8615,
+          "blocked": 1385,
+          "blocking_rate": 0.1385,
+          "r_no_valid_action": 1385,
+          "invalid_execution": 0,
+          "avg_fs": 3.2571096923969822,
+          "avg_slot_hops": 5.470574579222287,
+          "avg_path_length_km": 880.9724898432966,
+          "avg_hop_count": 1.604526987811956,
+          "request_trace_hash": "742d17ade71c726c8f584277b2a216cc1addb7a948a4bad2b2fedb5bbae825d6",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "9090": {
+          "seed": 9090,
+          "evaluated_requests": 10000,
+          "admitted": 8599,
+          "blocked": 1401,
+          "blocking_rate": 0.1401,
+          "r_no_valid_action": 1401,
+          "invalid_execution": 0,
+          "avg_fs": 3.2501453657402024,
+          "avg_slot_hops": 5.440516339109199,
+          "avg_path_length_km": 880.7245028491685,
+          "avg_hop_count": 1.6006512385161065,
+          "request_trace_hash": "475e445ed2458ca6f18ba4adba1fb3058b05d6158b0215dfd45952f930b4aa4b",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "1010": {
+          "seed": 1010,
+          "evaluated_requests": 10000,
+          "admitted": 8549,
+          "blocked": 1451,
+          "blocking_rate": 0.1451,
+          "r_no_valid_action": 1451,
+          "invalid_execution": 0,
+          "avg_fs": 3.251140484267166,
+          "avg_slot_hops": 5.462159316879167,
+          "avg_path_length_km": 882.4072990993099,
+          "avg_hop_count": 1.6061527664054276,
+          "request_trace_hash": "495c415a765f1491e18ae2bb70e00c16e4e946ebf8a7ac378435d7469da233d8",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "2020": {
+          "seed": 2020,
+          "evaluated_requests": 10000,
+          "admitted": 8584,
+          "blocked": 1416,
+          "blocking_rate": 0.1416,
+          "r_no_valid_action": 1416,
+          "invalid_execution": 0,
+          "avg_fs": 3.246039142590867,
+          "avg_slot_hops": 5.405754892823858,
+          "avg_path_length_km": 877.6519105312209,
+          "avg_hop_count": 1.5936626281453867,
+          "request_trace_hash": "dee3dcd54bdc3ad251bd3758630e9067f22e2f65dd5ccb667214ac2516f9edf4",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "3031": {
+          "seed": 3031,
+          "evaluated_requests": 10000,
+          "admitted": 8524,
+          "blocked": 1476,
+          "blocking_rate": 0.1476,
+          "r_no_valid_action": 1476,
+          "invalid_execution": 0,
+          "avg_fs": 3.231698732989207,
+          "avg_slot_hops": 5.386790239324261,
+          "avg_path_length_km": 877.8984045049273,
+          "avg_hop_count": 1.5956123885499764,
+          "request_trace_hash": "bca1c9b9259d88678dd874833667b9cddf4f23d8976328f9fa294f2b28f4bcf9",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "4041": {
+          "seed": 4041,
+          "evaluated_requests": 10000,
+          "admitted": 8600,
+          "blocked": 1400,
+          "blocking_rate": 0.14,
+          "r_no_valid_action": 1400,
+          "invalid_execution": 0,
+          "avg_fs": 3.2369767441860464,
+          "avg_slot_hops": 5.382325581395349,
+          "avg_path_length_km": 873.6113953488372,
+          "avg_hop_count": 1.5898837209302326,
+          "request_trace_hash": "c1194d272a2734d0fd70e9402338dbc383b61962bee121d9f5b90c3c7edd0da4",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "5051": {
+          "seed": 5051,
+          "evaluated_requests": 10000,
+          "admitted": 8572,
+          "blocked": 1428,
+          "blocking_rate": 0.1428,
+          "r_no_valid_action": 1428,
+          "invalid_execution": 0,
+          "avg_fs": 3.2445170321978534,
+          "avg_slot_hops": 5.393957069528698,
+          "avg_path_length_km": 878.133457769482,
+          "avg_hop_count": 1.5908772748483435,
+          "request_trace_hash": "ff59237c67ed1cd904d491e0f37976d00adbc43bc3edef09c3a8ae87fea37794",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        }
+      },
+      "mean_blocking_rate": 0.1440833333333333,
+      "std_blocking_rate": 0.004858513302971552
+    }
+  },
+  "comparisons": {
+    "deeprmsa_k50_m1_native_vs_ksp_ff_highest": {
+      "mean_baseline_minus_method": -0.012083333333333342,
+      "mean_difference_pp": -1.2083333333333341,
+      "bootstrap_ci95": [
+        -0.014641666666666673,
+        -0.009550000000000005
+      ],
+      "paired_sign_permutation_p_one_sided": 1.0,
+      "wins_ties_losses": {
+        "wins": 0,
+        "ties": 0,
+        "losses": 12
+      }
+    },
+    "deeprmsa_k50_m1_native_vs_strict_v13": {
+      "mean_baseline_minus_method": 0.01648333333333333,
+      "mean_difference_pp": 1.648333333333333,
+      "bootstrap_ci95": [
+        0.013249999999999996,
+        0.019600208333333317
+      ],
+      "paired_sign_permutation_p_one_sided": 0.000488162069807176,
+      "wins_ties_losses": {
+        "wins": 12,
+        "ties": 0,
+        "losses": 0
+      }
+    },
+    "deeprmsa_k50_m1_native_vs_ppo_r_top1": {
+      "mean_baseline_minus_method": 0.10874166666666667,
+      "mean_difference_pp": 10.874166666666667,
+      "bootstrap_ci95": [
+        0.10665833333333331,
+        0.11088333333333333
+      ],
+      "paired_sign_permutation_p_one_sided": 0.000488162069807176,
+      "wins_ties_losses": {
+        "wins": 12,
+        "ties": 0,
+        "losses": 0
+      }
+    }
+  },
+  "_superseded_warning": "SUPERSEDED AS ORIGINAL-DEEPRMSA CLAIM; RETAINED ONLY AS MASKED-ADAPTER ABLATION. Uses legal-action mask not present in upstream DeepRMSA."
+}

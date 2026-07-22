@@ -17,9 +17,16 @@ ENV/
 # IDEs
 .vscode/
 .idea/
+.claude/settings.local.json
 *.swp
 *.swo
 *~
+
+# Local AI bridge state (scripts remain tracked)
+.ai-bridge/codex-sessions/
+.ai-bridge/openai-chatgpt-data.json
+.ai-bridge/chat-session-index.json
+.ai-bridge/status.json
 
 # Jupyter
 .ipynb_checkpoints/

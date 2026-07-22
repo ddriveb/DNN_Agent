@@ -1,0 +1,133 @@
+{
+  "c_side": "DF_C",
+  "summaries": {
+    "strict_v1.3": {
+      "display_name": "DF_C + Strict v1.3",
+      "n": 20,
+      "blocking_rate_mean": 0.06164166666666667,
+      "blocking_rate_std": 0.014036426608286903,
+      "blocking_rate_median": 0.059583333333333335,
+      "blocking_rate_p25": 0.051541666666666666,
+      "blocking_rate_p75": 0.06758333333333333,
+      "blocking_rate_min": 0.042,
+      "blocking_rate_max": 0.089,
+      "overload_rate_mean": 0.06163333333333334,
+      "nsb_rate_mean": 8.333333333333334e-06,
+      "avg_delay_ms_mean": 9.525988794084057,
+      "avg_fs_mean": 3.159006956623989,
+      "avg_decision_ms_mean": 21.460057592034232,
+      "ppo_r_agreement_mean": 0.087975
+    },
+    "ksp_ff_k50_hops": {
+      "display_name": "DF_C + KSP-FF K=50 hops",
+      "n": 20,
+      "blocking_rate_mean": 0.06198333333333335,
+      "blocking_rate_std": 0.013609841210601163,
+      "blocking_rate_median": 0.059583333333333335,
+      "blocking_rate_p25": 0.051541666666666666,
+      "blocking_rate_p75": 0.06758333333333333,
+      "blocking_rate_min": 0.042333333333333334,
+      "blocking_rate_max": 0.089,
+      "overload_rate_mean": 0.06198333333333335,
+      "nsb_rate_mean": 0.0,
+      "avg_delay_ms_mean": 8.012298985231125,
+      "avg_fs_mean": 2.2201410601646367,
+      "avg_decision_ms_mean": 10.151023942400206,
+      "ppo_r_agreement_mean": 0.08296666666666666
+    },
+    "ppo_r_top1": {
+      "display_name": "DF_C + PPO-R Top-1",
+      "n": 20,
+      "blocking_rate_mean": 0.06164166666666667,
+      "blocking_rate_std": 0.014036426608286903,
+      "blocking_rate_median": 0.059583333333333335,
+      "blocking_rate_p25": 0.051541666666666666,
+      "blocking_rate_p75": 0.06758333333333333,
+      "blocking_rate_min": 0.042,
+      "blocking_rate_max": 0.089,
+      "overload_rate_mean": 0.06163333333333334,
+      "nsb_rate_mean": 8.333333333333334e-06,
+      "avg_delay_ms_mean": 8.641655120254807,
+      "avg_fs_mean": 3.1042573401407916,
+      "avg_decision_ms_mean": 10.535512179041445,
+      "ppo_r_agreement_mean": 1.0
+    },
+    "legacy_e1": {
+      "display_name": "DF_C + Legacy E1-trained gated baseline",
+      "n": 20,
+      "blocking_rate_mean": 0.06164166666666667,
+      "blocking_rate_std": 0.014036426608286903,
+      "blocking_rate_median": 0.059583333333333335,
+      "blocking_rate_p25": 0.051541666666666666,
+      "blocking_rate_p75": 0.06758333333333333,
+      "blocking_rate_min": 0.042,
+      "blocking_rate_max": 0.089,
+      "overload_rate_mean": 0.06163333333333334,
+      "nsb_rate_mean": 8.333333333333334e-06,
+      "avg_delay_ms_mean": 9.40101429118012,
+      "avg_fs_mean": 2.9795848766073783,
+      "avg_decision_ms_mean": 21.52776300461798,
+      "ppo_r_agreement_mean": 0.10845833333333335
+    }
+  },
+  "strict_vs_ksp": {
+    "n": 20,
+    "mean_diff": -0.0003416666666666665,
+    "median_diff": 0.0,
+    "mean_diff_pp": "-0.03pp",
+    "bootstrap_95_ci": [
+      -0.0010249999999999994,
+      0.0
+    ],
+    "bootstrap_95_ci_pp": [
+      "-0.1025%",
+      "0.0000%"
+    ],
+    "wilcoxon_p": 0.31731050786291415,
+    "sign_flip_permutation_p": 1.0,
+    "wins_a_lower": 1,
+    "losses_a_lower": 0,
+    "ties": 19,
+    "relative_reduction": -0.005512234471632155
+  },
+  "strict_vs_ppo_r": {
+    "n": 20,
+    "mean_diff": 0.0,
+    "median_diff": 0.0,
+    "mean_diff_pp": "0.00pp",
+    "bootstrap_95_ci": [
+      0.0,
+      0.0
+    ],
+    "bootstrap_95_ci_pp": [
+      "0.0000%",
+      "0.0000%"
+    ],
+    "wilcoxon_p": NaN,
+    "sign_flip_permutation_p": 1.0,
+    "wins_a_lower": 0,
+    "losses_a_lower": 0,
+    "ties": 20,
+    "relative_reduction": 0.0
+  },
+  "ksp_vs_ppo_r": {
+    "n": 20,
+    "mean_diff": 0.0003416666666666665,
+    "median_diff": 0.0,
+    "mean_diff_pp": "0.03pp",
+    "bootstrap_95_ci": [
+      0.0,
+      0.0010249999999999994
+    ],
+    "bootstrap_95_ci_pp": [
+      "0.0000%",
+      "0.1025%"
+    ],
+    "wilcoxon_p": 0.31731050786291415,
+    "sign_flip_permutation_p": 1.0,
+    "wins_a_lower": 0,
+    "losses_a_lower": 1,
+    "ties": 19,
+    "relative_reduction": 0.005542787616601322
+  }
+}

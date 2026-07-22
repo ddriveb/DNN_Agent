@@ -264,16 +264,42 @@ Concrete output files:
 
 ## 6. Results
 
-| Topology | R backend | Blocking | Raw empty | NSB | Overload | Delay mean/P95 | Decision mean/P95 |
-|---|---|---:|---:|---:|---:|---:|---:|
-| `xlron_cost239_ptrnet_real` | v1.2 | **0.20%** | 0.20% | 0.00% | 0.20% | 11.060/20.027 ms | 10.890/16.479 ms |
-| `xlron_cost239_ptrnet_real` | KSP-FF K50 hops | 3.95% | 0.00% | 0.00% | 0.00% | 10.294/19.427 ms | 17.818/24.355 ms |
-| `xlron_german17` | v1.2 | **0.97%** | 0.97% | 0.27% | 0.70% | 13.317/23.363 ms | 14.597/22.793 ms |
-| `xlron_german17` | KSP-FF K50 hops | 2.96% | 1.31% | 2.19% | 0.59% | 13.014/22.640 ms | 24.902/32.221 ms |
-| `xlron_nsfnet_deeprmsa` | v1.2 | **3.09%** | 3.15% | 0.76% | 2.18% | 19.526/33.812 ms | 7.748/10.932 ms |
-| `xlron_nsfnet_deeprmsa` | KSP-FF K50 hops | 9.55% | 2.24% | 2.25% | 1.40% | 18.555/32.276 ms | 20.250/26.999 ms |
-| `xlron_jpn48` | v1.2 | **6.19%** | 6.19% | 4.59% | 1.05% | 16.066/28.934 ms | 28.237/43.844 ms |
-| `xlron_jpn48` | KSP-FF K50 hops | 9.70% | 4.26% | 4.40% | 0.99% | 15.142/27.527 ms | 76.292/128.185 ms |
+Metric definitions:
+
+| Metric | Meaning |
+|---|---|
+| `Blocking` | All failed requests, i.e. environment returns `success=False`. |
+| `Raw empty` | Diagnostic: the raw Agent-C mask had no valid C action before the final step.  This is not a mutually exclusive failure category and should not be added to `NSB/Overload/Deadline/Other`. |
+| `NSB` | `no_suitable_block`: after the C decision and R action, no continuous spectrum block can satisfy the required FS on the selected path/modulation.  This is our project shorthand for spectrum block shortage. |
+| `Overload` | Compute-side server failure.  The saved report counted `server_overload`; the evaluation code has now been updated so future reports also count `server_saturated`. |
+| `Deadline` | `deadline_infeasible`: total estimated delay violates the request deadline. |
+| `Other` | Blocked requests not categorized as `NSB`, `Overload`, or `Deadline` in the compact saved aggregate.  This can include invalid action/path/modulation, modulation reach failure, `fs_too_large`, `allocation_failed`, older uncounted `server_saturated`, or other environment reasons. |
+
+| Topology | R backend | Blocking | Raw empty | NSB | Overload | Deadline | Other | Delay mean/P95 | Decision mean/P95 |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| `xlron_cost239_ptrnet_real` | v1.2 | **0.20%** | 0.20% | 0.00% | 0.20% | 0.00% | 0.00% | 11.060/20.027 ms | 10.890/16.479 ms |
+| `xlron_cost239_ptrnet_real` | KSP-FF K50 hops | 3.95% | 0.00% | 0.00% | 0.00% | 0.00% | 3.95% | 10.294/19.427 ms | 17.818/24.355 ms |
+| `xlron_german17` | v1.2 | **0.97%** | 0.97% | 0.27% | 0.70% | 0.00% | 0.00% | 13.317/23.363 ms | 14.597/22.793 ms |
+| `xlron_german17` | KSP-FF K50 hops | 2.96% | 1.31% | 2.19% | 0.59% | 0.00% | 0.19% | 13.014/22.640 ms | 24.902/32.221 ms |
+| `xlron_nsfnet_deeprmsa` | v1.2 | **3.09%** | 3.15% | 0.76% | 2.18% | 0.14% | 0.01% | 19.526/33.812 ms | 7.748/10.932 ms |
+| `xlron_nsfnet_deeprmsa` | KSP-FF K50 hops | 9.55% | 2.24% | 2.25% | 1.40% | 0.06% | 5.84% | 18.555/32.276 ms | 20.250/26.999 ms |
+| `xlron_jpn48` | v1.2 | **6.19%** | 6.19% | 4.59% | 1.05% | 0.51% | 0.04% | 16.066/28.934 ms | 28.237/43.844 ms |
+| `xlron_jpn48` | KSP-FF K50 hops | 9.70% | 4.26% | 4.40% | 0.99% | 0.26% | 4.05% | 15.142/27.527 ms | 76.292/128.185 ms |
+
+Important interpretation note:
+
+```text
+Raw empty is a diagnostic, not part of the mutually exclusive reason
+decomposition.  The approximate decomposition of Blocking is:
+
+Blocking ~= NSB + Overload + Deadline + Other
+```
+
+The COST239 KSP-FF row is the clearest example: its `3.95%` blocking is not
+explained by `NSB`, `Overload`, or `Deadline` in the compact saved aggregate,
+so those blocked requests are shown as `Other`.  A future rerun with the updated
+evaluation code will also store raw `reason_counts`, allowing this `Other`
+bucket to be split exactly.
 
 ## 7. Fairness Interpretation
 

@@ -1,0 +1,228 @@
+{
+  "config": {
+    "agent_c_checkpoint": "sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_last.pt",
+    "agent_r_checkpoint": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+    "ranker_specs": [
+      "v13=sa_hmarl/checkpoints/r_counterfactual_ranking_postdec_topk_k50_s100/ranking_model.pt"
+    ],
+    "modes": "ppo_r,ksp_ff_plain,ksp_ff_highest,ranker_v13",
+    "topology": "xlron_cost239_ptrnet_real",
+    "num_slots": 320,
+    "num_servers": 4,
+    "k_paths": 50,
+    "path_sort_strategy": "hops",
+    "block_sort_strategy": "start_asc",
+    "max_blocks": 10,
+    "split_profile": "default3",
+    "num_splits": 3,
+    "seeds": "3030",
+    "requests_per_episode": 1000,
+    "warmup_requests": 200,
+    "arrival_interval": 0.0625,
+    "holding_min": 20.0,
+    "holding_max": 30.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "size_max_mb": 30.0,
+    "edge_cost_min": 0.1,
+    "edge_cost_max": 2.2,
+    "modulation_profile": "default",
+    "output_dir": "sa_hmarl/experiments",
+    "output_json": "v13_fair_comparison_smoke.json",
+    "output_md": "v13_fair_comparison_smoke.md",
+    "device": "cpu"
+  },
+  "summary": {
+    "ppo_r": {
+      "seeds": [
+        3030
+      ],
+      "blocking_rate_mean": 0.096,
+      "blocking_rate_std": 0.0,
+      "overload_rate_mean": 0.096,
+      "nsb_rate_mean": 0.0,
+      "avg_delay_ms_mean": 8.053918226100231,
+      "avg_fs_mean": 2.9734513274336285,
+      "avg_decision_ms_mean": 27.64242402500895,
+      "ppo_agreement_mean": 1.0,
+      "per_seed": [
+        {
+          "seed": 3030,
+          "mode": "ppo_r",
+          "total": 1000,
+          "blocked": 96,
+          "blocking_rate": 0.096,
+          "server_overload": 96,
+          "overload_rate": 0.096,
+          "no_suitable_block": 0,
+          "nsb_rate": 0.0,
+          "other_failure": 0,
+          "avg_delay_ms": 8.053918226100231,
+          "avg_fs": 2.9734513274336285,
+          "avg_decision_ms": 27.64242402500895,
+          "ppo_agreement": 1.0
+        }
+      ]
+    },
+    "ksp_ff_plain": {
+      "seeds": [
+        3030
+      ],
+      "blocking_rate_mean": 0.208,
+      "blocking_rate_std": 0.0,
+      "overload_rate_mean": 0.208,
+      "nsb_rate_mean": 0.0,
+      "avg_delay_ms_mean": 6.853449679324187,
+      "avg_fs_mean": 3.188131313131313,
+      "avg_decision_ms_mean": 23.876332729006208,
+      "ppo_agreement_mean": 0.505,
+      "per_seed": [
+        {
+          "seed": 3030,
+          "mode": "ksp_ff_plain",
+          "total": 1000,
+          "blocked": 208,
+          "blocking_rate": 0.208,
+          "server_overload": 208,
+          "overload_rate": 0.208,
+          "no_suitable_block": 0,
+          "nsb_rate": 0.0,
+          "other_failure": 0,
+          "avg_delay_ms": 6.853449679324187,
+          "avg_fs": 3.188131313131313,
+          "avg_decision_ms": 23.876332729006208,
+          "ppo_agreement": 0.505
+        }
+      ]
+    },
+    "ksp_ff_highest": {
+      "seeds": [
+        3030
+      ],
+      "blocking_rate_mean": 0.132,
+      "blocking_rate_std": 0.0,
+      "overload_rate_mean": 0.132,
+      "nsb_rate_mean": 0.0,
+      "avg_delay_ms_mean": 6.751906791387689,
+      "avg_fs_mean": 2.1635944700460827,
+      "avg_decision_ms_mean": 24.9415364670067,
+      "ppo_agreement_mean": 0.261,
+      "per_seed": [
+        {
+          "seed": 3030,
+          "mode": "ksp_ff_highest",
+          "total": 1000,
+          "blocked": 132,
+          "blocking_rate": 0.132,
+          "server_overload": 132,
+          "overload_rate": 0.132,
+          "no_suitable_block": 0,
+          "nsb_rate": 0.0,
+          "other_failure": 0,
+          "avg_delay_ms": 6.751906791387689,
+          "avg_fs": 2.1635944700460827,
+          "avg_decision_ms": 24.9415364670067,
+          "ppo_agreement": 0.261
+        }
+      ]
+    },
+    "ranker_v13": {
+      "seeds": [
+        3030
+      ],
+      "blocking_rate_mean": 0.14,
+      "blocking_rate_std": 0.0,
+      "overload_rate_mean": 0.14,
+      "nsb_rate_mean": 0.0,
+      "avg_delay_ms_mean": 9.372321173918454,
+      "avg_fs_mean": 2.7941860465116277,
+      "avg_decision_ms_mean": 29.126983869005016,
+      "ppo_agreement_mean": 0.181,
+      "per_seed": [
+        {
+          "seed": 3030,
+          "mode": "ranker_v13",
+          "total": 1000,
+          "blocked": 140,
+          "blocking_rate": 0.14,
+          "server_overload": 140,
+          "overload_rate": 0.14,
+          "no_suitable_block": 0,
+          "nsb_rate": 0.0,
+          "other_failure": 0,
+          "avg_delay_ms": 9.372321173918454,
+          "avg_fs": 2.7941860465116277,
+          "avg_decision_ms": 29.126983869005016,
+          "ppo_agreement": 0.181
+        }
+      ]
+    }
+  },
+  "results": [
+    {
+      "seed": 3030,
+      "mode": "ppo_r",
+      "total": 1000,
+      "blocked": 96,
+      "blocking_rate": 0.096,
+      "server_overload": 96,
+      "overload_rate": 0.096,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "other_failure": 0,
+      "avg_delay_ms": 8.053918226100231,
+      "avg_fs": 2.9734513274336285,
+      "avg_decision_ms": 27.64242402500895,
+      "ppo_agreement": 1.0
+    },
+    {
+      "seed": 3030,
+      "mode": "ksp_ff_plain",
+      "total": 1000,
+      "blocked": 208,
+      "blocking_rate": 0.208,
+      "server_overload": 208,
+      "overload_rate": 0.208,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "other_failure": 0,
+      "avg_delay_ms": 6.853449679324187,
+      "avg_fs": 3.188131313131313,
+      "avg_decision_ms": 23.876332729006208,
+      "ppo_agreement": 0.505
+    },
+    {
+      "seed": 3030,
+      "mode": "ksp_ff_highest",
+      "total": 1000,
+      "blocked": 132,
+      "blocking_rate": 0.132,
+      "server_overload": 132,
+      "overload_rate": 0.132,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "other_failure": 0,
+      "avg_delay_ms": 6.751906791387689,
+      "avg_fs": 2.1635944700460827,
+      "avg_decision_ms": 24.9415364670067,
+      "ppo_agreement": 0.261
+    },
+    {
+      "seed": 3030,
+      "mode": "ranker_v13",
+      "total": 1000,
+      "blocked": 140,
+      "blocking_rate": 0.14,
+      "server_overload": 140,
+      "overload_rate": 0.14,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "other_failure": 0,
+      "avg_delay_ms": 9.372321173918454,
+      "avg_fs": 2.7941860465116277,
+      "avg_decision_ms": 29.126983869005016,
+      "ppo_agreement": 0.181
+    }
+  ]
+}

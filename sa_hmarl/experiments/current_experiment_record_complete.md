@@ -1,5 +1,9 @@
 # Current Complete Experiment Record
 
+> Scope note: this file belongs to the historical `independent PPO-R` research
+> branch, not the current `PPO-C + v1.2 static counterfactual ranker` mainline.
+> Canonical naming is documented in `CANONICAL_NAMES.md`.
+
 > Updated: 2026-06-16. This record consolidates the latest evidence after the
 > R-side same-state diagnostic, exhaustive Oracle-R analysis, activation
 > ablation, conservative frozen-R fine-tuning, and typed mean-field Agent-C

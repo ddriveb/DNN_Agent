@@ -1,0 +1,88 @@
+{
+  "methods": {
+    "ppo_c+ppo_r_top1": {
+      "n_admitted_observations": 0,
+      "path_length_km": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0
+      },
+      "hop_count": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0
+      },
+      "modulation_counts": {}
+    },
+    "ppo_c+ksp_ff_highest": {
+      "n_admitted_observations": 0,
+      "path_length_km": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0
+      },
+      "hop_count": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0
+      },
+      "modulation_counts": {}
+    },
+    "ppo_c+strict_v13": {
+      "n_admitted_observations": 0,
+      "path_length_km": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0
+      },
+      "hop_count": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0
+      },
+      "modulation_counts": {}
+    },
+    "df_c+ppo_r_top1": {
+      "n_admitted_observations": 0,
+      "path_length_km": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0
+      },
+      "hop_count": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0
+      },
+      "modulation_counts": {}
+    },
+    "df_c+ksp_ff_highest": {
+      "n_admitted_observations": 0,
+      "path_length_km": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0
+      },
+      "hop_count": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0
+      },
+      "modulation_counts": {}
+    },
+    "df_c+strict_v13": {
+      "n_admitted_observations": 0,
+      "path_length_km": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0
+      },
+      "hop_count": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0
+      },
+      "modulation_counts": {}
+    }
+  }
+}

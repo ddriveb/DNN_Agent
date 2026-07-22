@@ -1,0 +1,54 @@
+{
+  "protocol_id": "DEEPRMSA_SOURCE_SEMANTIC_PAPER_PRIMARY_K50",
+  "implementation_label": "DeepRMSA source-semantic unmasked PyTorch port",
+  "algorithm": "single-process A2C (not A3C)",
+  "training_seeds": [
+    42,
+    123,
+    456
+  ],
+  "validation_seeds": [
+    42001,
+    42002,
+    42003
+  ],
+  "epochs": 80,
+  "train_warmup": 1000,
+  "train_requests_per_epoch": 5000,
+  "train_total_requests": 480000,
+  "eval_every": 5,
+  "validation_warmup": 1000,
+  "validation_requests": 3000,
+  "arrival_interval": 0.025,
+  "network": {
+    "num_layers": 5,
+    "layer_size": 128,
+    "activation": "ELU",
+    "policy_head_init_std": 0.01,
+    "value_head_init_std": 1.0
+  },
+  "optimizer": {
+    "type": "Adam",
+    "lr": 1e-05
+  },
+  "hyperparameters": {
+    "gamma": 0.95,
+    "entropy_coef": 0.01,
+    "value_loss_coef": 1.0,
+    "max_grad_norm": 40.0
+  },
+  "environment": {
+    "topology": "xlron_cost239_ptrnet_real",
+    "num_slots": 100,
+    "k_paths": 50,
+    "max_blocks": 10,
+    "path_sort_strategy": "hops",
+    "block_sort_strategy": "start_asc",
+    "modulation_profile": "default",
+    "slot_bw_hz": 12500000000.0,
+    "guard_band_fs": 1,
+    "mean_holding_time": 10.0,
+    "bitrate_min_gbps": 25,
+    "bitrate_max_gbps": 100
+  }
+}

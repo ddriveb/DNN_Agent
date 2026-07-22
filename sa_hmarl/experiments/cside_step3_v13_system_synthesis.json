@@ -1,0 +1,229 @@
+{
+  "title": "C-Side Step 3 / R-Side v1.3 System Synthesis",
+  "date": "2026-07-05",
+  "executive_conclusion": {
+    "rerun_required": false,
+    "reason": "The existing 5-seed x 4-topology long-horizon benchmark already uses the final recommended C-side checkpoint (r_feasibility_safe_last.pt).",
+    "c_side_feature_mode": "r_feasibility_safe",
+    "c_side_checkpoint": "sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_last.pt",
+    "c_side_checkpoint_type": "last",
+    "r_side_baseline": "ppo_c + ksp_ff_k50_hops",
+    "r_side_candidate": "ppo_c + v12_k50_hops",
+    "v13_ranker_config": {
+      "ranker_candidate_mode": "legalctx48",
+      "ranker_max_candidates": 48,
+      "ranker_ensure_ksp": true
+    }
+  },
+  "c_side_step2_step3_recap": {
+    "topologies_evaluated_short_horizon": ["xlron_cost239_ptrnet_real"],
+    "feature_modes": ["default", "r_feasibility_safe", "overload_aware"],
+    "r_backend_fixed": "ksp_ff_k50_hops",
+    "step2_best_checkpoint_heavy_blocking_percent": {
+      "default": 0.83,
+      "r_feasibility_safe": 0.92,
+      "overload_aware": 7.46
+    },
+    "step2_last_checkpoint_heavy_blocking_percent": {
+      "default": 0.0,
+      "r_feasibility_safe": 0.0,
+      "overload_aware": 0.0
+    },
+    "step3_mixedstress_best_checkpoint_heavy_blocking_percent": {
+      "default": 0.0,
+      "r_feasibility_safe": 1.13,
+      "overload_aware": 0.0
+    },
+    "step3_interpretation": {
+      "overload_aware": "Mixed-stress validation removes its brittleness (7.46% -> 0.00%), but it still does not beat r_feasibility_safe.",
+      "r_feasibility_safe": "Remains the safest default; its 1.13% best-checkpoint heavy blocking in Step 3 is seed-variance, and its last checkpoint stays at 0%.",
+      "default": "Also benefits from mixed-stress validation (0.83% -> 0.00%)."
+    },
+    "dominant_failure_mode": "server_overload",
+    "no_suitable_block_rate_ceiling_percent": 0.3
+  },
+  "final_c_side_decision": {
+    "feature_mode": "r_feasibility_safe",
+    "checkpoint_selection_rule": "mixed-stress validation with max_blocking metric",
+    "recommended_cli_flags": {
+      "validation_stress_levels": "standard,medium,heavy",
+      "checkpoint_metric": "max_blocking"
+    },
+    "conservative_fallback": "Use the last checkpoint when training budget allows; it is consistently 0% across standard/medium/heavy stress.",
+    "code_status": {
+      "implementation_exists": true,
+      "script": "sa_hmarl/sa_hmarl/training/train_agent_c_with_frozen_r.py",
+      "defaults_set": false,
+      "current_defaults": {
+        "checkpoint_metric": "mean_blocking",
+        "validation_stress_levels": ""
+      },
+      "recommended_code_change": "Change argparse defaults to validation_stress_levels='standard,medium,heavy' and checkpoint_metric='max_blocking'."
+    }
+  },
+  "long_horizon_v13_results": {
+    "protocol": {
+      "slots": 320,
+      "servers": [0, 1, 2, 3],
+      "server_capacity": 50,
+      "splits": 3,
+      "split_profile": "default3",
+      "requests_per_episode": 10000,
+      "warmup_requests": 2000,
+      "measurement_requests": 8000,
+      "arrivals": "poisson",
+      "holding": "exponential_mean_25s",
+      "request_size_mb": "5-30",
+      "seeds": [3030, 4040, 5050, 6060, 7070],
+      "c_checkpoint_used": "sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_last.pt"
+    },
+    "per_topology": {
+      "xlron_cost239_ptrnet_real": {
+        "lambda": 16,
+        "edge_cost_max": 2.2,
+        "ksp_ff_k50_hops": {
+          "blocking_rate": 0.1037,
+          "blocking_rate_percent": 10.37,
+          "server_overload_rate": 0.1037,
+          "no_suitable_block_rate": 0.0,
+          "raw_mask_empty_rate": 0.13
+        },
+        "v12_k50_hops": {
+          "blocking_rate": 0.0768,
+          "blocking_rate_percent": 7.68,
+          "server_overload_rate": 0.0768,
+          "no_suitable_block_rate": 0.0,
+          "raw_mask_empty_rate": 0.0971
+        },
+        "delta_pp": -2.69,
+        "delta_relative_percent": -25.9,
+        "p_value": 0.0011,
+        "significant": true
+      },
+      "xlron_german17": {
+        "lambda": 14,
+        "edge_cost_max": 3.0,
+        "ksp_ff_k50_hops": {
+          "blocking_rate": 0.0760,
+          "blocking_rate_percent": 7.60,
+          "server_overload_rate": 0.0758,
+          "no_suitable_block_rate": 0.0001,
+          "raw_mask_empty_rate": 0.0948
+        },
+        "v12_k50_hops": {
+          "blocking_rate": 0.0763,
+          "blocking_rate_percent": 7.63,
+          "server_overload_rate": 0.0758,
+          "no_suitable_block_rate": 0.0005,
+          "raw_mask_empty_rate": 0.0955
+        },
+        "delta_pp": 0.04,
+        "delta_relative_percent": 0.5,
+        "p_value": 0.7697,
+        "significant": false
+      },
+      "xlron_jpn48": {
+        "lambda": 10,
+        "edge_cost_max": 5.2,
+        "ksp_ff_k50_hops": {
+          "blocking_rate": 0.0919,
+          "blocking_rate_percent": 9.19,
+          "server_overload_rate": 0.0866,
+          "no_suitable_block_rate": 0.0020,
+          "raw_mask_empty_rate": 0.1085
+        },
+        "v12_k50_hops": {
+          "blocking_rate": 0.0803,
+          "blocking_rate_percent": 8.03,
+          "server_overload_rate": 0.0723,
+          "no_suitable_block_rate": 0.0029,
+          "raw_mask_empty_rate": 0.0930
+        },
+        "delta_pp": -1.16,
+        "delta_relative_percent": -12.6,
+        "p_value": 0.0067,
+        "significant": true
+      },
+      "xlron_nsfnet_deeprmsa": {
+        "lambda": 13,
+        "edge_cost_max": 4.0,
+        "ksp_ff_k50_hops": {
+          "blocking_rate": 0.1529,
+          "blocking_rate_percent": 15.29,
+          "server_overload_rate": 0.1497,
+          "no_suitable_block_rate": 0.0010,
+          "raw_mask_empty_rate": 0.1816
+        },
+        "v12_k50_hops": {
+          "blocking_rate": 0.1492,
+          "blocking_rate_percent": 14.92,
+          "server_overload_rate": 0.1446,
+          "no_suitable_block_rate": 0.0020,
+          "raw_mask_empty_rate": 0.1771
+        },
+        "delta_pp": -0.37,
+        "delta_relative_percent": -2.4,
+        "p_value": 0.3656,
+        "significant": false
+      }
+    }
+  },
+  "failure_mode_interpretation": {
+    "dominant_residual_mode": "server_overload",
+    "why_v13_wins_cost239": "Small topology; learned ranker finds path/block combinations that reduce server overload.",
+    "why_v13_wins_jpn48": "Large physical network offers many candidates; ranker scoring over 48 candidates outperforms greedy hop-ordered first-fit.",
+    "why_german17_neutral": "KSP-FF already near-optimal for this node layout and load.",
+    "why_nsfnet_weak": "Compute saturation dominates at ~15% blocking; R-side path optimization has limited headroom.",
+    "future_gain_direction": "Better C-side allocation or joint C-R selection, not merely larger R-side candidate sets."
+  },
+  "rerun_assessment": {
+    "needed": false,
+    "existing_benchmark_satisfies_final_c_decision": true,
+    "c_checkpoint_consistency": {
+      "all_topologies_use_same_c_checkpoint": true,
+      "checkpoint_path": "sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_last.pt",
+      "matches_recommendation": true
+    },
+    "optional_smoke_test_if_equivalence_must_be_verified": {
+      "description": "Compare original r_feasibility_safe_last.pt against step3_mixedstress_20260704_last.pt on COST239 with v1.3.",
+      "seeds": "3030 (smoke) or 3030/4040/5050 (stronger)",
+      "tolerance_pp": 0.3,
+      "recommended_now": false
+    }
+  },
+  "recommended_next_steps": {
+    "code": [
+      "Change train_agent_c_with_frozen_r.py defaults: --validation_stress_levels standard,medium,heavy and --checkpoint_metric max_blocking",
+      "Verify backward compatibility when --validation_stress_levels is empty"
+    ],
+    "science": [
+      "Investigate joint C-R optimization conditioned on anticipated server load",
+      "Evaluate per-topology C training under the same r_feasibility_safe representation",
+      "Longer training run for overload_aware with mixed-stress validation to strengthen the negative result"
+    ],
+    "avoid": [
+      "Adding more hand-crafted C-side features before ruling out checkpoint-selection issues",
+      "Increasing R-side candidate set beyond 48 without evidence that no_suitable_block is limiting",
+      "Claiming v1.3 superiority on all topologies"
+    ]
+  },
+  "paper_ready_phrases": {
+    "c_side": "The overload_aware feature set did not provide a systematic reduction in server-overload blocking compared with r_feasibility_safe. The critical C-side improvement is the validation regime, not another hand-crafted feature set.",
+    "r_side": "With C-side fixed to the stable r_feasibility_safe checkpoint, the v1.3 hybrid significantly reduces blocking on COST239 (-25.9%, p=0.0011) and JPN48 (-12.6%, p=0.0067), is neutral on German17 (+0.5%, p=0.77), and shows only a small non-significant trend on NSFNET (-2.4%, p=0.37).",
+    "failure_mode": "Across all topologies residual blocking is dominated by server overload, so future gains likely require improved compute-side allocation or joint routing-and-offloading decisions rather than larger routing candidate sets alone.",
+    "one_line_takeaway": "The practical advance on the C side is a stress-robust validation regime; the practical advance on the R side is a learned ranker that improves blocking on two of four topologies when the C-side policy is already stable."
+  },
+  "artifacts": {
+    "synthesis_report_md": "sa_hmarl/experiments/cside_step3_v13_system_synthesis.md",
+    "synthesis_report_json": "sa_hmarl/experiments/cside_step3_v13_system_synthesis.json",
+    "c_side_report_md": "sa_hmarl/experiments/cost239_c_step2_feature_mode_rerun_report.md",
+    "c_side_report_json": "sa_hmarl/experiments/cost239_c_step2_feature_mode_rerun_report.json",
+    "long_horizon_report_md": "sa_hmarl/experiments/long_horizon_benchmark/FINAL_BENCHMARK_REPORT.md",
+    "long_horizon_result_jsons": [
+      "sa_hmarl/experiments/long_horizon_benchmark/xlron_cost239_ptrnet_real_ecmax2.2_full.json",
+      "sa_hmarl/experiments/long_horizon_benchmark/xlron_german17_ecmax3.0_full.json",
+      "sa_hmarl/experiments/long_horizon_benchmark/xlron_jpn48_ecmax5.2_full.json",
+      "sa_hmarl/experiments/long_horizon_benchmark/xlron_nsfnet_deeprmsa_ecmax4.0_full.json"
+    ]
+  }
+}

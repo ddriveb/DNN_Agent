@@ -1,0 +1,14 @@
+
+[main] Full pilot: 20 (topology, seed) tasks
+[write] sa_hmarl/experiments/r_mask_empty_expanded_path_rescue_phase_r0/per_seed_summary.csv
+[write] sa_hmarl/experiments/r_mask_empty_expanded_path_rescue_phase_r0/paired_block_identity.jsonl.gz
+[write] sa_hmarl/experiments/r_mask_empty_expanded_path_rescue_phase_r0/mask_empty_rescue_events.jsonl.gz
+[write] sa_hmarl/experiments/r_mask_empty_expanded_path_rescue_phase_r0/COST239_RESULTS.json
+[write] sa_hmarl/experiments/r_mask_empty_expanded_path_rescue_phase_r0/COST239_RESULTS.md
+[write] sa_hmarl/experiments/r_mask_empty_expanded_path_rescue_phase_r0/NSFNET_RESULTS.json
+[write] sa_hmarl/experiments/r_mask_empty_expanded_path_rescue_phase_r0/NSFNET_RESULTS.md
+[write] sa_hmarl/experiments/r_mask_empty_expanded_path_rescue_phase_r0/USNET_RESULTS.json
+[write] sa_hmarl/experiments/r_mask_empty_expanded_path_rescue_phase_r0/USNET_RESULTS.md
+[write] sa_hmarl/experiments/r_mask_empty_expanded_path_rescue_phase_r0/JPN48_RESULTS.json
+[write] sa_hmarl/experiments/r_mask_empty_expanded_path_rescue_phase_r0/JPN48_RESULTS.md
+[main] Done in 1938.0s

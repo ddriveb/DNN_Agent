@@ -1,0 +1,26 @@
+{
+  "title": "H=1 Invariant Failure Root Cause (v1)",
+  "v1_status": "MECHANICAL_INVALID / SUPERSEDED_PENDING_H1_FIX",
+  "v2_status": "CORRECTED",
+  "root_cause": "Off-by-one horizon definition in the v1 continuation function. It iterated over future_requests[:H] after the first action, so H=1 actually simulated one future request rather than zero.",
+  "observed_failure": {
+    "eligible_snapshots": 301,
+    "future_traces_per_snapshot": 5,
+    "h1_nonzero_records": 7,
+    "example": {
+      "snapshot_id": 3033,
+      "future_trace_id": 0,
+      "delta_b_h1": 1,
+      "mechanism": "The first future request (id 3034) blocked in the Strict fork but not in the KSP fork."
+    }
+  },
+  "fix": {
+    "code_change": "Process max(0, H-1) future requests after the first action.",
+    "assertions_added": [
+      "blocks_strict[1] == 0",
+      "blocks_ksp[1] == 0",
+      "delta_b[1] == 0 (implied)"
+    ],
+    "deliverable": "H1_ALL_ZERO_PROOF"
+  }
+}

@@ -1,0 +1,282 @@
+{
+  "config": {
+    "agent_c_checkpoint": "sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_last.pt",
+    "agent_r_checkpoint": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+    "ranker_specs": [
+      "v13=sa_hmarl/checkpoints/r_counterfactual_ranking_postdec_topk_k50_s100/ranking_model.pt",
+      "poststate=sa_hmarl/checkpoints/r_poststate_v1_h5_anchor48_k50/ranking_model.pt:ppo_r_topk_only"
+    ],
+    "modes": "ppo_r,ksp_ff_plain,ksp_ff_highest,ranker_v13,ranker_poststate",
+    "topology": "xlron_cost239_ptrnet_real",
+    "num_slots": 320,
+    "num_servers": 4,
+    "k_paths": 50,
+    "k_paths_c": 5,
+    "k_paths_r": 50,
+    "path_sort_strategy": "hops",
+    "path_sort_strategy_c": "hops",
+    "path_sort_strategy_r": "hops",
+    "block_sort_strategy": "start_asc",
+    "block_sort_strategy_c": "start_asc",
+    "block_sort_strategy_r": "start_asc",
+    "max_blocks": 10,
+    "split_profile": "default3",
+    "num_splits": 3,
+    "seeds": "3030",
+    "requests_per_episode": 2000,
+    "warmup_requests": 500,
+    "arrival_interval": 0.0625,
+    "holding_min": 20.0,
+    "holding_max": 30.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "size_max_mb": 30.0,
+    "edge_cost_min": 0.1,
+    "edge_cost_max": 2.2,
+    "modulation_profile": "default",
+    "output_dir": "sa_hmarl/experiments",
+    "output_json": "v13_fair_comparison_fixed_smoke.json",
+    "output_md": "v13_fair_comparison_fixed_smoke.md",
+    "device": "cpu"
+  },
+  "summary": {
+    "ppo_r": {
+      "seeds": [
+        3030
+      ],
+      "blocking_rate_mean": 0.0755,
+      "blocking_rate_std": 0.0,
+      "overload_rate_mean": 0.0755,
+      "nsb_rate_mean": 0.0,
+      "avg_delay_ms_mean": 9.179333911828786,
+      "avg_fs_mean": 3.462412114656571,
+      "avg_decision_ms_mean": 8.08035360903159,
+      "ppo_agreement_mean": 1.0,
+      "per_seed": [
+        {
+          "seed": 3030,
+          "mode": "ppo_r",
+          "total": 2000,
+          "blocked": 151,
+          "blocking_rate": 0.0755,
+          "server_overload": 151,
+          "overload_rate": 0.0755,
+          "no_suitable_block": 0,
+          "nsb_rate": 0.0,
+          "other_failure": 0,
+          "avg_delay_ms": 9.179333911828786,
+          "avg_fs": 3.462412114656571,
+          "avg_decision_ms": 8.08035360903159,
+          "ppo_agreement": 1.0
+        }
+      ]
+    },
+    "ksp_ff_plain": {
+      "seeds": [
+        3030
+      ],
+      "blocking_rate_mean": 0.101,
+      "blocking_rate_std": 0.0,
+      "overload_rate_mean": 0.101,
+      "nsb_rate_mean": 0.0,
+      "avg_delay_ms_mean": 8.27288853043586,
+      "avg_fs_mean": 3.2296996662958843,
+      "avg_decision_ms_mean": 7.909536605999165,
+      "ppo_agreement_mean": 0.3305,
+      "per_seed": [
+        {
+          "seed": 3030,
+          "mode": "ksp_ff_plain",
+          "total": 2000,
+          "blocked": 202,
+          "blocking_rate": 0.101,
+          "server_overload": 202,
+          "overload_rate": 0.101,
+          "no_suitable_block": 0,
+          "nsb_rate": 0.0,
+          "other_failure": 0,
+          "avg_delay_ms": 8.27288853043586,
+          "avg_fs": 3.2296996662958843,
+          "avg_decision_ms": 7.909536605999165,
+          "ppo_agreement": 0.3305
+        }
+      ]
+    },
+    "ksp_ff_highest": {
+      "seeds": [
+        3030
+      ],
+      "blocking_rate_mean": 0.0985,
+      "blocking_rate_std": 0.0,
+      "overload_rate_mean": 0.0985,
+      "nsb_rate_mean": 0.0,
+      "avg_delay_ms_mean": 8.201712581276272,
+      "avg_fs_mean": 2.232390460343871,
+      "avg_decision_ms_mean": 7.750866679563842,
+      "ppo_agreement_mean": 0.1635,
+      "per_seed": [
+        {
+          "seed": 3030,
+          "mode": "ksp_ff_highest",
+          "total": 2000,
+          "blocked": 197,
+          "blocking_rate": 0.0985,
+          "server_overload": 197,
+          "overload_rate": 0.0985,
+          "no_suitable_block": 0,
+          "nsb_rate": 0.0,
+          "other_failure": 0,
+          "avg_delay_ms": 8.201712581276272,
+          "avg_fs": 2.232390460343871,
+          "avg_decision_ms": 7.750866679563842,
+          "ppo_agreement": 0.1635
+        }
+      ]
+    },
+    "ranker_v13": {
+      "seeds": [
+        3030
+      ],
+      "blocking_rate_mean": 0.073,
+      "blocking_rate_std": 0.0,
+      "overload_rate_mean": 0.073,
+      "nsb_rate_mean": 0.0,
+      "avg_delay_ms_mean": 10.13133232950175,
+      "avg_fs_mean": 2.975188781014024,
+      "avg_decision_ms_mean": 11.158660855044218,
+      "ppo_agreement_mean": 0.1375,
+      "per_seed": [
+        {
+          "seed": 3030,
+          "mode": "ranker_v13",
+          "total": 2000,
+          "blocked": 146,
+          "blocking_rate": 0.073,
+          "server_overload": 146,
+          "overload_rate": 0.073,
+          "no_suitable_block": 0,
+          "nsb_rate": 0.0,
+          "other_failure": 0,
+          "avg_delay_ms": 10.13133232950175,
+          "avg_fs": 2.975188781014024,
+          "avg_decision_ms": 11.158660855044218,
+          "ppo_agreement": 0.1375
+        }
+      ]
+    },
+    "ranker_poststate": {
+      "seeds": [
+        3030
+      ],
+      "blocking_rate_mean": 0.0825,
+      "blocking_rate_std": 0.0,
+      "overload_rate_mean": 0.0825,
+      "nsb_rate_mean": 0.0,
+      "avg_delay_ms_mean": 9.256562393374969,
+      "avg_fs_mean": 3.114441416893733,
+      "avg_decision_ms_mean": 35.83557306749208,
+      "ppo_agreement_mean": 0.3215,
+      "per_seed": [
+        {
+          "seed": 3030,
+          "mode": "ranker_poststate",
+          "total": 2000,
+          "blocked": 165,
+          "blocking_rate": 0.0825,
+          "server_overload": 165,
+          "overload_rate": 0.0825,
+          "no_suitable_block": 0,
+          "nsb_rate": 0.0,
+          "other_failure": 0,
+          "avg_delay_ms": 9.256562393374969,
+          "avg_fs": 3.114441416893733,
+          "avg_decision_ms": 35.83557306749208,
+          "ppo_agreement": 0.3215
+        }
+      ]
+    }
+  },
+  "results": [
+    {
+      "seed": 3030,
+      "mode": "ppo_r",
+      "total": 2000,
+      "blocked": 151,
+      "blocking_rate": 0.0755,
+      "server_overload": 151,
+      "overload_rate": 0.0755,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "other_failure": 0,
+      "avg_delay_ms": 9.179333911828786,
+      "avg_fs": 3.462412114656571,
+      "avg_decision_ms": 8.08035360903159,
+      "ppo_agreement": 1.0
+    },
+    {
+      "seed": 3030,
+      "mode": "ksp_ff_plain",
+      "total": 2000,
+      "blocked": 202,
+      "blocking_rate": 0.101,
+      "server_overload": 202,
+      "overload_rate": 0.101,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "other_failure": 0,
+      "avg_delay_ms": 8.27288853043586,
+      "avg_fs": 3.2296996662958843,
+      "avg_decision_ms": 7.909536605999165,
+      "ppo_agreement": 0.3305
+    },
+    {
+      "seed": 3030,
+      "mode": "ksp_ff_highest",
+      "total": 2000,
+      "blocked": 197,
+      "blocking_rate": 0.0985,
+      "server_overload": 197,
+      "overload_rate": 0.0985,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "other_failure": 0,
+      "avg_delay_ms": 8.201712581276272,
+      "avg_fs": 2.232390460343871,
+      "avg_decision_ms": 7.750866679563842,
+      "ppo_agreement": 0.1635
+    },
+    {
+      "seed": 3030,
+      "mode": "ranker_v13",
+      "total": 2000,
+      "blocked": 146,
+      "blocking_rate": 0.073,
+      "server_overload": 146,
+      "overload_rate": 0.073,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "other_failure": 0,
+      "avg_delay_ms": 10.13133232950175,
+      "avg_fs": 2.975188781014024,
+      "avg_decision_ms": 11.158660855044218,
+      "ppo_agreement": 0.1375
+    },
+    {
+      "seed": 3030,
+      "mode": "ranker_poststate",
+      "total": 2000,
+      "blocked": 165,
+      "blocking_rate": 0.0825,
+      "server_overload": 165,
+      "overload_rate": 0.0825,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "other_failure": 0,
+      "avg_delay_ms": 9.256562393374969,
+      "avg_fs": 3.114441416893733,
+      "avg_decision_ms": 35.83557306749208,
+      "ppo_agreement": 0.3215
+    }
+  ]
+}

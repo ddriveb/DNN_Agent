@@ -1,0 +1,119 @@
+{
+  "protocol_id": "DEEPRMSA_VS_KSP_FF_PAPER_PARITY_V1",
+  "protocol_lock": "PROTOCOL_LOCK.md",
+  "paper": {
+    "title": "Reinforcement learning for dynamic resource allocation in optical networks: hype or hope?",
+    "authors": "Doherty et al.",
+    "year": 2025,
+    "reference_values": {
+      "nsfnet": {
+        "label": "NSFNET",
+        "load_erlang": 250,
+        "deeprmsa_published": 0.04,
+        "ksp_ff_k5_km": {"mean": 0.05, "std": 0.0029},
+        "ksp_ff_k5_hops": {"mean": 0.0293, "std": 0.0022},
+        "ksp_ff_k50_hops": {"mean": 0.0233, "std": 0.0025}
+      },
+      "cost239": {
+        "label": "COST239",
+        "load_erlang": 600,
+        "deeprmsa_published": 0.0575,
+        "ksp_ff_k5_km": {"mean": 0.0669, "std": 0.0035},
+        "ksp_ff_k5_hops": {"mean": 0.038, "std": 0.0039},
+        "ksp_ff_k50_hops": {"mean": 0.0261, "std": 0.0036}
+      }
+    }
+  },
+  "topologies": {
+    "nsfnet": {
+      "label": "NSFNET",
+      "topology_key": "xlron_nsfnet_deeprmsa",
+      "num_nodes": 14,
+      "undirected_links": 22,
+      "directed_arcs": 44,
+      "load_erlang": 250
+    },
+    "cost239": {
+      "label": "COST239",
+      "topology_key": "cost239_deeprmsa",
+      "num_nodes": 11,
+      "undirected_links": 26,
+      "directed_arcs": 52,
+      "load_erlang": 600
+    }
+  },
+  "spectrum": {
+    "num_slots": 100,
+    "slot_bw_hz": 12500000000.0,
+    "guard_band_fs": 1,
+    "direction_independent": true
+  },
+  "modulations": [
+    {"name": "BPSK", "reach_km": 10000.0, "spectral_efficiency": 1.0},
+    {"name": "QPSK", "reach_km": 2500.0, "spectral_efficiency": 2.0},
+    {"name": "8QAM", "reach_km": 1250.0, "spectral_efficiency": 3.0},
+    {"name": "16QAM", "reach_km": 625.0, "spectral_efficiency": 4.0}
+  ],
+  "traffic": {
+    "mean_holding_time": 10.0,
+    "holding_truncation": "resample while ttl == 0 or ttl >= 2 * mean",
+    "bitrate_min_gbps": 25,
+    "bitrate_max_gbps": 100,
+    "od_model": "uniform over all ordered pairs (src != dst), single pair-index draw",
+    "arrival_model": "poisson (exponential inter-arrival, zero draws resampled)"
+  },
+  "measurement": {
+    "warmup_requests": 3000,
+    "evaluated_requests": 10000,
+    "test_seeds": [101, 102, 103, 104, 105, 106, 107, 108, 109, 110],
+    "smoke": {"warmup_requests": 300, "evaluated_requests": 1000, "seed": 101}
+  },
+  "methods": {
+    "ksp_ff_k5_km": {"type": "ksp_ff", "k_paths": 5, "path_sort": "km"},
+    "ksp_ff_k5_hops": {"type": "ksp_ff", "k_paths": 5, "path_sort": "hops"},
+    "ksp_ff_k50_hops": {"type": "ksp_ff", "k_paths": 50, "path_sort": "hops"},
+    "deeprmsa_local": {
+      "type": "deeprmsa",
+      "k_paths": 5,
+      "path_sort": "km",
+      "m_blocks": 1,
+      "num_layers": 5,
+      "layer_size": 128,
+      "activation": "ELU",
+      "masked": false,
+      "gamma": 0.95,
+      "lr": 0.0001,
+      "lr_upstream": 1e-05,
+      "lr_note": "Upstream DeepRMSA uses Adam lr=1e-5 with millions of training requests (A3C workers). Within this session's CPU budget (1M requests/run), lr=1e-5 converges too slowly (validation stuck at the SP-FF collapse). lr=1e-4 is a disclosed compute-budget adaptation; all algorithm semantics unchanged. Evidence in DEEPRMSA_TRAINING_REPORT.md.",
+      "entropy_coef": 0.01,
+      "value_loss_coef": 1.0,
+      "max_grad_norm": 5.0,
+      "normalize_advantages": false,
+      "stability_note": "Final Stage D config: lr=1e-4 (compute-budget adaptation of upstream 1e-5), raw advantages (normalization REMOVES the early gradient signal needed to escape the path-0 collapse), grad clip 5 (upstream 40 is too loose: caused one divergence and prevented escape; clip 5 let even the worst seed escape the SP-FF collapse and descend cleanly). Entropy 0.01 upstream. Evidence in DEEPRMSA_TRAINING_REPORT.md.",
+      "batch_size": 200,
+      "update_window": 399,
+      "train_warmup_requests": 3000,
+      "epsilon_start": 1.0,
+      "epsilon_decay_per_update": 1e-05,
+      "epsilon_floor": 0.05,
+      "train_seeds": [42, 43, 44],
+      "validation_seeds": [42001, 42002, 42003],
+      "validation_warmup": 500,
+      "validation_requests": 3000,
+      "total_train_requests": 1000000,
+      "validate_every_requests": 25000
+    }
+  },
+  "parity_check": {
+    "method": "ksp_ff_k5_km",
+    "criterion": "our 10-seed mean within paper mean +/- 2 * paper std"
+  },
+  "exclusions": [
+    "snap24_gnutella_reach topology",
+    "deep_rmsa_snap24_reach_mixed.pt",
+    "K=3/M=1 masked DeepRMSA",
+    "SA-HMARL C/MEC request generator",
+    "fixed split/server, C-mask, PPO-C, DF_C",
+    "deadline, server capacity, server overload"
+  ]
+}

@@ -1,0 +1,3086 @@
+{
+  "schema_version": "v1.3-verified-2026-07-14",
+  "config": {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "seed": 3030,
+    "c_modes": "ppo_c,df_c",
+    "c_checkpoints": "sa_hmarl/checkpoints/agent_c_delayaware_v2_snap24_best.pt,_heuristic_",
+    "r_modes": "ppo_r_top1,ksp_ff_highest,strict_v13",
+    "ranker_specs": [
+      "strict_v13=/mnt/d/project/DNN_Agent/sa_hmarl/experiments/v13_strict_fixed/strict_loss_rerun/checkpoints/full_state_uniform_strict/seed_42/ranking_model.pt"
+    ],
+    "agent_r_checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/checkpoints/agent_r_mixed.pt",
+    "num_slots": 320,
+    "num_servers": 4,
+    "k_paths_c": 5,
+    "k_paths_r": 50,
+    "path_sort_strategy_c": "hops",
+    "path_sort_strategy_r": "hops",
+    "block_sort_strategy_c": "start_asc",
+    "block_sort_strategy_r": "start_asc",
+    "modulation_profile": "default",
+    "max_blocks": 10,
+    "split_profile": "default3",
+    "num_splits": 3,
+    "arrival_interval": 0.07692307692307693,
+    "holding_min": 20.0,
+    "holding_max": 30.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "size_max_mb": 30.0,
+    "edge_cost_min": 0.1,
+    "edge_cost_max": 4.0,
+    "warmup_requests": 20,
+    "requests_per_episode": 50,
+    "poisson_arrivals": true,
+    "exponential_holding": true,
+    "device": "cpu",
+    "output_dir": "sa_hmarl/experiments/v13_strict_multitopology_cside_verified_v2/smoke/xlron_nsfnet_deeprmsa/seed_3030",
+    "output_json": "results.json",
+    "output_log": "eval.log",
+    "runner_code_hash": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+    "analyzer_code_hash": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9"
+  },
+  "request_trace_hash": "cb31cb17d32d504873ce87557500e15c717f6681bd172929caf795ae28d8d509",
+  "config_hash": "a9b910666ca2079f4b33e51537a020ca997d999b32f204b94dde61797200616b",
+  "evaluator_code_hash": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+  "runner_code_hash": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+  "analyzer_code_hash": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+  "source_manifest": {
+    "sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+    "sa_hmarl/sa_hmarl/evaluation/run_strict_v13_multitopology_cside_verified.py": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+    "sa_hmarl/sa_hmarl/evaluation/analyze_strict_v13_multitopology_cside_verified.py": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+    "sa_hmarl/sa_hmarl/evaluation/diagnose_r_action_horizon_oracle.py": "0755899405bd6fa9f9f70a96b3cc8fd78fc2bdb59a799f2e2638f938cd7b7423",
+    "sa_hmarl/sa_hmarl/evaluation/generate_r_counterfactual_ranking_cost239_kpath50_hops_kprop30_h5.py": "1eaa3d1400ffffb3508eba94d8c6a803bb7da30804b54a41b381591166d3441d",
+    "sa_hmarl/sa_hmarl/baselines/rmsa_baselines.py": "d284ee2220fc5613754fa3e3f773400d70af05e6ead94853057f27583e6cf441",
+    "sa_hmarl/sa_hmarl/network/ksp.py": "816ea52353dca4d329e6521230d3ee4ff8b66d6203ef1f76cfed95b1a073ed6d",
+    "sa_hmarl/sa_hmarl/env/event_env.py": "7bf4dbe2628abec32c811fb687db3c59288116573a380ba39c4b59769e982662",
+    "sa_hmarl/sa_hmarl/env/action_mask.py": "c5cf40c34dfced5ddb54cbbb9748e7aafcf8e1589d509530f5bfe17a00742d67",
+    "sa_hmarl/sa_hmarl/env/observation_builder.py": "d9062b190fd1435d4d63f03b2a808548dd1d3b109d2c9f5b6c28b158d2821a31",
+    "sa_hmarl/sa_hmarl/agents/r_agent.py": "9924e02d63e19c88628d16a85412edb45359c23a50900d0cfd7ec4e00651d479",
+    "sa_hmarl/sa_hmarl/agents/ppo_agents.py": "079babd7a57771db1e07b2132900d0dec58a1840ed1d80a567d5b8417e34a8a6",
+    "sa_hmarl/sa_hmarl/agents/c_agent.py": "5c186b67fc103a70e3c892ab32b32eac07b0cc57d02367afa070a1fd2cd5545b",
+    "sa_hmarl/sa_hmarl/evaluation/offloading_baselines.py": "a71bd64c81020dd4dafc3073532b9390bc856cfe8ef36605dca132ca5e32b33f",
+    "sa_hmarl/sa_hmarl/evaluation/eval_long_horizon_system_comparison.py": "884f5f8ef6e2b1c5564f4684b445db1c194f86faa4a13e276552622a1a2e0064"
+  },
+  "checkpoint_sha256s": {
+    "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+    "ppo_c": "707b504e9b3dda7167f8769fb637042040489bbcd1918eba13e1bdce7f27ad22",
+    "df_c": "heuristic",
+    "strict_v13": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+  },
+  "results": [
+    {
+      "schema_version": "v1.3-verified-2026-07-14",
+      "topology": "xlron_nsfnet_deeprmsa",
+      "seed": 3030,
+      "c_mode": "ppo_c",
+      "r_mode": "ppo_r_top1",
+      "method_name": "ppo_c+ppo_r_top1",
+      "evaluated_requests": 50,
+      "admitted": 50,
+      "blocked": 0,
+      "blocking_rate": 0.0,
+      "admitted_rate": 1.0,
+      "r_reached": 50,
+      "r_decisions": 50,
+      "r_no_valid_action": 0,
+      "c_no_valid_action": 0,
+      "c_no_valid_action_rate": 0.0,
+      "r_no_valid_action_rate": 0.0,
+      "c_raw_mask_empty": 0,
+      "c_effective_mask_empty": 0,
+      "c_action_not_in_effective_mask": 0,
+      "r_mask_empty": 0,
+      "server_overload": 0,
+      "overload_rate": 0.0,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "deadline_failure": 0,
+      "deadline_failure_rate": 0.0,
+      "other_failure": 0,
+      "other_rate": 0.0,
+      "failure_reason_distribution": {},
+      "avg_delay_ms": 14.312759803323852,
+      "delay_p50_ms": 15.13779349678179,
+      "delay_p90_ms": 22.267390504574454,
+      "delay_p95_ms": 23.342237215633446,
+      "avg_fs": 2.94,
+      "avg_decision_ms": 13.137842019787058,
+      "decision_p95_ms": 15.640960604650896,
+      "avg_c_policy_ms": 0.6114167778287083,
+      "avg_r_proposer_ms": 0.0,
+      "avg_ranker_or_ksp_ms": 0.0,
+      "avg_total_policy_ms": 0.6114167778287083,
+      "avg_audit_ms": 2.4964954401366413,
+      "c_policy_ms_p95": 0.8376276920898817,
+      "r_proposer_ms_p95": 0.0,
+      "ranker_or_ksp_ms_p95": 0.0,
+      "avg_path_length_km": 1902.0,
+      "avg_hop_count": 2.18,
+      "ppo_agreement_rate": 1.0,
+      "ppo_agreement_numerator": 50,
+      "ppo_agreement_denominator": 50,
+      "admitted_path_idx_distribution": {
+        "raw_counts": {
+          "0": 38,
+          "1": 3,
+          "2": 4,
+          "5": 1,
+          "4": 2,
+          "3": 2
+        },
+        "normalized": {
+          "0": 0.76,
+          "1": 0.06,
+          "2": 0.08,
+          "5": 0.02,
+          "4": 0.04,
+          "3": 0.04
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_block_start_distribution": {
+        "raw_counts": {
+          "0": 6,
+          "31": 1,
+          "36": 1,
+          "43": 2,
+          "45": 1,
+          "46": 1,
+          "48": 1,
+          "50": 3,
+          "52": 2,
+          "59": 1,
+          "62": 1,
+          "65": 1,
+          "57": 1,
+          "61": 1,
+          "67": 1,
+          "69": 1,
+          "71": 1,
+          "64": 1,
+          "66": 1,
+          "74": 1,
+          "76": 2,
+          "81": 2,
+          "80": 1,
+          "83": 1,
+          "85": 1,
+          "82": 1,
+          "84": 1,
+          "87": 2,
+          "90": 1,
+          "93": 1,
+          "95": 2,
+          "97": 2,
+          "99": 1,
+          "100": 1,
+          "101": 1,
+          "102": 1
+        },
+        "normalized": {
+          "0": 0.12,
+          "31": 0.02,
+          "36": 0.02,
+          "43": 0.04,
+          "45": 0.02,
+          "46": 0.02,
+          "48": 0.02,
+          "50": 0.06,
+          "52": 0.04,
+          "59": 0.02,
+          "62": 0.02,
+          "65": 0.02,
+          "57": 0.02,
+          "61": 0.02,
+          "67": 0.02,
+          "69": 0.02,
+          "71": 0.02,
+          "64": 0.02,
+          "66": 0.02,
+          "74": 0.02,
+          "76": 0.04,
+          "81": 0.04,
+          "80": 0.02,
+          "83": 0.02,
+          "85": 0.02,
+          "82": 0.02,
+          "84": 0.02,
+          "87": 0.04,
+          "90": 0.02,
+          "93": 0.02,
+          "95": 0.04,
+          "97": 0.04,
+          "99": 0.02,
+          "100": 0.02,
+          "101": 0.02,
+          "102": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_required_fs_distribution": {
+        "raw_counts": {
+          "3": 16,
+          "5": 5,
+          "7": 2,
+          "2": 24,
+          "4": 3
+        },
+        "normalized": {
+          "3": 0.32,
+          "5": 0.1,
+          "7": 0.04,
+          "2": 0.48,
+          "4": 0.06
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_hop_count_distribution": {
+        "raw_counts": {
+          "0.0": 5,
+          "3.0": 10,
+          "2.0": 14,
+          "4.0": 6,
+          "5.0": 3,
+          "1.0": 12
+        },
+        "normalized": {
+          "0.0": 0.1,
+          "3.0": 0.2,
+          "2.0": 0.28,
+          "4.0": 0.12,
+          "5.0": 0.06,
+          "1.0": 0.24
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_path_length_distribution": {
+        "raw_counts": {
+          "0.0": 5,
+          "2550.0": 5,
+          "1950.0": 8,
+          "1350.0": 4,
+          "3450.0": 3,
+          "2700.0": 3,
+          "3150.0": 3,
+          "3300.0": 5,
+          "1800.0": 3,
+          "750.0": 5,
+          "3000.0": 1,
+          "600.0": 4,
+          "2400.0": 1
+        },
+        "normalized": {
+          "0.0": 0.1,
+          "2550.0": 0.1,
+          "1950.0": 0.16,
+          "1350.0": 0.08,
+          "3450.0": 0.06,
+          "2700.0": 0.06,
+          "3150.0": 0.06,
+          "3300.0": 0.1,
+          "1800.0": 0.06,
+          "750.0": 0.1,
+          "3000.0": 0.02,
+          "600.0": 0.08,
+          "2400.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_mod_distribution": {
+        "raw_counts": {
+          "BPSK": 31,
+          "QPSK": 15,
+          "8QAM": 4
+        },
+        "normalized": {
+          "BPSK": 0.62,
+          "QPSK": 0.3,
+          "8QAM": 0.08
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_idx_distribution": {
+        "raw_counts": {
+          "0": 38,
+          "1": 3,
+          "2": 4,
+          "5": 1,
+          "4": 2,
+          "3": 2
+        },
+        "normalized": {
+          "0": 0.76,
+          "1": 0.06,
+          "2": 0.08,
+          "5": 0.02,
+          "4": 0.04,
+          "3": 0.04
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_mod_distribution": {
+        "raw_counts": {
+          "BPSK": 31,
+          "QPSK": 15,
+          "8QAM": 4
+        },
+        "normalized": {
+          "BPSK": 0.62,
+          "QPSK": 0.3,
+          "8QAM": 0.08
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_block_start_distribution": {
+        "raw_counts": {
+          "0": 6,
+          "31": 1,
+          "36": 1,
+          "43": 2,
+          "45": 1,
+          "46": 1,
+          "48": 1,
+          "50": 3,
+          "52": 2,
+          "59": 1,
+          "62": 1,
+          "65": 1,
+          "57": 1,
+          "61": 1,
+          "67": 1,
+          "69": 1,
+          "71": 1,
+          "64": 1,
+          "66": 1,
+          "74": 1,
+          "76": 2,
+          "81": 2,
+          "80": 1,
+          "83": 1,
+          "85": 1,
+          "82": 1,
+          "84": 1,
+          "87": 2,
+          "90": 1,
+          "93": 1,
+          "95": 2,
+          "97": 2,
+          "99": 1,
+          "100": 1,
+          "101": 1,
+          "102": 1
+        },
+        "normalized": {
+          "0": 0.12,
+          "31": 0.02,
+          "36": 0.02,
+          "43": 0.04,
+          "45": 0.02,
+          "46": 0.02,
+          "48": 0.02,
+          "50": 0.06,
+          "52": 0.04,
+          "59": 0.02,
+          "62": 0.02,
+          "65": 0.02,
+          "57": 0.02,
+          "61": 0.02,
+          "67": 0.02,
+          "69": 0.02,
+          "71": 0.02,
+          "64": 0.02,
+          "66": 0.02,
+          "74": 0.02,
+          "76": 0.04,
+          "81": 0.04,
+          "80": 0.02,
+          "83": 0.02,
+          "85": 0.02,
+          "82": 0.02,
+          "84": 0.02,
+          "87": 0.04,
+          "90": 0.02,
+          "93": 0.02,
+          "95": 0.04,
+          "97": 0.04,
+          "99": 0.02,
+          "100": 0.02,
+          "101": 0.02,
+          "102": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_required_fs_distribution": {
+        "raw_counts": {
+          "3": 16,
+          "5": 5,
+          "7": 2,
+          "2": 24,
+          "4": 3
+        },
+        "normalized": {
+          "3": 0.32,
+          "5": 0.1,
+          "7": 0.04,
+          "2": 0.48,
+          "4": 0.06
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_hop_count_distribution": {
+        "raw_counts": {
+          "0.0": 5,
+          "3.0": 10,
+          "2.0": 14,
+          "4.0": 6,
+          "5.0": 3,
+          "1.0": 12
+        },
+        "normalized": {
+          "0.0": 0.1,
+          "3.0": 0.2,
+          "2.0": 0.28,
+          "4.0": 0.12,
+          "5.0": 0.06,
+          "1.0": 0.24
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_length_distribution": {
+        "raw_counts": {
+          "0.0": 5,
+          "2550.0": 5,
+          "1950.0": 8,
+          "1350.0": 4,
+          "3450.0": 3,
+          "2700.0": 3,
+          "3150.0": 3,
+          "3300.0": 5,
+          "1800.0": 3,
+          "750.0": 5,
+          "3000.0": 1,
+          "600.0": 4,
+          "2400.0": 1
+        },
+        "normalized": {
+          "0.0": 0.1,
+          "2550.0": 0.1,
+          "1950.0": 0.16,
+          "1350.0": 0.08,
+          "3450.0": 0.06,
+          "2700.0": 0.06,
+          "3150.0": 0.06,
+          "3300.0": 0.1,
+          "1800.0": 0.06,
+          "750.0": 0.1,
+          "3000.0": 0.02,
+          "600.0": 0.08,
+          "2400.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "split_distribution": {
+        "raw_counts": {
+          "2": 23,
+          "0": 14,
+          "1": 13
+        },
+        "normalized": {
+          "2": 0.46,
+          "0": 0.28,
+          "1": 0.26
+        },
+        "sum_normalized": 1.0
+      },
+      "server_distribution": {
+        "raw_counts": {
+          "3": 32,
+          "1": 10,
+          "0": 5,
+          "2": 3
+        },
+        "normalized": {
+          "3": 0.64,
+          "1": 0.2,
+          "0": 0.1,
+          "2": 0.06
+        },
+        "sum_normalized": 1.0
+      },
+      "split_server_joint_distribution": {
+        "raw_counts": {
+          "(2, 3)": 16,
+          "(0, 1)": 5,
+          "(1, 3)": 9,
+          "(0, 3)": 7,
+          "(2, 0)": 2,
+          "(1, 0)": 2,
+          "(2, 2)": 1,
+          "(0, 2)": 1,
+          "(2, 1)": 4,
+          "(1, 2)": 1,
+          "(0, 0)": 1,
+          "(1, 1)": 1
+        },
+        "normalized": {
+          "(2, 3)": 0.32,
+          "(0, 1)": 0.1,
+          "(1, 3)": 0.18,
+          "(0, 3)": 0.14,
+          "(2, 0)": 0.04,
+          "(1, 0)": 0.04,
+          "(2, 2)": 0.02,
+          "(0, 2)": 0.02,
+          "(2, 1)": 0.08,
+          "(1, 2)": 0.02,
+          "(0, 0)": 0.02,
+          "(1, 1)": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "e_stratum_counts": {
+        "E=0": {
+          "evaluated": 36,
+          "admitted": 36,
+          "blocked": 0
+        },
+        "D=0": {
+          "evaluated": 36,
+          "admitted": 36,
+          "blocked": 0
+        },
+        "E=1": {
+          "evaluated": 14,
+          "admitted": 14,
+          "blocked": 0
+        },
+        "D=1": {
+          "evaluated": 7,
+          "admitted": 7,
+          "blocked": 0
+        },
+        "D=2": {
+          "evaluated": 7,
+          "admitted": 7,
+          "blocked": 0
+        }
+      },
+      "depth_stratum_counts": {},
+      "initial_event_queue_length": 70,
+      "consumed_request_count": 70,
+      "final_event_queue_length": 0,
+      "request_id_mismatch_count": 0,
+      "selected_mask_false_count": 0,
+      "invalid_path_after_legal_action_count": 0,
+      "modulation_reach_after_legal_action_count": 0,
+      "no_suitable_block_after_legal_action_count": 0,
+      "action_observation_consistency_error_count": 0,
+      "request_trace_hash": "cb31cb17d32d504873ce87557500e15c717f6681bd172929caf795ae28d8d509",
+      "selected_action_hash": "9b6b199ed26b059237c25d8067982ccdbbc5bd3dce40a9a34b7090b10987eb1d",
+      "config_hash": "a9b910666ca2079f4b33e51537a020ca997d999b32f204b94dde61797200616b",
+      "evaluator_code_hash": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+      "runner_code_hash": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+      "analyzer_code_hash": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+      "source_manifest": {
+        "sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+        "sa_hmarl/sa_hmarl/evaluation/run_strict_v13_multitopology_cside_verified.py": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+        "sa_hmarl/sa_hmarl/evaluation/analyze_strict_v13_multitopology_cside_verified.py": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+        "sa_hmarl/sa_hmarl/evaluation/diagnose_r_action_horizon_oracle.py": "0755899405bd6fa9f9f70a96b3cc8fd78fc2bdb59a799f2e2638f938cd7b7423",
+        "sa_hmarl/sa_hmarl/evaluation/generate_r_counterfactual_ranking_cost239_kpath50_hops_kprop30_h5.py": "1eaa3d1400ffffb3508eba94d8c6a803bb7da30804b54a41b381591166d3441d",
+        "sa_hmarl/sa_hmarl/baselines/rmsa_baselines.py": "d284ee2220fc5613754fa3e3f773400d70af05e6ead94853057f27583e6cf441",
+        "sa_hmarl/sa_hmarl/network/ksp.py": "816ea52353dca4d329e6521230d3ee4ff8b66d6203ef1f76cfed95b1a073ed6d",
+        "sa_hmarl/sa_hmarl/env/event_env.py": "7bf4dbe2628abec32c811fb687db3c59288116573a380ba39c4b59769e982662",
+        "sa_hmarl/sa_hmarl/env/action_mask.py": "c5cf40c34dfced5ddb54cbbb9748e7aafcf8e1589d509530f5bfe17a00742d67",
+        "sa_hmarl/sa_hmarl/env/observation_builder.py": "d9062b190fd1435d4d63f03b2a808548dd1d3b109d2c9f5b6c28b158d2821a31",
+        "sa_hmarl/sa_hmarl/agents/r_agent.py": "9924e02d63e19c88628d16a85412edb45359c23a50900d0cfd7ec4e00651d479",
+        "sa_hmarl/sa_hmarl/agents/ppo_agents.py": "079babd7a57771db1e07b2132900d0dec58a1840ed1d80a567d5b8417e34a8a6",
+        "sa_hmarl/sa_hmarl/agents/c_agent.py": "5c186b67fc103a70e3c892ab32b32eac07b0cc57d02367afa070a1fd2cd5545b",
+        "sa_hmarl/sa_hmarl/evaluation/offloading_baselines.py": "a71bd64c81020dd4dafc3073532b9390bc856cfe8ef36605dca132ca5e32b33f",
+        "sa_hmarl/sa_hmarl/evaluation/eval_long_horizon_system_comparison.py": "884f5f8ef6e2b1c5564f4684b445db1c194f86faa4a13e276552622a1a2e0064"
+      },
+      "checkpoint_sha256s": {
+        "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+        "ppo_c": "707b504e9b3dda7167f8769fb637042040489bbcd1918eba13e1bdce7f27ad22",
+        "df_c": "heuristic",
+        "strict_v13": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+      }
+    },
+    {
+      "schema_version": "v1.3-verified-2026-07-14",
+      "topology": "xlron_nsfnet_deeprmsa",
+      "seed": 3030,
+      "c_mode": "ppo_c",
+      "r_mode": "ksp_ff_highest",
+      "method_name": "ppo_c+ksp_ff_highest",
+      "evaluated_requests": 50,
+      "admitted": 50,
+      "blocked": 0,
+      "blocking_rate": 0.0,
+      "admitted_rate": 1.0,
+      "r_reached": 50,
+      "r_decisions": 50,
+      "r_no_valid_action": 0,
+      "c_no_valid_action": 0,
+      "c_no_valid_action_rate": 0.0,
+      "r_no_valid_action_rate": 0.0,
+      "c_raw_mask_empty": 0,
+      "c_effective_mask_empty": 0,
+      "c_action_not_in_effective_mask": 0,
+      "r_mask_empty": 0,
+      "server_overload": 0,
+      "overload_rate": 0.0,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "deadline_failure": 0,
+      "deadline_failure_rate": 0.0,
+      "other_failure": 0,
+      "other_rate": 0.0,
+      "failure_reason_distribution": {},
+      "avg_delay_ms": 11.912260234585894,
+      "delay_p50_ms": 15.29622392322937,
+      "delay_p90_ms": 21.617616673046268,
+      "delay_p95_ms": 22.829740492117246,
+      "avg_fs": 2.98,
+      "avg_decision_ms": 10.446351762511767,
+      "decision_p95_ms": 14.151590148685496,
+      "avg_c_policy_ms": 0.5121164384763688,
+      "avg_r_proposer_ms": 0.0,
+      "avg_ranker_or_ksp_ms": 0.01823150145355612,
+      "avg_total_policy_ms": 0.5303479399299249,
+      "avg_audit_ms": 2.6451431575696915,
+      "c_policy_ms_p95": 0.718827596574556,
+      "r_proposer_ms_p95": 0.0,
+      "ranker_or_ksp_ms_p95": 0.05144330207258452,
+      "avg_path_length_km": 1695.0,
+      "avg_hop_count": 1.56,
+      "ppo_agreement_rate": 0.38,
+      "ppo_agreement_numerator": 19,
+      "ppo_agreement_denominator": 50,
+      "admitted_path_idx_distribution": {
+        "raw_counts": {
+          "0": 49,
+          "1": 1
+        },
+        "normalized": {
+          "0": 0.98,
+          "1": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_block_start_distribution": {
+        "raw_counts": {
+          "0": 19,
+          "4": 1,
+          "8": 1,
+          "2": 1,
+          "6": 1,
+          "20": 2,
+          "16": 1,
+          "27": 1,
+          "23": 1,
+          "29": 2,
+          "40": 1,
+          "22": 2,
+          "45": 1,
+          "48": 1,
+          "25": 1,
+          "18": 1,
+          "51": 1,
+          "55": 1,
+          "57": 1,
+          "11": 1,
+          "62": 2,
+          "68": 1,
+          "28": 1,
+          "31": 1,
+          "26": 1,
+          "65": 1,
+          "33": 1,
+          "13": 1
+        },
+        "normalized": {
+          "0": 0.38,
+          "4": 0.02,
+          "8": 0.02,
+          "2": 0.02,
+          "6": 0.02,
+          "20": 0.04,
+          "16": 0.02,
+          "27": 0.02,
+          "23": 0.02,
+          "29": 0.04,
+          "40": 0.02,
+          "22": 0.04,
+          "45": 0.02,
+          "48": 0.02,
+          "25": 0.02,
+          "18": 0.02,
+          "51": 0.02,
+          "55": 0.02,
+          "57": 0.02,
+          "11": 0.02,
+          "62": 0.04,
+          "68": 0.02,
+          "28": 0.02,
+          "31": 0.02,
+          "26": 0.02,
+          "65": 0.02,
+          "33": 0.02,
+          "13": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_required_fs_distribution": {
+        "raw_counts": {
+          "2": 30,
+          "4": 3,
+          "12": 1,
+          "3": 11,
+          "11": 1,
+          "5": 3,
+          "6": 1
+        },
+        "normalized": {
+          "2": 0.6,
+          "4": 0.06,
+          "12": 0.02,
+          "3": 0.22,
+          "11": 0.02,
+          "5": 0.06,
+          "6": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_hop_count_distribution": {
+        "raw_counts": {
+          "0.0": 17,
+          "3.0": 14,
+          "2.0": 14,
+          "4.0": 1,
+          "1.0": 4
+        },
+        "normalized": {
+          "0.0": 0.34,
+          "3.0": 0.28,
+          "2.0": 0.28,
+          "4.0": 0.02,
+          "1.0": 0.08
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_path_length_distribution": {
+        "raw_counts": {
+          "0.0": 17,
+          "3450.0": 3,
+          "2400.0": 4,
+          "2700.0": 6,
+          "2850.0": 2,
+          "1950.0": 6,
+          "3300.0": 1,
+          "3600.0": 2,
+          "2550.0": 4,
+          "600.0": 2,
+          "3750.0": 2,
+          "1800.0": 1
+        },
+        "normalized": {
+          "0.0": 0.34,
+          "3450.0": 0.06,
+          "2400.0": 0.08,
+          "2700.0": 0.12,
+          "2850.0": 0.04,
+          "1950.0": 0.12,
+          "3300.0": 0.02,
+          "3600.0": 0.04,
+          "2550.0": 0.08,
+          "600.0": 0.04,
+          "3750.0": 0.04,
+          "1800.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_mod_distribution": {
+        "raw_counts": {
+          "QPSK": 12,
+          "BPSK": 35,
+          "8QAM": 3
+        },
+        "normalized": {
+          "QPSK": 0.24,
+          "BPSK": 0.7,
+          "8QAM": 0.06
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_idx_distribution": {
+        "raw_counts": {
+          "0": 49,
+          "1": 1
+        },
+        "normalized": {
+          "0": 0.98,
+          "1": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_mod_distribution": {
+        "raw_counts": {
+          "QPSK": 12,
+          "BPSK": 35,
+          "8QAM": 3
+        },
+        "normalized": {
+          "QPSK": 0.24,
+          "BPSK": 0.7,
+          "8QAM": 0.06
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_block_start_distribution": {
+        "raw_counts": {
+          "0": 19,
+          "4": 1,
+          "8": 1,
+          "2": 1,
+          "6": 1,
+          "20": 2,
+          "16": 1,
+          "27": 1,
+          "23": 1,
+          "29": 2,
+          "40": 1,
+          "22": 2,
+          "45": 1,
+          "48": 1,
+          "25": 1,
+          "18": 1,
+          "51": 1,
+          "55": 1,
+          "57": 1,
+          "11": 1,
+          "62": 2,
+          "68": 1,
+          "28": 1,
+          "31": 1,
+          "26": 1,
+          "65": 1,
+          "33": 1,
+          "13": 1
+        },
+        "normalized": {
+          "0": 0.38,
+          "4": 0.02,
+          "8": 0.02,
+          "2": 0.02,
+          "6": 0.02,
+          "20": 0.04,
+          "16": 0.02,
+          "27": 0.02,
+          "23": 0.02,
+          "29": 0.04,
+          "40": 0.02,
+          "22": 0.04,
+          "45": 0.02,
+          "48": 0.02,
+          "25": 0.02,
+          "18": 0.02,
+          "51": 0.02,
+          "55": 0.02,
+          "57": 0.02,
+          "11": 0.02,
+          "62": 0.04,
+          "68": 0.02,
+          "28": 0.02,
+          "31": 0.02,
+          "26": 0.02,
+          "65": 0.02,
+          "33": 0.02,
+          "13": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_required_fs_distribution": {
+        "raw_counts": {
+          "2": 30,
+          "4": 3,
+          "12": 1,
+          "3": 11,
+          "11": 1,
+          "5": 3,
+          "6": 1
+        },
+        "normalized": {
+          "2": 0.6,
+          "4": 0.06,
+          "12": 0.02,
+          "3": 0.22,
+          "11": 0.02,
+          "5": 0.06,
+          "6": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_hop_count_distribution": {
+        "raw_counts": {
+          "0.0": 17,
+          "3.0": 14,
+          "2.0": 14,
+          "4.0": 1,
+          "1.0": 4
+        },
+        "normalized": {
+          "0.0": 0.34,
+          "3.0": 0.28,
+          "2.0": 0.28,
+          "4.0": 0.02,
+          "1.0": 0.08
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_length_distribution": {
+        "raw_counts": {
+          "0.0": 17,
+          "3450.0": 3,
+          "2400.0": 4,
+          "2700.0": 6,
+          "2850.0": 2,
+          "1950.0": 6,
+          "3300.0": 1,
+          "3600.0": 2,
+          "2550.0": 4,
+          "600.0": 2,
+          "3750.0": 2,
+          "1800.0": 1
+        },
+        "normalized": {
+          "0.0": 0.34,
+          "3450.0": 0.06,
+          "2400.0": 0.08,
+          "2700.0": 0.12,
+          "2850.0": 0.04,
+          "1950.0": 0.12,
+          "3300.0": 0.02,
+          "3600.0": 0.04,
+          "2550.0": 0.08,
+          "600.0": 0.04,
+          "3750.0": 0.04,
+          "1800.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "split_distribution": {
+        "raw_counts": {
+          "2": 24,
+          "1": 18,
+          "0": 8
+        },
+        "normalized": {
+          "2": 0.48,
+          "1": 0.36,
+          "0": 0.16
+        },
+        "sum_normalized": 1.0
+      },
+      "server_distribution": {
+        "raw_counts": {
+          "3": 21,
+          "1": 14,
+          "2": 7,
+          "0": 8
+        },
+        "normalized": {
+          "3": 0.42,
+          "1": 0.28,
+          "2": 0.14,
+          "0": 0.16
+        },
+        "sum_normalized": 1.0
+      },
+      "split_server_joint_distribution": {
+        "raw_counts": {
+          "(2, 3)": 8,
+          "(1, 1)": 4,
+          "(0, 1)": 1,
+          "(1, 2)": 3,
+          "(0, 3)": 7,
+          "(1, 3)": 6,
+          "(2, 1)": 9,
+          "(1, 0)": 5,
+          "(2, 2)": 4,
+          "(2, 0)": 3
+        },
+        "normalized": {
+          "(2, 3)": 0.16,
+          "(1, 1)": 0.08,
+          "(0, 1)": 0.02,
+          "(1, 2)": 0.06,
+          "(0, 3)": 0.14,
+          "(1, 3)": 0.12,
+          "(2, 1)": 0.18,
+          "(1, 0)": 0.1,
+          "(2, 2)": 0.08,
+          "(2, 0)": 0.06
+        },
+        "sum_normalized": 1.0
+      },
+      "e_stratum_counts": {
+        "E=0": {
+          "evaluated": 39,
+          "admitted": 39,
+          "blocked": 0
+        },
+        "D=0": {
+          "evaluated": 39,
+          "admitted": 39,
+          "blocked": 0
+        },
+        "E=1": {
+          "evaluated": 11,
+          "admitted": 11,
+          "blocked": 0
+        },
+        "D=2": {
+          "evaluated": 8,
+          "admitted": 8,
+          "blocked": 0
+        },
+        "D=1": {
+          "evaluated": 3,
+          "admitted": 3,
+          "blocked": 0
+        }
+      },
+      "depth_stratum_counts": {},
+      "initial_event_queue_length": 70,
+      "consumed_request_count": 70,
+      "final_event_queue_length": 0,
+      "request_id_mismatch_count": 0,
+      "selected_mask_false_count": 0,
+      "invalid_path_after_legal_action_count": 0,
+      "modulation_reach_after_legal_action_count": 0,
+      "no_suitable_block_after_legal_action_count": 0,
+      "action_observation_consistency_error_count": 0,
+      "request_trace_hash": "cb31cb17d32d504873ce87557500e15c717f6681bd172929caf795ae28d8d509",
+      "selected_action_hash": "6def16a6520b3387efbe6daf187181f37977f759f0435dc90070d9dae268b5fc",
+      "config_hash": "a9b910666ca2079f4b33e51537a020ca997d999b32f204b94dde61797200616b",
+      "evaluator_code_hash": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+      "runner_code_hash": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+      "analyzer_code_hash": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+      "source_manifest": {
+        "sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+        "sa_hmarl/sa_hmarl/evaluation/run_strict_v13_multitopology_cside_verified.py": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+        "sa_hmarl/sa_hmarl/evaluation/analyze_strict_v13_multitopology_cside_verified.py": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+        "sa_hmarl/sa_hmarl/evaluation/diagnose_r_action_horizon_oracle.py": "0755899405bd6fa9f9f70a96b3cc8fd78fc2bdb59a799f2e2638f938cd7b7423",
+        "sa_hmarl/sa_hmarl/evaluation/generate_r_counterfactual_ranking_cost239_kpath50_hops_kprop30_h5.py": "1eaa3d1400ffffb3508eba94d8c6a803bb7da30804b54a41b381591166d3441d",
+        "sa_hmarl/sa_hmarl/baselines/rmsa_baselines.py": "d284ee2220fc5613754fa3e3f773400d70af05e6ead94853057f27583e6cf441",
+        "sa_hmarl/sa_hmarl/network/ksp.py": "816ea52353dca4d329e6521230d3ee4ff8b66d6203ef1f76cfed95b1a073ed6d",
+        "sa_hmarl/sa_hmarl/env/event_env.py": "7bf4dbe2628abec32c811fb687db3c59288116573a380ba39c4b59769e982662",
+        "sa_hmarl/sa_hmarl/env/action_mask.py": "c5cf40c34dfced5ddb54cbbb9748e7aafcf8e1589d509530f5bfe17a00742d67",
+        "sa_hmarl/sa_hmarl/env/observation_builder.py": "d9062b190fd1435d4d63f03b2a808548dd1d3b109d2c9f5b6c28b158d2821a31",
+        "sa_hmarl/sa_hmarl/agents/r_agent.py": "9924e02d63e19c88628d16a85412edb45359c23a50900d0cfd7ec4e00651d479",
+        "sa_hmarl/sa_hmarl/agents/ppo_agents.py": "079babd7a57771db1e07b2132900d0dec58a1840ed1d80a567d5b8417e34a8a6",
+        "sa_hmarl/sa_hmarl/agents/c_agent.py": "5c186b67fc103a70e3c892ab32b32eac07b0cc57d02367afa070a1fd2cd5545b",
+        "sa_hmarl/sa_hmarl/evaluation/offloading_baselines.py": "a71bd64c81020dd4dafc3073532b9390bc856cfe8ef36605dca132ca5e32b33f",
+        "sa_hmarl/sa_hmarl/evaluation/eval_long_horizon_system_comparison.py": "884f5f8ef6e2b1c5564f4684b445db1c194f86faa4a13e276552622a1a2e0064"
+      },
+      "checkpoint_sha256s": {
+        "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+        "ppo_c": "707b504e9b3dda7167f8769fb637042040489bbcd1918eba13e1bdce7f27ad22",
+        "df_c": "heuristic",
+        "strict_v13": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+      }
+    },
+    {
+      "schema_version": "v1.3-verified-2026-07-14",
+      "topology": "xlron_nsfnet_deeprmsa",
+      "seed": 3030,
+      "c_mode": "ppo_c",
+      "r_mode": "strict_v13",
+      "method_name": "ppo_c+strict_v13",
+      "evaluated_requests": 50,
+      "admitted": 50,
+      "blocked": 0,
+      "blocking_rate": 0.0,
+      "admitted_rate": 1.0,
+      "r_reached": 50,
+      "r_decisions": 50,
+      "r_no_valid_action": 0,
+      "c_no_valid_action": 0,
+      "c_no_valid_action_rate": 0.0,
+      "r_no_valid_action_rate": 0.0,
+      "c_raw_mask_empty": 0,
+      "c_effective_mask_empty": 0,
+      "c_action_not_in_effective_mask": 0,
+      "r_mask_empty": 0,
+      "server_overload": 0,
+      "overload_rate": 0.0,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "deadline_failure": 0,
+      "deadline_failure_rate": 0.0,
+      "other_failure": 0,
+      "other_rate": 0.0,
+      "failure_reason_distribution": {},
+      "avg_delay_ms": 16.028585391935003,
+      "delay_p50_ms": 18.82439666687599,
+      "delay_p90_ms": 25.06708399397461,
+      "delay_p95_ms": 25.758356938399206,
+      "avg_fs": 2.86,
+      "avg_decision_ms": 16.460654837428592,
+      "decision_p95_ms": 22.36267655389383,
+      "avg_c_policy_ms": 0.6561853969469666,
+      "avg_r_proposer_ms": 1.7502315441379324,
+      "avg_ranker_or_ksp_ms": 1.9924062211066484,
+      "avg_total_policy_ms": 4.3988231621915475,
+      "avg_audit_ms": 3.2208802801324055,
+      "c_policy_ms_p95": 0.8881404442945494,
+      "r_proposer_ms_p95": 2.593565545976162,
+      "ranker_or_ksp_ms_p95": 3.6373077062307853,
+      "avg_path_length_km": 2364.0,
+      "avg_hop_count": 2.34,
+      "ppo_agreement_rate": 0.16,
+      "ppo_agreement_numerator": 8,
+      "ppo_agreement_denominator": 50,
+      "admitted_path_idx_distribution": {
+        "raw_counts": {
+          "0": 29,
+          "3": 5,
+          "7": 1,
+          "5": 1,
+          "4": 2,
+          "1": 7,
+          "2": 5
+        },
+        "normalized": {
+          "0": 0.58,
+          "3": 0.1,
+          "7": 0.02,
+          "5": 0.02,
+          "4": 0.04,
+          "1": 0.14,
+          "2": 0.1
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_block_start_distribution": {
+        "raw_counts": {
+          "0": 10,
+          "21": 1,
+          "25": 1,
+          "26": 2,
+          "29": 1,
+          "14": 2,
+          "33": 2,
+          "31": 2,
+          "16": 6,
+          "4": 1,
+          "35": 2,
+          "42": 2,
+          "7": 1,
+          "18": 3,
+          "44": 1,
+          "39": 2,
+          "41": 1,
+          "20": 1,
+          "46": 1,
+          "12": 2,
+          "50": 1,
+          "9": 1,
+          "53": 1,
+          "49": 1,
+          "10": 1,
+          "57": 1
+        },
+        "normalized": {
+          "0": 0.2,
+          "21": 0.02,
+          "25": 0.02,
+          "26": 0.04,
+          "29": 0.02,
+          "14": 0.04,
+          "33": 0.04,
+          "31": 0.04,
+          "16": 0.12,
+          "4": 0.02,
+          "35": 0.04,
+          "42": 0.04,
+          "7": 0.02,
+          "18": 0.06,
+          "44": 0.02,
+          "39": 0.04,
+          "41": 0.02,
+          "20": 0.02,
+          "46": 0.02,
+          "12": 0.04,
+          "50": 0.02,
+          "9": 0.02,
+          "53": 0.02,
+          "49": 0.02,
+          "10": 0.02,
+          "57": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_required_fs_distribution": {
+        "raw_counts": {
+          "2": 28,
+          "5": 2,
+          "6": 2,
+          "3": 10,
+          "4": 7,
+          "7": 1
+        },
+        "normalized": {
+          "2": 0.56,
+          "5": 0.04,
+          "6": 0.04,
+          "3": 0.2,
+          "4": 0.14,
+          "7": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_hop_count_distribution": {
+        "raw_counts": {
+          "0.0": 9,
+          "4.0": 14,
+          "2.0": 7,
+          "5.0": 2,
+          "3.0": 7,
+          "1.0": 10,
+          "6.0": 1
+        },
+        "normalized": {
+          "0.0": 0.18,
+          "4.0": 0.28,
+          "2.0": 0.14,
+          "5.0": 0.04,
+          "3.0": 0.14,
+          "1.0": 0.2,
+          "6.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_path_length_distribution": {
+        "raw_counts": {
+          "0.0": 9,
+          "3750.0": 10,
+          "1800.0": 3,
+          "2700.0": 1,
+          "3450.0": 1,
+          "3600.0": 4,
+          "3300.0": 2,
+          "3000.0": 1,
+          "3900.0": 6,
+          "1950.0": 3,
+          "600.0": 1,
+          "3150.0": 1,
+          "2550.0": 1,
+          "1500.0": 3,
+          "1650.0": 2,
+          "750.0": 1,
+          "1050.0": 1
+        },
+        "normalized": {
+          "0.0": 0.18,
+          "3750.0": 0.2,
+          "1800.0": 0.06,
+          "2700.0": 0.02,
+          "3450.0": 0.02,
+          "3600.0": 0.08,
+          "3300.0": 0.04,
+          "3000.0": 0.02,
+          "3900.0": 0.12,
+          "1950.0": 0.06,
+          "600.0": 0.02,
+          "3150.0": 0.02,
+          "2550.0": 0.02,
+          "1500.0": 0.06,
+          "1650.0": 0.04,
+          "750.0": 0.02,
+          "1050.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_mod_distribution": {
+        "raw_counts": {
+          "16QAM": 8,
+          "BPSK": 29,
+          "QPSK": 11,
+          "8QAM": 2
+        },
+        "normalized": {
+          "16QAM": 0.16,
+          "BPSK": 0.58,
+          "QPSK": 0.22,
+          "8QAM": 0.04
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_idx_distribution": {
+        "raw_counts": {
+          "0": 29,
+          "3": 5,
+          "7": 1,
+          "5": 1,
+          "4": 2,
+          "1": 7,
+          "2": 5
+        },
+        "normalized": {
+          "0": 0.58,
+          "3": 0.1,
+          "7": 0.02,
+          "5": 0.02,
+          "4": 0.04,
+          "1": 0.14,
+          "2": 0.1
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_mod_distribution": {
+        "raw_counts": {
+          "16QAM": 8,
+          "BPSK": 29,
+          "QPSK": 11,
+          "8QAM": 2
+        },
+        "normalized": {
+          "16QAM": 0.16,
+          "BPSK": 0.58,
+          "QPSK": 0.22,
+          "8QAM": 0.04
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_block_start_distribution": {
+        "raw_counts": {
+          "0": 10,
+          "21": 1,
+          "25": 1,
+          "26": 2,
+          "29": 1,
+          "14": 2,
+          "33": 2,
+          "31": 2,
+          "16": 6,
+          "4": 1,
+          "35": 2,
+          "42": 2,
+          "7": 1,
+          "18": 3,
+          "44": 1,
+          "39": 2,
+          "41": 1,
+          "20": 1,
+          "46": 1,
+          "12": 2,
+          "50": 1,
+          "9": 1,
+          "53": 1,
+          "49": 1,
+          "10": 1,
+          "57": 1
+        },
+        "normalized": {
+          "0": 0.2,
+          "21": 0.02,
+          "25": 0.02,
+          "26": 0.04,
+          "29": 0.02,
+          "14": 0.04,
+          "33": 0.04,
+          "31": 0.04,
+          "16": 0.12,
+          "4": 0.02,
+          "35": 0.04,
+          "42": 0.04,
+          "7": 0.02,
+          "18": 0.06,
+          "44": 0.02,
+          "39": 0.04,
+          "41": 0.02,
+          "20": 0.02,
+          "46": 0.02,
+          "12": 0.04,
+          "50": 0.02,
+          "9": 0.02,
+          "53": 0.02,
+          "49": 0.02,
+          "10": 0.02,
+          "57": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_required_fs_distribution": {
+        "raw_counts": {
+          "2": 28,
+          "5": 2,
+          "6": 2,
+          "3": 10,
+          "4": 7,
+          "7": 1
+        },
+        "normalized": {
+          "2": 0.56,
+          "5": 0.04,
+          "6": 0.04,
+          "3": 0.2,
+          "4": 0.14,
+          "7": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_hop_count_distribution": {
+        "raw_counts": {
+          "0.0": 9,
+          "4.0": 14,
+          "2.0": 7,
+          "5.0": 2,
+          "3.0": 7,
+          "1.0": 10,
+          "6.0": 1
+        },
+        "normalized": {
+          "0.0": 0.18,
+          "4.0": 0.28,
+          "2.0": 0.14,
+          "5.0": 0.04,
+          "3.0": 0.14,
+          "1.0": 0.2,
+          "6.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_length_distribution": {
+        "raw_counts": {
+          "0.0": 9,
+          "3750.0": 10,
+          "1800.0": 3,
+          "2700.0": 1,
+          "3450.0": 1,
+          "3600.0": 4,
+          "3300.0": 2,
+          "3000.0": 1,
+          "3900.0": 6,
+          "1950.0": 3,
+          "600.0": 1,
+          "3150.0": 1,
+          "2550.0": 1,
+          "1500.0": 3,
+          "1650.0": 2,
+          "750.0": 1,
+          "1050.0": 1
+        },
+        "normalized": {
+          "0.0": 0.18,
+          "3750.0": 0.2,
+          "1800.0": 0.06,
+          "2700.0": 0.02,
+          "3450.0": 0.02,
+          "3600.0": 0.08,
+          "3300.0": 0.04,
+          "3000.0": 0.02,
+          "3900.0": 0.12,
+          "1950.0": 0.06,
+          "600.0": 0.02,
+          "3150.0": 0.02,
+          "2550.0": 0.02,
+          "1500.0": 0.06,
+          "1650.0": 0.04,
+          "750.0": 0.02,
+          "1050.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "split_distribution": {
+        "raw_counts": {
+          "2": 17,
+          "1": 20,
+          "0": 13
+        },
+        "normalized": {
+          "2": 0.34,
+          "1": 0.4,
+          "0": 0.26
+        },
+        "sum_normalized": 1.0
+      },
+      "server_distribution": {
+        "raw_counts": {
+          "3": 21,
+          "2": 15,
+          "0": 12,
+          "1": 2
+        },
+        "normalized": {
+          "3": 0.42,
+          "2": 0.3,
+          "0": 0.24,
+          "1": 0.04
+        },
+        "sum_normalized": 1.0
+      },
+      "split_server_joint_distribution": {
+        "raw_counts": {
+          "(2, 3)": 8,
+          "(1, 3)": 8,
+          "(0, 3)": 5,
+          "(1, 2)": 5,
+          "(1, 0)": 5,
+          "(2, 2)": 7,
+          "(1, 1)": 2,
+          "(0, 2)": 3,
+          "(0, 0)": 5,
+          "(2, 0)": 2
+        },
+        "normalized": {
+          "(2, 3)": 0.16,
+          "(1, 3)": 0.16,
+          "(0, 3)": 0.1,
+          "(1, 2)": 0.1,
+          "(1, 0)": 0.1,
+          "(2, 2)": 0.14,
+          "(1, 1)": 0.04,
+          "(0, 2)": 0.06,
+          "(0, 0)": 0.1,
+          "(2, 0)": 0.04
+        },
+        "sum_normalized": 1.0
+      },
+      "e_stratum_counts": {
+        "E=0": {
+          "evaluated": 42,
+          "admitted": 42,
+          "blocked": 0
+        },
+        "D=0": {
+          "evaluated": 42,
+          "admitted": 42,
+          "blocked": 0
+        },
+        "E=1": {
+          "evaluated": 8,
+          "admitted": 8,
+          "blocked": 0
+        },
+        "D=1": {
+          "evaluated": 5,
+          "admitted": 5,
+          "blocked": 0
+        },
+        "D=2": {
+          "evaluated": 3,
+          "admitted": 3,
+          "blocked": 0
+        }
+      },
+      "depth_stratum_counts": {},
+      "initial_event_queue_length": 70,
+      "consumed_request_count": 70,
+      "final_event_queue_length": 0,
+      "request_id_mismatch_count": 0,
+      "selected_mask_false_count": 0,
+      "invalid_path_after_legal_action_count": 0,
+      "modulation_reach_after_legal_action_count": 0,
+      "no_suitable_block_after_legal_action_count": 0,
+      "action_observation_consistency_error_count": 0,
+      "request_trace_hash": "cb31cb17d32d504873ce87557500e15c717f6681bd172929caf795ae28d8d509",
+      "selected_action_hash": "ca36eb2688a967bc735d6d94227602b255cbb9a42bd65597e35109d65df16e62",
+      "config_hash": "a9b910666ca2079f4b33e51537a020ca997d999b32f204b94dde61797200616b",
+      "evaluator_code_hash": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+      "runner_code_hash": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+      "analyzer_code_hash": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+      "source_manifest": {
+        "sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+        "sa_hmarl/sa_hmarl/evaluation/run_strict_v13_multitopology_cside_verified.py": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+        "sa_hmarl/sa_hmarl/evaluation/analyze_strict_v13_multitopology_cside_verified.py": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+        "sa_hmarl/sa_hmarl/evaluation/diagnose_r_action_horizon_oracle.py": "0755899405bd6fa9f9f70a96b3cc8fd78fc2bdb59a799f2e2638f938cd7b7423",
+        "sa_hmarl/sa_hmarl/evaluation/generate_r_counterfactual_ranking_cost239_kpath50_hops_kprop30_h5.py": "1eaa3d1400ffffb3508eba94d8c6a803bb7da30804b54a41b381591166d3441d",
+        "sa_hmarl/sa_hmarl/baselines/rmsa_baselines.py": "d284ee2220fc5613754fa3e3f773400d70af05e6ead94853057f27583e6cf441",
+        "sa_hmarl/sa_hmarl/network/ksp.py": "816ea52353dca4d329e6521230d3ee4ff8b66d6203ef1f76cfed95b1a073ed6d",
+        "sa_hmarl/sa_hmarl/env/event_env.py": "7bf4dbe2628abec32c811fb687db3c59288116573a380ba39c4b59769e982662",
+        "sa_hmarl/sa_hmarl/env/action_mask.py": "c5cf40c34dfced5ddb54cbbb9748e7aafcf8e1589d509530f5bfe17a00742d67",
+        "sa_hmarl/sa_hmarl/env/observation_builder.py": "d9062b190fd1435d4d63f03b2a808548dd1d3b109d2c9f5b6c28b158d2821a31",
+        "sa_hmarl/sa_hmarl/agents/r_agent.py": "9924e02d63e19c88628d16a85412edb45359c23a50900d0cfd7ec4e00651d479",
+        "sa_hmarl/sa_hmarl/agents/ppo_agents.py": "079babd7a57771db1e07b2132900d0dec58a1840ed1d80a567d5b8417e34a8a6",
+        "sa_hmarl/sa_hmarl/agents/c_agent.py": "5c186b67fc103a70e3c892ab32b32eac07b0cc57d02367afa070a1fd2cd5545b",
+        "sa_hmarl/sa_hmarl/evaluation/offloading_baselines.py": "a71bd64c81020dd4dafc3073532b9390bc856cfe8ef36605dca132ca5e32b33f",
+        "sa_hmarl/sa_hmarl/evaluation/eval_long_horizon_system_comparison.py": "884f5f8ef6e2b1c5564f4684b445db1c194f86faa4a13e276552622a1a2e0064"
+      },
+      "checkpoint_sha256s": {
+        "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+        "ppo_c": "707b504e9b3dda7167f8769fb637042040489bbcd1918eba13e1bdce7f27ad22",
+        "df_c": "heuristic",
+        "strict_v13": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+      },
+      "avg_candidate_count": 8.38,
+      "candidate_count_p95": 20.0,
+      "fallback_rate": 0.0,
+      "ranker_top1_in_candidates_rate": 1.0,
+      "avg_score_margin": 0.04528559811413288,
+      "score_margin_p95": 0.14689175486564635,
+      "feature_finite_rate": 1.0,
+      "nan_inf_feature_count": 0,
+      "nan_inf_score_count": 0
+    },
+    {
+      "schema_version": "v1.3-verified-2026-07-14",
+      "topology": "xlron_nsfnet_deeprmsa",
+      "seed": 3030,
+      "c_mode": "df_c",
+      "r_mode": "ppo_r_top1",
+      "method_name": "df_c+ppo_r_top1",
+      "evaluated_requests": 50,
+      "admitted": 50,
+      "blocked": 0,
+      "blocking_rate": 0.0,
+      "admitted_rate": 1.0,
+      "r_reached": 50,
+      "r_decisions": 50,
+      "r_no_valid_action": 0,
+      "c_no_valid_action": 0,
+      "c_no_valid_action_rate": 0.0,
+      "r_no_valid_action_rate": 0.0,
+      "c_raw_mask_empty": 0,
+      "c_effective_mask_empty": 0,
+      "c_action_not_in_effective_mask": 0,
+      "r_mask_empty": 0,
+      "server_overload": 0,
+      "overload_rate": 0.0,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "deadline_failure": 0,
+      "deadline_failure_rate": 0.0,
+      "other_failure": 0,
+      "other_rate": 0.0,
+      "failure_reason_distribution": {},
+      "avg_delay_ms": 12.288632203600507,
+      "delay_p50_ms": 12.159726295316027,
+      "delay_p90_ms": 21.848004811314254,
+      "delay_p95_ms": 23.040076667131604,
+      "avg_fs": 3.44,
+      "avg_decision_ms": 14.012649462092668,
+      "decision_p95_ms": 17.39619385334663,
+      "avg_c_policy_ms": 0.14248895982746035,
+      "avg_r_proposer_ms": 0.0,
+      "avg_ranker_or_ksp_ms": 0.0,
+      "avg_total_policy_ms": 0.14248895982746035,
+      "avg_audit_ms": 4.244440118782222,
+      "c_policy_ms_p95": 0.26172044308623293,
+      "r_proposer_ms_p95": 0.0,
+      "ranker_or_ksp_ms_p95": 0.0,
+      "avg_path_length_km": 1881.0,
+      "avg_hop_count": 1.54,
+      "ppo_agreement_rate": 1.0,
+      "ppo_agreement_numerator": 50,
+      "ppo_agreement_denominator": 50,
+      "admitted_path_idx_distribution": {
+        "raw_counts": {
+          "0": 49,
+          "3": 1
+        },
+        "normalized": {
+          "0": 0.98,
+          "3": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_block_start_distribution": {
+        "raw_counts": {
+          "13": 1,
+          "11": 1,
+          "9": 1,
+          "16": 2,
+          "15": 2,
+          "21": 5,
+          "32": 1,
+          "18": 2,
+          "19": 1,
+          "2": 1,
+          "35": 1,
+          "44": 2,
+          "24": 3,
+          "23": 2,
+          "49": 1,
+          "27": 3,
+          "52": 1,
+          "57": 1,
+          "12": 1,
+          "30": 1,
+          "60": 1,
+          "20": 1,
+          "63": 1,
+          "31": 2,
+          "67": 1,
+          "22": 1,
+          "0": 1,
+          "34": 2,
+          "4": 2,
+          "36": 1,
+          "39": 1,
+          "46": 1,
+          "50": 1,
+          "6": 1
+        },
+        "normalized": {
+          "13": 0.02,
+          "11": 0.02,
+          "9": 0.02,
+          "16": 0.04,
+          "15": 0.04,
+          "21": 0.1,
+          "32": 0.02,
+          "18": 0.04,
+          "19": 0.02,
+          "2": 0.02,
+          "35": 0.02,
+          "44": 0.04,
+          "24": 0.06,
+          "23": 0.04,
+          "49": 0.02,
+          "27": 0.06,
+          "52": 0.02,
+          "57": 0.02,
+          "12": 0.02,
+          "30": 0.02,
+          "60": 0.02,
+          "20": 0.02,
+          "63": 0.02,
+          "31": 0.04,
+          "67": 0.02,
+          "22": 0.02,
+          "0": 0.02,
+          "34": 0.04,
+          "4": 0.04,
+          "36": 0.02,
+          "39": 0.02,
+          "46": 0.02,
+          "50": 0.02,
+          "6": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_required_fs_distribution": {
+        "raw_counts": {
+          "3": 21,
+          "5": 5,
+          "6": 1,
+          "11": 1,
+          "2": 13,
+          "9": 1,
+          "4": 8
+        },
+        "normalized": {
+          "3": 0.42,
+          "5": 0.1,
+          "6": 0.02,
+          "11": 0.02,
+          "2": 0.26,
+          "9": 0.02,
+          "4": 0.16
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_hop_count_distribution": {
+        "raw_counts": {
+          "1.0": 35,
+          "3.0": 10,
+          "4.0": 1,
+          "2.0": 4
+        },
+        "normalized": {
+          "1.0": 0.7,
+          "3.0": 0.2,
+          "4.0": 0.02,
+          "2.0": 0.08
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_path_length_distribution": {
+        "raw_counts": {
+          "750.0": 3,
+          "3900.0": 2,
+          "1800.0": 4,
+          "2400.0": 4,
+          "600.0": 15,
+          "3450.0": 6,
+          "3600.0": 2,
+          "2550.0": 1,
+          "1050.0": 3,
+          "3150.0": 2,
+          "3750.0": 1,
+          "2850.0": 1,
+          "1950.0": 6
+        },
+        "normalized": {
+          "750.0": 0.06,
+          "3900.0": 0.04,
+          "1800.0": 0.08,
+          "2400.0": 0.08,
+          "600.0": 0.3,
+          "3450.0": 0.12,
+          "3600.0": 0.04,
+          "2550.0": 0.02,
+          "1050.0": 0.06,
+          "3150.0": 0.04,
+          "3750.0": 0.02,
+          "2850.0": 0.02,
+          "1950.0": 0.12
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_mod_distribution": {
+        "raw_counts": {
+          "QPSK": 16,
+          "BPSK": 34
+        },
+        "normalized": {
+          "QPSK": 0.32,
+          "BPSK": 0.68
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_idx_distribution": {
+        "raw_counts": {
+          "0": 49,
+          "3": 1
+        },
+        "normalized": {
+          "0": 0.98,
+          "3": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_mod_distribution": {
+        "raw_counts": {
+          "QPSK": 16,
+          "BPSK": 34
+        },
+        "normalized": {
+          "QPSK": 0.32,
+          "BPSK": 0.68
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_block_start_distribution": {
+        "raw_counts": {
+          "13": 1,
+          "11": 1,
+          "9": 1,
+          "16": 2,
+          "15": 2,
+          "21": 5,
+          "32": 1,
+          "18": 2,
+          "19": 1,
+          "2": 1,
+          "35": 1,
+          "44": 2,
+          "24": 3,
+          "23": 2,
+          "49": 1,
+          "27": 3,
+          "52": 1,
+          "57": 1,
+          "12": 1,
+          "30": 1,
+          "60": 1,
+          "20": 1,
+          "63": 1,
+          "31": 2,
+          "67": 1,
+          "22": 1,
+          "0": 1,
+          "34": 2,
+          "4": 2,
+          "36": 1,
+          "39": 1,
+          "46": 1,
+          "50": 1,
+          "6": 1
+        },
+        "normalized": {
+          "13": 0.02,
+          "11": 0.02,
+          "9": 0.02,
+          "16": 0.04,
+          "15": 0.04,
+          "21": 0.1,
+          "32": 0.02,
+          "18": 0.04,
+          "19": 0.02,
+          "2": 0.02,
+          "35": 0.02,
+          "44": 0.04,
+          "24": 0.06,
+          "23": 0.04,
+          "49": 0.02,
+          "27": 0.06,
+          "52": 0.02,
+          "57": 0.02,
+          "12": 0.02,
+          "30": 0.02,
+          "60": 0.02,
+          "20": 0.02,
+          "63": 0.02,
+          "31": 0.04,
+          "67": 0.02,
+          "22": 0.02,
+          "0": 0.02,
+          "34": 0.04,
+          "4": 0.04,
+          "36": 0.02,
+          "39": 0.02,
+          "46": 0.02,
+          "50": 0.02,
+          "6": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_required_fs_distribution": {
+        "raw_counts": {
+          "3": 21,
+          "5": 5,
+          "6": 1,
+          "11": 1,
+          "2": 13,
+          "9": 1,
+          "4": 8
+        },
+        "normalized": {
+          "3": 0.42,
+          "5": 0.1,
+          "6": 0.02,
+          "11": 0.02,
+          "2": 0.26,
+          "9": 0.02,
+          "4": 0.16
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_hop_count_distribution": {
+        "raw_counts": {
+          "1.0": 35,
+          "3.0": 10,
+          "4.0": 1,
+          "2.0": 4
+        },
+        "normalized": {
+          "1.0": 0.7,
+          "3.0": 0.2,
+          "4.0": 0.02,
+          "2.0": 0.08
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_length_distribution": {
+        "raw_counts": {
+          "750.0": 3,
+          "3900.0": 2,
+          "1800.0": 4,
+          "2400.0": 4,
+          "600.0": 15,
+          "3450.0": 6,
+          "3600.0": 2,
+          "2550.0": 1,
+          "1050.0": 3,
+          "3150.0": 2,
+          "3750.0": 1,
+          "2850.0": 1,
+          "1950.0": 6
+        },
+        "normalized": {
+          "750.0": 0.06,
+          "3900.0": 0.04,
+          "1800.0": 0.08,
+          "2400.0": 0.08,
+          "600.0": 0.3,
+          "3450.0": 0.12,
+          "3600.0": 0.04,
+          "2550.0": 0.02,
+          "1050.0": 0.06,
+          "3150.0": 0.04,
+          "3750.0": 0.02,
+          "2850.0": 0.02,
+          "1950.0": 0.12
+        },
+        "sum_normalized": 1.0
+      },
+      "split_distribution": {
+        "raw_counts": {
+          "2": 50
+        },
+        "normalized": {
+          "2": 1.0
+        },
+        "sum_normalized": 1.0
+      },
+      "server_distribution": {
+        "raw_counts": {
+          "1": 12,
+          "0": 14,
+          "2": 14,
+          "3": 10
+        },
+        "normalized": {
+          "1": 0.24,
+          "0": 0.28,
+          "2": 0.28,
+          "3": 0.2
+        },
+        "sum_normalized": 1.0
+      },
+      "split_server_joint_distribution": {
+        "raw_counts": {
+          "(2, 1)": 12,
+          "(2, 0)": 14,
+          "(2, 2)": 14,
+          "(2, 3)": 10
+        },
+        "normalized": {
+          "(2, 1)": 0.24,
+          "(2, 0)": 0.28,
+          "(2, 2)": 0.28,
+          "(2, 3)": 0.2
+        },
+        "sum_normalized": 1.0
+      },
+      "e_stratum_counts": {
+        "E=0": {
+          "evaluated": 50,
+          "admitted": 50,
+          "blocked": 0
+        },
+        "D=0": {
+          "evaluated": 50,
+          "admitted": 50,
+          "blocked": 0
+        }
+      },
+      "depth_stratum_counts": {},
+      "initial_event_queue_length": 70,
+      "consumed_request_count": 70,
+      "final_event_queue_length": 0,
+      "request_id_mismatch_count": 0,
+      "selected_mask_false_count": 0,
+      "invalid_path_after_legal_action_count": 0,
+      "modulation_reach_after_legal_action_count": 0,
+      "no_suitable_block_after_legal_action_count": 0,
+      "action_observation_consistency_error_count": 0,
+      "request_trace_hash": "cb31cb17d32d504873ce87557500e15c717f6681bd172929caf795ae28d8d509",
+      "selected_action_hash": "6493659a51669c792d8c1ac5286641882f9baa4ea96baa784ceb68cddb5cb7e8",
+      "config_hash": "a9b910666ca2079f4b33e51537a020ca997d999b32f204b94dde61797200616b",
+      "evaluator_code_hash": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+      "runner_code_hash": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+      "analyzer_code_hash": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+      "source_manifest": {
+        "sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+        "sa_hmarl/sa_hmarl/evaluation/run_strict_v13_multitopology_cside_verified.py": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+        "sa_hmarl/sa_hmarl/evaluation/analyze_strict_v13_multitopology_cside_verified.py": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+        "sa_hmarl/sa_hmarl/evaluation/diagnose_r_action_horizon_oracle.py": "0755899405bd6fa9f9f70a96b3cc8fd78fc2bdb59a799f2e2638f938cd7b7423",
+        "sa_hmarl/sa_hmarl/evaluation/generate_r_counterfactual_ranking_cost239_kpath50_hops_kprop30_h5.py": "1eaa3d1400ffffb3508eba94d8c6a803bb7da30804b54a41b381591166d3441d",
+        "sa_hmarl/sa_hmarl/baselines/rmsa_baselines.py": "d284ee2220fc5613754fa3e3f773400d70af05e6ead94853057f27583e6cf441",
+        "sa_hmarl/sa_hmarl/network/ksp.py": "816ea52353dca4d329e6521230d3ee4ff8b66d6203ef1f76cfed95b1a073ed6d",
+        "sa_hmarl/sa_hmarl/env/event_env.py": "7bf4dbe2628abec32c811fb687db3c59288116573a380ba39c4b59769e982662",
+        "sa_hmarl/sa_hmarl/env/action_mask.py": "c5cf40c34dfced5ddb54cbbb9748e7aafcf8e1589d509530f5bfe17a00742d67",
+        "sa_hmarl/sa_hmarl/env/observation_builder.py": "d9062b190fd1435d4d63f03b2a808548dd1d3b109d2c9f5b6c28b158d2821a31",
+        "sa_hmarl/sa_hmarl/agents/r_agent.py": "9924e02d63e19c88628d16a85412edb45359c23a50900d0cfd7ec4e00651d479",
+        "sa_hmarl/sa_hmarl/agents/ppo_agents.py": "079babd7a57771db1e07b2132900d0dec58a1840ed1d80a567d5b8417e34a8a6",
+        "sa_hmarl/sa_hmarl/agents/c_agent.py": "5c186b67fc103a70e3c892ab32b32eac07b0cc57d02367afa070a1fd2cd5545b",
+        "sa_hmarl/sa_hmarl/evaluation/offloading_baselines.py": "a71bd64c81020dd4dafc3073532b9390bc856cfe8ef36605dca132ca5e32b33f",
+        "sa_hmarl/sa_hmarl/evaluation/eval_long_horizon_system_comparison.py": "884f5f8ef6e2b1c5564f4684b445db1c194f86faa4a13e276552622a1a2e0064"
+      },
+      "checkpoint_sha256s": {
+        "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+        "ppo_c": "707b504e9b3dda7167f8769fb637042040489bbcd1918eba13e1bdce7f27ad22",
+        "df_c": "heuristic",
+        "strict_v13": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+      }
+    },
+    {
+      "schema_version": "v1.3-verified-2026-07-14",
+      "topology": "xlron_nsfnet_deeprmsa",
+      "seed": 3030,
+      "c_mode": "df_c",
+      "r_mode": "ksp_ff_highest",
+      "method_name": "df_c+ksp_ff_highest",
+      "evaluated_requests": 50,
+      "admitted": 50,
+      "blocked": 0,
+      "blocking_rate": 0.0,
+      "admitted_rate": 1.0,
+      "r_reached": 50,
+      "r_decisions": 50,
+      "r_no_valid_action": 0,
+      "c_no_valid_action": 0,
+      "c_no_valid_action_rate": 0.0,
+      "r_no_valid_action_rate": 0.0,
+      "c_raw_mask_empty": 0,
+      "c_effective_mask_empty": 0,
+      "c_action_not_in_effective_mask": 0,
+      "r_mask_empty": 0,
+      "server_overload": 0,
+      "overload_rate": 0.0,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "deadline_failure": 0,
+      "deadline_failure_rate": 0.0,
+      "other_failure": 0,
+      "other_rate": 0.0,
+      "failure_reason_distribution": {},
+      "avg_delay_ms": 12.373632203600508,
+      "delay_p50_ms": 12.159726295316027,
+      "delay_p90_ms": 22.181264026507947,
+      "delay_p95_ms": 23.040076667131604,
+      "avg_fs": 3.08,
+      "avg_decision_ms": 13.082633840967901,
+      "decision_p95_ms": 14.396632884745484,
+      "avg_c_policy_ms": 0.10638517967890948,
+      "avg_r_proposer_ms": 0.0,
+      "avg_ranker_or_ksp_ms": 0.019223099225200713,
+      "avg_total_policy_ms": 0.1256082789041102,
+      "avg_audit_ms": 2.9270418582018465,
+      "c_policy_ms_p95": 0.1756300407578237,
+      "r_proposer_ms_p95": 0.0,
+      "ranker_or_ksp_ms_p95": 0.03178613551426679,
+      "avg_path_length_km": 1902.0,
+      "avg_hop_count": 1.52,
+      "ppo_agreement_rate": 0.64,
+      "ppo_agreement_numerator": 32,
+      "ppo_agreement_denominator": 50,
+      "admitted_path_idx_distribution": {
+        "raw_counts": {
+          "0": 50
+        },
+        "normalized": {
+          "0": 1.0
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_block_start_distribution": {
+        "raw_counts": {
+          "5": 1,
+          "11": 2,
+          "16": 4,
+          "4": 3,
+          "21": 2,
+          "17": 2,
+          "32": 1,
+          "20": 1,
+          "23": 2,
+          "7": 1,
+          "2": 2,
+          "25": 1,
+          "35": 1,
+          "44": 1,
+          "10": 3,
+          "6": 2,
+          "8": 1,
+          "27": 1,
+          "49": 1,
+          "12": 4,
+          "31": 1,
+          "52": 1,
+          "57": 1,
+          "14": 2,
+          "15": 1,
+          "34": 1,
+          "60": 1,
+          "63": 1,
+          "67": 1,
+          "9": 1,
+          "0": 1,
+          "18": 1,
+          "38": 1
+        },
+        "normalized": {
+          "5": 0.02,
+          "11": 0.04,
+          "16": 0.08,
+          "4": 0.06,
+          "21": 0.04,
+          "17": 0.04,
+          "32": 0.02,
+          "20": 0.02,
+          "23": 0.04,
+          "7": 0.02,
+          "2": 0.04,
+          "25": 0.02,
+          "35": 0.02,
+          "44": 0.02,
+          "10": 0.06,
+          "6": 0.04,
+          "8": 0.02,
+          "27": 0.02,
+          "49": 0.02,
+          "12": 0.08,
+          "31": 0.02,
+          "52": 0.02,
+          "57": 0.02,
+          "14": 0.04,
+          "15": 0.02,
+          "34": 0.02,
+          "60": 0.02,
+          "63": 0.02,
+          "67": 0.02,
+          "9": 0.02,
+          "0": 0.02,
+          "18": 0.02,
+          "38": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_required_fs_distribution": {
+        "raw_counts": {
+          "2": 25,
+          "5": 4,
+          "6": 1,
+          "11": 1,
+          "3": 14,
+          "9": 1,
+          "4": 4
+        },
+        "normalized": {
+          "2": 0.5,
+          "5": 0.08,
+          "6": 0.02,
+          "11": 0.02,
+          "3": 0.28,
+          "9": 0.02,
+          "4": 0.08
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_hop_count_distribution": {
+        "raw_counts": {
+          "1.0": 35,
+          "3.0": 11,
+          "2.0": 4
+        },
+        "normalized": {
+          "1.0": 0.7,
+          "3.0": 0.22,
+          "2.0": 0.08
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_path_length_distribution": {
+        "raw_counts": {
+          "750.0": 3,
+          "3900.0": 2,
+          "1800.0": 4,
+          "2400.0": 4,
+          "600.0": 15,
+          "3450.0": 6,
+          "3600.0": 3,
+          "1050.0": 3,
+          "3150.0": 2,
+          "3750.0": 1,
+          "2850.0": 1,
+          "1950.0": 6
+        },
+        "normalized": {
+          "750.0": 0.06,
+          "3900.0": 0.04,
+          "1800.0": 0.08,
+          "2400.0": 0.08,
+          "600.0": 0.3,
+          "3450.0": 0.12,
+          "3600.0": 0.06,
+          "1050.0": 0.06,
+          "3150.0": 0.04,
+          "3750.0": 0.02,
+          "2850.0": 0.02,
+          "1950.0": 0.12
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_mod_distribution": {
+        "raw_counts": {
+          "8QAM": 5,
+          "BPSK": 27,
+          "QPSK": 18
+        },
+        "normalized": {
+          "8QAM": 0.1,
+          "BPSK": 0.54,
+          "QPSK": 0.36
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_idx_distribution": {
+        "raw_counts": {
+          "0": 50
+        },
+        "normalized": {
+          "0": 1.0
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_mod_distribution": {
+        "raw_counts": {
+          "8QAM": 5,
+          "BPSK": 27,
+          "QPSK": 18
+        },
+        "normalized": {
+          "8QAM": 0.1,
+          "BPSK": 0.54,
+          "QPSK": 0.36
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_block_start_distribution": {
+        "raw_counts": {
+          "5": 1,
+          "11": 2,
+          "16": 4,
+          "4": 3,
+          "21": 2,
+          "17": 2,
+          "32": 1,
+          "20": 1,
+          "23": 2,
+          "7": 1,
+          "2": 2,
+          "25": 1,
+          "35": 1,
+          "44": 1,
+          "10": 3,
+          "6": 2,
+          "8": 1,
+          "27": 1,
+          "49": 1,
+          "12": 4,
+          "31": 1,
+          "52": 1,
+          "57": 1,
+          "14": 2,
+          "15": 1,
+          "34": 1,
+          "60": 1,
+          "63": 1,
+          "67": 1,
+          "9": 1,
+          "0": 1,
+          "18": 1,
+          "38": 1
+        },
+        "normalized": {
+          "5": 0.02,
+          "11": 0.04,
+          "16": 0.08,
+          "4": 0.06,
+          "21": 0.04,
+          "17": 0.04,
+          "32": 0.02,
+          "20": 0.02,
+          "23": 0.04,
+          "7": 0.02,
+          "2": 0.04,
+          "25": 0.02,
+          "35": 0.02,
+          "44": 0.02,
+          "10": 0.06,
+          "6": 0.04,
+          "8": 0.02,
+          "27": 0.02,
+          "49": 0.02,
+          "12": 0.08,
+          "31": 0.02,
+          "52": 0.02,
+          "57": 0.02,
+          "14": 0.04,
+          "15": 0.02,
+          "34": 0.02,
+          "60": 0.02,
+          "63": 0.02,
+          "67": 0.02,
+          "9": 0.02,
+          "0": 0.02,
+          "18": 0.02,
+          "38": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_required_fs_distribution": {
+        "raw_counts": {
+          "2": 25,
+          "5": 4,
+          "6": 1,
+          "11": 1,
+          "3": 14,
+          "9": 1,
+          "4": 4
+        },
+        "normalized": {
+          "2": 0.5,
+          "5": 0.08,
+          "6": 0.02,
+          "11": 0.02,
+          "3": 0.28,
+          "9": 0.02,
+          "4": 0.08
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_hop_count_distribution": {
+        "raw_counts": {
+          "1.0": 35,
+          "3.0": 11,
+          "2.0": 4
+        },
+        "normalized": {
+          "1.0": 0.7,
+          "3.0": 0.22,
+          "2.0": 0.08
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_length_distribution": {
+        "raw_counts": {
+          "750.0": 3,
+          "3900.0": 2,
+          "1800.0": 4,
+          "2400.0": 4,
+          "600.0": 15,
+          "3450.0": 6,
+          "3600.0": 3,
+          "1050.0": 3,
+          "3150.0": 2,
+          "3750.0": 1,
+          "2850.0": 1,
+          "1950.0": 6
+        },
+        "normalized": {
+          "750.0": 0.06,
+          "3900.0": 0.04,
+          "1800.0": 0.08,
+          "2400.0": 0.08,
+          "600.0": 0.3,
+          "3450.0": 0.12,
+          "3600.0": 0.06,
+          "1050.0": 0.06,
+          "3150.0": 0.04,
+          "3750.0": 0.02,
+          "2850.0": 0.02,
+          "1950.0": 0.12
+        },
+        "sum_normalized": 1.0
+      },
+      "split_distribution": {
+        "raw_counts": {
+          "2": 50
+        },
+        "normalized": {
+          "2": 1.0
+        },
+        "sum_normalized": 1.0
+      },
+      "server_distribution": {
+        "raw_counts": {
+          "1": 12,
+          "0": 14,
+          "2": 14,
+          "3": 10
+        },
+        "normalized": {
+          "1": 0.24,
+          "0": 0.28,
+          "2": 0.28,
+          "3": 0.2
+        },
+        "sum_normalized": 1.0
+      },
+      "split_server_joint_distribution": {
+        "raw_counts": {
+          "(2, 1)": 12,
+          "(2, 0)": 14,
+          "(2, 2)": 14,
+          "(2, 3)": 10
+        },
+        "normalized": {
+          "(2, 1)": 0.24,
+          "(2, 0)": 0.28,
+          "(2, 2)": 0.28,
+          "(2, 3)": 0.2
+        },
+        "sum_normalized": 1.0
+      },
+      "e_stratum_counts": {
+        "E=0": {
+          "evaluated": 50,
+          "admitted": 50,
+          "blocked": 0
+        },
+        "D=0": {
+          "evaluated": 50,
+          "admitted": 50,
+          "blocked": 0
+        }
+      },
+      "depth_stratum_counts": {},
+      "initial_event_queue_length": 70,
+      "consumed_request_count": 70,
+      "final_event_queue_length": 0,
+      "request_id_mismatch_count": 0,
+      "selected_mask_false_count": 0,
+      "invalid_path_after_legal_action_count": 0,
+      "modulation_reach_after_legal_action_count": 0,
+      "no_suitable_block_after_legal_action_count": 0,
+      "action_observation_consistency_error_count": 0,
+      "request_trace_hash": "cb31cb17d32d504873ce87557500e15c717f6681bd172929caf795ae28d8d509",
+      "selected_action_hash": "f15b87673927db9a50496c74abfe9a11621c44c01a79f2259b3f84299fcac6b5",
+      "config_hash": "a9b910666ca2079f4b33e51537a020ca997d999b32f204b94dde61797200616b",
+      "evaluator_code_hash": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+      "runner_code_hash": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+      "analyzer_code_hash": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+      "source_manifest": {
+        "sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+        "sa_hmarl/sa_hmarl/evaluation/run_strict_v13_multitopology_cside_verified.py": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+        "sa_hmarl/sa_hmarl/evaluation/analyze_strict_v13_multitopology_cside_verified.py": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+        "sa_hmarl/sa_hmarl/evaluation/diagnose_r_action_horizon_oracle.py": "0755899405bd6fa9f9f70a96b3cc8fd78fc2bdb59a799f2e2638f938cd7b7423",
+        "sa_hmarl/sa_hmarl/evaluation/generate_r_counterfactual_ranking_cost239_kpath50_hops_kprop30_h5.py": "1eaa3d1400ffffb3508eba94d8c6a803bb7da30804b54a41b381591166d3441d",
+        "sa_hmarl/sa_hmarl/baselines/rmsa_baselines.py": "d284ee2220fc5613754fa3e3f773400d70af05e6ead94853057f27583e6cf441",
+        "sa_hmarl/sa_hmarl/network/ksp.py": "816ea52353dca4d329e6521230d3ee4ff8b66d6203ef1f76cfed95b1a073ed6d",
+        "sa_hmarl/sa_hmarl/env/event_env.py": "7bf4dbe2628abec32c811fb687db3c59288116573a380ba39c4b59769e982662",
+        "sa_hmarl/sa_hmarl/env/action_mask.py": "c5cf40c34dfced5ddb54cbbb9748e7aafcf8e1589d509530f5bfe17a00742d67",
+        "sa_hmarl/sa_hmarl/env/observation_builder.py": "d9062b190fd1435d4d63f03b2a808548dd1d3b109d2c9f5b6c28b158d2821a31",
+        "sa_hmarl/sa_hmarl/agents/r_agent.py": "9924e02d63e19c88628d16a85412edb45359c23a50900d0cfd7ec4e00651d479",
+        "sa_hmarl/sa_hmarl/agents/ppo_agents.py": "079babd7a57771db1e07b2132900d0dec58a1840ed1d80a567d5b8417e34a8a6",
+        "sa_hmarl/sa_hmarl/agents/c_agent.py": "5c186b67fc103a70e3c892ab32b32eac07b0cc57d02367afa070a1fd2cd5545b",
+        "sa_hmarl/sa_hmarl/evaluation/offloading_baselines.py": "a71bd64c81020dd4dafc3073532b9390bc856cfe8ef36605dca132ca5e32b33f",
+        "sa_hmarl/sa_hmarl/evaluation/eval_long_horizon_system_comparison.py": "884f5f8ef6e2b1c5564f4684b445db1c194f86faa4a13e276552622a1a2e0064"
+      },
+      "checkpoint_sha256s": {
+        "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+        "ppo_c": "707b504e9b3dda7167f8769fb637042040489bbcd1918eba13e1bdce7f27ad22",
+        "df_c": "heuristic",
+        "strict_v13": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+      }
+    },
+    {
+      "schema_version": "v1.3-verified-2026-07-14",
+      "topology": "xlron_nsfnet_deeprmsa",
+      "seed": 3030,
+      "c_mode": "df_c",
+      "r_mode": "strict_v13",
+      "method_name": "df_c+strict_v13",
+      "evaluated_requests": 50,
+      "admitted": 50,
+      "blocked": 0,
+      "blocking_rate": 0.0,
+      "admitted_rate": 1.0,
+      "r_reached": 50,
+      "r_decisions": 50,
+      "r_no_valid_action": 0,
+      "c_no_valid_action": 0,
+      "c_no_valid_action_rate": 0.0,
+      "r_no_valid_action_rate": 0.0,
+      "c_raw_mask_empty": 0,
+      "c_effective_mask_empty": 0,
+      "c_action_not_in_effective_mask": 0,
+      "r_mask_empty": 0,
+      "server_overload": 0,
+      "overload_rate": 0.0,
+      "no_suitable_block": 0,
+      "nsb_rate": 0.0,
+      "deadline_failure": 0,
+      "deadline_failure_rate": 0.0,
+      "other_failure": 0,
+      "other_rate": 0.0,
+      "failure_reason_distribution": {},
+      "avg_delay_ms": 17.058632203600506,
+      "delay_p50_ms": 19.06575595266603,
+      "delay_p90_ms": 26.43490076609344,
+      "delay_p95_ms": 26.613181045691103,
+      "avg_fs": 3.6,
+      "avg_decision_ms": 18.231188717181794,
+      "decision_p95_ms": 21.405119099654257,
+      "avg_c_policy_ms": 0.10448337881825864,
+      "avg_r_proposer_ms": 2.2850673052016646,
+      "avg_ranker_or_ksp_ms": 3.5409569810144603,
+      "avg_total_policy_ms": 5.9305076650343835,
+      "avg_audit_ms": 2.8977582015795633,
+      "c_policy_ms_p95": 0.1658966415561735,
+      "r_proposer_ms_p95": 2.9803395023918706,
+      "ranker_or_ksp_ms_p95": 4.522933991393073,
+      "avg_path_length_km": 2559.0,
+      "avg_hop_count": 2.92,
+      "ppo_agreement_rate": 0.1,
+      "ppo_agreement_numerator": 5,
+      "ppo_agreement_denominator": 50,
+      "admitted_path_idx_distribution": {
+        "raw_counts": {
+          "0": 25,
+          "1": 13,
+          "3": 5,
+          "4": 7
+        },
+        "normalized": {
+          "0": 0.5,
+          "1": 0.26,
+          "3": 0.1,
+          "4": 0.14
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_block_start_distribution": {
+        "raw_counts": {
+          "5": 1,
+          "23": 2,
+          "10": 3,
+          "29": 1,
+          "6": 1,
+          "28": 1,
+          "16": 2,
+          "39": 3,
+          "35": 3,
+          "19": 1,
+          "7": 1,
+          "8": 1,
+          "21": 1,
+          "42": 2,
+          "51": 1,
+          "56": 1,
+          "37": 1,
+          "59": 1,
+          "64": 1,
+          "68": 1,
+          "43": 2,
+          "75": 2,
+          "81": 1,
+          "12": 2,
+          "20": 2,
+          "85": 1,
+          "45": 1,
+          "88": 1,
+          "9": 1,
+          "47": 1,
+          "52": 1,
+          "55": 1,
+          "14": 1,
+          "3": 1,
+          "58": 1,
+          "91": 1,
+          "27": 1
+        },
+        "normalized": {
+          "5": 0.02,
+          "23": 0.04,
+          "10": 0.06,
+          "29": 0.02,
+          "6": 0.02,
+          "28": 0.02,
+          "16": 0.04,
+          "39": 0.06,
+          "35": 0.06,
+          "19": 0.02,
+          "7": 0.02,
+          "8": 0.02,
+          "21": 0.02,
+          "42": 0.04,
+          "51": 0.02,
+          "56": 0.02,
+          "37": 0.02,
+          "59": 0.02,
+          "64": 0.02,
+          "68": 0.02,
+          "43": 0.04,
+          "75": 0.04,
+          "81": 0.02,
+          "12": 0.04,
+          "20": 0.04,
+          "85": 0.02,
+          "45": 0.02,
+          "88": 0.02,
+          "9": 0.02,
+          "47": 0.02,
+          "52": 0.02,
+          "55": 0.02,
+          "14": 0.02,
+          "3": 0.02,
+          "58": 0.02,
+          "91": 0.02,
+          "27": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_required_fs_distribution": {
+        "raw_counts": {
+          "2": 18,
+          "5": 6,
+          "6": 4,
+          "11": 1,
+          "3": 13,
+          "9": 1,
+          "4": 6,
+          "7": 1
+        },
+        "normalized": {
+          "2": 0.36,
+          "5": 0.12,
+          "6": 0.08,
+          "11": 0.02,
+          "3": 0.26,
+          "9": 0.02,
+          "4": 0.12,
+          "7": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_hop_count_distribution": {
+        "raw_counts": {
+          "1.0": 17,
+          "3.0": 5,
+          "5.0": 10,
+          "2.0": 10,
+          "4.0": 2,
+          "6.0": 6
+        },
+        "normalized": {
+          "1.0": 0.34,
+          "3.0": 0.1,
+          "5.0": 0.2,
+          "2.0": 0.2,
+          "4.0": 0.04,
+          "6.0": 0.12
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_path_length_distribution": {
+        "raw_counts": {
+          "750.0": 3,
+          "3900.0": 9,
+          "1800.0": 3,
+          "3750.0": 10,
+          "600.0": 10,
+          "3450.0": 1,
+          "3600.0": 3,
+          "2100.0": 2,
+          "3150.0": 3,
+          "2550.0": 5,
+          "1050.0": 1
+        },
+        "normalized": {
+          "750.0": 0.06,
+          "3900.0": 0.18,
+          "1800.0": 0.06,
+          "3750.0": 0.2,
+          "600.0": 0.2,
+          "3450.0": 0.02,
+          "3600.0": 0.06,
+          "2100.0": 0.04,
+          "3150.0": 0.06,
+          "2550.0": 0.1,
+          "1050.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "admitted_mod_distribution": {
+        "raw_counts": {
+          "8QAM": 13,
+          "BPSK": 33,
+          "QPSK": 4
+        },
+        "normalized": {
+          "8QAM": 0.26,
+          "BPSK": 0.66,
+          "QPSK": 0.08
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_idx_distribution": {
+        "raw_counts": {
+          "0": 25,
+          "1": 13,
+          "3": 5,
+          "4": 7
+        },
+        "normalized": {
+          "0": 0.5,
+          "1": 0.26,
+          "3": 0.1,
+          "4": 0.14
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_mod_distribution": {
+        "raw_counts": {
+          "8QAM": 13,
+          "BPSK": 33,
+          "QPSK": 4
+        },
+        "normalized": {
+          "8QAM": 0.26,
+          "BPSK": 0.66,
+          "QPSK": 0.08
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_block_start_distribution": {
+        "raw_counts": {
+          "5": 1,
+          "23": 2,
+          "10": 3,
+          "29": 1,
+          "6": 1,
+          "28": 1,
+          "16": 2,
+          "39": 3,
+          "35": 3,
+          "19": 1,
+          "7": 1,
+          "8": 1,
+          "21": 1,
+          "42": 2,
+          "51": 1,
+          "56": 1,
+          "37": 1,
+          "59": 1,
+          "64": 1,
+          "68": 1,
+          "43": 2,
+          "75": 2,
+          "81": 1,
+          "12": 2,
+          "20": 2,
+          "85": 1,
+          "45": 1,
+          "88": 1,
+          "9": 1,
+          "47": 1,
+          "52": 1,
+          "55": 1,
+          "14": 1,
+          "3": 1,
+          "58": 1,
+          "91": 1,
+          "27": 1
+        },
+        "normalized": {
+          "5": 0.02,
+          "23": 0.04,
+          "10": 0.06,
+          "29": 0.02,
+          "6": 0.02,
+          "28": 0.02,
+          "16": 0.04,
+          "39": 0.06,
+          "35": 0.06,
+          "19": 0.02,
+          "7": 0.02,
+          "8": 0.02,
+          "21": 0.02,
+          "42": 0.04,
+          "51": 0.02,
+          "56": 0.02,
+          "37": 0.02,
+          "59": 0.02,
+          "64": 0.02,
+          "68": 0.02,
+          "43": 0.04,
+          "75": 0.04,
+          "81": 0.02,
+          "12": 0.04,
+          "20": 0.04,
+          "85": 0.02,
+          "45": 0.02,
+          "88": 0.02,
+          "9": 0.02,
+          "47": 0.02,
+          "52": 0.02,
+          "55": 0.02,
+          "14": 0.02,
+          "3": 0.02,
+          "58": 0.02,
+          "91": 0.02,
+          "27": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_required_fs_distribution": {
+        "raw_counts": {
+          "2": 18,
+          "5": 6,
+          "6": 4,
+          "11": 1,
+          "3": 13,
+          "9": 1,
+          "4": 6,
+          "7": 1
+        },
+        "normalized": {
+          "2": 0.36,
+          "5": 0.12,
+          "6": 0.08,
+          "11": 0.02,
+          "3": 0.26,
+          "9": 0.02,
+          "4": 0.12,
+          "7": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_hop_count_distribution": {
+        "raw_counts": {
+          "1.0": 17,
+          "3.0": 5,
+          "5.0": 10,
+          "2.0": 10,
+          "4.0": 2,
+          "6.0": 6
+        },
+        "normalized": {
+          "1.0": 0.34,
+          "3.0": 0.1,
+          "5.0": 0.2,
+          "2.0": 0.2,
+          "4.0": 0.04,
+          "6.0": 0.12
+        },
+        "sum_normalized": 1.0
+      },
+      "selected_path_length_distribution": {
+        "raw_counts": {
+          "750.0": 3,
+          "3900.0": 9,
+          "1800.0": 3,
+          "3750.0": 10,
+          "600.0": 10,
+          "3450.0": 1,
+          "3600.0": 3,
+          "2100.0": 2,
+          "3150.0": 3,
+          "2550.0": 5,
+          "1050.0": 1
+        },
+        "normalized": {
+          "750.0": 0.06,
+          "3900.0": 0.18,
+          "1800.0": 0.06,
+          "3750.0": 0.2,
+          "600.0": 0.2,
+          "3450.0": 0.02,
+          "3600.0": 0.06,
+          "2100.0": 0.04,
+          "3150.0": 0.06,
+          "2550.0": 0.1,
+          "1050.0": 0.02
+        },
+        "sum_normalized": 1.0
+      },
+      "split_distribution": {
+        "raw_counts": {
+          "2": 50
+        },
+        "normalized": {
+          "2": 1.0
+        },
+        "sum_normalized": 1.0
+      },
+      "server_distribution": {
+        "raw_counts": {
+          "1": 12,
+          "0": 14,
+          "2": 14,
+          "3": 10
+        },
+        "normalized": {
+          "1": 0.24,
+          "0": 0.28,
+          "2": 0.28,
+          "3": 0.2
+        },
+        "sum_normalized": 1.0
+      },
+      "split_server_joint_distribution": {
+        "raw_counts": {
+          "(2, 1)": 12,
+          "(2, 0)": 14,
+          "(2, 2)": 14,
+          "(2, 3)": 10
+        },
+        "normalized": {
+          "(2, 1)": 0.24,
+          "(2, 0)": 0.28,
+          "(2, 2)": 0.28,
+          "(2, 3)": 0.2
+        },
+        "sum_normalized": 1.0
+      },
+      "e_stratum_counts": {
+        "E=0": {
+          "evaluated": 50,
+          "admitted": 50,
+          "blocked": 0
+        },
+        "D=0": {
+          "evaluated": 50,
+          "admitted": 50,
+          "blocked": 0
+        }
+      },
+      "depth_stratum_counts": {},
+      "initial_event_queue_length": 70,
+      "consumed_request_count": 70,
+      "final_event_queue_length": 0,
+      "request_id_mismatch_count": 0,
+      "selected_mask_false_count": 0,
+      "invalid_path_after_legal_action_count": 0,
+      "modulation_reach_after_legal_action_count": 0,
+      "no_suitable_block_after_legal_action_count": 0,
+      "action_observation_consistency_error_count": 0,
+      "request_trace_hash": "cb31cb17d32d504873ce87557500e15c717f6681bd172929caf795ae28d8d509",
+      "selected_action_hash": "65d0b12d408b1805bb3f9012ab7c65faea34f7fc3bf1e6097164902099029181",
+      "config_hash": "a9b910666ca2079f4b33e51537a020ca997d999b32f204b94dde61797200616b",
+      "evaluator_code_hash": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+      "runner_code_hash": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+      "analyzer_code_hash": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+      "source_manifest": {
+        "sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+        "sa_hmarl/sa_hmarl/evaluation/run_strict_v13_multitopology_cside_verified.py": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+        "sa_hmarl/sa_hmarl/evaluation/analyze_strict_v13_multitopology_cside_verified.py": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+        "sa_hmarl/sa_hmarl/evaluation/diagnose_r_action_horizon_oracle.py": "0755899405bd6fa9f9f70a96b3cc8fd78fc2bdb59a799f2e2638f938cd7b7423",
+        "sa_hmarl/sa_hmarl/evaluation/generate_r_counterfactual_ranking_cost239_kpath50_hops_kprop30_h5.py": "1eaa3d1400ffffb3508eba94d8c6a803bb7da30804b54a41b381591166d3441d",
+        "sa_hmarl/sa_hmarl/baselines/rmsa_baselines.py": "d284ee2220fc5613754fa3e3f773400d70af05e6ead94853057f27583e6cf441",
+        "sa_hmarl/sa_hmarl/network/ksp.py": "816ea52353dca4d329e6521230d3ee4ff8b66d6203ef1f76cfed95b1a073ed6d",
+        "sa_hmarl/sa_hmarl/env/event_env.py": "7bf4dbe2628abec32c811fb687db3c59288116573a380ba39c4b59769e982662",
+        "sa_hmarl/sa_hmarl/env/action_mask.py": "c5cf40c34dfced5ddb54cbbb9748e7aafcf8e1589d509530f5bfe17a00742d67",
+        "sa_hmarl/sa_hmarl/env/observation_builder.py": "d9062b190fd1435d4d63f03b2a808548dd1d3b109d2c9f5b6c28b158d2821a31",
+        "sa_hmarl/sa_hmarl/agents/r_agent.py": "9924e02d63e19c88628d16a85412edb45359c23a50900d0cfd7ec4e00651d479",
+        "sa_hmarl/sa_hmarl/agents/ppo_agents.py": "079babd7a57771db1e07b2132900d0dec58a1840ed1d80a567d5b8417e34a8a6",
+        "sa_hmarl/sa_hmarl/agents/c_agent.py": "5c186b67fc103a70e3c892ab32b32eac07b0cc57d02367afa070a1fd2cd5545b",
+        "sa_hmarl/sa_hmarl/evaluation/offloading_baselines.py": "a71bd64c81020dd4dafc3073532b9390bc856cfe8ef36605dca132ca5e32b33f",
+        "sa_hmarl/sa_hmarl/evaluation/eval_long_horizon_system_comparison.py": "884f5f8ef6e2b1c5564f4684b445db1c194f86faa4a13e276552622a1a2e0064"
+      },
+      "checkpoint_sha256s": {
+        "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+        "ppo_c": "707b504e9b3dda7167f8769fb637042040489bbcd1918eba13e1bdce7f27ad22",
+        "df_c": "heuristic",
+        "strict_v13": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+      },
+      "avg_candidate_count": 6.62,
+      "candidate_count_p95": 15.199999999999989,
+      "fallback_rate": 0.0,
+      "ranker_top1_in_candidates_rate": 1.0,
+      "avg_score_margin": 0.03711100950837135,
+      "score_margin_p95": 0.09600212499499321,
+      "feature_finite_rate": 1.0,
+      "nan_inf_feature_count": 0,
+      "nan_inf_score_count": 0
+    }
+  ],
+  "logs": [
+    "[xlron_nsfnet_deeprmsa][seed=3030][ppo_c+ppo_r_top1] blocking=0.0000% c_no=0 r_no=0 r_reached=50 r_decisions=50 policy_ms=0.611 audit_ms=2.496 ppo_agree=1.0",
+    "[xlron_nsfnet_deeprmsa][seed=3030][ppo_c+ksp_ff_highest] blocking=0.0000% c_no=0 r_no=0 r_reached=50 r_decisions=50 policy_ms=0.530 audit_ms=2.645 ppo_agree=0.38",
+    "[xlron_nsfnet_deeprmsa][seed=3030][ppo_c+strict_v13] blocking=0.0000% c_no=0 r_no=0 r_reached=50 r_decisions=50 policy_ms=4.399 audit_ms=3.221 ppo_agree=0.16",
+    "[xlron_nsfnet_deeprmsa][seed=3030][df_c+ppo_r_top1] blocking=0.0000% c_no=0 r_no=0 r_reached=50 r_decisions=50 policy_ms=0.142 audit_ms=4.244 ppo_agree=1.0",
+    "[xlron_nsfnet_deeprmsa][seed=3030][df_c+ksp_ff_highest] blocking=0.0000% c_no=0 r_no=0 r_reached=50 r_decisions=50 policy_ms=0.126 audit_ms=2.927 ppo_agree=0.64",
+    "[xlron_nsfnet_deeprmsa][seed=3030][df_c+strict_v13] blocking=0.0000% c_no=0 r_no=0 r_reached=50 r_decisions=50 policy_ms=5.931 audit_ms=2.898 ppo_agree=0.1"
+  ]
+}

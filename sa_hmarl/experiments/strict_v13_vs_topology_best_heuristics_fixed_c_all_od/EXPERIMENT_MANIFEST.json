@@ -1,0 +1,171 @@
+{
+  "config": {
+    "agent_r_checkpoint": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+    "strict_ranker_checkpoint": "sa_hmarl/experiments/v13_strict_fixed/strict_loss_rerun/checkpoints/full_state_uniform_strict/seed_42/ranking_model.pt",
+    "num_slots": 320,
+    "num_servers": 4,
+    "k_paths_r": 50,
+    "path_sort_strategy_r": "hops",
+    "block_sort_strategy_r": "start_asc",
+    "modulation_profile": "default",
+    "max_blocks": 10,
+    "split_profile": "default3",
+    "num_splits": 3,
+    "arrival_interval": 0.3,
+    "holding_min": 20.0,
+    "holding_max": 30.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "size_max_mb": 30.0,
+    "edge_cost_min": 0.1,
+    "edge_cost_max": 2.2,
+    "seeds": "6101,6102,6103,6104,6105",
+    "requests_per_episode": 6000,
+    "warmup_requests": 500,
+    "poisson_arrivals": false,
+    "exponential_holding": false,
+    "device": "cpu",
+    "output_dir": "sa_hmarl/experiments/strict_v13_vs_topology_best_heuristics_fixed_c_all_od",
+    "max_workers": 8,
+    "skip_smoke": true,
+    "skip_done_check": false,
+    "fixed_split_id": 0
+  },
+  "code_hash": "a0ae52b27776570b195621b0",
+  "topology_hashes": {
+    "xlron_nsfnet_deeprmsa": "191f7d9673f191a1f2a8a77a",
+    "xlron_usnet_gcnrmsa": "974d997cbcb929c4ec7c2d90",
+    "xlron_jpn48": "8a2aa12bd99250e594f5c20e"
+  },
+  "config_hash": "d375d36064b843fcbc3e198a",
+  "checkpoint_hashes": {
+    "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+    "ranker": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+  },
+  "per_task": [
+    {
+      "topology": "xlron_nsfnet_deeprmsa",
+      "seed": 6101,
+      "request_trace_hash": "3573332f53d297858eb70db4",
+      "elapsed_seconds": 146.42310533998534
+    },
+    {
+      "topology": "xlron_nsfnet_deeprmsa",
+      "seed": 6102,
+      "request_trace_hash": "19774bb9070749f9f39fa4cd",
+      "elapsed_seconds": 149.4302670250181
+    },
+    {
+      "topology": "xlron_nsfnet_deeprmsa",
+      "seed": 6103,
+      "request_trace_hash": "98e6640feacc33cc5371dbc6",
+      "elapsed_seconds": 149.52073841897072
+    },
+    {
+      "topology": "xlron_nsfnet_deeprmsa",
+      "seed": 6104,
+      "request_trace_hash": "7da589d8d53aa220feb087ba",
+      "elapsed_seconds": 146.9976819579606
+    },
+    {
+      "topology": "xlron_nsfnet_deeprmsa",
+      "seed": 6105,
+      "request_trace_hash": "c087633b860f5b0f1f517232",
+      "elapsed_seconds": 145.21169074100908
+    },
+    {
+      "topology": "xlron_usnet_gcnrmsa",
+      "seed": 6101,
+      "request_trace_hash": "8fcc1b313a68b8dce369f8e2",
+      "elapsed_seconds": 240.0684646270238
+    },
+    {
+      "topology": "xlron_usnet_gcnrmsa",
+      "seed": 6102,
+      "request_trace_hash": "85010d12075e24158a92fd59",
+      "elapsed_seconds": 240.10280895698816
+    },
+    {
+      "topology": "xlron_usnet_gcnrmsa",
+      "seed": 6103,
+      "request_trace_hash": "b144e1860aa07dea0575bb27",
+      "elapsed_seconds": 246.44423968100455
+    },
+    {
+      "topology": "xlron_usnet_gcnrmsa",
+      "seed": 6104,
+      "request_trace_hash": "064b0bd97e67b5d7b2d43636",
+      "elapsed_seconds": 230.8346864799969
+    },
+    {
+      "topology": "xlron_usnet_gcnrmsa",
+      "seed": 6105,
+      "request_trace_hash": "4ebd565353bfdc88f3c99b31",
+      "elapsed_seconds": 231.25629321002634
+    },
+    {
+      "topology": "xlron_jpn48",
+      "seed": 6101,
+      "request_trace_hash": "c53c925915e5dc2a2d47d8d1",
+      "elapsed_seconds": 317.38650557002984
+    },
+    {
+      "topology": "xlron_jpn48",
+      "seed": 6102,
+      "request_trace_hash": "ac3266598a6b6b2c82ce8396",
+      "elapsed_seconds": 312.2440421929932
+    },
+    {
+      "topology": "xlron_jpn48",
+      "seed": 6103,
+      "request_trace_hash": "2b761706d086200e44d22a53",
+      "elapsed_seconds": 316.4967773370445
+    },
+    {
+      "topology": "xlron_jpn48",
+      "seed": 6104,
+      "request_trace_hash": "418296c711b57c9dd67d1610",
+      "elapsed_seconds": 283.13352595904144
+    },
+    {
+      "topology": "xlron_jpn48",
+      "seed": 6105,
+      "request_trace_hash": "0c42a7973b6276ca17b4e343",
+      "elapsed_seconds": 282.0318946579937
+    }
+  ],
+  "topology_node_link_counts": {
+    "xlron_nsfnet_deeprmsa": {
+      "num_nodes": 14,
+      "num_links": 22
+    },
+    "xlron_usnet_gcnrmsa": {
+      "num_nodes": 24,
+      "num_links": 43
+    },
+    "xlron_jpn48": {
+      "num_nodes": 48,
+      "num_links": 82
+    }
+  },
+  "output_files": [
+    "PROTOCOL_LOCK.md",
+    "TOPOLOGY_PROVENANCE.md",
+    "TOPOLOGY_PROVENANCE.json",
+    "FF_KSP_IMPLEMENTATION_AUDIT.md",
+    "PATH_ORDERING_AUDIT.md",
+    "CHECKPOINT_TRANSFER_AUDIT.md",
+    "EXPERIMENT_MANIFEST.json",
+    "per_seed_summary.csv",
+    "paired_action_trace.jsonl.gz",
+    "NSFNET_RESULTS.md",
+    "NSFNET_RESULTS.json",
+    "USNET_RESULTS.md",
+    "USNET_RESULTS.json",
+    "JPN48_RESULTS.md",
+    "JPN48_RESULTS.json",
+    "TOPOLOGY_COMPARISON_SUMMARY.md",
+    "NEXT_STEP_DECISION.md"
+  ]
+}

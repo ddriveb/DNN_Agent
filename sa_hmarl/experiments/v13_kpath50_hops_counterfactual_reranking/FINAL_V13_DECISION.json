@@ -1,0 +1,104 @@
+{
+  "date": "2026-07-14",
+  "protocol": "SA-HMARL strict v1.3",
+  "K_C": 5,
+  "K_path": 50,
+  "K_prop": 30,
+  "H": 5,
+  "gamma": 1.0,
+  "candidate_mode": "ppo_r_topk_only",
+  "classification": "Situation 5",
+  "classification_name": "candidate headroom exists, but model did not learn",
+  "offline_metrics": {
+    "1k3": {
+      "top1_mean": 0.043,
+      "top1_std": 0.010,
+      "spearman_mean": 0.029,
+      "spearman_std": 0.029,
+      "kendall_mean": 0.024,
+      "kendall_std": 0.023,
+      "model_regret_mean": 0.070,
+      "ppo_regret_mean": 0.105,
+      "relative_regret_reduction_mean": -0.659,
+      "relative_regret_reduction_std": 0.023
+    },
+    "3k": {
+      "top1_mean": 0.068,
+      "top1_std": 0.009,
+      "spearman_mean": -0.000,
+      "spearman_std": 0.002,
+      "kendall_mean": 0.000,
+      "kendall_std": 0.001,
+      "model_regret_mean": 0.075,
+      "ppo_regret_mean": 0.105,
+      "relative_regret_reduction_mean": -0.253,
+      "relative_regret_reduction_std": 0.053
+    },
+    "5k": {
+      "top1_mean": 0.064,
+      "top1_std": 0.004,
+      "spearman_mean": 0.001,
+      "spearman_std": 0.009,
+      "kendall_mean": 0.001,
+      "kendall_std": 0.007,
+      "model_regret_mean": 0.086,
+      "ppo_regret_mean": 0.105,
+      "relative_regret_reduction_mean": -0.136,
+      "relative_regret_reduction_std": 0.035
+    },
+    "full": {
+      "top1_mean": 0.062,
+      "top1_std": 0.018,
+      "spearman_mean": 0.006,
+      "spearman_std": 0.014,
+      "kendall_mean": 0.004,
+      "kendall_std": 0.011,
+      "model_regret_mean": 0.084,
+      "ppo_regret_mean": 0.105,
+      "relative_regret_reduction_mean": -1.154,
+      "relative_regret_reduction_std": 0.134
+    }
+  },
+  "candidate_and_label_space": {
+    "train_groups": 7303,
+    "val_groups": 1750,
+    "test_groups": 2079,
+    "ppo_top1_rate_train": 0.374,
+    "oracle_headroom_train": 0.0471,
+    "nonzero_return_range_train": 0.8535,
+    "P_headroom_train": 0.6115,
+    "ppo_regret_mean": 0.0471,
+    "ppo_regret_p50": 0.0102,
+    "ppo_regret_p90": 0.0751,
+    "future_block_differs_pp": 0.0147,
+    "only_delay_fs_differs_pp": 0.8388,
+    "future_block_identical_pp": 0.9853,
+    "future_block_explained_variance_frac": 0.979,
+    "future_delay_explained_variance_frac": 0.0073,
+    "future_fs_explained_variance_frac": 0.0011,
+    "future_trace_swap_kendall_tau_b": 0.018,
+    "future_trace_swap_top1_agreement": 0.18
+  },
+  "decision": {
+    "allow_v135": false,
+    "allow_v135_full": false,
+    "allow_v135_pilot": false,
+    "next_step": "run_label_ablations",
+    "forbidden_next_steps": [
+      "launch_v135_full",
+      "launch_v135_pilot_without_ablation_evidence",
+      "generate_full_dataset_expecting_scale_fix",
+      "relax_conclusions",
+      "change_candidate_pool_and_call_it_v13"
+    ],
+    "rationale": "Offline ranking metrics remain near random at 7.3k train groups; model regret exceeds PPO regret; H=5 labels lack stable future-blocking signal (only 1.47% groups vary in future blocking) and are highly sensitive to future trace swaps. This matches Situation 5: candidate headroom exists but is not learnable with the current 25-d features and H=5 labels."
+  },
+  "answers_to_diagnosis_questions": {
+    "pilot_poor_due_to_scale": false,
+    "H5_provides_learnable_future_blocking_signal": false,
+    "25d_features_predict_labels": false,
+    "PPO_R_Top30_has_real_headroom": "headroom exists but is not realizable",
+    "scaling_improves_strict_v13_over_PPO": false,
+    "worth_full_dataset": false
+  }
+}

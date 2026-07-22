@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1040" viewBox="0 0 1800 1040" role="img" aria-labelledby="title desc">
+  <title id="title">SA-HMARL Online Architecture</title>
+  <desc id="desc">System diagram for the SA-HMARL online C-side and R-side decision framework.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11 z" fill="#31445c"/>
+    </marker>
+    <marker id="thinArrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11 z" fill="#6a7787"/>
+    </marker>
+    <style>
+      .bg { fill: #f7f8fa; }
+      .title { font: 700 38px Georgia, "Times New Roman", serif; fill: #17202c; }
+      .subtitle { font: 400 19px Georgia, "Times New Roman", serif; fill: #465466; }
+      .cluster-title { font: 700 22px Georgia, "Times New Roman", serif; fill: #17202c; }
+      .box-title { font: 700 18px Georgia, "Times New Roman", serif; fill: #17202c; }
+      .box-text { font: 400 15px Georgia, "Times New Roman", serif; fill: #2d3744; }
+      .small { font: 400 13px Georgia, "Times New Roman", serif; fill: #526172; }
+      .math { font: 600 15px Georgia, "Times New Roman", serif; fill: #1d2a39; }
+      .state { fill: #eef3f8; stroke: #6c8fb0; stroke-width: 2; }
+      .cside { fill: #f4efe6; stroke: #ba8b4d; stroke-width: 2; }
+      .rside { fill: #eef6f1; stroke: #5b9a70; stroke-width: 2; }
+      .ranker { fill: #f3f0f8; stroke: #806cae; stroke-width: 2; }
+      .exec { fill: #f8eeee; stroke: #b46a6a; stroke-width: 2; }
+      .panel { fill: #ffffff; stroke: #b8c0ca; stroke-width: 1.5; }
+      .soft-panel { fill: #ffffff; stroke: #cdd4dc; stroke-width: 1.2; }
+      .arrow { fill: none; stroke: #31445c; stroke-width: 3; marker-end: url(#arrow); }
+      .thin-arrow { fill: none; stroke: #6a7787; stroke-width: 2; marker-end: url(#thinArrow); }
+      .feedback { fill: none; stroke: #8a6572; stroke-width: 2.5; stroke-dasharray: 9 7; marker-end: url(#arrow); }
+      .note { fill: #fffaf0; stroke: #d2aa62; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1800" height="1040"/>
+
+  <text class="title" x="900" y="58" text-anchor="middle">SA-HMARL Online Compute-Optical Decision Framework</text>
+  <text class="subtitle" x="900" y="91" text-anchor="middle">C-side joint split-server allocation shapes the feasible region; R-side hybrid retrieval and ranking selects the final RMSA action.</text>
+
+  <!-- System state and request -->
+  <rect class="state" x="55" y="145" width="300" height="210" rx="12"/>
+  <text class="cluster-title" x="205" y="178" text-anchor="middle">Online State Snapshot</text>
+  <rect class="panel" x="80" y="200" width="250" height="120" rx="9"/>
+  <text class="box-title" x="105" y="228">Incoming request r</text>
+  <text class="box-text" x="105" y="256">source node, deadline, holding time</text>
+  <text class="box-text" x="105" y="281">candidate split profiles</text>
+  <text class="box-text" x="105" y="306">current active connections</text>
+
+  <rect class="state" x="55" y="420" width="300" height="235" rx="12"/>
+  <text class="cluster-title" x="205" y="453" text-anchor="middle">Resource State Ω<tspan baseline-shift="sub">t</tspan></text>
+  <rect class="soft-panel" x="80" y="475" width="250" height="145" rx="9"/>
+  <text class="box-text" x="105" y="505">server load / residual compute</text>
+  <text class="box-text" x="105" y="533">queue-delay estimate</text>
+  <text class="box-text" x="105" y="561">per-link FS occupancy</text>
+  <text class="box-text" x="105" y="589">path spectrum summaries</text>
+
+  <!-- C-side cluster -->
+  <rect class="cside" x="430" y="130" width="370" height="540" rx="16"/>
+  <text class="cluster-title" x="615" y="166" text-anchor="middle">C-side: Joint Split-Server Selection</text>
+
+  <rect class="panel" x="465" y="200" width="300" height="120" rx="10"/>
+  <text class="box-title" x="615" y="228" text-anchor="middle">C Observation Builder</text>
+  <text class="box-text" x="490" y="258">request + split features</text>
+  <text class="box-text" x="490" y="284">server utilization / capacity</text>
+  <text class="box-text" x="490" y="310">coarse optical feasibility preview</text>
+
+  <rect class="panel" x="465" y="370" width="300" height="118" rx="10"/>
+  <text class="box-title" x="615" y="398" text-anchor="middle">Masked PPO-C</text>
+  <text class="box-text" x="490" y="428">policy over joint actions</text>
+  <text class="math" x="490" y="455">a<tspan baseline-shift="sub">C</tspan> = (split s, server v)</text>
+  <text class="small" x="490" y="479">mask removes compute/R-infeasible pairs</text>
+
+  <rect class="note" x="465" y="540" width="300" height="88" rx="10"/>
+  <text class="box-title" x="615" y="568" text-anchor="middle">C-side effect</text>
+  <text class="box-text" x="490" y="596">sets data size, edge compute demand,</text>
+  <text class="box-text" x="490" y="620">target server, and R-side feasible region</text>
+
+  <!-- R-side legal enumeration -->
+  <rect class="rside" x="875" y="130" width="420" height="540" rx="16"/>
+  <text class="cluster-title" x="1085" y="166" text-anchor="middle">R-side: Legal RMSA Action Construction</text>
+
+  <rect class="panel" x="910" y="195" width="350" height="105" rx="10"/>
+  <text class="box-title" x="1085" y="223" text-anchor="middle">Condition on selected (s*, v*)</text>
+  <text class="box-text" x="935" y="253">source to target server path set</text>
+  <text class="math" x="935" y="280">P<tspan baseline-shift="sub">r,v*</tspan><tspan baseline-shift="super">K</tspan> from KSP</text>
+
+  <rect class="panel" x="910" y="335" width="350" height="125" rx="10"/>
+  <text class="box-title" x="1085" y="363" text-anchor="middle">Physical Feasibility Mask</text>
+  <text class="box-text" x="935" y="392">modulation reach</text>
+  <text class="box-text" x="935" y="418">deadline-based FS demand</text>
+  <text class="box-text" x="935" y="444">continuity, contiguity, non-overlap</text>
+
+  <rect class="panel" x="910" y="500" width="350" height="112" rx="10"/>
+  <text class="box-title" x="1085" y="528" text-anchor="middle">Legal Action Set</text>
+  <text class="math" x="935" y="558">A<tspan baseline-shift="sub">R</tspan><tspan baseline-shift="super">legal</tspan> = {(p, m, b) satisfying constraints}</text>
+  <text class="small" x="935" y="586">empty set leads to blocking under selected C action</text>
+
+  <!-- Candidate generation and ranking -->
+  <rect class="ranker" x="1360" y="130" width="385" height="540" rx="16"/>
+  <text class="cluster-title" x="1552" y="166" text-anchor="middle">Hybrid Retrieval + Learned Ranking</text>
+
+  <rect class="panel" x="1395" y="195" width="315" height="170" rx="10"/>
+  <text class="box-title" x="1552" y="223" text-anchor="middle">Mixed Candidate Pool</text>
+  <text class="box-text" x="1420" y="253">PPO-R top-K legal proposals</text>
+  <text class="box-text" x="1420" y="279">per-path anchors: first / closest-fit</text>
+  <text class="box-text" x="1420" y="305">largest-block / minimum-waste</text>
+  <text class="box-text" x="1420" y="331">shortest-path + diversity fillers</text>
+  <text class="math" x="1420" y="356">A<tspan baseline-shift="sub">mix</tspan> ⊆ A<tspan baseline-shift="sub">R</tspan><tspan baseline-shift="super">legal</tspan></text>
+
+  <rect class="note" x="1395" y="395" width="315" height="82" rx="10"/>
+  <text class="box-title" x="1552" y="422" text-anchor="middle">KSP-FF Anchor Injection</text>
+  <text class="box-text" x="1420" y="451">include KSP-FF action whenever legal</text>
+  <text class="small" x="1420" y="472">anchor is available; ranker still decides</text>
+
+  <rect class="panel" x="1395" y="515" width="315" height="112" rx="10"/>
+  <text class="box-title" x="1552" y="543" text-anchor="middle">Learned Ranker</text>
+  <text class="box-text" x="1420" y="572">score candidate state-action features</text>
+  <text class="math" x="1420" y="599">a<tspan baseline-shift="sub">R</tspan>* = arg max<tspan baseline-shift="sub">a ∈ A<tspan baseline-shift="sub">mix</tspan></tspan> f<tspan baseline-shift="sub">θ</tspan>(o<tspan baseline-shift="sub">C</tspan>, o<tspan baseline-shift="sub">R</tspan>, a)</text>
+
+  <!-- Execution -->
+  <rect class="exec" x="610" y="760" width="590" height="190" rx="16"/>
+  <text class="cluster-title" x="905" y="794" text-anchor="middle">Execution in Event-Driven SMDP Environment</text>
+  <rect class="panel" x="645" y="825" width="250" height="92" rx="10"/>
+  <text class="box-title" x="770" y="853" text-anchor="middle">Admit</text>
+  <text class="box-text" x="670" y="882">reserve edge compute</text>
+  <text class="box-text" x="670" y="907">allocate FS block on all path links</text>
+
+  <rect class="panel" x="925" y="825" width="240" height="92" rx="10"/>
+  <text class="box-title" x="1045" y="853" text-anchor="middle">Block</text>
+  <text class="box-text" x="950" y="882">server overload</text>
+  <text class="box-text" x="950" y="907">deadline infeasible / no suitable block</text>
+
+  <!-- Main arrows -->
+  <path class="arrow" d="M 355 250 C 390 250, 410 250, 462 250"/>
+  <path class="arrow" d="M 615 320 L 615 365"/>
+  <path class="arrow" d="M 765 430 C 820 430, 845 252, 907 252"/>
+  <path class="arrow" d="M 1085 300 L 1085 330"/>
+  <path class="arrow" d="M 1085 460 L 1085 495"/>
+  <path class="arrow" d="M 1260 556 C 1302 556, 1330 280, 1391 280"/>
+  <path class="arrow" d="M 1552 365 L 1552 391"/>
+  <path class="arrow" d="M 1552 477 L 1552 511"/>
+  <path class="arrow" d="M 1552 627 C 1490 720, 1240 780, 1165 850"/>
+  <path class="arrow" d="M 80 575 C 350 735, 535 785, 645 850"/>
+
+  <!-- Feedback loop -->
+  <path class="feedback" d="M 905 950 C 760 1012, 430 1000, 245 670"/>
+  <text class="small" x="505" y="986">accepted requests update server load and spectrum occupancy until holding time expires</text>
+
+  <!-- Labels -->
+  <rect class="soft-panel" x="805" y="690" width="265" height="48" rx="10"/>
+  <text class="small" x="937" y="720" text-anchor="middle">Final action pair: (a<tspan baseline-shift="sub">C</tspan>*, a<tspan baseline-shift="sub">R</tspan>*)</text>
+  <path class="thin-arrow" d="M 937 738 L 937 757"/>
+
+  <text class="small" x="900" y="1012" text-anchor="middle">Figure: online architecture of SA-HMARL. Training of PPO-C and the ranker is described separately; this diagram shows the deployed decision flow.</text>
+</svg>

@@ -1,0 +1,622 @@
+{
+  "config": {
+    "agent_c_checkpoint": "sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_last.pt",
+    "agent_r_checkpoint": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+    "ranker_checkpoint": "sa_hmarl/checkpoints/r_counterfactual_ranking_postdec_topk_k50_s100/ranking_model.pt",
+    "topology": "xlron_cost239_ptrnet_real",
+    "num_slots": 320,
+    "num_servers": 4,
+    "k_paths": 50,
+    "path_sort_strategy": "hops",
+    "block_sort_strategy": "start_asc",
+    "max_blocks": 10,
+    "split_profile": "default3",
+    "num_splits": 3,
+    "seed": 3030,
+    "requests_per_episode": 200,
+    "warmup_requests": 150,
+    "max_states_candidates": 8,
+    "max_states_all_legal": 3,
+    "arrival_interval": 0.0625,
+    "holding_min": 20.0,
+    "holding_max": 30.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "size_max_mb": 30.0,
+    "edge_cost_min": 0.1,
+    "edge_cost_max": 2.2,
+    "modulation_profile": "default",
+    "util_threshold": 0.95,
+    "alpha": 0.3,
+    "device": "cpu",
+    "train_ppo_top_k": 50,
+    "train_max_candidates": 30,
+    "return_current_block_coef": 3.0,
+    "return_future_block_coef": 4.0,
+    "return_future_nsb_coef": 3.0,
+    "return_future_server_overload_coef": 0.0,
+    "return_delay_coef": 0.03,
+    "return_fs_coef": 0.05,
+    "gamma": 1.0,
+    "output_json": "sa_hmarl/experiments/v13_pds_stage0_diagnostic.json",
+    "output_md": "sa_hmarl/experiments/v13_pds_stage0_diagnostic.md"
+  },
+  "states_candidate_pool": 8,
+  "states_all_legal": 3,
+  "common_random_numbers_test": [
+    {
+      "request_index": 150,
+      "actions": [
+        520,
+        1680,
+        160,
+        880,
+        0,
+        1280,
+        10,
+        20,
+        30,
+        40,
+        50,
+        80,
+        90,
+        120,
+        130,
+        200,
+        240,
+        250,
+        280,
+        320,
+        360,
+        400,
+        440,
+        480,
+        560,
+        600,
+        640,
+        650,
+        680,
+        720
+      ],
+      "labels_h5": {
+        "520": -0.32607906315701396,
+        "1680": -0.36242193303276,
+        "160": -0.3531688563195376,
+        "880": -0.39533822674528407,
+        "0": -0.32607906315701396,
+        "1280": -0.32410041510417587,
+        "10": -0.32607906315701396,
+        "20": -0.32607906315701396,
+        "30": -0.32607906315701396,
+        "40": -0.32410041510417587,
+        "50": -0.32410041510417587,
+        "80": -0.3531688563195376,
+        "90": -0.3531688563195376,
+        "120": -0.32410041510417587,
+        "130": -0.32410041510417587,
+        "200": -0.32410041510417587,
+        "240": -0.32607906315701396,
+        "250": -0.32410041510417587,
+        "280": -0.39533822674528407,
+        "320": -0.32607906315701396,
+        "360": -0.32853043956278455,
+        "400": -0.32410041510417587,
+        "440": -0.39533822674528407,
+        "480": -0.32410041510417587,
+        "560": -0.32410041510417587,
+        "600": -0.32410041510417587,
+        "640": -0.32607906315701396,
+        "650": -0.32410041510417587,
+        "680": -0.3531688563195376,
+        "720": -0.32607906315701396
+      },
+      "note": "RNG state is cloned per candidate in _evaluate_state; order-independent by construction."
+    },
+    {
+      "request_index": 151,
+      "actions": [
+        520,
+        1680,
+        160,
+        880,
+        0,
+        1280,
+        10,
+        20,
+        30,
+        40,
+        50,
+        80,
+        90,
+        120,
+        130,
+        200,
+        240,
+        250,
+        280,
+        320,
+        360,
+        400,
+        440,
+        480,
+        560,
+        600,
+        640,
+        650,
+        680,
+        720
+      ],
+      "labels_h5": {
+        "520": -0.3195306284518195,
+        "1680": -0.38866682514989803,
+        "160": -0.3485590558866335,
+        "880": -0.3485590558866335,
+        "0": -0.32150927650465766,
+        "1280": -0.3195306284518195,
+        "10": -0.32150927650465766,
+        "20": -0.32150927650465766,
+        "30": -0.3195306284518195,
+        "40": -0.3195306284518195,
+        "50": -0.3195306284518195,
+        "80": -0.3485590558866335,
+        "90": -0.3485590558866335,
+        "120": -0.3195306284518195,
+        "130": -0.3195306284518195,
+        "200": -0.3195306284518195,
+        "240": -0.3195306284518195,
+        "250": -0.3195306284518195,
+        "280": -0.4261261427930806,
+        "320": -0.3195306284518195,
+        "360": -0.3753565628121449,
+        "400": -0.3195306284518195,
+        "440": -0.39071585888966653,
+        "480": -0.3195306284518195,
+        "560": -0.3195306284518195,
+        "600": -0.3195306284518195,
+        "640": -0.3195306284518195,
+        "650": -0.3195306284518195,
+        "680": -0.3485590558866335,
+        "720": -0.3195306284518195
+      },
+      "note": "RNG state is cloned per candidate in _evaluate_state; order-independent by construction."
+    },
+    {
+      "request_index": 152,
+      "actions": [
+        200,
+        1440,
+        0,
+        1040,
+        10,
+        40,
+        50,
+        80,
+        90,
+        120,
+        130,
+        160,
+        170,
+        210,
+        240,
+        280,
+        320,
+        330,
+        360,
+        370,
+        400,
+        410,
+        440,
+        450,
+        480,
+        490,
+        520,
+        530,
+        560,
+        570
+      ],
+      "labels_h5": {
+        "200": -0.32913950010602533,
+        "1440": -0.32913950010602533,
+        "0": -0.2871373411234045,
+        "1040": -0.4302355760958292,
+        "10": -0.2871373411234045,
+        "40": -0.32913950010602533,
+        "50": -0.32913950010602533,
+        "80": -0.25701623824052,
+        "90": -0.25701623824052,
+        "120": -0.3698945546291176,
+        "130": -0.3698945546291176,
+        "160": -0.4111983505275831,
+        "170": -0.35438614160888826,
+        "210": -0.32913950010602533,
+        "240": -0.3291302300196313,
+        "280": -0.3582725244442141,
+        "320": -0.32913950010602533,
+        "330": -0.32913950010602533,
+        "360": -0.3698945546291176,
+        "370": -0.3698945546291176,
+        "400": -0.3890136563855726,
+        "410": -0.35617482172849124,
+        "440": -0.4265897499560636,
+        "450": -0.35617482172849124,
+        "480": -0.3657322605881279,
+        "490": -0.2989329652150112,
+        "520": -0.32913950010602533,
+        "530": -0.32913950010602533,
+        "560": -0.3291302300196313,
+        "570": -0.32913950010602533
+      },
+      "note": "RNG state is cloned per candidate in _evaluate_state; order-independent by construction."
+    },
+    {
+      "request_index": 153,
+      "actions": [
+        520,
+        1680,
+        160,
+        880,
+        0,
+        1280,
+        10,
+        20,
+        30,
+        40,
+        50,
+        80,
+        90,
+        120,
+        130,
+        200,
+        240,
+        250,
+        280,
+        320,
+        360,
+        400,
+        440,
+        480,
+        560,
+        600,
+        640,
+        650,
+        680,
+        720
+      ],
+      "labels_h5": {
+        "520": -0.2863756063400181,
+        "1680": -0.38696930673424484,
+        "160": -0.2863756063400181,
+        "880": -0.38696930673424484,
+        "0": -0.2883542543928562,
+        "1280": -0.2863756063400181,
+        "10": -0.2883542543928562,
+        "20": -0.2883542543928562,
+        "30": -0.2883542543928562,
+        "40": -0.2863756063400181,
+        "50": -0.2863756063400181,
+        "80": -0.2863756063400181,
+        "90": -0.2863756063400181,
+        "120": -0.2863756063400181,
+        "130": -0.2863756063400181,
+        "200": -0.2863756063400181,
+        "240": -0.2863756063400181,
+        "250": -0.2863756063400181,
+        "280": -0.34236547500033776,
+        "320": -0.2863756063400181,
+        "360": -0.41235902824418147,
+        "400": -0.2863756063400181,
+        "440": -0.41235902824418147,
+        "480": -0.2863756063400181,
+        "560": -0.2863756063400181,
+        "600": -0.2863756063400181,
+        "640": -0.2863756063400181,
+        "650": -0.2863756063400181,
+        "680": -0.33954804092029395,
+        "720": -0.2863756063400181
+      },
+      "note": "RNG state is cloned per candidate in _evaluate_state; order-independent by construction."
+    },
+    {
+      "request_index": 154,
+      "actions": [
+        520,
+        1680,
+        160,
+        880,
+        0,
+        1280,
+        10,
+        20,
+        30,
+        40,
+        50,
+        80,
+        90,
+        120,
+        130,
+        200,
+        240,
+        250,
+        280,
+        320,
+        360,
+        400,
+        440,
+        480,
+        560,
+        600,
+        640,
+        650,
+        680,
+        720
+      ],
+      "labels_h5": {
+        "520": -0.3266024616795533,
+        "1680": -0.38726900366709477,
+        "160": -0.3088272378131127,
+        "880": -0.3946986247115731,
+        "0": -0.3532697445771792,
+        "1280": -0.3512024616795534,
+        "10": -0.31280407897168044,
+        "20": -0.31280407897168044,
+        "30": -0.31280407897168044,
+        "40": -0.310784355236291,
+        "50": -0.310784355236291,
+        "80": -0.34920843634371357,
+        "90": -0.3088272378131127,
+        "120": -0.310784355236291,
+        "130": -0.310784355236291,
+        "200": -0.3512024616795534,
+        "240": -0.3512024616795534,
+        "250": -0.310784355236291,
+        "280": -0.3946986247115731,
+        "320": -0.3512024616795534,
+        "360": -0.40445487965159127,
+        "400": -0.3512024616795534,
+        "440": -0.43322093820733953,
+        "480": -0.3512024616795534,
+        "560": -0.3512024616795534,
+        "600": -0.3512024616795534,
+        "640": -0.34920843634371357,
+        "650": -0.310784355236291,
+        "680": -0.3946986247115731,
+        "720": -0.3512024616795534
+      },
+      "note": "RNG state is cloned per candidate in _evaluate_state; order-independent by construction."
+    }
+  ],
+  "afterstate_variance": {
+    "path_length_km": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "hop_count": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "lfb": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "free_ratio": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "frag_index": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "spectral_efficiency": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "reach_km": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "required_fs": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "block_size": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "block_waste": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "path_mod_feasible": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "selected_valid_r_ratio": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "k_c_valid_ratio": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "k_r_total_ratio": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "phi_spec_norm": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "raw_r_valid_ratio": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "path_idx_norm": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "mod_idx_norm": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "block_idx_norm": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "path_lfb_after": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "path_free_ratio_after": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "global_lfb_after": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "global_lfb_ratio_after": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "frag_after": {
+      "mean_var": 0.002965976331360947,
+      "max_var": 0.0034993425378040772,
+      "nonzero_frac": 1.0
+    },
+    "delta_frag": {
+      "mean_var": 0.002965976331360947,
+      "max_var": 0.0034993425378040772,
+      "nonzero_frac": 1.0
+    },
+    "free_block_count_after": {
+      "mean_var": 0.0029659763313609477,
+      "max_var": 0.0034993425378040772,
+      "nonzero_frac": 1.0
+    },
+    "free_block_count_delta": {
+      "mean_var": 0.0029659763313609486,
+      "max_var": 0.0034993425378040785,
+      "nonzero_frac": 1.0
+    },
+    "min_edge_lfb_margin_after": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "min_edge_free_ratio_after": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "bottleneck_edge_util_after": {
+      "mean_var": 0.0,
+      "max_var": 0.0,
+      "nonzero_frac": 0.0
+    },
+    "occupied_slot_hops": {
+      "mean_var": 177916.71666666667,
+      "max_var": 201214.89333333328,
+      "nonzero_frac": 1.0
+    },
+    "path_conflict_after": {
+      "mean_var": 305.34027777777777,
+      "max_var": 458.99555555555577,
+      "nonzero_frac": 1.0
+    }
+  },
+  "server_util_context": {
+    "mean_server_util": 0.3662202236250617,
+    "p95_server_util": 0.5046045767666562,
+    "server_util_after_same_across_successful_candidates": true
+  },
+  "horizon_summary": {
+    "H5": {
+      "mean_range": 0.1108602542431532,
+      "median_range": 0.10932195148475637,
+      "nonzero_range_rate": 1.0,
+      "mean_top1_top2_gap": 0.0,
+      "spearman_vs_h5": 0.0,
+      "mean_ksp_regret": 0.03237411748875455,
+      "mean_ppo_regret": 0.017185250947410864,
+      "mean_ranker_regret": 0.07588719740607941
+    },
+    "H12": {
+      "mean_range": 0.08968729428672303,
+      "median_range": 0.09573882327259695,
+      "nonzero_range_rate": 1.0,
+      "mean_top1_top2_gap": 0.006014931600607461,
+      "spearman_vs_h5": 0.5108249010347361,
+      "mean_ksp_regret": 0.04429896614040531,
+      "mean_ppo_regret": 0.03693006012283492,
+      "mean_ranker_regret": 0.04392993756919868
+    },
+    "H20": {
+      "mean_range": 0.09701501231777393,
+      "median_range": 0.09650178829067663,
+      "nonzero_range_rate": 1.0,
+      "mean_top1_top2_gap": 0.005159487040261715,
+      "spearman_vs_h5": 0.2664738333088007,
+      "mean_ksp_regret": 0.04258092674352215,
+      "mean_ppo_regret": 0.032395595339409104,
+      "mean_ranker_regret": 0.05945830815785193
+    }
+  },
+  "cause_report": {
+    "H5": {
+      "optical_positive_rate": 0.0,
+      "overload_positive_rate": 0.0,
+      "other_positive_rate": 0.0,
+      "mean_optical": 0.0,
+      "mean_overload": 0.0,
+      "mean_other": 0.0
+    },
+    "H12": {
+      "optical_positive_rate": 0.0,
+      "overload_positive_rate": 0.0,
+      "other_positive_rate": 0.0,
+      "mean_optical": 0.0,
+      "mean_overload": 0.0,
+      "mean_other": 0.0
+    },
+    "H20": {
+      "optical_positive_rate": 0.0,
+      "overload_positive_rate": 0.0,
+      "other_positive_rate": 0.0,
+      "mean_optical": 0.0,
+      "mean_overload": 0.0,
+      "mean_other": 0.0
+    }
+  },
+  "recall_summary": {
+    "states": 3,
+    "oracle_top1_recall": 0.6666666666666666,
+    "oracle_top5_recall": 0.7333333333333334,
+    "ksp_plain_recall": 1.0,
+    "ksp_highest_recall": 1.0
+  },
+  "elapsed_seconds": 216.7475392818451
+}

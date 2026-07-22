@@ -1,0 +1,110 @@
+{
+  "schema_version": "v1.3-verified-2026-07-14",
+  "phase": "smoke",
+  "topologies": [
+    "xlron_cost239_ptrnet_real",
+    "xlron_german17",
+    "xlron_nsfnet_deeprmsa",
+    "xlron_jpn48"
+  ],
+  "seeds": [
+    3030
+  ],
+  "c_modes": [
+    "ppo_c",
+    "df_c"
+  ],
+  "r_modes": "ppo_r_top1,ksp_ff_highest,strict_v13",
+  "warmup": 20,
+  "requests": 50,
+  "env_params": {
+    "num_slots": 320,
+    "num_servers": 4,
+    "k_paths_c": 5,
+    "k_paths_r": 50,
+    "path_sort_strategy_c": "hops",
+    "path_sort_strategy_r": "hops",
+    "block_sort_strategy_c": "start_asc",
+    "block_sort_strategy_r": "start_asc",
+    "modulation_profile": "default",
+    "max_blocks": 10,
+    "split_profile": "default3",
+    "num_splits": 3,
+    "holding_min": 20.0,
+    "holding_max": 30.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "size_max_mb": 30.0,
+    "edge_cost_min": 0.1
+  },
+  "topology_params": {
+    "xlron_cost239_ptrnet_real": {
+      "arrival_interval": 0.0625,
+      "edge_cost_max": 2.2
+    },
+    "xlron_german17": {
+      "arrival_interval": 0.07142857142857142,
+      "edge_cost_max": 3.0
+    },
+    "xlron_nsfnet_deeprmsa": {
+      "arrival_interval": 0.07692307692307693,
+      "edge_cost_max": 4.0
+    },
+    "xlron_jpn48": {
+      "arrival_interval": 0.1,
+      "edge_cost_max": 5.2
+    }
+  },
+  "source_manifest": {
+    "sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+    "sa_hmarl/sa_hmarl/evaluation/run_strict_v13_multitopology_cside_verified.py": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+    "sa_hmarl/sa_hmarl/evaluation/analyze_strict_v13_multitopology_cside_verified.py": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9",
+    "sa_hmarl/sa_hmarl/evaluation/diagnose_r_action_horizon_oracle.py": "0755899405bd6fa9f9f70a96b3cc8fd78fc2bdb59a799f2e2638f938cd7b7423",
+    "sa_hmarl/sa_hmarl/evaluation/generate_r_counterfactual_ranking_cost239_kpath50_hops_kprop30_h5.py": "1eaa3d1400ffffb3508eba94d8c6a803bb7da30804b54a41b381591166d3441d",
+    "sa_hmarl/sa_hmarl/baselines/rmsa_baselines.py": "d284ee2220fc5613754fa3e3f773400d70af05e6ead94853057f27583e6cf441",
+    "sa_hmarl/sa_hmarl/network/ksp.py": "816ea52353dca4d329e6521230d3ee4ff8b66d6203ef1f76cfed95b1a073ed6d",
+    "sa_hmarl/sa_hmarl/env/event_env.py": "7bf4dbe2628abec32c811fb687db3c59288116573a380ba39c4b59769e982662",
+    "sa_hmarl/sa_hmarl/env/action_mask.py": "c5cf40c34dfced5ddb54cbbb9748e7aafcf8e1589d509530f5bfe17a00742d67",
+    "sa_hmarl/sa_hmarl/env/observation_builder.py": "d9062b190fd1435d4d63f03b2a808548dd1d3b109d2c9f5b6c28b158d2821a31",
+    "sa_hmarl/sa_hmarl/agents/r_agent.py": "9924e02d63e19c88628d16a85412edb45359c23a50900d0cfd7ec4e00651d479",
+    "sa_hmarl/sa_hmarl/agents/ppo_agents.py": "079babd7a57771db1e07b2132900d0dec58a1840ed1d80a567d5b8417e34a8a6",
+    "sa_hmarl/sa_hmarl/agents/c_agent.py": "5c186b67fc103a70e3c892ab32b32eac07b0cc57d02367afa070a1fd2cd5545b",
+    "sa_hmarl/sa_hmarl/evaluation/offloading_baselines.py": "a71bd64c81020dd4dafc3073532b9390bc856cfe8ef36605dca132ca5e32b33f",
+    "sa_hmarl/sa_hmarl/evaluation/eval_long_horizon_system_comparison.py": "884f5f8ef6e2b1c5564f4684b445db1c194f86faa4a13e276552622a1a2e0064"
+  },
+  "code_hashes": {
+    "evaluator": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f",
+    "runner": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3",
+    "analyzer": "968d9fb10c6154c5433840c3237113424b39b69d251139b209b8d952022320e9"
+  },
+  "checkpoint_sha256s": {
+    "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+    "strict_v13": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de",
+    "old_v13": "f62852c8ee2f1bb0ce59c3a66dfd6ffbd9183ebdfdac8e45c7b4241bb28543fb"
+  },
+  "c_checkpoint_sha256s": {
+    "ppo_c": "a5c9eb39bc33cf3b77a06d80e9c45315880dcb963ad9c3c95663eadaded9f2c8",
+    "df_c": "heuristic"
+  },
+  "smoke_matrix": {
+    "xlron_cost239_ptrnet_real|seed_3030": {
+      "status": "done",
+      "task_dir": "sa_hmarl/experiments/v13_strict_multitopology_cside_verified_v2/smoke/xlron_cost239_ptrnet_real/seed_3030"
+    },
+    "xlron_german17|seed_3030": {
+      "status": "done",
+      "task_dir": "sa_hmarl/experiments/v13_strict_multitopology_cside_verified_v2/smoke/xlron_german17/seed_3030"
+    },
+    "xlron_nsfnet_deeprmsa|seed_3030": {
+      "status": "done",
+      "task_dir": "sa_hmarl/experiments/v13_strict_multitopology_cside_verified_v2/smoke/xlron_nsfnet_deeprmsa/seed_3030"
+    },
+    "xlron_jpn48|seed_3030": {
+      "status": "done",
+      "task_dir": "sa_hmarl/experiments/v13_strict_multitopology_cside_verified_v2/smoke/xlron_jpn48/seed_3030"
+    }
+  },
+  "smoke_acceptance": true,
+  "request_trace_hashes": {}
+}

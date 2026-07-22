@@ -1,0 +1,30 @@
+{
+  "reg_weight": 1.0,
+  "lambda_pair": 0.0,
+  "lambda_hard": 0.0,
+  "sampling_modes": {
+    "full_state_uniform_strict": "uniform",
+    "full_state_stratified_depth_strict": "stratified_depth"
+  },
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "selection_metric": "regret",
+  "epochs": 80,
+  "patience": 20,
+  "model": {
+    "type": "mlp",
+    "hidden_dims": [
+      128,
+      64
+    ],
+    "dropout": 0.0
+  },
+  "optimizer": {
+    "type": "AdamW",
+    "lr": 0.0003,
+    "weight_decay": 1e-05
+  }
+}

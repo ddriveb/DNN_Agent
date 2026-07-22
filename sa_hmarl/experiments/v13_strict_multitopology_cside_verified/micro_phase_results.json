@@ -1,0 +1,34 @@
+[
+  {
+    "topology": "xlron_german17",
+    "seed": 3030,
+    "status": "done",
+    "elapsed_sec": 29.604967919003684,
+    "task_dir": "sa_hmarl/experiments/v13_strict_multitopology_cside_verified/per_task/xlron_german17/seed_3030",
+    "from_resume": false
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "seed": 3030,
+    "status": "done",
+    "elapsed_sec": 29.704079872986767,
+    "task_dir": "sa_hmarl/experiments/v13_strict_multitopology_cside_verified/per_task/xlron_cost239_ptrnet_real/seed_3030",
+    "from_resume": false
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "seed": 3030,
+    "status": "done",
+    "elapsed_sec": 29.551861154992366,
+    "task_dir": "sa_hmarl/experiments/v13_strict_multitopology_cside_verified/per_task/xlron_nsfnet_deeprmsa/seed_3030",
+    "from_resume": false
+  },
+  {
+    "topology": "xlron_jpn48",
+    "seed": 3030,
+    "status": "done",
+    "elapsed_sec": 31.16009382699849,
+    "task_dir": "sa_hmarl/experiments/v13_strict_multitopology_cside_verified/per_task/xlron_jpn48/seed_3030",
+    "from_resume": false
+  }
+]

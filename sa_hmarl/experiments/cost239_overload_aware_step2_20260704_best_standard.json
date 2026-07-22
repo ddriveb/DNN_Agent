@@ -1,0 +1,604 @@
+{
+  "config": {
+    "agent_c_checkpoint": "sa_hmarl/checkpoints/agent_c_cost239_overload_aware_step2_20260704_best.pt",
+    "agent_r_checkpoint": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+    "ranking_checkpoint": "sa_hmarl/checkpoints/r_counterfactual_ranking_v1_2_mixed_low/ranking_model.pt",
+    "deep_rmsa_checkpoint": "sa_hmarl/checkpoints/deep_rmsa_snap24_s100_k5m10_ai015_h4_10_s5_30.pt",
+    "methods": "ppo_c+ksp_ff_k50_hops",
+    "seeds": "3030,4040,5050",
+    "episodes": 10,
+    "requests_per_episode": 80,
+    "topology": "xlron_cost239_ptrnet_real",
+    "num_slots": 100,
+    "num_servers": 4,
+    "k_paths": 5,
+    "path_sort_strategy": "km",
+    "ksp_ff_k50_hops_k_paths": 50,
+    "ppo_r_proposer_top_k": 8,
+    "post_decision_checkpoint": "sa_hmarl/checkpoints/r_counterfactual_ranking_v1_2_mixed_low/ranking_model.pt",
+    "ppo_r_postdec_top_k": 8,
+    "ppo_r_postdec_ensure_ksp": false,
+    "ranker_candidate_mode": null,
+    "ranker_max_candidates": null,
+    "ranker_ppo_top_k": null,
+    "ranker_num_random_candidates": null,
+    "ranker_min_candidates": null,
+    "ranker_ensure_ksp": true,
+    "collect_server_diagnostics": true,
+    "server_diag_high_util_threshold": 0.9,
+    "max_blocks": 10,
+    "block_sort_strategy": "mixed",
+    "split_profile": "default3",
+    "num_splits": 3,
+    "arrival_interval": 0.15,
+    "holding_min": 4.0,
+    "holding_max": 10.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "size_max_mb": 30.0,
+    "edge_cost_min": 0.5,
+    "edge_cost_max": 15.0,
+    "modulation_profile": "default",
+    "device": "cpu",
+    "output_json": "sa_hmarl/experiments/cost239_overload_aware_step2_20260704_best_standard.json",
+    "output_md": "sa_hmarl/experiments/cost239_overload_aware_step2_20260704_best_standard.md"
+  },
+  "methods": {
+    "ppo_c+ksp_ff_k50_hops": {
+      "c_mode": "ppo_c",
+      "r_mode": "ksp_ff_k50_hops",
+      "per_seed": {
+        "3030": {
+          "total": 800,
+          "blocking_rate": 0.0,
+          "raw_mask_empty_rate": 0.0,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.0,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {},
+          "mean_delay_ms": 11.172375044526715,
+          "p50_delay_ms": 10.200248539227356,
+          "p95_delay_ms": 19.642517480036407,
+          "avg_fs": 2.2425,
+          "avg_waste": 0.671467722427015,
+          "avg_path_km": 769.925,
+          "mean_active_connections": 32.61875,
+          "p95_active_connections": 50.0,
+          "max_active_connections": 53,
+          "mean_valid_c_actions": 10.18,
+          "mean_total_valid_r_actions": 139.77625,
+          "mean_selected_valid_r_actions": 16.06,
+          "agreement_with_ppo_c": 0.03374999999999995,
+          "changed_action_count": 773,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 55.4550102869689,
+          "p95_decision_time_ms": 77.58394395350477,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null
+        },
+        "4040": {
+          "total": 800,
+          "blocking_rate": 0.0,
+          "raw_mask_empty_rate": 0.0,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.0,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {},
+          "mean_delay_ms": 10.496952201407526,
+          "p50_delay_ms": 9.76844623501453,
+          "p95_delay_ms": 18.49884140891318,
+          "avg_fs": 2.23375,
+          "avg_waste": 0.6957362481867251,
+          "avg_path_km": 694.7275,
+          "mean_active_connections": 32.99625,
+          "p95_active_connections": 50.0,
+          "max_active_connections": 52,
+          "mean_valid_c_actions": 10.47625,
+          "mean_total_valid_r_actions": 139.75875,
+          "mean_selected_valid_r_actions": 14.9075,
+          "agreement_with_ppo_c": 0.05125000000000002,
+          "changed_action_count": 759,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 47.03215606343292,
+          "p95_decision_time_ms": 69.88886619801633,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null
+        },
+        "5050": {
+          "total": 800,
+          "blocking_rate": 0.0,
+          "raw_mask_empty_rate": 0.0,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.0,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {},
+          "mean_delay_ms": 10.289838638037159,
+          "p50_delay_ms": 9.640567046833166,
+          "p95_delay_ms": 18.85686463402494,
+          "avg_fs": 2.2075,
+          "avg_waste": 0.6910499427216718,
+          "avg_path_km": 717.315,
+          "mean_active_connections": 32.75375,
+          "p95_active_connections": 50.0,
+          "max_active_connections": 52,
+          "mean_valid_c_actions": 10.5275,
+          "mean_total_valid_r_actions": 133.32,
+          "mean_selected_valid_r_actions": 14.57375,
+          "agreement_with_ppo_c": 0.06874999999999998,
+          "changed_action_count": 745,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 26.195652287860867,
+          "p95_decision_time_ms": 48.574602289590985,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null
+        }
+      },
+      "server_diagnostics": {
+        "3030": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 800,
+          "total_overloads": 0,
+          "selected_count": [
+            258,
+            155,
+            97,
+            290
+          ],
+          "selected_percentage": [
+            32.25,
+            19.375,
+            12.125,
+            36.25
+          ],
+          "utilization": [
+            {
+              "mean": 0.5426282339395551,
+              "p95": 0.9776873935402102,
+              "max": 0.9968967833652265
+            },
+            {
+              "mean": 0.32448381088430467,
+              "p95": 0.9711308189263625,
+              "max": 0.9780827935905372
+            },
+            {
+              "mean": 0.289587048256897,
+              "p95": 0.98596494139769,
+              "max": 0.9986575671039549
+            },
+            {
+              "mean": 0.5634863969825149,
+              "p95": 0.9689019653038864,
+              "max": 0.9978104721480157
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.21,
+            0.1825,
+            0.13625,
+            0.2325
+          ],
+          "first_high_util_time": {
+            "1": 2.4,
+            "0": 7.35,
+            "2": 7.8,
+            "3": 6.8999999999999995
+          },
+          "overload_by_server": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "4040": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 800,
+          "total_overloads": 0,
+          "selected_count": [
+            178,
+            144,
+            234,
+            244
+          ],
+          "selected_percentage": [
+            22.25,
+            18.0,
+            29.25,
+            30.5
+          ],
+          "utilization": [
+            {
+              "mean": 0.4199654161717071,
+              "p95": 0.9715224749478611,
+              "max": 0.9910461816913658
+            },
+            {
+              "mean": 0.3499594783135738,
+              "p95": 0.951016551583468,
+              "max": 0.9969121229437624
+            },
+            {
+              "mean": 0.49746641792054214,
+              "p95": 0.9735708760409952,
+              "max": 0.9990055606322352
+            },
+            {
+              "mean": 0.5429717563877355,
+              "p95": 0.9585644205871752,
+              "max": 0.9909369555930138
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.1625,
+            0.10625,
+            0.20375,
+            0.1725
+          ],
+          "first_high_util_time": {
+            "3": 4.2,
+            "2": 7.8,
+            "1": 2.55,
+            "0": 7.5
+          },
+          "overload_by_server": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "5050": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 800,
+          "total_overloads": 0,
+          "selected_count": [
+            184,
+            145,
+            237,
+            234
+          ],
+          "selected_percentage": [
+            23.0,
+            18.125,
+            29.625,
+            29.25
+          ],
+          "utilization": [
+            {
+              "mean": 0.44726759448909076,
+              "p95": 0.9771670704277783,
+              "max": 0.9912219025206979
+            },
+            {
+              "mean": 0.3430117215538641,
+              "p95": 0.9578276829707711,
+              "max": 0.9795773147456915
+            },
+            {
+              "mean": 0.5085695240862055,
+              "p95": 0.9714163478846348,
+              "max": 0.999953419263123
+            },
+            {
+              "mean": 0.5073591062307845,
+              "p95": 0.9721674037869092,
+              "max": 0.9983449425595958
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.13,
+            0.125,
+            0.14875,
+            0.145
+          ],
+          "first_high_util_time": {
+            "0": 3.15,
+            "3": 7.05,
+            "1": 2.1,
+            "2": 5.7
+          },
+          "overload_by_server": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      },
+      "aggregate": {
+        "total": 800.0,
+        "blocking_rate": 0.0,
+        "raw_mask_empty_rate": 0.0,
+        "no_suitable_block_rate": 0.0,
+        "server_overload_rate": 0.0,
+        "deadline_failure_rate": 0.0,
+        "other_failure_rate": 0.0,
+        "mean_delay_ms": 10.653055294657134,
+        "p50_delay_ms": 9.86975394035835,
+        "p95_delay_ms": 18.99940784099151,
+        "avg_fs": 2.2279166666666668,
+        "avg_waste": 0.6860846377784706,
+        "avg_path_km": 727.3224999999999,
+        "mean_active_connections": 32.78958333333333,
+        "p95_active_connections": 50.0,
+        "max_active_connections": 52.333333333333336,
+        "mean_valid_c_actions": 10.394583333333333,
+        "mean_total_valid_r_actions": 137.6183333333333,
+        "mean_selected_valid_r_actions": 15.180416666666668,
+        "agreement_with_ppo_c": 0.05124999999999998,
+        "changed_action_count": 759.0,
+        "changed_action_blocking_rate": 0.0,
+        "mean_decision_time_ms": 42.894272879420896,
+        "p95_decision_time_ms": 65.3491374803707
+      },
+      "server_diagnostics_aggregate": {
+        "num_servers": 4,
+        "num_splits": 3,
+        "high_util_threshold": 0.9,
+        "total_samples": 2400,
+        "total_overloads": 0,
+        "selected_count": [
+          620,
+          444,
+          568,
+          768
+        ],
+        "selected_percentage": [
+          25.833333333333332,
+          18.5,
+          23.666666666666668,
+          32.0
+        ],
+        "utilization": [
+          {
+            "mean": 0.46995374820011765,
+            "p95": 0.9754589796386166,
+            "max": 0.9930549558590966
+          },
+          {
+            "mean": 0.33915167025058085,
+            "p95": 0.9599916844935339,
+            "max": 0.9848574104266637
+          },
+          {
+            "mean": 0.43187433008788156,
+            "p95": 0.9769840551077733,
+            "max": 0.9992055156664378
+          },
+          {
+            "mean": 0.5379390865336783,
+            "p95": 0.9665445965593236,
+            "max": 0.9956974567668752
+          }
+        ],
+        "queue_delay_ms": [
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          }
+        ],
+        "high_util_fraction": [
+          0.16749999999999998,
+          0.13791666666666666,
+          0.16291666666666665,
+          0.18333333333333335
+        ],
+        "first_high_util_time": {
+          "1": 2.1,
+          "0": 3.15,
+          "2": 5.7,
+          "3": 4.2
+        },
+        "overload_by_server": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "overload_by_server_percentage": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "overload_by_split_server": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    }
+  }
+}

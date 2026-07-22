@@ -1,0 +1,20 @@
+{
+  "ppo_c_strict_vs_ksp_classification": "Significant win",
+  "df_c_strict_vs_ksp_classification": "Directional win",
+  "interaction_mean_pp": 2.405,
+  "lowest_blocking_combination": "DF_C + PPO-R Top-1",
+  "lowest_blocking_rate": 0.06164166666666667,
+  "answers": {
+    "1_ppo_c_significant": true,
+    "2_df_c_significant": false,
+    "3_cross_c_stable": true,
+    "4_df_c_distribution_shift": true,
+    "5_strict_vs_ppo_r_stable": false,
+    "6_lowest_blocking": "DF_C + PPO-R Top-1",
+    "7_v1_35_allowed": true,
+    "8_paper_conclusion": "Strict v1.3 is directionally better than KSP-FF under both C strategies, but significance is conditional on C strategy.",
+    "9_next_recommended_experiment": "If cross-C advantage holds: run v1.35 diagnostic pilot with \u22641000 groups under Strict protocol and explicit gate safety baseline. If advantage is PPO-C-specific: first diagnose C-policy distribution shift and train a COST239-native PPO-R checkpoint before any broader claim."
+  },
+  "overall_recommendation": "Strict v1.3 is directionally better than KSP-FF under both C strategies, but significance is conditional on C strategy.",
+  "v1_35_diagnostic_pilot_allowed": true
+}

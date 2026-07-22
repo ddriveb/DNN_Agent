@@ -1,0 +1,186 @@
+[
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "seed": 5001,
+    "smoke_post_warmup": 2000,
+    "k50_empty_events": 228,
+    "strict_rescue_success": 0,
+    "preferred_rescue_success": 0,
+    "per_mode": {
+      "strict": {
+        "method": "Strict v1.3 frozen cross-topology transfer",
+        "blocking_rate": 0.057,
+        "total": 2000,
+        "admitted": 1886,
+        "blocked": 114,
+        "rescue_attempted": 0,
+        "rescue_success": 0
+      },
+      "preferred_heuristic": {
+        "method": "KSP-FF K=50 hops",
+        "blocking_rate": 0.057,
+        "total": 2000,
+        "admitted": 1886,
+        "blocked": 114,
+        "rescue_attempted": 0,
+        "rescue_success": 0
+      },
+      "strict_k500_rescue": {
+        "method": "Strict v1.3 + K500 rescue",
+        "blocking_rate": 0.057,
+        "total": 2000,
+        "admitted": 1886,
+        "blocked": 114,
+        "rescue_attempted": 114,
+        "rescue_success": 0
+      },
+      "preferred_heuristic_k500_rescue": {
+        "method": "KSP-FF K=50 hops + K500 rescue",
+        "blocking_rate": 0.057,
+        "total": 2000,
+        "admitted": 1886,
+        "blocked": 114,
+        "rescue_attempted": 114,
+        "rescue_success": 0
+      }
+    }
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "seed": 6101,
+    "smoke_post_warmup": 2000,
+    "k50_empty_events": 245,
+    "strict_rescue_success": 0,
+    "preferred_rescue_success": 0,
+    "per_mode": {
+      "strict": {
+        "method": "Strict v1.3 frozen cross-topology transfer",
+        "blocking_rate": 0.061,
+        "total": 2000,
+        "admitted": 1878,
+        "blocked": 122,
+        "rescue_attempted": 0,
+        "rescue_success": 0
+      },
+      "preferred_heuristic": {
+        "method": "KSP-FF K=50 hops",
+        "blocking_rate": 0.0615,
+        "total": 2000,
+        "admitted": 1877,
+        "blocked": 123,
+        "rescue_attempted": 0,
+        "rescue_success": 0
+      },
+      "strict_k500_rescue": {
+        "method": "Strict v1.3 + K500 rescue",
+        "blocking_rate": 0.061,
+        "total": 2000,
+        "admitted": 1878,
+        "blocked": 122,
+        "rescue_attempted": 122,
+        "rescue_success": 0
+      },
+      "preferred_heuristic_k500_rescue": {
+        "method": "KSP-FF K=50 hops + K500 rescue",
+        "blocking_rate": 0.0615,
+        "total": 2000,
+        "admitted": 1877,
+        "blocked": 123,
+        "rescue_attempted": 123,
+        "rescue_success": 0
+      }
+    }
+  },
+  {
+    "topology": "xlron_usnet_gcnrmsa",
+    "seed": 6101,
+    "smoke_post_warmup": 2000,
+    "k50_empty_events": 258,
+    "strict_rescue_success": 0,
+    "preferred_rescue_success": 0,
+    "per_mode": {
+      "strict": {
+        "method": "Strict v1.3 frozen cross-topology transfer",
+        "blocking_rate": 0.0645,
+        "total": 2000,
+        "admitted": 1871,
+        "blocked": 129,
+        "rescue_attempted": 0,
+        "rescue_success": 0
+      },
+      "preferred_heuristic": {
+        "method": "FF-KSP K=50 hops",
+        "blocking_rate": 0.0645,
+        "total": 2000,
+        "admitted": 1871,
+        "blocked": 129,
+        "rescue_attempted": 0,
+        "rescue_success": 0
+      },
+      "strict_k500_rescue": {
+        "method": "Strict v1.3 + K500 rescue",
+        "blocking_rate": 0.0645,
+        "total": 2000,
+        "admitted": 1871,
+        "blocked": 129,
+        "rescue_attempted": 129,
+        "rescue_success": 0
+      },
+      "preferred_heuristic_k500_rescue": {
+        "method": "FF-KSP K=50 hops + K500 rescue",
+        "blocking_rate": 0.0645,
+        "total": 2000,
+        "admitted": 1871,
+        "blocked": 129,
+        "rescue_attempted": 129,
+        "rescue_success": 0
+      }
+    }
+  },
+  {
+    "topology": "xlron_jpn48",
+    "seed": 6101,
+    "smoke_post_warmup": 2000,
+    "k50_empty_events": 236,
+    "strict_rescue_success": 0,
+    "preferred_rescue_success": 0,
+    "per_mode": {
+      "strict": {
+        "method": "Strict v1.3 frozen cross-topology transfer",
+        "blocking_rate": 0.059,
+        "total": 2000,
+        "admitted": 1882,
+        "blocked": 118,
+        "rescue_attempted": 0,
+        "rescue_success": 0
+      },
+      "preferred_heuristic": {
+        "method": "FF-KSP K=50 hops",
+        "blocking_rate": 0.059,
+        "total": 2000,
+        "admitted": 1882,
+        "blocked": 118,
+        "rescue_attempted": 0,
+        "rescue_success": 0
+      },
+      "strict_k500_rescue": {
+        "method": "Strict v1.3 + K500 rescue",
+        "blocking_rate": 0.059,
+        "total": 2000,
+        "admitted": 1882,
+        "blocked": 118,
+        "rescue_attempted": 118,
+        "rescue_success": 0
+      },
+      "preferred_heuristic_k500_rescue": {
+        "method": "FF-KSP K=50 hops + K500 rescue",
+        "blocking_rate": 0.059,
+        "total": 2000,
+        "admitted": 1882,
+        "blocked": 118,
+        "rescue_attempted": 118,
+        "rescue_success": 0
+      }
+    }
+  }
+]

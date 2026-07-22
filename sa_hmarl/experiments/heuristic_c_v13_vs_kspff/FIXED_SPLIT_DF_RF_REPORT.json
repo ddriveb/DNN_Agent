@@ -1,0 +1,95 @@
+{
+  "title": "Fixed-Split DF/RF Ablation: R-Side Gain Under No-Partition-Style C-Side",
+  "date": "2026-07-05",
+  "note": "This report aggregates df_fixed0_c and rf_fixed0_c experiments against the KSP-FF K50 hops and v1.3 hybrid R-side backends. It is a fixed-split / no-partition-style ablation, not a strict Yin reproduction.",
+  "per_topology": {
+    "COST239": {
+      "df_c": {
+        "ksp_ff": 0.14837499999999998,
+        "v12": 0.14837499999999998,
+        "delta_pp": 0.0,
+        "p_value": null
+      },
+      "df_fixed0": {
+        "ksp_ff": 0.739725,
+        "v12": 0.739725,
+        "delta_pp": 0.0,
+        "p_value": null,
+        "split0_share": 1.0
+      },
+      "rf_fixed0": {
+        "ksp_ff": 0.7443,
+        "v12": 0.7443,
+        "delta_pp": 0.0,
+        "p_value": null,
+        "split0_share": 1.0
+      }
+    },
+    "German17": {
+      "df_c": {
+        "ksp_ff": 0.1269,
+        "v12": 0.12965,
+        "delta_pp": 0.0027499999999999747,
+        "p_value": 0.22724216287322438
+      },
+      "df_fixed0": {
+        "ksp_ff": 0.7268,
+        "v12": 0.72585,
+        "delta_pp": -0.0009500000000000064,
+        "p_value": 0.37390096630005887,
+        "split0_share": 1.0
+      },
+      "rf_fixed0": {
+        "ksp_ff": 0.7221,
+        "v12": 0.723025,
+        "delta_pp": 0.0009250000000000647,
+        "p_value": 0.5167777273102219,
+        "split0_share": 1.0
+      }
+    },
+    "NSFNET": {
+      "df_c": {
+        "ksp_ff": 0.203275,
+        "v12": 0.1994,
+        "delta_pp": -0.0038750000000000173,
+        "p_value": 0.23575290984399108
+      },
+      "df_fixed0": {
+        "ksp_ff": 0.728825,
+        "v12": 0.728,
+        "delta_pp": -0.0008249999999999647,
+        "p_value": 0.8149278857765567,
+        "split0_share": 1.0
+      },
+      "rf_fixed0": {
+        "ksp_ff": 0.724175,
+        "v12": 0.7267999999999999,
+        "delta_pp": 0.0026249999999998774,
+        "p_value": 0.5360414455788024,
+        "split0_share": 1.0
+      }
+    },
+    "JPN48": {
+      "df_c": {
+        "ksp_ff": 0.112825,
+        "v12": 0.10845,
+        "delta_pp": -0.00437499999999999,
+        "p_value": 0.0012027775982652348
+      },
+      "df_fixed0": {
+        "ksp_ff": 0.683925,
+        "v12": 0.6852750000000001,
+        "delta_pp": 0.0013500000000000734,
+        "p_value": 0.7405978148829716,
+        "split0_share": 1.0
+      },
+      "rf_fixed0": {
+        "ksp_ff": 0.68055,
+        "v12": 0.68415,
+        "delta_pp": 0.0036000000000000476,
+        "p_value": 0.4252731644526612,
+        "split0_share": 1.0
+      }
+    }
+  }
+}

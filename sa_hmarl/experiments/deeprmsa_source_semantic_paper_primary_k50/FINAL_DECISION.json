@@ -1,0 +1,44 @@
+{
+  "protocol_id": "DEEPRMSA_SOURCE_SEMANTIC_PAPER_PRIMARY_K50",
+  "implementation_label": "DeepRMSA source-semantic unmasked PyTorch port",
+  "is_unmasked": true,
+  "differences_from_upstream": [
+    "COST239 topology instead of NSFNET",
+    "K=50 instead of K=5",
+    "single-process A2C instead of asynchronous A3C",
+    "PyTorch instead of TensorFlow 1.x"
+  ],
+  "mean_blocking_rate": 0.45799999999999996,
+  "std_blocking_rate": 0.00552699527480137,
+  "training_seed_variation": 0.0615412875185793,
+  "converged": false,
+  "stable_vs_ksp": {
+    "mean_difference_pp": -32.6,
+    "bootstrap_ci95": [
+      -0.32935,
+      -0.32264715277777783
+    ],
+    "wins_ties_losses": {
+      "wins": 0,
+      "ties": 0,
+      "losses": 12
+    }
+  },
+  "strict_zero_shot_comparison": {
+    "mean_difference_pp": -29.74333333333333,
+    "bootstrap_ci95": [
+      -0.30073333333333335,
+      -0.29433055555555554
+    ],
+    "wins_ties_losses": {
+      "wins": 0,
+      "ties": 0,
+      "losses": 12
+    }
+  },
+  "conclusion_scope": "evaluation-mechanics-matched",
+  "training_regime_matched": false,
+  "paper_table_ready": false,
+  "reason": "The source-semantic port improves over a random policy but still blocks ~45.8% of requests after 80 epochs, far above KSP-FF.  Training is not converged to a competitive solution under the current budget.  The masked adapter ablation reaches ~14.4%, showing that the legal-action mask is a major optimizer not present in the upstream source.",
+  "conclusion": "TRAINING_INCONCLUSIVE"
+}

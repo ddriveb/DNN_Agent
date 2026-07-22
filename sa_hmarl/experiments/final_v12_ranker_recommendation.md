@@ -1,5 +1,8 @@
 # Final Recommendation: v1.2 Static Counterfactual Ranker
 
+This file uses the canonical mainline name
+`PPO-C + v1.2 static counterfactual ranker` from `CANONICAL_NAMES.md`.
+
 > Date: 2026-06-28
 > Project: SA-HMARL counterfactual R-side ranking for DNN offloading in optical-MEC networks
 

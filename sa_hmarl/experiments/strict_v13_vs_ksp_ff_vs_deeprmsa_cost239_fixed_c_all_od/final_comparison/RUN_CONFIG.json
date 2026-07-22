@@ -1,0 +1,64 @@
+{
+  "experiment_id": "strict_v13_vs_ksp_ff_vs_deeprmsa_cost239_fixed_c_all_od",
+  "date": "2026-07-18",
+  "config": {
+    "topology": "xlron_cost239_ptrnet_real",
+    "num_slots": 320,
+    "num_servers": 4,
+    "server_node_ids": [0, 1, 2, 3],
+    "fixed_split_id": 0,
+    "arrival_interval": 0.3,
+    "holding_min": 20.0,
+    "holding_max": 30.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "size_max_mb": 30.0,
+    "edge_cost_min": 0.1,
+    "edge_cost_max": 2.2,
+    "split_profile": "default3",
+    "num_splits": 3,
+    "warmup_requests": 500,
+    "requests_per_episode": 6000,
+    "poisson_arrivals": false,
+    "exponential_holding": false,
+    "k_paths_r": 50,
+    "path_sort_strategy_r": "hops",
+    "block_sort_strategy_r": "start_asc",
+    "max_blocks": 10,
+    "modulation_profile": "default"
+  },
+  "traffic": {
+    "type": "uniform_all_od",
+    "src_distribution": "uniform over all nodes",
+    "dst_distribution": "uniform over server nodes"
+  },
+  "evaluation_seeds": [5001, 5002, 5003, 5004, 5005],
+  "methods": [
+    "Strict v1.3",
+    "KSP-FF K=50 hops",
+    "Topology-matched adapted DeepRMSA K=50 hops"
+  ],
+  "training": {
+    "deep_rmsa_adapted": {
+      "epochs": 150,
+      "train_requests_per_episode": 1500,
+      "warmup_requests": 500,
+      "eval_every": 5,
+      "validation_seeds": [6001, 6002, 6003],
+      "validation_warmup": 500,
+      "validation_requests": 3000,
+      "lr": 1e-05,
+      "gamma": 0.95,
+      "entropy_coef": 0.01,
+      "value_loss_coef": 0.5,
+      "max_grad_norm": 40.0,
+      "num_layers": 5,
+      "layer_size": 128,
+      "backbone": "5-layer 128-unit ELU MLP",
+      "algorithm": "A2C episode-level updates",
+      "trained_from_scratch": true,
+      "no_external_checkpoint": true
+    }
+  }
+}

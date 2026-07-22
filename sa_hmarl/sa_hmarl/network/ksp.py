@@ -59,7 +59,7 @@ def get_k_shortest_paths(
                     break
         except nx.NetworkXNoPath:
             return []
-        paths.sort(key=lambda path: (max(len(path) - 1, 0), _path_cost(path)))
+        paths.sort(key=lambda path: (max(len(path) - 1, 0), _path_cost(path), tuple(path)))
         return paths
 
     try:
@@ -112,6 +112,6 @@ def get_k_shortest_paths(
         candidates.sort(key=_path_cost)
         paths.append(candidates.pop(0))
 
-    paths.sort(key=_path_cost)
+    paths.sort(key=lambda path: (_path_cost(path), tuple(path)))
 
     return paths

@@ -1,0 +1,43 @@
+{
+  "protocol_id": "DEEPRMSA_ADAPTED_TO_PAPER_PRIMARY_K50",
+  "protocol_config": {
+    "topology": "xlron_cost239_ptrnet_real",
+    "num_slots": 100,
+    "k_paths": 50,
+    "max_blocks": 10,
+    "path_sort_strategy": "hops",
+    "block_sort_strategy": "start_asc",
+    "modulation_profile": "default",
+    "slot_bw_hz": 12500000000.0,
+    "guard_band_fs": 1,
+    "mean_holding_time": 10.0,
+    "bitrate_min_gbps": 25,
+    "bitrate_max_gbps": 100
+  },
+  "implementation_label": "PyTorch DeepRMSA-style masked A2C adapter",
+  "m_blocks": 10,
+  "seed": 42,
+  "best_validation_blocking_rate": 0.21355555555555558,
+  "best_checkpoint": "sa_hmarl/experiments/deeprmsa_adapted_paper_primary_k50/checkpoints/m10/seed_42/best.pt",
+  "best_checkpoint_sha256": "fd5ccd25b0d667bae4b0ea572709bacafd72636d8c8af447645ac2609b67d35f",
+  "elapsed_seconds": 577.7478737049969,
+  "args": {
+    "m_blocks": 10,
+    "seed": 42,
+    "epochs": 80,
+    "train_warmup": 500,
+    "train_requests": 1500,
+    "arrival_interval": 0.025,
+    "eval_every": 5,
+    "validation_seeds": "42001,42002,42003",
+    "validation_warmup": 1000,
+    "validation_requests": 3000,
+    "gamma": 0.95,
+    "lr": 1e-05,
+    "entropy_coef": 0.01,
+    "value_loss_coef": 0.5,
+    "max_grad_norm": 40.0,
+    "device": "cpu",
+    "output_dir": "sa_hmarl/experiments/deeprmsa_adapted_paper_primary_k50/checkpoints"
+  }
+}

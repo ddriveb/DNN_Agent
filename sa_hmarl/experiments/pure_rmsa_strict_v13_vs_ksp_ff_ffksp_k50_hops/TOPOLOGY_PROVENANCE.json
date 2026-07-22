@@ -1,0 +1,46 @@
+[
+  {
+    "label": "cost239",
+    "topology_key": "cost239_deeprmsa",
+    "nodes": 11,
+    "undirected_links": 26,
+    "directed_arcs": 52,
+    "slots_per_directed_arc": 100,
+    "role": "paper parity",
+    "source": "sa_hmarl.network.topology_data",
+    "edge_sha256": "faf2e59ff03e195d0baaa90a30ff27273ef90af9888c8b8629eb46ddf07a8276"
+  },
+  {
+    "label": "nsfnet",
+    "topology_key": "xlron_nsfnet_deeprmsa",
+    "nodes": 14,
+    "undirected_links": 22,
+    "directed_arcs": 44,
+    "slots_per_directed_arc": 100,
+    "role": "paper parity",
+    "source": "sa_hmarl.network.topology_data",
+    "edge_sha256": "f8d0db127b9608d9ad3727ef1cef4d727d93bff649787b348ec101f06274fc09"
+  },
+  {
+    "label": "usnet",
+    "topology_key": "xlron_usnet_gcnrmsa",
+    "nodes": 24,
+    "undirected_links": 43,
+    "directed_arcs": 86,
+    "slots_per_directed_arc": 100,
+    "role": "protocol transfer",
+    "source": "sa_hmarl.network.topology_data",
+    "edge_sha256": "c50f88d67834083215e885a5c5954f94a1c92baeb2f7137be5a237db27a0e849"
+  },
+  {
+    "label": "jpn48",
+    "topology_key": "xlron_jpn48",
+    "nodes": 48,
+    "undirected_links": 82,
+    "directed_arcs": 164,
+    "slots_per_directed_arc": 100,
+    "role": "protocol transfer",
+    "source": "sa_hmarl.network.topology_data",
+    "edge_sha256": "54ad216ed185109e335e7af4eb2c807616655abd0605a2ab123ae010a30f85f2"
+  }
+]

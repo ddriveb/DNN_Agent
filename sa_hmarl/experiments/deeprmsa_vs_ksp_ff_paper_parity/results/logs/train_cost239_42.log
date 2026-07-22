@@ -1,0 +1,65 @@
+[cost239 seed=42] req=  25000 upd= 109 eps=0.999 train_blk=29.186% val_blk=14.822% best=14.822%
+[cost239 seed=42] req=  50000 upd= 234 eps=0.998 train_blk=18.832% val_blk=24.633% best=14.822%
+[cost239 seed=42] req=  75000 upd= 359 eps=0.996 train_blk=18.200% val_blk=15.644% best=14.822%
+[cost239 seed=42] req= 100000 upd= 484 eps=0.995 train_blk=15.788% val_blk=14.767% best=14.767%
+[cost239 seed=42] req= 125000 upd= 609 eps=0.994 train_blk=14.940% val_blk=15.322% best=14.767%
+[cost239 seed=42] req= 150000 upd= 734 eps=0.993 train_blk=15.584% val_blk=14.789% best=14.767%
+[cost239 seed=42] req= 175000 upd= 859 eps=0.991 train_blk=15.304% val_blk=14.400% best=14.400%
+[cost239 seed=42] req= 200000 upd= 984 eps=0.990 train_blk=14.936% val_blk=13.422% best=13.422%
+[cost239 seed=42] req= 225000 upd=1109 eps=0.989 train_blk=13.944% val_blk=14.067% best=13.422%
+[cost239 seed=42] req= 250000 upd=1234 eps=0.988 train_blk=14.408% val_blk=12.211% best=12.211%
+[cost239 seed=42] req= 275000 upd=1359 eps=0.986 train_blk=13.428% val_blk=12.633% best=12.211%
+[cost239 seed=42] req= 300000 upd=1484 eps=0.985 train_blk=13.956% val_blk=12.411% best=12.211%
+[cost239 seed=42] req= 325000 upd=1609 eps=0.984 train_blk=14.828% val_blk=13.667% best=12.211%
+[cost239 seed=42] req= 350000 upd=1734 eps=0.983 train_blk=17.472% val_blk=14.200% best=12.211%
+[cost239 seed=42] req= 375000 upd=1859 eps=0.981 train_blk=13.968% val_blk=14.144% best=12.211%
+[cost239 seed=42] req= 400000 upd=1984 eps=0.980 train_blk=14.920% val_blk=13.289% best=12.211%
+[cost239 seed=42] req= 425000 upd=2109 eps=0.979 train_blk=13.368% val_blk=12.133% best=12.133%
+[cost239 seed=42] req= 450000 upd=2234 eps=0.978 train_blk=13.504% val_blk=12.689% best=12.133%
+[cost239 seed=42] req= 475000 upd=2359 eps=0.976 train_blk=13.092% val_blk=12.311% best=12.133%
+[cost239 seed=42] req= 500000 upd=2484 eps=0.975 train_blk=13.640% val_blk=12.889% best=12.133%
+[cost239 seed=42] req= 525000 upd=2609 eps=0.974 train_blk=12.508% val_blk=11.489% best=11.489%
+[cost239 seed=42] req= 550000 upd=2734 eps=0.973 train_blk=12.672% val_blk=11.333% best=11.333%
+[cost239 seed=42] req= 575000 upd=2859 eps=0.971 train_blk=12.648% val_blk=11.767% best=11.333%
+[cost239 seed=42] req= 600000 upd=2984 eps=0.970 train_blk=12.936% val_blk=11.700% best=11.333%
+[cost239 seed=42] req= 625000 upd=3109 eps=0.969 train_blk=11.944% val_blk=11.611% best=11.333%
+[cost239 seed=42] req= 650000 upd=3234 eps=0.968 train_blk=12.168% val_blk=11.811% best=11.333%
+[cost239 seed=42] req= 675000 upd=3359 eps=0.966 train_blk=12.672% val_blk=11.511% best=11.333%
+[cost239 seed=42] req= 700000 upd=3484 eps=0.965 train_blk=12.820% val_blk=12.656% best=11.333%
+[cost239 seed=42] req= 725000 upd=3609 eps=0.964 train_blk=12.544% val_blk=11.500% best=11.333%
+[cost239 seed=42] req= 750000 upd=3734 eps=0.963 train_blk=11.820% val_blk=11.511% best=11.333%
+[cost239 seed=42] req= 775000 upd=3859 eps=0.961 train_blk=12.688% val_blk=11.400% best=11.333%
+[cost239 seed=42] req= 800000 upd=3984 eps=0.960 train_blk=11.956% val_blk=11.089% best=11.089%
+[cost239 seed=42] req= 825000 upd=4109 eps=0.959 train_blk=11.780% val_blk=11.200% best=11.089%
+[cost239 seed=42] req= 850000 upd=4234 eps=0.958 train_blk=12.656% val_blk=11.100% best=11.089%
+[cost239 seed=42] req= 875000 upd=4359 eps=0.956 train_blk=12.308% val_blk=11.289% best=11.089%
+[cost239 seed=42] req= 900000 upd=4484 eps=0.955 train_blk=12.556% val_blk=11.489% best=11.089%
+[cost239 seed=42] req= 925000 upd=4609 eps=0.954 train_blk=12.704% val_blk=11.011% best=11.011%
+[cost239 seed=42] req= 950000 upd=4734 eps=0.953 train_blk=12.408% val_blk=10.956% best=10.956%
+[cost239 seed=42] req= 975000 upd=4859 eps=0.951 train_blk=12.404% val_blk=12.111% best=10.956%
+[cost239 seed=42] req=1000000 upd=4984 eps=0.950 train_blk=12.660% val_blk=11.700% best=10.956%
+{
+  "protocol_id": "DEEPRMSA_VS_KSP_FF_PAPER_PARITY_V1",
+  "topology": "cost239",
+  "training_seed": 42,
+  "lr_effective": 0.0001,
+  "normalize_advantages": false,
+  "grad_clip_effective": 5.0,
+  "entropy_coef_effective": 0.01,
+  "total_requests": 1000000,
+  "gradient_updates": 4984,
+  "final_epsilon": 0.9501600000002268,
+  "train_admitted": 857338,
+  "train_blocked": 139662,
+  "train_invalid_choice": 139662,
+  "train_blocking_rate": 0.14008224674022066,
+  "best_validation_blocking_rate": 0.10955555555555556,
+  "best_meta": {
+    "requests": 950000,
+    "updates": 4734,
+    "val_blocking": 0.10955555555555556
+  },
+  "best_checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/experiments/deeprmsa_vs_ksp_ff_paper_parity/checkpoints/cost239/seed_42/best.pt",
+  "final_checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/experiments/deeprmsa_vs_ksp_ff_paper_parity/checkpoints/cost239/seed_42/final.pt",
+  "elapsed_seconds": 1302.7975987870013
+}

@@ -1,0 +1,8 @@
+{
+  "classification": "B",
+  "reason": "directionally stable gains but not all Holm-significant",
+  "ksp_stable": 4,
+  "ppo_stable": 3,
+  "ksp_holm_significant": 0,
+  "ppo_holm_significant": 0
+}

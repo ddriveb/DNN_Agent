@@ -1,0 +1,41 @@
+{
+  "strict_v13": {
+    "path": "sa_hmarl/experiments/v13_strict_fixed/strict_loss_rerun/checkpoints/full_state_uniform_strict/seed_42/ranking_model.pt",
+    "exists": true,
+    "sha256": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+  },
+  "ppo_r": {
+    "path": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+    "exists": true,
+    "sha256": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94"
+  },
+  "ppo_c_cost239": {
+    "path": "sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_last.pt",
+    "exists": true,
+    "sha256": "a5c9eb39bc33cf3b77a06d80e9c45315880dcb963ad9c3c95663eadaded9f2c8"
+  },
+  "ppo_c_transfer": {
+    "path": "sa_hmarl/checkpoints/agent_c_delayaware_v2_snap24_best.pt",
+    "exists": true,
+    "sha256": "707b504e9b3dda7167f8769fb637042040489bbcd1918eba13e1bdce7f27ad22"
+  },
+  "labels": {
+    "xlron_cost239_ptrnet_real": {
+      "strict_v13": "source-matched",
+      "ppo_c": "native"
+    },
+    "xlron_german17": {
+      "strict_v13": "zero-shot",
+      "ppo_c": "transfer"
+    },
+    "xlron_nsfnet_deeprmsa": {
+      "strict_v13": "zero-shot",
+      "ppo_c": "transfer"
+    },
+    "xlron_jpn48": {
+      "strict_v13": "zero-shot",
+      "ppo_c": "transfer"
+    },
+    "ppo_r": "mixed (per checkpoint args)"
+  }
+}

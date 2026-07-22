@@ -1,0 +1,20 @@
+{
+  "xlron_nsfnet_deeprmsa": {
+    "num_nodes": 14,
+    "num_links": 22,
+    "source": "topology_data.py",
+    "edge_hash": "191f7d9673f191a1f2a8a77a"
+  },
+  "xlron_usnet_gcnrmsa": {
+    "num_nodes": 24,
+    "num_links": 43,
+    "source": "topology_data.py",
+    "edge_hash": "974d997cbcb929c4ec7c2d90"
+  },
+  "xlron_jpn48": {
+    "num_nodes": 48,
+    "num_links": 82,
+    "source": "topology_data.py",
+    "edge_hash": "8a2aa12bd99250e594f5c20e"
+  }
+}

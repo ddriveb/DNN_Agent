@@ -1,0 +1,10 @@
+{
+  "shard_id": "test_s7003_e2",
+  "config_hash": "0092d94351e63f7c",
+  "status": "ok",
+  "groups": 556,
+  "elapsed_sec": 1216.9673812789988,
+  "checksum": "66a11d2f35cad086",
+  "version": "1.3",
+  "schema": "r_counterfactual_ranking_v1.3"
+}

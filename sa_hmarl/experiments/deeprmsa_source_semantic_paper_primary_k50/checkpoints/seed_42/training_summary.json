@@ -1,0 +1,22 @@
+{
+  "protocol_id": "DEEPRMSA_SOURCE_SEMANTIC_PAPER_PRIMARY_K50",
+  "implementation_label": "DeepRMSA source-semantic unmasked PyTorch port",
+  "best_validation_blocking_rate": 0.5377777777777778,
+  "best_checkpoint": "sa_hmarl/experiments/deeprmsa_source_semantic_paper_primary_k50/checkpoints/seed_42/best.pt",
+  "best_checkpoint_sha256": "8dd03eb5742806b8305dfb88586532842a26fdd4cbd5fa624a17e57cb99ea883",
+  "elapsed_seconds": 964.4660317149828,
+  "args": {
+    "seed": 42,
+    "epochs": 80,
+    "train_warmup": 1000,
+    "train_requests": 5000,
+    "arrival_interval": 0.025,
+    "eval_every": 5,
+    "validation_seeds": "42001,42002,42003",
+    "validation_warmup": 1000,
+    "validation_requests": 3000,
+    "lr": 1e-05,
+    "device": "cpu",
+    "output_dir": "sa_hmarl/experiments/deeprmsa_source_semantic_paper_primary_k50/checkpoints"
+  }
+}

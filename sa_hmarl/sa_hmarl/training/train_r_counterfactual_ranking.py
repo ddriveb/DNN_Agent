@@ -91,56 +91,251 @@ def _regression_loss(
     return (diff * mask.float()).sum() / mask.sum().clamp_min(1.0)
 
 
+def _pairwise_ranking_loss(
+    scores: torch.Tensor,
+    returns: torch.Tensor,
+    mask: torch.Tensor,
+    margin: float = 0.1,
+    delta: float = 0.01,
+) -> torch.Tensor:
+    """Pairwise margin loss over pairs with teacher return gap >= delta."""
+    B, C = scores.shape
+    valid = mask.float()  # [B, C]
+
+    # Broadcast score/return differences: [B, C, C]
+    score_diff = scores.unsqueeze(2) - scores.unsqueeze(1)
+    return_diff = returns.unsqueeze(2) - returns.unsqueeze(1)
+    valid_pair = valid.unsqueeze(2) * valid.unsqueeze(1)
+
+    positive = (return_diff > delta).float() * valid_pair
+    loss = positive * F.relu(margin - score_diff)
+    count = positive.sum().clamp_min(1.0)
+    return loss.sum() / count
+
+
+def _hard_negative_weights(
+    scores: torch.Tensor,
+    returns: torch.Tensor,
+    mask: torch.Tensor,
+    alpha_hard: float = 2.0,
+) -> torch.Tensor:
+    """Return per-group hard-negative weights.
+
+    A group is hard when the model's top-1 disagrees with the teacher's top-1.
+    Weight = 1 + alpha_hard * max(0, teacher_best_return - model_top1_return).
+    """
+    B = scores.size(0)
+    weights = torch.ones(B, device=scores.device, dtype=scores.dtype)
+    for i in range(B):
+        valid = mask[i]
+        if valid.sum() < 2:
+            continue
+        s = scores[i, valid]
+        r = returns[i, valid]
+        teacher_best = r.max()
+        pred_idx = int(s.argmax())
+        pred_return = r[pred_idx]
+        if pred_idx != int(r.argmax()):
+            gap = torch.clamp(teacher_best - pred_return, min=0.0)
+            weights[i] = 1.0 + alpha_hard * gap
+    return weights
+
+
 def _compute_group_metrics(
     scores: np.ndarray,
     returns: np.ndarray,
     mask: np.ndarray,
     ppo_action_index: np.ndarray,
 ) -> Dict[str, Any]:
+    """Compute ranking and regret metrics for a set of candidate groups."""
     top1_correct = []
     top3_correct = []
     spearmans = []
+    kendalls = []
     model_regrets = []
     ppo_regrets = []
     ppo_agreements = []
+    rel_regrets_cond = []
+    regret_deltas = []
+    oracle_tie_hits = []
+    ppo_oracle_tie_hits = []
+    score_tie_fractional = []
+    ndcgs = []
 
-    for i in range(len(mask)):
+    n_groups = len(mask)
+    for i in range(n_groups):
         valid = mask[i]
         if valid.sum() < 2:
             continue
         s = scores[i, valid]
         r = returns[i, valid]
         best_idx = int(r.argmax())
+        best_return = float(r[best_idx])
+        tie_tol = max(1e-4, 1e-3 * abs(best_return))
 
         order = np.argsort(-s, kind="stable")
         top1_correct.append(int(order[0] == best_idx))
         top3_correct.append(int(best_idx in order[: min(3, len(order))]))
 
-        # Spearman correlation.
+        # Spearman and Kendall tau-b correlations.
         rank_score = stats.rankdata(-s)
         rank_return = stats.rankdata(-r)
         if len(s) >= 2:
             rho, _ = stats.spearmanr(rank_score, rank_return)
             if not np.isnan(rho):
                 spearmans.append(float(rho))
+            tau, _ = stats.kendalltau(rank_score, rank_return)
+            if not np.isnan(tau):
+                kendalls.append(float(tau))
 
-        model_regrets.append(float(r[best_idx] - r[order[0]]))
+        model_regret = float(r[best_idx] - r[order[0]])
+        model_regrets.append(model_regret)
+        oracle_tie_hits.append(int(abs(r[order[0]] - best_return) <= tie_tol))
+
+        # Score-tie fractional top-1: legacy metric, kept for backward compatibility.
+        max_score = s.max()
+        score_ties = np.flatnonzero(np.isclose(s, max_score))
+        best_tied = np.isclose(r[score_ties], best_return).any()
+        if best_tied:
+            score_tie_fractional.append(1.0 / len(score_ties))
+        else:
+            score_tie_fractional.append(0.0)
 
         ppo_idx = int(ppo_action_index[i])
         if 0 <= ppo_idx < len(r):
-            ppo_regrets.append(float(r[best_idx] - r[ppo_idx]))
+            ppo_regret = float(r[best_idx] - r[ppo_idx])
+            ppo_regrets.append(ppo_regret)
             ppo_agreements.append(int(order[0] == ppo_idx))
+            ppo_oracle_tie_hits.append(int(abs(r[ppo_idx] - best_return) <= tie_tol))
+            regret_delta = ppo_regret - model_regret
+            regret_deltas.append(regret_delta)
+            if ppo_regret > 1e-12:
+                rel_regrets_cond.append(regret_delta / ppo_regret)
+
+        # NDCG@3 with shifted returns as relevance.
+        rel = r - r.min()
+        dcg = 0.0
+        for rank, idx in enumerate(order[:3], start=1):
+            dcg += rel[idx] / np.log2(rank + 1)
+        ideal_order = np.argsort(-rel, kind="stable")
+        idcg = 0.0
+        for rank, idx in enumerate(ideal_order[:3], start=1):
+            idcg += rel[idx] / np.log2(rank + 1)
+        ndcgs.append(float(dcg / idcg) if idcg > 1e-12 else 1.0)
 
     def _mean(values):
         return float(np.mean(values)) if values else 0.0
 
+    # Pairwise accuracy over pairs with return gap >= 1% of return std.
+    pairwise_correct = []
+    pairwise_total = 0
+    return_std = float(np.std(returns[mask])) if mask.any() else 1.0
+    delta = max(0.01, 0.01 * return_std)
+    for i in range(n_groups):
+        valid = mask[i]
+        n = int(valid.sum())
+        if n < 2:
+            continue
+        s = scores[i, valid]
+        r = returns[i, valid]
+        for a in range(n):
+            for b in range(a + 1, n):
+                if abs(r[a] - r[b]) < delta:
+                    continue
+                pairwise_total += 1
+                if (r[a] > r[b] and s[a] > s[b]) or (r[a] < r[b] and s[a] < s[b]):
+                    pairwise_correct.append(1)
+                else:
+                    pairwise_correct.append(0)
+
+    # Aggregate regret metrics (the stable ones).
+    mean_model_regret = _mean(model_regrets)
+    mean_ppo_regret = _mean(ppo_regrets)
+    absolute_regret_improvement = mean_ppo_regret - mean_model_regret
+    aggregate_regret_reduction = absolute_regret_improvement / max(mean_ppo_regret, 1e-12)
+
+    # Per-group regret delta statistics.
+    regret_deltas_arr = np.asarray(regret_deltas, dtype=np.float64)
+    tol = 1e-6
+    n_delta = max(len(regret_deltas_arr), 1)
+    better_mask = regret_deltas_arr > tol
+    worse_mask = regret_deltas_arr < -tol
+    equal_mask = ~(better_mask | worse_mask)
+
+    # PPO-regret bucket analysis.
+    ppo_regrets_arr = np.asarray(ppo_regrets, dtype=np.float64)
+    model_regrets_arr = np.asarray(model_regrets, dtype=np.float64)
+    bucket_edges = [0.0, 1e-12, 0.01, 0.05, 0.1, float("inf")]
+    bucket_labels = [
+        "exactly_zero",
+        "(0,0.01]",
+        "(0.01,0.05]",
+        "(0.05,0.1]",
+        ">0.1",
+    ]
+    bucket_report = {}
+    aligned_model_regrets = []
+    aligned_ppo_regrets = []
+    aligned_regret_deltas = []
+    ppo_idx_cursor = 0
+    for i in range(n_groups):
+        if mask[i].sum() < 2:
+            continue
+        if ppo_idx_cursor < len(ppo_regrets):
+            aligned_model_regrets.append(model_regrets[ppo_idx_cursor])
+            aligned_ppo_regrets.append(ppo_regrets[ppo_idx_cursor])
+            aligned_regret_deltas.append(regret_deltas[ppo_idx_cursor])
+            ppo_idx_cursor += 1
+    aligned_model_regrets = np.asarray(aligned_model_regrets, dtype=np.float64)
+    aligned_ppo_regrets = np.asarray(aligned_ppo_regrets, dtype=np.float64)
+    aligned_regret_deltas = np.asarray(aligned_regret_deltas, dtype=np.float64)
+
+    for lo, hi, label in zip(bucket_edges[:-1], bucket_edges[1:], bucket_labels):
+        if label == "exactly_zero":
+            bmask = (aligned_ppo_regrets >= lo) & (aligned_ppo_regrets <= hi)
+        else:
+            bmask = (aligned_ppo_regrets > lo) & (aligned_ppo_regrets <= hi)
+        if bmask.sum() == 0:
+            bucket_report[label] = {"count": 0}
+            continue
+        bd = aligned_regret_deltas[bmask]
+        bucket_report[label] = {
+            "count": int(bmask.sum()),
+            "mean_model_regret": float(aligned_model_regrets[bmask].mean()),
+            "mean_ppo_regret": float(aligned_ppo_regrets[bmask].mean()),
+            "mean_regret_delta": float(bd.mean()),
+            "model_better_rate": float((bd > tol).sum() / len(bd)),
+            "model_worse_rate": float((bd < -tol).sum() / len(bd)),
+            "model_equal_rate": float(((bd >= -tol) & (bd <= tol)).sum() / len(bd)),
+        }
+
     return {
         "top1_accuracy": _mean(top1_correct),
         "top3_accuracy": _mean(top3_correct),
+        "score_tie_fractional_top1": _mean(score_tie_fractional),
+        "oracle_tie_hit_rate": _mean(oracle_tie_hits),
+        "ppo_oracle_tie_hit_rate": _mean(ppo_oracle_tie_hits),
+        "ndcg_at_3": _mean(ndcgs),
         "spearman_mean": _mean(spearmans),
-        "model_regret_mean": _mean(model_regrets),
-        "ppo_regret_mean": _mean(ppo_regrets),
+        "kendall_tau_b": _mean(kendalls),
+        "model_regret_mean": mean_model_regret,
+        "ppo_regret_mean": mean_ppo_regret,
+        "absolute_regret_improvement": absolute_regret_improvement,
+        "aggregate_regret_reduction": aggregate_regret_reduction,
+        "conditional_mean_relative_reduction_on_ppo_error_groups": _mean(rel_regrets_cond),
+        "model_better_than_ppo_rate": float(better_mask.sum() / n_delta),
+        "model_worse_than_ppo_rate": float(worse_mask.sum() / n_delta),
+        "model_equal_to_ppo_rate": float(equal_mask.sum() / n_delta),
+        "mean_improvement_on_rescued_groups": float(regret_deltas_arr[better_mask].mean()) if better_mask.any() else 0.0,
+        "mean_harm_on_harmed_groups": float(regret_deltas_arr[worse_mask].mean()) if worse_mask.any() else 0.0,
+        "median_regret_delta": float(np.median(regret_deltas_arr)) if len(regret_deltas_arr) else 0.0,
+        "regret_delta_p10": float(np.percentile(regret_deltas_arr, 10)) if len(regret_deltas_arr) else 0.0,
+        "regret_delta_p50": float(np.percentile(regret_deltas_arr, 50)) if len(regret_deltas_arr) else 0.0,
+        "regret_delta_p90": float(np.percentile(regret_deltas_arr, 90)) if len(regret_deltas_arr) else 0.0,
+        "ppo_regret_buckets": bucket_report,
         "ppo_agreement": _mean(ppo_agreements),
+        "pairwise_accuracy": float(np.mean(pairwise_correct)) if pairwise_correct else 0.0,
+        "pairwise_pairs": pairwise_total,
         "score_std": float(np.std(scores[mask])) if mask.any() else 0.0,
     }
 
@@ -208,7 +403,7 @@ def _compute_group_weights(
     metadata: Dict[str, Any],
     args: argparse.Namespace,
 ) -> np.ndarray:
-    """Return normalized sampling weights for each training group."""
+    """Return normalized sampling weights for each training group (balanced mode)."""
     returns = train_data["returns"]
     mask = train_data["mask"]
     n = returns.shape[0]
@@ -249,6 +444,46 @@ def _compute_group_weights(
         + float(args.balance_gamma) * nsb_positive
     )
     weights = np.maximum(weights, 1e-6)
+    weights /= weights.sum()
+    return weights
+
+
+def _compute_stratified_depth_weights(
+    train_data: Dict[str, np.ndarray],
+    args: argparse.Namespace,
+) -> np.ndarray:
+    """Return uniform-over-depth-stratum sampling weights.
+
+    The four strata (0/1/2/3) are weighted equally in expectation, so rare deep
+    path groups are not drowned out by the naturally more frequent shallow groups.
+    """
+    n = train_data["features"].shape[0]
+    if n == 0 or "depth_stratum" not in train_data:
+        return np.ones(n, dtype=float) / max(n, 1)
+
+    strata = np.asarray(train_data["depth_stratum"], dtype=np.int32)
+    weights = np.zeros(n, dtype=float)
+    for stratum in range(4):
+        mask = strata == stratum
+        count = int(mask.sum())
+        if count > 0:
+            # Within a stratum, optionally upweight high-contrast groups.
+            stratum_weight = 1.0 / max(count, 1)
+            if getattr(args, "stratified_depth_contrast", False):
+                returns = train_data["returns"]
+                cand_mask = train_data["mask"]
+                ranges = np.array([
+                    float(returns[i, cand_mask[i]].max() - returns[i, cand_mask[i]].min())
+                    if cand_mask[i].any() else 0.0
+                    for i in np.flatnonzero(mask)
+                ], dtype=float)
+                std = float(ranges.std()) + 1e-8
+                local_weights = 1.0 + np.clip(ranges / std, 0.0, 5.0)
+                local_weights /= local_weights.sum()
+                weights[mask] = stratum_weight * local_weights * count
+            else:
+                weights[mask] = stratum_weight
+    weights = np.maximum(weights, 1e-12)
     weights /= weights.sum()
     return weights
 
@@ -310,8 +545,12 @@ def train(args: argparse.Namespace) -> Dict[str, Any]:
     patience_left = args.patience
     history: List[Dict[str, Any]] = []
 
-    # Optional group-level balanced sampling weights.
-    group_weights = _compute_group_weights(train_data, metadata, args) if args.balanced_sampler else None
+    # Optional group-level sampling weights.
+    group_weights = None
+    if args.sampling_mode == "balanced":
+        group_weights = _compute_group_weights(train_data, metadata, args)
+    elif args.sampling_mode == "stratified_depth":
+        group_weights = _compute_stratified_depth_weights(train_data, args)
 
     for epoch in range(1, args.epochs + 1):
         model.train()
@@ -332,6 +571,20 @@ def train(args: argparse.Namespace) -> Dict[str, Any]:
             loss_rank = _ranking_loss(scores, r, eff_m, args.tau_label, args.tau_model)
             loss_reg = _regression_loss(scores, r, eff_m, return_mean, return_std)
             loss = loss_rank + args.reg_weight * loss_reg
+
+            if args.lambda_pair > 0.0:
+                loss_pair = _pairwise_ranking_loss(scores, r, eff_m, args.pair_margin, args.pair_delta)
+                loss = loss + args.lambda_pair * loss_pair
+            else:
+                loss_pair = torch.tensor(0.0, device=loss.device)
+
+            # Hard-negative upweighting on groups where model top-1 is wrong.
+            if args.lambda_hard > 0.0:
+                hard_weights = _hard_negative_weights(scores.detach(), r, eff_m, args.alpha_hard)
+                loss_hard_rank = _ranking_loss(scores, r, eff_m, args.tau_label, args.tau_model)
+                loss = loss + args.lambda_hard * (hard_weights * loss_hard_rank).mean()
+            else:
+                loss_hard_rank = torch.tensor(0.0, device=loss.device)
 
             optimizer.zero_grad()
             loss.backward()
@@ -356,6 +609,10 @@ def train(args: argparse.Namespace) -> Dict[str, Any]:
             "epoch": epoch,
             "train": train_metrics,
             "val": val_metrics,
+            "loss_rank": float(loss_rank.item()),
+            "loss_reg": float(loss_reg.item()),
+            "loss_pair": float(loss_pair.item()),
+            "loss_hard": float(loss_hard_rank.item()),
         })
 
         if epoch == 1 or epoch % args.log_every == 0:
@@ -461,9 +718,21 @@ def _write_markdown(path: Path, report: Dict[str, Any], metadata: Dict[str, Any]
         f"{report.get('best_selection_score', 0):.4f} |",
         f"| Test top-1 | {test['top1_accuracy']:.2%} |",
         f"| Test top-3 | {test['top3_accuracy']:.2%} |",
+        f"| Test score-tie fractional top-1 | {test.get('score_tie_fractional_top1', 0):.2%} |",
+        f"| Test oracle tie hit rate | {test.get('oracle_tie_hit_rate', 0):.2%} |",
+        f"| Test PPO oracle tie hit rate | {test.get('ppo_oracle_tie_hit_rate', 0):.2%} |",
+        f"| Test NDCG@3 | {test.get('ndcg_at_3', 0):.3f} |",
         f"| Test Spearman mean | {test['spearman_mean']:.3f} |",
+        f"| Test Kendall tau-b | {test.get('kendall_tau_b', 0):.3f} |",
+        f"| Test pairwise accuracy | {test.get('pairwise_accuracy', 0):.3f} |",
         f"| Test model regret | {test['model_regret_mean']:.4f} |",
         f"| Test PPO regret | {test['ppo_regret_mean']:.4f} |",
+        f"| Test absolute regret improvement | {test.get('absolute_regret_improvement', 0):.4f} |",
+        f"| Test aggregate regret reduction | {test.get('aggregate_regret_reduction', 0):.2%} |",
+        f"| Test conditional mean relative reduction | {test.get('conditional_mean_relative_reduction_on_ppo_error_groups', 0):.4f} |",
+        f"| Test model better / equal / worse rate | {test.get('model_better_than_ppo_rate', 0):.2%} / {test.get('model_equal_to_ppo_rate', 0):.2%} / {test.get('model_worse_than_ppo_rate', 0):.2%} |",
+        f"| Test median regret delta | {test.get('median_regret_delta', 0):.4f} |",
+        f"| Test regret delta P10/P50/P90 | {test.get('regret_delta_p10', 0):.4f} / {test.get('regret_delta_p50', 0):.4f} / {test.get('regret_delta_p90', 0):.4f} |",
         f"| Test PPO agreement | {test['ppo_agreement']:.2%} |",
         f"| Test score std | {test['score_std']:.4f} |",
         f"| Test KL | {test['kl']:.4f} |",
@@ -499,19 +768,48 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--device", default="cpu")
     parser.add_argument("--log_every", type=int, default=5)
+    parser.add_argument(
+        "--sampling_mode",
+        choices=["uniform", "balanced", "stratified_depth"],
+        default="uniform",
+        help=(
+            "Training sampling mode. 'uniform' is the unweighted full-state natural "
+            "distribution (v1.3 fix main version). 'balanced' upweights high-contrast / "
+            "high-pressure / NSB-positive groups. 'stratified_depth' balances the four "
+            "depth strata."
+        ),
+    )
     parser.add_argument("--balanced_sampler", action="store_true",
-                        help="Use group-level weighted sampling: upweight high return-contrast / high-pressure / NSB-positive groups.")
+                        help="Deprecated: use --sampling_mode=balanced.")
     parser.add_argument("--balance_alpha", type=float, default=1.0,
                         help="Weight on normalized return range.")
     parser.add_argument("--balance_beta", type=float, default=1.0,
                         help="Weight on pressure (1 - raw_r_valid_ratio).")
     parser.add_argument("--balance_gamma", type=float, default=1.0,
                         help="Weight on future-NSB-positive indicator.")
+    parser.add_argument(
+        "--stratified_depth_contrast",
+        action="store_true",
+        help="Within each depth stratum, additionally upweight high return-contrast groups.",
+    )
+    parser.add_argument("--lambda_pair", type=float, default=0.5,
+                        help="Weight for pairwise ranking loss.")
+    parser.add_argument("--pair_margin", type=float, default=0.1)
+    parser.add_argument("--pair_delta", type=float, default=0.01)
+    parser.add_argument("--lambda_hard", type=float, default=1.0,
+                        help="Weight for hard-negative listwise re-loss.")
+    parser.add_argument("--alpha_hard", type=float, default=2.0,
+                        help="Hard-negative weight multiplier.")
+    parser.add_argument("--hard_replay_ratio", type=float, default=0.3,
+                        help="Reserved; current hard-negative weighting is applied every batch.")
     return parser
 
 
 if __name__ == "__main__":
     args = build_parser().parse_args()
+    # Backward compatibility: legacy --balanced_sampler flag maps to sampling_mode=balanced.
+    if args.balanced_sampler and args.sampling_mode == "uniform":
+        args.sampling_mode = "balanced"
     args._start_time = time.time()
     report = train(args)
     print(

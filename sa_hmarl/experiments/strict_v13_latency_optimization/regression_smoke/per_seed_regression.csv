@@ -1,0 +1,2 @@
+topology,seed,evaluated_requests,reference_blocked,optimized_blocked,reference_blocking_rate,optimized_blocking_rate,action_mismatches,outcome_mismatches,blocked_identity_mismatches,passed,request_trace_hash
+xlron_nsfnet_deeprmsa,6101,100,5,5,0.05,0.05,0,0,0,True,5f12321f139e273f575ad0d1

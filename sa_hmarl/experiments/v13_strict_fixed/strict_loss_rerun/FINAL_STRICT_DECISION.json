@@ -1,0 +1,22 @@
+{
+  "q1_full_state_vs_ppo_r": true,
+  "q1_evidence": "Strict full-state uniform all-gate mean blocking = 4.82% vs PPO-R = 5.63%. Paired mean difference = -0.8100%, bootstrap 95% CI = [-1.3800%, -0.2400%], Wilcoxon p = 0.062. All 5 seeds show improvement.",
+  "q2_full_state_vs_old_gated": false,
+  "q2_evidence": "Strict full-state uniform all-gate = 4.82% vs old gated = 4.44%. Paired mean difference = 0.3800%, CI = [-0.6500%, 1.7600%], Wilcoxon p = 1.000. Full-state is not yet competitive with the gated baseline.",
+  "q3_stratified_vs_uniform": false,
+  "q3_evidence": "Strict stratified all-gate = 5.05% vs strict uniform all-gate = 4.82%. Paired mean difference = 0.2300%, CI crosses 0. Stratified sampling does not help on this small dataset.",
+  "q4_e0_ood_harm": "directionally_supported_not_proven",
+  "q4_evidence": "Old gated vs old all: mean diff = -0.4000%, CI = [-0.7600%, -0.0300%], Wilcoxon p = 0.188. The direction is consistent with E=0 OOD harm, but n=5 is underpowered and the CI from a different resample may cross 0. No local causal claim can be made.",
+  "q5_allow_v135_diagnostic": true,
+  "q5_category": "B",
+  "q5_evidence": "Category B: Strict full-state improves over PPO-R but does not beat old gated. Allow a v1.35 diagnostic pilot limited to \u22641000 groups, with explicit difficulty gate as the safety baseline.",
+  "q6_recommendation": "explicit_gate_main_full_state_diagnostic",
+  "q6_evidence": "The explicit difficulty gate (ranker_gate=deep_path_only) is the only deployment strategy with consistent improvement over PPO-R in this pilot. Full-state training is promising but must remain diagnostic until it consistently beats the gated baseline on \u22653 training seeds and \u22655 evaluation seeds.",
+  "q7_next_experiment": "Scale the full-state training dataset to \u22641000 groups under the Strict loss protocol, and ablate shallow-state architecture/regularization. Evaluate against the same old gated baseline on the same 5 traffic seeds before any broader deployment. Do not start Japan/German experiments.",
+  "caveats": [
+    "Pilot dataset is small (1.7k groups); confidence intervals are wide.",
+    "Old checkpoint is OOD on the full-state test set; it is included as a reference, not as a fair full-state model.",
+    "E=0/E=1 online blocking rates are near zero because blocking occurs on no-candidate states.",
+    "Wilcoxon p-values with n=5 are underpowered; bootstrap CIs should be interpreted with caution."
+  ]
+}

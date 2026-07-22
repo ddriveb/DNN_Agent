@@ -1,0 +1,12 @@
+
+[main] Full pilot: 15 (topology, seed) tasks
+[write] sa_hmarl/experiments/strict_v13_vs_topology_best_heuristics_fixed_c_all_od/per_seed_summary.csv
+[write] sa_hmarl/experiments/strict_v13_vs_topology_best_heuristics_fixed_c_all_od/paired_action_trace.jsonl.gz
+[write] sa_hmarl/experiments/strict_v13_vs_topology_best_heuristics_fixed_c_all_od/NSFNET_RESULTS.json
+[write] sa_hmarl/experiments/strict_v13_vs_topology_best_heuristics_fixed_c_all_od/NSFNET_RESULTS.md
+[write] sa_hmarl/experiments/strict_v13_vs_topology_best_heuristics_fixed_c_all_od/USNET_RESULTS.json
+[write] sa_hmarl/experiments/strict_v13_vs_topology_best_heuristics_fixed_c_all_od/USNET_RESULTS.md
+[write] sa_hmarl/experiments/strict_v13_vs_topology_best_heuristics_fixed_c_all_od/JPN48_RESULTS.json
+[write] sa_hmarl/experiments/strict_v13_vs_topology_best_heuristics_fixed_c_all_od/JPN48_RESULTS.md
+[write] sa_hmarl/experiments/strict_v13_vs_topology_best_heuristics_fixed_c_all_od/TOPOLOGY_COMPARISON_SUMMARY.md
+[main] Done in 562.1s

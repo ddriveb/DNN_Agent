@@ -1,0 +1,12 @@
+[ppo_c+ksp_ff_k50_hops] completed seed 3030
+[ppo_c+ksp_ff_k50_hops] completed seed 4040
+[ppo_c+ksp_ff_k50_hops] completed seed 5050
+[ppo_c+ksp_ff_k50_hops] completed seed 6060
+[ppo_c+ksp_ff_k50_hops] completed seed 7070
+[ppo_c+v12_k50_hops] completed seed 3030
+[ppo_c+v12_k50_hops] completed seed 4040
+[ppo_c+v12_k50_hops] completed seed 5050
+[ppo_c+v12_k50_hops] completed seed 6060
+[ppo_c+v12_k50_hops] completed seed 7070
+Wrote sa_hmarl/experiments/long_horizon_benchmark/xlron_cost239_ptrnet_real_ecmax2.2_full.json
+Wrote sa_hmarl/experiments/long_horizon_benchmark/xlron_cost239_ptrnet_real_ecmax2.2_full.md

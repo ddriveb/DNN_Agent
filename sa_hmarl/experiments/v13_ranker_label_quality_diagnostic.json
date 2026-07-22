@@ -1,0 +1,81 @@
+{
+  "config": {
+    "agent_c_checkpoint": "sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_last.pt",
+    "agent_r_checkpoint": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+    "ranker_checkpoint": "sa_hmarl/checkpoints/r_counterfactual_ranking_postdec_topk_k50_s100/ranking_model.pt",
+    "topology": "xlron_cost239_ptrnet_real",
+    "num_slots": 320,
+    "num_servers": 4,
+    "k_paths": 50,
+    "path_sort_strategy": "hops",
+    "block_sort_strategy": "start_asc",
+    "max_blocks": 10,
+    "split_profile": "default3",
+    "num_splits": 3,
+    "seed": 3030,
+    "requests_per_episode": 1200,
+    "warmup_requests": 1000,
+    "max_states": 10,
+    "arrival_interval": 0.0625,
+    "holding_min": 20.0,
+    "holding_max": 30.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "size_max_mb": 30.0,
+    "edge_cost_min": 0.1,
+    "edge_cost_max": 2.2,
+    "modulation_profile": "default",
+    "util_threshold": 0.95,
+    "alpha": 0.3,
+    "device": "cpu",
+    "train_ppo_top_k": 50,
+    "train_max_candidates": 30,
+    "return_current_block_coef": 3.0,
+    "return_future_block_coef": 4.0,
+    "return_future_nsb_coef": 3.0,
+    "return_future_server_overload_coef": 0.0,
+    "return_delay_coef": 0.03,
+    "return_fs_coef": 0.05,
+    "output_json": "sa_hmarl/experiments/v13_ranker_label_quality_diagnostic.json"
+  },
+  "states": 10,
+  "summary": {
+    "mean_label_range_h5": 0.0,
+    "mean_label_range_h20": 0.0,
+    "mean_label_range_h50": 0.0,
+    "nonzero_range_h5": 0.0,
+    "spearman_h5_h20": 0.0,
+    "spearman_h5_h50": 0.0,
+    "mean_ranker_regret_h5": 0.0,
+    "mean_ranker_regret_h20": 0.0,
+    "mean_ranker_regret_h50": 0.0,
+    "mean_ksp_regret_h5": 0.0,
+    "mean_ksp_regret_h20": 0.0,
+    "mean_ksp_regret_h50": 0.0,
+    "mean_ppo_regret_h5": 0.0,
+    "bucket_summary": {
+      "<=0.7": {
+        "states": 0,
+        "mean_ksp_regret_h5": 0.0,
+        "mean_ranker_regret_h5": 0.0
+      },
+      "<=0.8": {
+        "states": 0,
+        "mean_ksp_regret_h5": 0.0,
+        "mean_ranker_regret_h5": 0.0
+      },
+      "<=0.9": {
+        "states": 3,
+        "mean_ksp_regret_h5": 0.0,
+        "mean_ranker_regret_h5": 0.0
+      },
+      "<=1.0": {
+        "states": 7,
+        "mean_ksp_regret_h5": 0.0,
+        "mean_ranker_regret_h5": 0.0
+      }
+    }
+  },
+  "elapsed_seconds": 582.5797204971313
+}

@@ -1,0 +1,6 @@
+[eval] Saved sa_hmarl/experiments/v13_strict_multitopology_cside_verified/per_task/xlron_jpn48/seed_4040/results.json and sa_hmarl/experiments/v13_strict_multitopology_cside_verified/per_task/xlron_jpn48/seed_4040/eval.log
+67 r_no=0 r_reached=4933 r_decisions=4933 policy_ms=0.829 audit_ms=3.638 ppo_agree=0.01743361037907967
+[xlron_jpn48][seed=4040][ppo_c+strict_v13] blocking=29.9000% c_no=13 r_no=0 r_reached=4987 r_decisions=4987 policy_ms=18.776 audit_ms=3.972 ppo_agree=0.03569280128333668
+[xlron_jpn48][seed=4040][df_c+ppo_r_top1] blocking=27.7600% c_no=6 r_no=0 r_reached=4994 r_decisions=4994 policy_ms=0.233 audit_ms=3.989 ppo_agree=1.0
+[xlron_jpn48][seed=4040][df_c+ksp_ff_highest] blocking=16.5800% c_no=8 r_no=0 r_reached=4992 r_decisions=4992 policy_ms=0.272 audit_ms=4.064 ppo_agree=0.016826923076923076
+[xlron_jpn48][seed=4040][df_c+strict_v13] blocking=32.1600% c_no=5 r_no=0 r_reached=4995 r_decisions=4995 policy_ms=19.000 audit_ms=3.921 ppo_agree=0.04744744744744745

@@ -1,0 +1,3602 @@
+[
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 4867,
+    "blocked": 133,
+    "c_no_valid_action": 133,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 133,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0266,
+      "c_no_valid_action_rate": 0.0266,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 133
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 4675,
+    "blocked": 325,
+    "c_no_valid_action": 325,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 325,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.065,
+      "c_no_valid_action_rate": 0.065,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 325
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 4696,
+    "blocked": 304,
+    "c_no_valid_action": 304,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 304,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0608,
+      "c_no_valid_action_rate": 0.0608,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 304
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 4722,
+    "blocked": 278,
+    "c_no_valid_action": 278,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 278,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0556,
+      "c_no_valid_action_rate": 0.0556,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 278
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 4752,
+    "blocked": 248,
+    "c_no_valid_action": 248,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 248,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0496,
+      "c_no_valid_action_rate": 0.0496,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 248
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 4867,
+    "blocked": 133,
+    "c_no_valid_action": 133,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 133,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0266,
+      "c_no_valid_action_rate": 0.0266,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 133
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 4675,
+    "blocked": 325,
+    "c_no_valid_action": 325,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 325,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.065,
+      "c_no_valid_action_rate": 0.065,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 325
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 4696,
+    "blocked": 304,
+    "c_no_valid_action": 304,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 304,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0608,
+      "c_no_valid_action_rate": 0.0608,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 304
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 4722,
+    "blocked": 278,
+    "c_no_valid_action": 278,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 278,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0556,
+      "c_no_valid_action_rate": 0.0556,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 278
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 4752,
+    "blocked": 248,
+    "c_no_valid_action": 248,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 248,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0496,
+      "c_no_valid_action_rate": 0.0496,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 248
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 4867,
+    "blocked": 133,
+    "c_no_valid_action": 133,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 133,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0266,
+      "c_no_valid_action_rate": 0.0266,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 133
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 4675,
+    "blocked": 325,
+    "c_no_valid_action": 325,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 325,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.065,
+      "c_no_valid_action_rate": 0.065,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 325
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 4696,
+    "blocked": 304,
+    "c_no_valid_action": 304,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 304,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0608,
+      "c_no_valid_action_rate": 0.0608,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 304
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 4722,
+    "blocked": 278,
+    "c_no_valid_action": 278,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 278,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0556,
+      "c_no_valid_action_rate": 0.0556,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 278
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 4752,
+    "blocked": 248,
+    "c_no_valid_action": 248,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 248,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0496,
+      "c_no_valid_action_rate": 0.0496,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 248
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 4734,
+    "blocked": 266,
+    "c_no_valid_action": 266,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 266,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0532,
+      "c_no_valid_action_rate": 0.0532,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 266
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 4559,
+    "blocked": 441,
+    "c_no_valid_action": 441,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 441,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0882,
+      "c_no_valid_action_rate": 0.0882,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 441
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 4589,
+    "blocked": 411,
+    "c_no_valid_action": 411,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 411,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0822,
+      "c_no_valid_action_rate": 0.0822,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 411
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 4555,
+    "blocked": 445,
+    "c_no_valid_action": 445,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 445,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.089,
+      "c_no_valid_action_rate": 0.089,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 445
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 4604,
+    "blocked": 396,
+    "c_no_valid_action": 396,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 396,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0792,
+      "c_no_valid_action_rate": 0.0792,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 396
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 4849,
+    "blocked": 151,
+    "c_no_valid_action": 151,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 151,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0302,
+      "c_no_valid_action_rate": 0.0302,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 151
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 4652,
+    "blocked": 348,
+    "c_no_valid_action": 348,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 348,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0696,
+      "c_no_valid_action_rate": 0.0696,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 348
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 4687,
+    "blocked": 313,
+    "c_no_valid_action": 313,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 313,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0626,
+      "c_no_valid_action_rate": 0.0626,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 313
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 4677,
+    "blocked": 323,
+    "c_no_valid_action": 323,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 323,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0646,
+      "c_no_valid_action_rate": 0.0646,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 323
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 4732,
+    "blocked": 268,
+    "c_no_valid_action": 268,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 268,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0536,
+      "c_no_valid_action_rate": 0.0536,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 268
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 4802,
+    "blocked": 198,
+    "c_no_valid_action": 198,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 198,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0396,
+      "c_no_valid_action_rate": 0.0396,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 198
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 4635,
+    "blocked": 365,
+    "c_no_valid_action": 365,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 365,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.073,
+      "c_no_valid_action_rate": 0.073,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 365
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 4683,
+    "blocked": 317,
+    "c_no_valid_action": 317,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 317,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0634,
+      "c_no_valid_action_rate": 0.0634,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 317
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 4687,
+    "blocked": 313,
+    "c_no_valid_action": 313,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 313,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0626,
+      "c_no_valid_action_rate": 0.0626,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 313
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_cost239_ptrnet_real",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 4709,
+    "blocked": 291,
+    "c_no_valid_action": 291,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 291,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0582,
+      "c_no_valid_action_rate": 0.0582,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 291
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 4624,
+    "blocked": 376,
+    "c_no_valid_action": 376,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 376,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0752,
+      "c_no_valid_action_rate": 0.0752,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 376
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 4731,
+    "blocked": 269,
+    "c_no_valid_action": 269,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 269,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0538,
+      "c_no_valid_action_rate": 0.0538,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 269
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 4676,
+    "blocked": 324,
+    "c_no_valid_action": 324,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 324,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0648,
+      "c_no_valid_action_rate": 0.0648,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 324
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 4789,
+    "blocked": 211,
+    "c_no_valid_action": 211,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 211,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0422,
+      "c_no_valid_action_rate": 0.0422,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 211
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 4782,
+    "blocked": 218,
+    "c_no_valid_action": 218,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 218,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0436,
+      "c_no_valid_action_rate": 0.0436,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 218
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 4530,
+    "blocked": 470,
+    "c_no_valid_action": 470,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 470,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.094,
+      "c_no_valid_action_rate": 0.094,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 470
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 4687,
+    "blocked": 313,
+    "c_no_valid_action": 313,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 313,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0626,
+      "c_no_valid_action_rate": 0.0626,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 313
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 4624,
+    "blocked": 376,
+    "c_no_valid_action": 376,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 376,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0752,
+      "c_no_valid_action_rate": 0.0752,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 376
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 4716,
+    "blocked": 284,
+    "c_no_valid_action": 284,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 284,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0568,
+      "c_no_valid_action_rate": 0.0568,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 284
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 4699,
+    "blocked": 301,
+    "c_no_valid_action": 301,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 301,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0602,
+      "c_no_valid_action_rate": 0.0602,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 301
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 4586,
+    "blocked": 414,
+    "c_no_valid_action": 414,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 414,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0828,
+      "c_no_valid_action_rate": 0.0828,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 414
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 4720,
+    "blocked": 280,
+    "c_no_valid_action": 280,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 280,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.056,
+      "c_no_valid_action_rate": 0.056,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 280
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 4645,
+    "blocked": 355,
+    "c_no_valid_action": 355,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 355,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.071,
+      "c_no_valid_action_rate": 0.071,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 355
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 4763,
+    "blocked": 237,
+    "c_no_valid_action": 237,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 237,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0474,
+      "c_no_valid_action_rate": 0.0474,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 237
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 4734,
+    "blocked": 266,
+    "c_no_valid_action": 266,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 266,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0532,
+      "c_no_valid_action_rate": 0.0532,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 266
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 2856,
+    "blocked": 2144,
+    "c_no_valid_action": 2144,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 2144,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.4288,
+      "c_no_valid_action_rate": 0.4288,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 2144
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 2951,
+    "blocked": 2049,
+    "c_no_valid_action": 2049,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 2049,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.4098,
+      "c_no_valid_action_rate": 0.4098,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 2049
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 2730,
+    "blocked": 2270,
+    "c_no_valid_action": 2270,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 2270,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.454,
+      "c_no_valid_action_rate": 0.454,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 2270
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 2803,
+    "blocked": 2197,
+    "c_no_valid_action": 2197,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 2197,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.4394,
+      "c_no_valid_action_rate": 0.4394,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 2197
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 2854,
+    "blocked": 2146,
+    "c_no_valid_action": 2146,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 2146,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.4292,
+      "c_no_valid_action_rate": 0.4292,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 2146
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 3700,
+    "blocked": 1300,
+    "c_no_valid_action": 1300,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1300,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.26,
+      "c_no_valid_action_rate": 0.26,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1300
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 3889,
+    "blocked": 1111,
+    "c_no_valid_action": 1111,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1111,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.2222,
+      "c_no_valid_action_rate": 0.2222,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1111
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 3813,
+    "blocked": 1187,
+    "c_no_valid_action": 1187,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1187,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.2374,
+      "c_no_valid_action_rate": 0.2374,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1187
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 3820,
+    "blocked": 1180,
+    "c_no_valid_action": 1180,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1180,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.236,
+      "c_no_valid_action_rate": 0.236,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1180
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 3907,
+    "blocked": 1093,
+    "c_no_valid_action": 1093,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1093,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.2186,
+      "c_no_valid_action_rate": 0.2186,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1093
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 3717,
+    "blocked": 1283,
+    "c_no_valid_action": 1283,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1283,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.2566,
+      "c_no_valid_action_rate": 0.2566,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1283
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 3877,
+    "blocked": 1123,
+    "c_no_valid_action": 1123,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1123,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.2246,
+      "c_no_valid_action_rate": 0.2246,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1123
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 3855,
+    "blocked": 1145,
+    "c_no_valid_action": 1145,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1145,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.229,
+      "c_no_valid_action_rate": 0.229,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1145
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 3882,
+    "blocked": 1118,
+    "c_no_valid_action": 1118,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1118,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.2236,
+      "c_no_valid_action_rate": 0.2236,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1118
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_german17",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 3915,
+    "blocked": 1085,
+    "c_no_valid_action": 1085,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1085,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.217,
+      "c_no_valid_action_rate": 0.217,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1085
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 4540,
+    "blocked": 460,
+    "c_no_valid_action": 460,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 460,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.092,
+      "c_no_valid_action_rate": 0.092,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 460
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 4671,
+    "blocked": 329,
+    "c_no_valid_action": 329,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 329,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0658,
+      "c_no_valid_action_rate": 0.0658,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 329
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 4625,
+    "blocked": 375,
+    "c_no_valid_action": 375,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 375,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.075,
+      "c_no_valid_action_rate": 0.075,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 375
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 4696,
+    "blocked": 304,
+    "c_no_valid_action": 304,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 304,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0608,
+      "c_no_valid_action_rate": 0.0608,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 304
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 4704,
+    "blocked": 296,
+    "c_no_valid_action": 296,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 296,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0592,
+      "c_no_valid_action_rate": 0.0592,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 296
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 4518,
+    "blocked": 482,
+    "c_no_valid_action": 482,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 482,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0964,
+      "c_no_valid_action_rate": 0.0964,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 482
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 4679,
+    "blocked": 321,
+    "c_no_valid_action": 321,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 321,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0642,
+      "c_no_valid_action_rate": 0.0642,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 321
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 4643,
+    "blocked": 357,
+    "c_no_valid_action": 357,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 357,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0714,
+      "c_no_valid_action_rate": 0.0714,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 357
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 4651,
+    "blocked": 349,
+    "c_no_valid_action": 349,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 349,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0698,
+      "c_no_valid_action_rate": 0.0698,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 349
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 4667,
+    "blocked": 333,
+    "c_no_valid_action": 333,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 333,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0666,
+      "c_no_valid_action_rate": 0.0666,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 333
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 4520,
+    "blocked": 480,
+    "c_no_valid_action": 480,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 480,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.096,
+      "c_no_valid_action_rate": 0.096,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 480
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 4631,
+    "blocked": 369,
+    "c_no_valid_action": 369,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 369,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0738,
+      "c_no_valid_action_rate": 0.0738,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 369
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 4623,
+    "blocked": 377,
+    "c_no_valid_action": 377,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 377,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0754,
+      "c_no_valid_action_rate": 0.0754,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 377
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 4659,
+    "blocked": 341,
+    "c_no_valid_action": 341,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 341,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0682,
+      "c_no_valid_action_rate": 0.0682,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 341
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 4680,
+    "blocked": 320,
+    "c_no_valid_action": 320,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 320,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.064,
+      "c_no_valid_action_rate": 0.064,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 320
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 3109,
+    "blocked": 1891,
+    "c_no_valid_action": 1891,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1891,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.3782,
+      "c_no_valid_action_rate": 0.3782,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1891
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 3191,
+    "blocked": 1809,
+    "c_no_valid_action": 1809,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1809,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.3618,
+      "c_no_valid_action_rate": 0.3618,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1809
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 3122,
+    "blocked": 1878,
+    "c_no_valid_action": 1878,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1878,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.3756,
+      "c_no_valid_action_rate": 0.3756,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1878
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 3191,
+    "blocked": 1809,
+    "c_no_valid_action": 1809,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1809,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.3618,
+      "c_no_valid_action_rate": 0.3618,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1809
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 3417,
+    "blocked": 1583,
+    "c_no_valid_action": 1583,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1583,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.3166,
+      "c_no_valid_action_rate": 0.3166,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1583
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 3884,
+    "blocked": 1116,
+    "c_no_valid_action": 1116,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1116,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.2232,
+      "c_no_valid_action_rate": 0.2232,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1116
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 3995,
+    "blocked": 1005,
+    "c_no_valid_action": 1005,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1005,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.201,
+      "c_no_valid_action_rate": 0.201,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1005
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 4025,
+    "blocked": 975,
+    "c_no_valid_action": 975,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 975,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.195,
+      "c_no_valid_action_rate": 0.195,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 975
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 3998,
+    "blocked": 1002,
+    "c_no_valid_action": 1002,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1002,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.2004,
+      "c_no_valid_action_rate": 0.2004,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1002
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 4012,
+    "blocked": 988,
+    "c_no_valid_action": 988,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 988,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.1976,
+      "c_no_valid_action_rate": 0.1976,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 988
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 3839,
+    "blocked": 1161,
+    "c_no_valid_action": 1161,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1161,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.2322,
+      "c_no_valid_action_rate": 0.2322,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1161
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 3981,
+    "blocked": 1019,
+    "c_no_valid_action": 1019,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1019,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.2038,
+      "c_no_valid_action_rate": 0.2038,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1019
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 3922,
+    "blocked": 1078,
+    "c_no_valid_action": 1078,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1078,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.2156,
+      "c_no_valid_action_rate": 0.2156,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1078
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 3882,
+    "blocked": 1118,
+    "c_no_valid_action": 1118,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1118,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.2236,
+      "c_no_valid_action_rate": 0.2236,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1118
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_jpn48",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 3983,
+    "blocked": 1017,
+    "c_no_valid_action": 1017,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1017,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.2034,
+      "c_no_valid_action_rate": 0.2034,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1017
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 4580,
+    "blocked": 420,
+    "c_no_valid_action": 420,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 420,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.084,
+      "c_no_valid_action_rate": 0.084,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 420
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 4328,
+    "blocked": 672,
+    "c_no_valid_action": 672,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 672,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.1344,
+      "c_no_valid_action_rate": 0.1344,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 672
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 4341,
+    "blocked": 659,
+    "c_no_valid_action": 659,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 659,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.1318,
+      "c_no_valid_action_rate": 0.1318,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 659
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 4430,
+    "blocked": 570,
+    "c_no_valid_action": 570,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 570,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.114,
+      "c_no_valid_action_rate": 0.114,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 570
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "df_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 4272,
+    "blocked": 728,
+    "c_no_valid_action": 728,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 728,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.1456,
+      "c_no_valid_action_rate": 0.1456,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 728
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 4578,
+    "blocked": 422,
+    "c_no_valid_action": 422,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 422,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0844,
+      "c_no_valid_action_rate": 0.0844,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 422
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 4273,
+    "blocked": 727,
+    "c_no_valid_action": 727,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 727,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.1454,
+      "c_no_valid_action_rate": 0.1454,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 727
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 4349,
+    "blocked": 651,
+    "c_no_valid_action": 651,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 651,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.1302,
+      "c_no_valid_action_rate": 0.1302,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 651
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 4416,
+    "blocked": 584,
+    "c_no_valid_action": 584,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 584,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.1168,
+      "c_no_valid_action_rate": 0.1168,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 584
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "df_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 4253,
+    "blocked": 747,
+    "c_no_valid_action": 747,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 747,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.1494,
+      "c_no_valid_action_rate": 0.1494,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 747
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 4572,
+    "blocked": 428,
+    "c_no_valid_action": 428,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 428,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.0856,
+      "c_no_valid_action_rate": 0.0856,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 428
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 4339,
+    "blocked": 661,
+    "c_no_valid_action": 661,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 661,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.1322,
+      "c_no_valid_action_rate": 0.1322,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 661
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 4343,
+    "blocked": 657,
+    "c_no_valid_action": 657,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 657,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.1314,
+      "c_no_valid_action_rate": 0.1314,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 657
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 4409,
+    "blocked": 591,
+    "c_no_valid_action": 591,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 591,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.1182,
+      "c_no_valid_action_rate": 0.1182,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 591
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "df_c",
+    "r_mode": "strict_v13",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 4285,
+    "blocked": 715,
+    "c_no_valid_action": 715,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 715,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.143,
+      "c_no_valid_action_rate": 0.143,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 715
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 3271,
+    "blocked": 1729,
+    "c_no_valid_action": 1729,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1729,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.3458,
+      "c_no_valid_action_rate": 0.3458,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1729
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 2885,
+    "blocked": 2115,
+    "c_no_valid_action": 2115,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 2115,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.423,
+      "c_no_valid_action_rate": 0.423,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 2115
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 2919,
+    "blocked": 2081,
+    "c_no_valid_action": 2081,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 2081,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.4162,
+      "c_no_valid_action_rate": 0.4162,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 2081
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 2991,
+    "blocked": 2009,
+    "c_no_valid_action": 2009,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 2009,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.4018,
+      "c_no_valid_action_rate": 0.4018,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 2009
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "ppo_c",
+    "r_mode": "ksp_ff_highest",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 2889,
+    "blocked": 2111,
+    "c_no_valid_action": 2111,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 2111,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.4222,
+      "c_no_valid_action_rate": 0.4222,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 2111
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 3229,
+    "blocked": 1771,
+    "c_no_valid_action": 1771,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1771,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.3542,
+      "c_no_valid_action_rate": 0.3542,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1771
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 3002,
+    "blocked": 1998,
+    "c_no_valid_action": 1998,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1998,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.3996,
+      "c_no_valid_action_rate": 0.3996,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1998
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 2978,
+    "blocked": 2022,
+    "c_no_valid_action": 2022,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 2022,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.4044,
+      "c_no_valid_action_rate": 0.4044,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 2022
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 3143,
+    "blocked": 1857,
+    "c_no_valid_action": 1857,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1857,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.3714,
+      "c_no_valid_action_rate": 0.3714,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1857
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "ppo_c",
+    "r_mode": "ppo_r_top1",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 3022,
+    "blocked": 1978,
+    "c_no_valid_action": 1978,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1978,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.3956,
+      "c_no_valid_action_rate": 0.3956,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1978
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 3030,
+    "evaluated": 5000,
+    "admitted": 3257,
+    "blocked": 1743,
+    "c_no_valid_action": 1743,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1743,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.3486,
+      "c_no_valid_action_rate": 0.3486,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1743
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 4040,
+    "evaluated": 5000,
+    "admitted": 3005,
+    "blocked": 1995,
+    "c_no_valid_action": 1995,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1995,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.399,
+      "c_no_valid_action_rate": 0.399,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1995
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 5050,
+    "evaluated": 5000,
+    "admitted": 3043,
+    "blocked": 1957,
+    "c_no_valid_action": 1957,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1957,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.3914,
+      "c_no_valid_action_rate": 0.3914,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1957
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 6060,
+    "evaluated": 5000,
+    "admitted": 3049,
+    "blocked": 1951,
+    "c_no_valid_action": 1951,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1951,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.3902,
+      "c_no_valid_action_rate": 0.3902,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1951
+    },
+    "action_observation_consistency_error_count": 0
+  },
+  {
+    "topology": "xlron_nsfnet_deeprmsa",
+    "c_mode": "ppo_c",
+    "r_mode": "strict_v13",
+    "seed": 7070,
+    "evaluated": 5000,
+    "admitted": 3030,
+    "blocked": 1970,
+    "c_no_valid_action": 1970,
+    "r_no_valid_action": 0,
+    "no_suitable_block": 0,
+    "server_overload": 0,
+    "deadline_failure": 0,
+    "other_failure": 0,
+    "component_sum": 1970,
+    "difference": 0,
+    "rates": {
+      "blocking_rate": 0.394,
+      "c_no_valid_action_rate": 0.394,
+      "r_no_valid_action_rate": 0.0,
+      "nsb_rate": 0.0,
+      "overload_rate": 0.0,
+      "deadline_failure_rate": 0.0,
+      "other_rate": 0.0
+    },
+    "failure_reason_distribution": {
+      "c_no_valid_action": 1970
+    },
+    "action_observation_consistency_error_count": 0
+  }
+]

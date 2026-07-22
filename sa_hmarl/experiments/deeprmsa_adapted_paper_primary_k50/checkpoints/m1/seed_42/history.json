@@ -1,0 +1,1501 @@
+[
+  {
+    "epoch": 1,
+    "train": {
+      "admitted": 1179,
+      "blocked": 321,
+      "no_valid": 321,
+      "blocking_rate": 0.214,
+      "loss": 114.94853210449219,
+      "policy_loss": 7.813075542449951,
+      "value_loss": 214.2709197998047,
+      "entropy": 0.5330288410186768
+    },
+    "validation": {
+      "per_seed": {
+        "42001": {
+          "admitted": 2452,
+          "blocked": 548,
+          "r_no_valid_action": 548,
+          "evaluated": 3000,
+          "blocking_rate": 0.18266666666666667
+        },
+        "42002": {
+          "admitted": 2461,
+          "blocked": 539,
+          "r_no_valid_action": 539,
+          "evaluated": 3000,
+          "blocking_rate": 0.17966666666666667
+        },
+        "42003": {
+          "admitted": 2489,
+          "blocked": 511,
+          "r_no_valid_action": 511,
+          "evaluated": 3000,
+          "blocking_rate": 0.17033333333333334
+        }
+      },
+      "mean_blocking_rate": 0.17755555555555555,
+      "std_blocking_rate": 0.006431980283736136
+    }
+  },
+  {
+    "epoch": 2,
+    "train": {
+      "admitted": 1158,
+      "blocked": 342,
+      "no_valid": 342,
+      "blocking_rate": 0.228,
+      "loss": 107.60417938232422,
+      "policy_loss": 7.478074550628662,
+      "value_loss": 200.25221252441406,
+      "entropy": 0.5318009257316589
+    }
+  },
+  {
+    "epoch": 3,
+    "train": {
+      "admitted": 1151,
+      "blocked": 349,
+      "no_valid": 349,
+      "blocking_rate": 0.23266666666666666,
+      "loss": 107.71945190429688,
+      "policy_loss": 7.923667907714844,
+      "value_loss": 199.59156799316406,
+      "entropy": 0.5603770017623901
+    }
+  },
+  {
+    "epoch": 4,
+    "train": {
+      "admitted": 1187,
+      "blocked": 313,
+      "no_valid": 313,
+      "blocking_rate": 0.20866666666666667,
+      "loss": 117.130126953125,
+      "policy_loss": 7.444096565246582,
+      "value_loss": 219.37205505371094,
+      "entropy": 0.5139008164405823
+    }
+  },
+  {
+    "epoch": 5,
+    "train": {
+      "admitted": 1135,
+      "blocked": 365,
+      "no_valid": 365,
+      "blocking_rate": 0.24333333333333335,
+      "loss": 100.69850158691406,
+      "policy_loss": 6.609293460845947,
+      "value_loss": 188.1784210205078,
+      "entropy": 0.4847222864627838
+    },
+    "validation": {
+      "per_seed": {
+        "42001": {
+          "admitted": 2461,
+          "blocked": 539,
+          "r_no_valid_action": 539,
+          "evaluated": 3000,
+          "blocking_rate": 0.17966666666666667
+        },
+        "42002": {
+          "admitted": 2525,
+          "blocked": 475,
+          "r_no_valid_action": 475,
+          "evaluated": 3000,
+          "blocking_rate": 0.15833333333333333
+        },
+        "42003": {
+          "admitted": 2523,
+          "blocked": 477,
+          "r_no_valid_action": 477,
+          "evaluated": 3000,
+          "blocking_rate": 0.159
+        }
+      },
+      "mean_blocking_rate": 0.16566666666666666,
+      "std_blocking_rate": 0.01212893693244017
+    }
+  },
+  {
+    "epoch": 6,
+    "train": {
+      "admitted": 1199,
+      "blocked": 301,
+      "no_valid": 301,
+      "blocking_rate": 0.20066666666666666,
+      "loss": 121.56352233886719,
+      "policy_loss": 9.115601539611816,
+      "value_loss": 224.89584350585938,
+      "entropy": 0.6002222299575806
+    }
+  },
+  {
+    "epoch": 7,
+    "train": {
+      "admitted": 1140,
+      "blocked": 360,
+      "no_valid": 360,
+      "blocking_rate": 0.24,
+      "loss": 102.87480926513672,
+      "policy_loss": 7.02479362487793,
+      "value_loss": 191.7000274658203,
+      "entropy": 0.5100168585777283
+    }
+  },
+  {
+    "epoch": 8,
+    "train": {
+      "admitted": 1172,
+      "blocked": 328,
+      "no_valid": 328,
+      "blocking_rate": 0.21866666666666668,
+      "loss": 112.80885314941406,
+      "policy_loss": 8.27426528930664,
+      "value_loss": 209.0691680908203,
+      "entropy": 0.5694260597229004
+    }
+  },
+  {
+    "epoch": 9,
+    "train": {
+      "admitted": 1167,
+      "blocked": 333,
+      "no_valid": 333,
+      "blocking_rate": 0.222,
+      "loss": 112.0877456665039,
+      "policy_loss": 8.064667701721191,
+      "value_loss": 208.04615783691406,
+      "entropy": 0.5630990862846375
+    }
+  },
+  {
+    "epoch": 10,
+    "train": {
+      "admitted": 1206,
+      "blocked": 294,
+      "no_valid": 294,
+      "blocking_rate": 0.196,
+      "loss": 122.44088745117188,
+      "policy_loss": 7.670003414154053,
+      "value_loss": 229.54176330566406,
+      "entropy": 0.5085343718528748
+    },
+    "validation": {
+      "per_seed": {
+        "42001": {
+          "admitted": 2508,
+          "blocked": 492,
+          "r_no_valid_action": 492,
+          "evaluated": 3000,
+          "blocking_rate": 0.164
+        },
+        "42002": {
+          "admitted": 2550,
+          "blocked": 450,
+          "r_no_valid_action": 450,
+          "evaluated": 3000,
+          "blocking_rate": 0.15
+        },
+        "42003": {
+          "admitted": 2568,
+          "blocked": 432,
+          "r_no_valid_action": 432,
+          "evaluated": 3000,
+          "blocking_rate": 0.144
+        }
+      },
+      "mean_blocking_rate": 0.15266666666666664,
+      "std_blocking_rate": 0.010263202878893776
+    }
+  },
+  {
+    "epoch": 11,
+    "train": {
+      "admitted": 1205,
+      "blocked": 295,
+      "no_valid": 295,
+      "blocking_rate": 0.19666666666666666,
+      "loss": 121.48329162597656,
+      "policy_loss": 7.963400840759277,
+      "value_loss": 227.03977966308594,
+      "entropy": 0.5329815149307251
+    }
+  },
+  {
+    "epoch": 12,
+    "train": {
+      "admitted": 1164,
+      "blocked": 336,
+      "no_valid": 336,
+      "blocking_rate": 0.224,
+      "loss": 109.92842864990234,
+      "policy_loss": 7.822956562042236,
+      "value_loss": 204.2109375,
+      "entropy": 0.5508453845977783
+    }
+  },
+  {
+    "epoch": 13,
+    "train": {
+      "admitted": 1111,
+      "blocked": 389,
+      "no_valid": 389,
+      "blocking_rate": 0.25933333333333336,
+      "loss": 92.80715942382812,
+      "policy_loss": 5.922013282775879,
+      "value_loss": 173.77029418945312,
+      "entropy": 0.4512532651424408
+    }
+  },
+  {
+    "epoch": 14,
+    "train": {
+      "admitted": 1164,
+      "blocked": 336,
+      "no_valid": 336,
+      "blocking_rate": 0.224,
+      "loss": 109.86064910888672,
+      "policy_loss": 8.026228904724121,
+      "value_loss": 203.66883850097656,
+      "entropy": 0.5640178322792053
+    }
+  },
+  {
+    "epoch": 15,
+    "train": {
+      "admitted": 1200,
+      "blocked": 300,
+      "no_valid": 300,
+      "blocking_rate": 0.2,
+      "loss": 120.51789855957031,
+      "policy_loss": 8.637558937072754,
+      "value_loss": 223.76068115234375,
+      "entropy": 0.5786420702934265
+    },
+    "validation": {
+      "per_seed": {
+        "42001": {
+          "admitted": 2477,
+          "blocked": 523,
+          "r_no_valid_action": 523,
+          "evaluated": 3000,
+          "blocking_rate": 0.17433333333333334
+        },
+        "42002": {
+          "admitted": 2568,
+          "blocked": 432,
+          "r_no_valid_action": 432,
+          "evaluated": 3000,
+          "blocking_rate": 0.144
+        },
+        "42003": {
+          "admitted": 2594,
+          "blocked": 406,
+          "r_no_valid_action": 406,
+          "evaluated": 3000,
+          "blocking_rate": 0.13533333333333333
+        }
+      },
+      "mean_blocking_rate": 0.15122222222222223,
+      "std_blocking_rate": 0.020478534380427977
+    }
+  },
+  {
+    "epoch": 16,
+    "train": {
+      "admitted": 1161,
+      "blocked": 339,
+      "no_valid": 339,
+      "blocking_rate": 0.226,
+      "loss": 109.5091323852539,
+      "policy_loss": 6.818979740142822,
+      "value_loss": 205.38031005859375,
+      "entropy": 0.482404887676239
+    }
+  },
+  {
+    "epoch": 17,
+    "train": {
+      "admitted": 1188,
+      "blocked": 312,
+      "no_valid": 312,
+      "blocking_rate": 0.208,
+      "loss": 116.4071044921875,
+      "policy_loss": 7.233665943145752,
+      "value_loss": 218.3468780517578,
+      "entropy": 0.4913051128387451
+    }
+  },
+  {
+    "epoch": 18,
+    "train": {
+      "admitted": 1194,
+      "blocked": 306,
+      "no_valid": 306,
+      "blocking_rate": 0.204,
+      "loss": 118.99189758300781,
+      "policy_loss": 7.827062606811523,
+      "value_loss": 222.3296661376953,
+      "entropy": 0.5267233848571777
+    }
+  },
+  {
+    "epoch": 19,
+    "train": {
+      "admitted": 1149,
+      "blocked": 351,
+      "no_valid": 351,
+      "blocking_rate": 0.234,
+      "loss": 106.62970733642578,
+      "policy_loss": 7.962756156921387,
+      "value_loss": 197.3339080810547,
+      "entropy": 0.56927889585495
+    }
+  },
+  {
+    "epoch": 20,
+    "train": {
+      "admitted": 1129,
+      "blocked": 371,
+      "no_valid": 371,
+      "blocking_rate": 0.24733333333333332,
+      "loss": 99.61544036865234,
+      "policy_loss": 6.287848949432373,
+      "value_loss": 186.65518188476562,
+      "entropy": 0.4657526910305023
+    },
+    "validation": {
+      "per_seed": {
+        "42001": {
+          "admitted": 2497,
+          "blocked": 503,
+          "r_no_valid_action": 503,
+          "evaluated": 3000,
+          "blocking_rate": 0.16766666666666666
+        },
+        "42002": {
+          "admitted": 2516,
+          "blocked": 484,
+          "r_no_valid_action": 484,
+          "evaluated": 3000,
+          "blocking_rate": 0.16133333333333333
+        },
+        "42003": {
+          "admitted": 2543,
+          "blocked": 457,
+          "r_no_valid_action": 457,
+          "evaluated": 3000,
+          "blocking_rate": 0.15233333333333332
+        }
+      },
+      "mean_blocking_rate": 0.16044444444444442,
+      "std_blocking_rate": 0.007705217087815917
+    }
+  },
+  {
+    "epoch": 21,
+    "train": {
+      "admitted": 1165,
+      "blocked": 335,
+      "no_valid": 335,
+      "blocking_rate": 0.22333333333333333,
+      "loss": 110.08177185058594,
+      "policy_loss": 7.436909198760986,
+      "value_loss": 205.2897186279297,
+      "entropy": 0.5166929364204407
+    }
+  },
+  {
+    "epoch": 22,
+    "train": {
+      "admitted": 1195,
+      "blocked": 305,
+      "no_valid": 305,
+      "blocking_rate": 0.20333333333333334,
+      "loss": 119.39785766601562,
+      "policy_loss": 8.217813491821289,
+      "value_loss": 222.36009216308594,
+      "entropy": 0.5563579797744751
+    }
+  },
+  {
+    "epoch": 23,
+    "train": {
+      "admitted": 1179,
+      "blocked": 321,
+      "no_valid": 321,
+      "blocking_rate": 0.214,
+      "loss": 115.63578033447266,
+      "policy_loss": 8.05750560760498,
+      "value_loss": 215.15655517578125,
+      "entropy": 0.5433218479156494
+    }
+  },
+  {
+    "epoch": 24,
+    "train": {
+      "admitted": 1165,
+      "blocked": 335,
+      "no_valid": 335,
+      "blocking_rate": 0.22333333333333333,
+      "loss": 108.83496856689453,
+      "policy_loss": 7.04248046875,
+      "value_loss": 203.58497619628906,
+      "entropy": 0.4981845021247864
+    }
+  },
+  {
+    "epoch": 25,
+    "train": {
+      "admitted": 1163,
+      "blocked": 337,
+      "no_valid": 337,
+      "blocking_rate": 0.22466666666666665,
+      "loss": 107.97698974609375,
+      "policy_loss": 6.99099588394165,
+      "value_loss": 201.97198486328125,
+      "entropy": 0.49800658226013184
+    },
+    "validation": {
+      "per_seed": {
+        "42001": {
+          "admitted": 2486,
+          "blocked": 514,
+          "r_no_valid_action": 514,
+          "evaluated": 3000,
+          "blocking_rate": 0.17133333333333334
+        },
+        "42002": {
+          "admitted": 2529,
+          "blocked": 471,
+          "r_no_valid_action": 471,
+          "evaluated": 3000,
+          "blocking_rate": 0.157
+        },
+        "42003": {
+          "admitted": 2569,
+          "blocked": 431,
+          "r_no_valid_action": 431,
+          "evaluated": 3000,
+          "blocking_rate": 0.14366666666666666
+        }
+      },
+      "mean_blocking_rate": 0.15733333333333335,
+      "std_blocking_rate": 0.013836345053678176
+    }
+  },
+  {
+    "epoch": 26,
+    "train": {
+      "admitted": 1214,
+      "blocked": 286,
+      "no_valid": 286,
+      "blocking_rate": 0.19066666666666668,
+      "loss": 124.614501953125,
+      "policy_loss": 8.64421558380127,
+      "value_loss": 231.94056701660156,
+      "entropy": 0.570085883140564
+    }
+  },
+  {
+    "epoch": 27,
+    "train": {
+      "admitted": 1191,
+      "blocked": 309,
+      "no_valid": 309,
+      "blocking_rate": 0.206,
+      "loss": 117.11451721191406,
+      "policy_loss": 8.543651580810547,
+      "value_loss": 217.14173889160156,
+      "entropy": 0.5845803618431091
+    }
+  },
+  {
+    "epoch": 28,
+    "train": {
+      "admitted": 1168,
+      "blocked": 332,
+      "no_valid": 332,
+      "blocking_rate": 0.22133333333333333,
+      "loss": 108.58637237548828,
+      "policy_loss": 7.045811653137207,
+      "value_loss": 203.08111572265625,
+      "entropy": 0.49949896335601807
+    }
+  },
+  {
+    "epoch": 29,
+    "train": {
+      "admitted": 1182,
+      "blocked": 318,
+      "no_valid": 318,
+      "blocking_rate": 0.212,
+      "loss": 114.66753387451172,
+      "policy_loss": 8.33384895324707,
+      "value_loss": 212.66737365722656,
+      "entropy": 0.5734537839889526
+    }
+  },
+  {
+    "epoch": 30,
+    "train": {
+      "admitted": 1184,
+      "blocked": 316,
+      "no_valid": 316,
+      "blocking_rate": 0.21066666666666667,
+      "loss": 115.29984283447266,
+      "policy_loss": 7.435415267944336,
+      "value_loss": 215.72885131835938,
+      "entropy": 0.5032753348350525
+    },
+    "validation": {
+      "per_seed": {
+        "42001": {
+          "admitted": 2495,
+          "blocked": 505,
+          "r_no_valid_action": 505,
+          "evaluated": 3000,
+          "blocking_rate": 0.16833333333333333
+        },
+        "42002": {
+          "admitted": 2484,
+          "blocked": 516,
+          "r_no_valid_action": 516,
+          "evaluated": 3000,
+          "blocking_rate": 0.172
+        },
+        "42003": {
+          "admitted": 2547,
+          "blocked": 453,
+          "r_no_valid_action": 453,
+          "evaluated": 3000,
+          "blocking_rate": 0.151
+        }
+      },
+      "mean_blocking_rate": 0.16377777777777777,
+      "std_blocking_rate": 0.011216720323464198
+    }
+  },
+  {
+    "epoch": 31,
+    "train": {
+      "admitted": 1119,
+      "blocked": 381,
+      "no_valid": 381,
+      "blocking_rate": 0.254,
+      "loss": 94.3638687133789,
+      "policy_loss": 6.34665060043335,
+      "value_loss": 176.03443908691406,
+      "entropy": 0.4811234474182129
+    }
+  },
+  {
+    "epoch": 32,
+    "train": {
+      "admitted": 1166,
+      "blocked": 334,
+      "no_valid": 334,
+      "blocking_rate": 0.22266666666666668,
+      "loss": 108.2056655883789,
+      "policy_loss": 7.409889221191406,
+      "value_loss": 201.591552734375,
+      "entropy": 0.5297927856445312
+    }
+  },
+  {
+    "epoch": 33,
+    "train": {
+      "admitted": 1190,
+      "blocked": 310,
+      "no_valid": 310,
+      "blocking_rate": 0.20666666666666667,
+      "loss": 117.23226165771484,
+      "policy_loss": 8.71901798248291,
+      "value_loss": 217.0264892578125,
+      "entropy": 0.5891225337982178
+    }
+  },
+  {
+    "epoch": 34,
+    "train": {
+      "admitted": 1169,
+      "blocked": 331,
+      "no_valid": 331,
+      "blocking_rate": 0.22066666666666668,
+      "loss": 109.7786865234375,
+      "policy_loss": 7.061186790466309,
+      "value_loss": 205.43499755859375,
+      "entropy": 0.4945438504219055
+    }
+  },
+  {
+    "epoch": 35,
+    "train": {
+      "admitted": 1126,
+      "blocked": 374,
+      "no_valid": 374,
+      "blocking_rate": 0.24933333333333332,
+      "loss": 96.15335845947266,
+      "policy_loss": 6.2911376953125,
+      "value_loss": 179.7244415283203,
+      "entropy": 0.4744083285331726
+    },
+    "validation": {
+      "per_seed": {
+        "42001": {
+          "admitted": 2499,
+          "blocked": 501,
+          "r_no_valid_action": 501,
+          "evaluated": 3000,
+          "blocking_rate": 0.167
+        },
+        "42002": {
+          "admitted": 2512,
+          "blocked": 488,
+          "r_no_valid_action": 488,
+          "evaluated": 3000,
+          "blocking_rate": 0.16266666666666665
+        },
+        "42003": {
+          "admitted": 2551,
+          "blocked": 449,
+          "r_no_valid_action": 449,
+          "evaluated": 3000,
+          "blocking_rate": 0.14966666666666667
+        }
+      },
+      "mean_blocking_rate": 0.15977777777777777,
+      "std_blocking_rate": 0.009020552664353242
+    }
+  },
+  {
+    "epoch": 36,
+    "train": {
+      "admitted": 1164,
+      "blocked": 336,
+      "no_valid": 336,
+      "blocking_rate": 0.224,
+      "loss": 110.12872314453125,
+      "policy_loss": 7.671538829803467,
+      "value_loss": 204.91436767578125,
+      "entropy": 0.5406982898712158
+    }
+  },
+  {
+    "epoch": 37,
+    "train": {
+      "admitted": 1156,
+      "blocked": 344,
+      "no_valid": 344,
+      "blocking_rate": 0.22933333333333333,
+      "loss": 106.10717010498047,
+      "policy_loss": 7.495956897735596,
+      "value_loss": 197.22242736816406,
+      "entropy": 0.5331358313560486
+    }
+  },
+  {
+    "epoch": 38,
+    "train": {
+      "admitted": 1150,
+      "blocked": 350,
+      "no_valid": 350,
+      "blocking_rate": 0.23333333333333334,
+      "loss": 104.89812469482422,
+      "policy_loss": 7.652768611907959,
+      "value_loss": 194.49070739746094,
+      "entropy": 0.5432067513465881
+    }
+  },
+  {
+    "epoch": 39,
+    "train": {
+      "admitted": 1161,
+      "blocked": 339,
+      "no_valid": 339,
+      "blocking_rate": 0.226,
+      "loss": 106.91325378417969,
+      "policy_loss": 7.351581573486328,
+      "value_loss": 199.12335205078125,
+      "entropy": 0.5188583731651306
+    }
+  },
+  {
+    "epoch": 40,
+    "train": {
+      "admitted": 1193,
+      "blocked": 307,
+      "no_valid": 307,
+      "blocking_rate": 0.20466666666666666,
+      "loss": 118.20730590820312,
+      "policy_loss": 7.590641021728516,
+      "value_loss": 221.23333740234375,
+      "entropy": 0.5152073502540588
+    },
+    "validation": {
+      "per_seed": {
+        "42001": {
+          "admitted": 2479,
+          "blocked": 521,
+          "r_no_valid_action": 521,
+          "evaluated": 3000,
+          "blocking_rate": 0.17366666666666666
+        },
+        "42002": {
+          "admitted": 2560,
+          "blocked": 440,
+          "r_no_valid_action": 440,
+          "evaluated": 3000,
+          "blocking_rate": 0.14666666666666667
+        },
+        "42003": {
+          "admitted": 2568,
+          "blocked": 432,
+          "r_no_valid_action": 432,
+          "evaluated": 3000,
+          "blocking_rate": 0.144
+        }
+      },
+      "mean_blocking_rate": 0.1547777777777778,
+      "std_blocking_rate": 0.01641250652308691
+    }
+  },
+  {
+    "epoch": 41,
+    "train": {
+      "admitted": 1159,
+      "blocked": 341,
+      "no_valid": 341,
+      "blocking_rate": 0.22733333333333333,
+      "loss": 107.97220611572266,
+      "policy_loss": 7.192784309387207,
+      "value_loss": 201.558837890625,
+      "entropy": 0.5010735392570496
+    }
+  },
+  {
+    "epoch": 42,
+    "train": {
+      "admitted": 1194,
+      "blocked": 306,
+      "no_valid": 306,
+      "blocking_rate": 0.204,
+      "loss": 117.15968322753906,
+      "policy_loss": 7.871608734130859,
+      "value_loss": 218.57614135742188,
+      "entropy": 0.533846914768219
+    }
+  },
+  {
+    "epoch": 43,
+    "train": {
+      "admitted": 1152,
+      "blocked": 348,
+      "no_valid": 348,
+      "blocking_rate": 0.232,
+      "loss": 103.98853302001953,
+      "policy_loss": 6.471699237823486,
+      "value_loss": 195.03366088867188,
+      "entropy": 0.4668535590171814
+    }
+  },
+  {
+    "epoch": 44,
+    "train": {
+      "admitted": 1188,
+      "blocked": 312,
+      "no_valid": 312,
+      "blocking_rate": 0.208,
+      "loss": 115.4078369140625,
+      "policy_loss": 7.562306880950928,
+      "value_loss": 215.69105529785156,
+      "entropy": 0.5186002850532532
+    }
+  },
+  {
+    "epoch": 45,
+    "train": {
+      "admitted": 1201,
+      "blocked": 299,
+      "no_valid": 299,
+      "blocking_rate": 0.19933333333333333,
+      "loss": 119.08758544921875,
+      "policy_loss": 8.068928718566895,
+      "value_loss": 222.0373077392578,
+      "entropy": 0.5391908884048462
+    },
+    "validation": {
+      "per_seed": {
+        "42001": {
+          "admitted": 2537,
+          "blocked": 463,
+          "r_no_valid_action": 463,
+          "evaluated": 3000,
+          "blocking_rate": 0.15433333333333332
+        },
+        "42002": {
+          "admitted": 2540,
+          "blocked": 460,
+          "r_no_valid_action": 460,
+          "evaluated": 3000,
+          "blocking_rate": 0.15333333333333332
+        },
+        "42003": {
+          "admitted": 2588,
+          "blocked": 412,
+          "r_no_valid_action": 412,
+          "evaluated": 3000,
+          "blocking_rate": 0.13733333333333334
+        }
+      },
+      "mean_blocking_rate": 0.14833333333333332,
+      "std_blocking_rate": 0.00953939201416945
+    }
+  },
+  {
+    "epoch": 46,
+    "train": {
+      "admitted": 1160,
+      "blocked": 340,
+      "no_valid": 340,
+      "blocking_rate": 0.22666666666666666,
+      "loss": 107.94991302490234,
+      "policy_loss": 7.400814533233643,
+      "value_loss": 201.0981903076172,
+      "entropy": 0.5221998691558838
+    }
+  },
+  {
+    "epoch": 47,
+    "train": {
+      "admitted": 1144,
+      "blocked": 356,
+      "no_valid": 356,
+      "blocking_rate": 0.23733333333333334,
+      "loss": 101.98330688476562,
+      "policy_loss": 6.86807918548584,
+      "value_loss": 190.23045349121094,
+      "entropy": 0.5079702138900757
+    }
+  },
+  {
+    "epoch": 48,
+    "train": {
+      "admitted": 1166,
+      "blocked": 334,
+      "no_valid": 334,
+      "blocking_rate": 0.22266666666666668,
+      "loss": 108.92146301269531,
+      "policy_loss": 7.117002010345459,
+      "value_loss": 203.60891723632812,
+      "entropy": 0.49610573053359985
+    }
+  },
+  {
+    "epoch": 49,
+    "train": {
+      "admitted": 1155,
+      "blocked": 345,
+      "no_valid": 345,
+      "blocking_rate": 0.23,
+      "loss": 104.80465698242188,
+      "policy_loss": 7.066837310791016,
+      "value_loss": 195.4756317138672,
+      "entropy": 0.5088158249855042
+    }
+  },
+  {
+    "epoch": 50,
+    "train": {
+      "admitted": 1167,
+      "blocked": 333,
+      "no_valid": 333,
+      "blocking_rate": 0.222,
+      "loss": 108.73103332519531,
+      "policy_loss": 7.299160003662109,
+      "value_loss": 202.86375427246094,
+      "entropy": 0.5124892592430115
+    },
+    "validation": {
+      "per_seed": {
+        "42001": {
+          "admitted": 2512,
+          "blocked": 488,
+          "r_no_valid_action": 488,
+          "evaluated": 3000,
+          "blocking_rate": 0.16266666666666665
+        },
+        "42002": {
+          "admitted": 2544,
+          "blocked": 456,
+          "r_no_valid_action": 456,
+          "evaluated": 3000,
+          "blocking_rate": 0.152
+        },
+        "42003": {
+          "admitted": 2565,
+          "blocked": 435,
+          "r_no_valid_action": 435,
+          "evaluated": 3000,
+          "blocking_rate": 0.145
+        }
+      },
+      "mean_blocking_rate": 0.15322222222222223,
+      "std_blocking_rate": 0.008896524498260438
+    }
+  },
+  {
+    "epoch": 51,
+    "train": {
+      "admitted": 1163,
+      "blocked": 337,
+      "no_valid": 337,
+      "blocking_rate": 0.22466666666666665,
+      "loss": 108.02034759521484,
+      "policy_loss": 7.983868598937988,
+      "value_loss": 200.0729522705078,
+      "entropy": 0.5641184449195862
+    }
+  },
+  {
+    "epoch": 52,
+    "train": {
+      "admitted": 1151,
+      "blocked": 349,
+      "no_valid": 349,
+      "blocking_rate": 0.23266666666666666,
+      "loss": 104.72113037109375,
+      "policy_loss": 6.8446879386901855,
+      "value_loss": 195.7528839111328,
+      "entropy": 0.4875335991382599
+    }
+  },
+  {
+    "epoch": 53,
+    "train": {
+      "admitted": 1175,
+      "blocked": 325,
+      "no_valid": 325,
+      "blocking_rate": 0.21666666666666667,
+      "loss": 109.9145736694336,
+      "policy_loss": 7.12660551071167,
+      "value_loss": 205.57594299316406,
+      "entropy": 0.4980306029319763
+    }
+  },
+  {
+    "epoch": 54,
+    "train": {
+      "admitted": 1160,
+      "blocked": 340,
+      "no_valid": 340,
+      "blocking_rate": 0.22666666666666666,
+      "loss": 105.63520050048828,
+      "policy_loss": 6.98825216293335,
+      "value_loss": 197.2938995361328,
+      "entropy": 0.5003495216369629
+    }
+  },
+  {
+    "epoch": 55,
+    "train": {
+      "admitted": 1205,
+      "blocked": 295,
+      "no_valid": 295,
+      "blocking_rate": 0.19666666666666666,
+      "loss": 121.69041442871094,
+      "policy_loss": 8.968368530273438,
+      "value_loss": 225.444091796875,
+      "entropy": 0.5930370092391968
+    },
+    "validation": {
+      "per_seed": {
+        "42001": {
+          "admitted": 2522,
+          "blocked": 478,
+          "r_no_valid_action": 478,
+          "evaluated": 3000,
+          "blocking_rate": 0.15933333333333333
+        },
+        "42002": {
+          "admitted": 2545,
+          "blocked": 455,
+          "r_no_valid_action": 455,
+          "evaluated": 3000,
+          "blocking_rate": 0.15166666666666667
+        },
+        "42003": {
+          "admitted": 2579,
+          "blocked": 421,
+          "r_no_valid_action": 421,
+          "evaluated": 3000,
+          "blocking_rate": 0.14033333333333334
+        }
+      },
+      "mean_blocking_rate": 0.15044444444444446,
+      "std_blocking_rate": 0.009558784984001381
+    }
+  },
+  {
+    "epoch": 56,
+    "train": {
+      "admitted": 1180,
+      "blocked": 320,
+      "no_valid": 320,
+      "blocking_rate": 0.21333333333333335,
+      "loss": 111.39163208007812,
+      "policy_loss": 7.004210472106934,
+      "value_loss": 208.77484130859375,
+      "entropy": 0.48584476113319397
+    }
+  },
+  {
+    "epoch": 57,
+    "train": {
+      "admitted": 1174,
+      "blocked": 326,
+      "no_valid": 326,
+      "blocking_rate": 0.21733333333333332,
+      "loss": 111.71136474609375,
+      "policy_loss": 8.146373748779297,
+      "value_loss": 207.12997436523438,
+      "entropy": 0.5615512728691101
+    }
+  },
+  {
+    "epoch": 58,
+    "train": {
+      "admitted": 1130,
+      "blocked": 370,
+      "no_valid": 370,
+      "blocking_rate": 0.24666666666666667,
+      "loss": 96.72067260742188,
+      "policy_loss": 6.524377346038818,
+      "value_loss": 180.39259338378906,
+      "entropy": 0.4870287775993347
+    }
+  },
+  {
+    "epoch": 59,
+    "train": {
+      "admitted": 1147,
+      "blocked": 353,
+      "no_valid": 353,
+      "blocking_rate": 0.23533333333333334,
+      "loss": 101.50888061523438,
+      "policy_loss": 6.982295989990234,
+      "value_loss": 189.05316162109375,
+      "entropy": 0.5117724537849426
+    }
+  },
+  {
+    "epoch": 60,
+    "train": {
+      "admitted": 1145,
+      "blocked": 355,
+      "no_valid": 355,
+      "blocking_rate": 0.23666666666666666,
+      "loss": 101.42674255371094,
+      "policy_loss": 7.163625240325928,
+      "value_loss": 188.52622985839844,
+      "entropy": 0.5208367109298706
+    },
+    "validation": {
+      "per_seed": {
+        "42001": {
+          "admitted": 2512,
+          "blocked": 488,
+          "r_no_valid_action": 488,
+          "evaluated": 3000,
+          "blocking_rate": 0.16266666666666665
+        },
+        "42002": {
+          "admitted": 2550,
+          "blocked": 450,
+          "r_no_valid_action": 450,
+          "evaluated": 3000,
+          "blocking_rate": 0.15
+        },
+        "42003": {
+          "admitted": 2595,
+          "blocked": 405,
+          "r_no_valid_action": 405,
+          "evaluated": 3000,
+          "blocking_rate": 0.135
+        }
+      },
+      "mean_blocking_rate": 0.14922222222222223,
+      "std_blocking_rate": 0.013849722553712565
+    }
+  },
+  {
+    "epoch": 61,
+    "train": {
+      "admitted": 1152,
+      "blocked": 348,
+      "no_valid": 348,
+      "blocking_rate": 0.232,
+      "loss": 102.1072998046875,
+      "policy_loss": 6.646015167236328,
+      "value_loss": 190.9225616455078,
+      "entropy": 0.48238277435302734
+    }
+  },
+  {
+    "epoch": 62,
+    "train": {
+      "admitted": 1193,
+      "blocked": 307,
+      "no_valid": 307,
+      "blocking_rate": 0.20466666666666666,
+      "loss": 117.82738494873047,
+      "policy_loss": 8.578145027160645,
+      "value_loss": 218.49847412109375,
+      "entropy": 0.5761630535125732
+    }
+  },
+  {
+    "epoch": 63,
+    "train": {
+      "admitted": 1194,
+      "blocked": 306,
+      "no_valid": 306,
+      "blocking_rate": 0.204,
+      "loss": 115.41053009033203,
+      "policy_loss": 7.756644248962402,
+      "value_loss": 215.30776977539062,
+      "entropy": 0.5339850187301636
+    }
+  },
+  {
+    "epoch": 64,
+    "train": {
+      "admitted": 1160,
+      "blocked": 340,
+      "no_valid": 340,
+      "blocking_rate": 0.22666666666666666,
+      "loss": 105.14318084716797,
+      "policy_loss": 6.720625877380371,
+      "value_loss": 196.84510803222656,
+      "entropy": 0.48073384165763855
+    }
+  },
+  {
+    "epoch": 65,
+    "train": {
+      "admitted": 1130,
+      "blocked": 370,
+      "no_valid": 370,
+      "blocking_rate": 0.24666666666666667,
+      "loss": 96.51959228515625,
+      "policy_loss": 6.3966898918151855,
+      "value_loss": 180.2458038330078,
+      "entropy": 0.4797717034816742
+    },
+    "validation": {
+      "per_seed": {
+        "42001": {
+          "admitted": 2512,
+          "blocked": 488,
+          "r_no_valid_action": 488,
+          "evaluated": 3000,
+          "blocking_rate": 0.16266666666666665
+        },
+        "42002": {
+          "admitted": 2563,
+          "blocked": 437,
+          "r_no_valid_action": 437,
+          "evaluated": 3000,
+          "blocking_rate": 0.14566666666666667
+        },
+        "42003": {
+          "admitted": 2569,
+          "blocked": 431,
+          "r_no_valid_action": 431,
+          "evaluated": 3000,
+          "blocking_rate": 0.14366666666666666
+        }
+      },
+      "mean_blocking_rate": 0.15066666666666667,
+      "std_blocking_rate": 0.010440306508910544
+    }
+  },
+  {
+    "epoch": 66,
+    "train": {
+      "admitted": 1172,
+      "blocked": 328,
+      "no_valid": 328,
+      "blocking_rate": 0.21866666666666668,
+      "loss": 108.8992691040039,
+      "policy_loss": 7.19630241394043,
+      "value_loss": 203.4059295654297,
+      "entropy": 0.5049111247062683
+    }
+  },
+  {
+    "epoch": 67,
+    "train": {
+      "admitted": 1184,
+      "blocked": 316,
+      "no_valid": 316,
+      "blocking_rate": 0.21066666666666667,
+      "loss": 112.58616638183594,
+      "policy_loss": 7.557336330413818,
+      "value_loss": 210.0576629638672,
+      "entropy": 0.5241707563400269
+    }
+  },
+  {
+    "epoch": 68,
+    "train": {
+      "admitted": 1161,
+      "blocked": 339,
+      "no_valid": 339,
+      "blocking_rate": 0.226,
+      "loss": 106.5905990600586,
+      "policy_loss": 7.694660663604736,
+      "value_loss": 197.7918701171875,
+      "entropy": 0.5388128757476807
+    }
+  },
+  {
+    "epoch": 69,
+    "train": {
+      "admitted": 1161,
+      "blocked": 339,
+      "no_valid": 339,
+      "blocking_rate": 0.226,
+      "loss": 105.6828842163086,
+      "policy_loss": 7.336544990539551,
+      "value_loss": 196.6926727294922,
+      "entropy": 0.5193704962730408
+    }
+  },
+  {
+    "epoch": 70,
+    "train": {
+      "admitted": 1183,
+      "blocked": 317,
+      "no_valid": 317,
+      "blocking_rate": 0.21133333333333335,
+      "loss": 112.1801986694336,
+      "policy_loss": 7.5171427726745605,
+      "value_loss": 209.32611083984375,
+      "entropy": 0.520894467830658
+    },
+    "validation": {
+      "per_seed": {
+        "42001": {
+          "admitted": 2516,
+          "blocked": 484,
+          "r_no_valid_action": 484,
+          "evaluated": 3000,
+          "blocking_rate": 0.16133333333333333
+        },
+        "42002": {
+          "admitted": 2576,
+          "blocked": 424,
+          "r_no_valid_action": 424,
+          "evaluated": 3000,
+          "blocking_rate": 0.14133333333333334
+        },
+        "42003": {
+          "admitted": 2584,
+          "blocked": 416,
+          "r_no_valid_action": 416,
+          "evaluated": 3000,
+          "blocking_rate": 0.13866666666666666
+        }
+      },
+      "mean_blocking_rate": 0.1471111111111111,
+      "std_blocking_rate": 0.012388764324236757
+    }
+  },
+  {
+    "epoch": 71,
+    "train": {
+      "admitted": 1211,
+      "blocked": 289,
+      "no_valid": 289,
+      "blocking_rate": 0.19266666666666668,
+      "loss": 120.44775390625,
+      "policy_loss": 8.132895469665527,
+      "value_loss": 224.6297149658203,
+      "entropy": 0.5456201434135437
+    }
+  },
+  {
+    "epoch": 72,
+    "train": {
+      "admitted": 1156,
+      "blocked": 344,
+      "no_valid": 344,
+      "blocking_rate": 0.22933333333333333,
+      "loss": 102.63412475585938,
+      "policy_loss": 6.750892162322998,
+      "value_loss": 191.76646423339844,
+      "entropy": 0.48859065771102905
+    }
+  },
+  {
+    "epoch": 73,
+    "train": {
+      "admitted": 1190,
+      "blocked": 310,
+      "no_valid": 310,
+      "blocking_rate": 0.20666666666666667,
+      "loss": 113.645751953125,
+      "policy_loss": 7.646858215332031,
+      "value_loss": 211.99778747558594,
+      "entropy": 0.5275145173072815
+    }
+  },
+  {
+    "epoch": 74,
+    "train": {
+      "admitted": 1189,
+      "blocked": 311,
+      "no_valid": 311,
+      "blocking_rate": 0.20733333333333334,
+      "loss": 115.01806640625,
+      "policy_loss": 8.091145515441895,
+      "value_loss": 213.8538360595703,
+      "entropy": 0.5585493445396423
+    }
+  },
+  {
+    "epoch": 75,
+    "train": {
+      "admitted": 1222,
+      "blocked": 278,
+      "no_valid": 278,
+      "blocking_rate": 0.18533333333333332,
+      "loss": 124.02981567382812,
+      "policy_loss": 8.440186500549316,
+      "value_loss": 231.17926025390625,
+      "entropy": 0.5549504160881042
+    },
+    "validation": {
+      "per_seed": {
+        "42001": {
+          "admitted": 2512,
+          "blocked": 488,
+          "r_no_valid_action": 488,
+          "evaluated": 3000,
+          "blocking_rate": 0.16266666666666665
+        },
+        "42002": {
+          "admitted": 2574,
+          "blocked": 426,
+          "r_no_valid_action": 426,
+          "evaluated": 3000,
+          "blocking_rate": 0.142
+        },
+        "42003": {
+          "admitted": 2606,
+          "blocked": 394,
+          "r_no_valid_action": 394,
+          "evaluated": 3000,
+          "blocking_rate": 0.13133333333333333
+        }
+      },
+      "mean_blocking_rate": 0.14533333333333331,
+      "std_blocking_rate": 0.01593040419379802
+    }
+  },
+  {
+    "epoch": 76,
+    "train": {
+      "admitted": 1131,
+      "blocked": 369,
+      "no_valid": 369,
+      "blocking_rate": 0.246,
+      "loss": 96.37312316894531,
+      "policy_loss": 6.926229953765869,
+      "value_loss": 178.89378356933594,
+      "entropy": 0.516338586807251
+    }
+  },
+  {
+    "epoch": 77,
+    "train": {
+      "admitted": 1171,
+      "blocked": 329,
+      "no_valid": 329,
+      "blocking_rate": 0.21933333333333332,
+      "loss": 109.23455047607422,
+      "policy_loss": 7.682708263397217,
+      "value_loss": 203.1036834716797,
+      "entropy": 0.536217212677002
+    }
+  },
+  {
+    "epoch": 78,
+    "train": {
+      "admitted": 1120,
+      "blocked": 380,
+      "no_valid": 380,
+      "blocking_rate": 0.25333333333333335,
+      "loss": 94.72492980957031,
+      "policy_loss": 6.517611980438232,
+      "value_loss": 176.41464233398438,
+      "entropy": 0.48532387614250183
+    }
+  },
+  {
+    "epoch": 79,
+    "train": {
+      "admitted": 1174,
+      "blocked": 326,
+      "no_valid": 326,
+      "blocking_rate": 0.21733333333333332,
+      "loss": 110.03878784179688,
+      "policy_loss": 7.7589874267578125,
+      "value_loss": 204.55960083007812,
+      "entropy": 0.5424947142601013
+    }
+  },
+  {
+    "epoch": 80,
+    "train": {
+      "admitted": 1157,
+      "blocked": 343,
+      "no_valid": 343,
+      "blocking_rate": 0.22866666666666666,
+      "loss": 103.75305938720703,
+      "policy_loss": 6.859965801239014,
+      "value_loss": 193.78619384765625,
+      "entropy": 0.4948592185974121
+    },
+    "validation": {
+      "per_seed": {
+        "42001": {
+          "admitted": 2512,
+          "blocked": 488,
+          "r_no_valid_action": 488,
+          "evaluated": 3000,
+          "blocking_rate": 0.16266666666666665
+        },
+        "42002": {
+          "admitted": 2577,
+          "blocked": 423,
+          "r_no_valid_action": 423,
+          "evaluated": 3000,
+          "blocking_rate": 0.141
+        },
+        "42003": {
+          "admitted": 2581,
+          "blocked": 419,
+          "r_no_valid_action": 419,
+          "evaluated": 3000,
+          "blocking_rate": 0.13966666666666666
+        }
+      },
+      "mean_blocking_rate": 0.14777777777777776,
+      "std_blocking_rate": 0.012911378845952266
+    }
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "semantics": "A horizon H is the total number of decision points evaluated in a fork.",
+  "composition": "H = 1 (the first counterfactual action) + (H - 1) future requests continued under Formal KSP-FF.",
+  "h1_meaning": "H=1 evaluates only the first action; zero future requests are processed.",
+  "h1_invariant": "If both first actions are successful, both forks must report 0 blocks and \u0394B_1 must be 0.",
+  "v1_bug": "v1 used `future_requests[:H]` instead of `future_requests[:H-1]`, violating the H=1 invariant.",
+  "v2_correction": "`_continue_with_ksp` now iterates over `future_requests[:max(0, horizon - 1)]`.",
+  "horizons_evaluated": [
+    1,
+    5,
+    20,
+    50,
+    100
+  ]
+}

@@ -25,7 +25,6 @@ import torch
 import torch.nn as nn
 
 from sa_hmarl.agents.ppo_agents import PPOAgentC, PPOAgentR
-from sa_hmarl.agents.r_agent import AgentR
 from sa_hmarl.env.observation_builder import (
     build_agent_c_observation,
     build_agent_r_observation,
@@ -38,7 +37,6 @@ from sa_hmarl.env.c_action_risk import (
     compute_agent_c_action_risk_penalty,
 )
 from sa_hmarl.network.modulation import ModulationRegistry
-from sa_hmarl.training.train_joint_alternating import _build_eval_set
 from sa_hmarl.training.train_joint_mappo import (
     CentralizedValueCritic,
     PPOJointTransition,
@@ -46,6 +44,7 @@ from sa_hmarl.training.train_joint_mappo import (
     _entropy_coef_for_episode,
     _filter_actor_batch,
 )
+from sa_hmarl.training.ppo_training_support import _build_eval_set
 from sa_hmarl.training.utils import (
     compute_agent_c_reward,
     compute_agent_c_reward_delay_aware,
@@ -76,44 +75,12 @@ def _load_frozen_ppo_r(
     return agent
 
 
-def _load_frozen_dqn_r(
-    ckpt_path: str,
-    mod_reg: ModulationRegistry,
-    device: str,
-) -> AgentR:
-    ckpt = load_checkpoint(ckpt_path, map_location=device)
-    agent = AgentR(
-        input_dim=ckpt.get("input_dim", 11),
-        mod_registry=mod_reg,
-        hidden_dims=tuple(ckpt.get("hidden_dims", (128, 64))),
-        gamma=ckpt.get("gamma", 0.95),
-        epsilon=0.0,
-        device=device,
-    )
-    agent.q_net.load_state_dict(ckpt["model_state"])
-    if "target_state" in ckpt:
-        agent.target_net.load_state_dict(ckpt["target_state"])
-    else:
-        agent.target_net.load_state_dict(ckpt["model_state"])
-    for p in agent.q_net.parameters():
-        p.requires_grad = False
-    for p in agent.target_net.parameters():
-        p.requires_grad = False
-    agent.q_net.eval()
-    agent.target_net.eval()
-    return agent
-
-
 def _load_frozen_r(args, mod_reg):
-    if args.frozen_r_type == "ppo":
-        return _load_frozen_ppo_r(args.frozen_r_checkpoint, mod_reg, args.device)
-    return _load_frozen_dqn_r(args.frozen_r_checkpoint, mod_reg, args.device)
+    return _load_frozen_ppo_r(args.frozen_r_checkpoint, mod_reg, args.device)
 
 
 def _select_frozen_r_action(agent_r, obs_r, r_type: str):
-    if r_type == "ppo":
-        return agent_r.select_action(obs_r, deterministic=True)
-    return agent_r.select_action(obs_r, epsilon=0.0)
+    return agent_r.select_action(obs_r, deterministic=True)
 
 
 def _risk_mask_enabled(args) -> bool:
@@ -331,6 +298,59 @@ def _validation_seeds_for_topology(args, topo_index: int):
     num_seeds = max(1, int(getattr(args, "num_validation_seeds", 1)))
     base = args.seed + 1000 + topo_index * 10000
     return [base + i for i in range(num_seeds)]
+
+
+# Predefined validation stress levels for mixed-stress checkpoint selection.
+# Each level is a dict of traffic parameters passed to generate_requests.
+VALIDATION_STRESS_LEVELS = {
+    "standard": {
+        "arrival_interval": 0.15,
+        "holding_min": 4.0,
+        "holding_max": 10.0,
+        "size_min_mb": 5.0,
+        "size_max_mb": 30.0,
+    },
+    "medium": {
+        "arrival_interval": 0.10,
+        "holding_min": 4.0,
+        "holding_max": 8.0,
+        "size_min_mb": 10.0,
+        "size_max_mb": 40.0,
+    },
+    "heavy": {
+        "arrival_interval": 0.07,
+        "holding_min": 4.0,
+        "holding_max": 6.0,
+        "size_min_mb": 15.0,
+        "size_max_mb": 50.0,
+    },
+}
+
+
+def _validation_stress_params(args):
+    """Parse --validation_stress_levels and --validation_stress_weights.
+
+    Returns a list of (name, params_dict, weight) tuples.
+    If --validation_stress_levels is empty, returns [] to fall back to training params.
+    """
+    levels_str = getattr(args, "validation_stress_levels", "")
+    if not levels_str:
+        return []
+    names = [s.strip() for s in levels_str.split(",") if s.strip()]
+    unknown = [n for n in names if n not in VALIDATION_STRESS_LEVELS]
+    if unknown:
+        raise ValueError(f"Unknown validation stress level(s): {unknown}. "
+                         f"Known levels: {list(VALIDATION_STRESS_LEVELS.keys())}")
+    weights_str = getattr(args, "validation_stress_weights", "")
+    if weights_str:
+        weights = [float(s.strip()) for s in weights_str.split(",") if s.strip()]
+        if len(weights) != len(names):
+            raise ValueError("--validation_stress_weights must have the same number of entries as --validation_stress_levels")
+    else:
+        weights = [1.0 / len(names)] * len(names)
+    total = sum(weights)
+    weights = [w / total for w in weights]
+    return [(name, VALIDATION_STRESS_LEVELS[name], weight) for name, weight in zip(names, weights)]
 
 
 def _evaluate(env, agent_c, frozen_r, frozen_r_type: str, episodes_list, args) -> Dict:
@@ -799,7 +819,7 @@ def train(args):
 
     mod_reg = ModulationRegistry.from_profile(args.modulation_profile)
     frozen_r = _load_frozen_r(args, mod_reg)
-    print(f"Loaded frozen {args.frozen_r_type.upper()} Agent-R from {args.frozen_r_checkpoint}")
+    print(f"Loaded frozen PPO Agent-R from {args.frozen_r_checkpoint}")
 
     agent_c_input_dim = args.agent_c_input_dim
     if agent_c_input_dim is None:
@@ -807,6 +827,9 @@ def train(args):
             agent_c_input_dim = 24
         elif args.agent_c_feature_mode == "pressure_aware":
             # PPOAgentC auto-adds 8 dims on top of base 17
+            agent_c_input_dim = 17
+        elif args.agent_c_feature_mode == "overload_aware":
+            # PPOAgentC auto-adds 9 dims on top of base 17
             agent_c_input_dim = 17
         elif args.agent_c_feature_mode == "r_feasibility":
             # PPOAgentC auto-adds 10 direct R-feasibility dims on top of base 17
@@ -891,17 +914,36 @@ def train(args):
         topo: _validation_seeds_for_topology(args, i)
         for i, topo in enumerate(eval_envs.keys())
     }
-    eval_sets = {}
-    for topo, env in eval_envs.items():
-        # Group validation episodes by validation seed so that per-seed stats are available.
-        # Use args.validation_episodes for the validation set size.
-        topo_sets = []
-        for eval_seed in eval_seed_map[topo]:
-            build_args = SimpleNamespace(**vars(args))
-            build_args.eval_episodes = args.validation_episodes
-            episodes_list = _build_eval_set(env, np.random.RandomState(eval_seed), build_args)
-            topo_sets.append((eval_seed, episodes_list))
-        eval_sets[topo] = topo_sets
+
+    # Build validation request sets. If mixed-stress validation is requested,
+    # create one set per stress level; otherwise keep the original single-set behavior.
+    stress_levels = _validation_stress_params(args)
+    if stress_levels:
+        eval_sets_by_stress = {}
+        for stress_name, stress_params, _ in stress_levels:
+            eval_sets_by_stress[stress_name] = {}
+            for topo, env in eval_envs.items():
+                topo_sets = []
+                for eval_seed in eval_seed_map[topo]:
+                    build_args = SimpleNamespace(**vars(args))
+                    build_args.eval_episodes = args.validation_episodes
+                    for key, value in stress_params.items():
+                        setattr(build_args, key, value)
+                    episodes_list = _build_eval_set(env, np.random.RandomState(eval_seed), build_args)
+                    topo_sets.append((eval_seed, episodes_list))
+                eval_sets_by_stress[stress_name][topo] = topo_sets
+        eval_sets = eval_sets_by_stress[stress_levels[0][0]]  # default eval_sets for backward-compat logging
+    else:
+        eval_sets = {}
+        for topo, env in eval_envs.items():
+            topo_sets = []
+            for eval_seed in eval_seed_map[topo]:
+                build_args = SimpleNamespace(**vars(args))
+                build_args.eval_episodes = args.validation_episodes
+                episodes_list = _build_eval_set(env, np.random.RandomState(eval_seed), build_args)
+                topo_sets.append((eval_seed, episodes_list))
+            eval_sets[topo] = topo_sets
+        eval_sets_by_stress = {"default": eval_sets}
 
     metrics = {
         "episode_blocking": [],
@@ -1089,28 +1131,44 @@ def train(args):
         metrics["avg_k_c_valid_next"].append(ep_stats["avg_k_c_valid_next"])
 
         if (episode > 0 and episode % args.eval_freq == 0) or episode == args.episodes - 1:
-            eval_results = {
-                topo_name: _evaluate_validation(
-                    eval_env,
-                    agent_c,
-                    frozen_r,
-                    args.frozen_r_type,
-                    eval_sets[topo_name],
-                    args,
-                )
-                for topo_name, eval_env in eval_envs.items()
-            }
-            # Aggregate across topologies if multiple; with one topology this is a no-op.
-            agg = {
-                "mean_blocking": float(np.mean([r["aggregate"]["mean_blocking"] for r in eval_results.values()])),
-                "std_blocking": float(np.mean([r["aggregate"]["std_blocking"] for r in eval_results.values()])),
-                "mean_raw_mask_empty": float(np.mean([r["aggregate"]["mean_raw_mask_empty"] for r in eval_results.values()])),
-                "mean_server_overload": float(np.mean([r["aggregate"]["mean_server_overload"] for r in eval_results.values()])),
-                "mean_delay_ms": float(np.mean([r["aggregate"]["mean_delay_ms"] for r in eval_results.values()])),
-                "mean_fs": float(np.mean([r["aggregate"]["mean_fs"] for r in eval_results.values()])),
-                "mean_reward": float(np.mean([r["aggregate"]["mean_reward"] for r in eval_results.values()])),
-                "mean_objective": float(np.mean([r["aggregate"]["mean_objective"] for r in eval_results.values()])),
-            }
+            # Mixed-stress validation: evaluate on each configured stress level.
+            stress_results = {}
+            stress_aggs = {}
+            for stress_name, stress_eval_sets in eval_sets_by_stress.items():
+                eval_results = {
+                    topo_name: _evaluate_validation(
+                        eval_env,
+                        agent_c,
+                        frozen_r,
+                        args.frozen_r_type,
+                        stress_eval_sets[topo_name],
+                        args,
+                    )
+                    for topo_name, eval_env in eval_envs.items()
+                }
+                stress_results[stress_name] = eval_results
+                stress_aggs[stress_name] = {
+                    "mean_blocking": float(np.mean([r["aggregate"]["mean_blocking"] for r in eval_results.values()])),
+                    "std_blocking": float(np.mean([r["aggregate"]["std_blocking"] for r in eval_results.values()])),
+                    "mean_raw_mask_empty": float(np.mean([r["aggregate"]["mean_raw_mask_empty"] for r in eval_results.values()])),
+                    "mean_server_overload": float(np.mean([r["aggregate"]["mean_server_overload"] for r in eval_results.values()])),
+                    "mean_delay_ms": float(np.mean([r["aggregate"]["mean_delay_ms"] for r in eval_results.values()])),
+                    "mean_fs": float(np.mean([r["aggregate"]["mean_fs"] for r in eval_results.values()])),
+                    "mean_reward": float(np.mean([r["aggregate"]["mean_reward"] for r in eval_results.values()])),
+                    "mean_objective": float(np.mean([r["aggregate"]["mean_objective"] for r in eval_results.values()])),
+                }
+
+            # For logging and checkpoint selection, use the default stress (first configured level).
+            # If mixed-stress is enabled, combine levels for checkpoint selection.
+            stress_levels_cfg = _validation_stress_params(args)
+            if stress_levels_cfg:
+                default_stress = stress_levels_cfg[0][0]
+                weights = {name: weight for name, _, weight in stress_levels_cfg}
+            else:
+                default_stress = "default"
+                weights = {default_stress: 1.0}
+
+            agg = stress_aggs[default_stress]
             metrics["eval_blocking"].append(agg["mean_blocking"])
             metrics["eval_reward"].append(agg["mean_reward"])
             metrics["eval_mean_blocking"].append(agg["mean_blocking"])
@@ -1119,27 +1177,45 @@ def train(args):
             metrics["eval_mean_server_overload"].append(agg["mean_server_overload"])
             metrics.setdefault("eval_delay", []).append(agg["mean_delay_ms"])
             metrics.setdefault("eval_objective", []).append(agg["mean_objective"])
-            last_validation_agg = agg
+            last_validation_agg = {
+                "default_stress": default_stress,
+                "stress_aggs": stress_aggs,
+                "weights": weights,
+                "mean_blocking": agg["mean_blocking"],
+            }
 
-            metric_value = agg["mean_objective"] if args.checkpoint_metric == "mean_objective" else agg["mean_blocking"]
+            # Compute checkpoint-selection metric across stress levels.
+            blocking_by_stress = {name: stress_aggs[name]["mean_blocking"] for name in stress_aggs}
+            objective_by_stress = {name: stress_aggs[name]["mean_objective"] for name in stress_aggs}
+            if args.checkpoint_metric == "mean_objective":
+                metric_value = float(np.mean(list(objective_by_stress.values())))
+            elif args.checkpoint_metric == "max_blocking":
+                metric_value = float(np.max(list(blocking_by_stress.values())))
+            elif args.checkpoint_metric == "weighted_blocking":
+                metric_value = float(np.sum([blocking_by_stress[name] * weights[name] for name in blocking_by_stress]))
+            else:  # mean_blocking
+                metric_value = float(np.mean(list(blocking_by_stress.values())))
+
             if metric_value < best_metric:
                 best_metric = metric_value
                 best_episode = episode
-                _save_c_checkpoint(best_path, agent_c, critic, args, metrics, best_validation=agg)
+                _save_c_checkpoint(best_path, agent_c, critic, args, metrics, best_validation=last_validation_agg)
+                stress_parts = ", ".join(
+                    f"{name}=blk{stress_aggs[name]['mean_blocking']:.3f}/so{stress_aggs[name]['mean_server_overload']:.3f}"
+                    for name in stress_aggs
+                )
                 per_topo = ", ".join(
                     f"{topo}=blk{r['aggregate']['mean_blocking']:.3f}/d{r['aggregate']['mean_delay_ms']:.1f}ms/obj{r['aggregate']['mean_objective']:.4f}"
-                    for topo, r in eval_results.items()
+                    for topo, r in stress_results[default_stress].items()
                 )
-                print(f"  >> Best frozen-R C @ ep {episode}: "
-                      f"mean_blk={agg['mean_blocking']:.3f} std_blk={agg['std_blocking']:.3f} "
-                      f"mean_rme={agg['mean_raw_mask_empty']:.3f} mean_so={agg['mean_server_overload']:.3f} "
-                      f"d={agg['mean_delay_ms']:.1f}ms obj={agg['mean_objective']:.4f} | {per_topo}")
+                print(f"  >> Best frozen-R C @ ep {episode}: metric={args.checkpoint_metric}={metric_value:.4f} | "
+                      f"{stress_parts} | {default_stress}: {per_topo}")
             if args.print_eval_diagnostics:
                 all_reasons = Counter()
                 all_mods = Counter()
                 all_splits = Counter()
                 all_servers = Counter()
-                for res in eval_results.values():
+                for res in stress_results[default_stress].values():
                     all_reasons.update(res["reasons"])
                     all_mods.update(res["mods"])
                     all_splits.update(res["splits"])
@@ -1206,7 +1282,7 @@ def main():
     parser.add_argument("--modulation_profile", type=str, default="default",
                         choices=["default", "extended"])
     parser.add_argument("--frozen_r_checkpoint", type=str, default=None)
-    parser.add_argument("--frozen_r_type", type=str, default="ppo", choices=["ppo", "dqn"])
+    parser.add_argument("--frozen_r_type", type=str, default="ppo", choices=["ppo"])
     parser.add_argument("--warm_start_c", type=str, default=None)
     parser.add_argument("--episodes", type=int, default=400)
     parser.add_argument("--requests_per_episode", type=int, default=60)
@@ -1267,6 +1343,7 @@ def main():
                             "default",
                             "enhanced",
                             "pressure_aware",
+                            "overload_aware",
                             "cross_pressure",
                             "r_feasibility",
                             "r_feasibility_safe",
@@ -1308,9 +1385,16 @@ def main():
                         help="Comma-separated validation seeds. Same seeds are used for every train seed.")
     parser.add_argument("--validation_episodes", type=int, default=5,
                         help="Number of validation episodes per validation seed.")
-    parser.add_argument("--checkpoint_metric", type=str, default="mean_blocking",
-                        choices=["mean_blocking", "mean_objective"],
-                        help="Metric used to select the best checkpoint.")
+    parser.add_argument("--checkpoint_metric", type=str, default="max_blocking",
+                        choices=["mean_blocking", "mean_objective", "max_blocking", "weighted_blocking"],
+                        help="Metric used to select the best checkpoint. "
+                             "max_blocking/weighted_blocking require --validation_stress_levels.")
+    parser.add_argument("--validation_stress_levels", type=str, default="standard,medium,heavy",
+                        help="Comma-separated stress levels for validation, e.g. 'standard,medium,heavy'. "
+                             "If empty, validation uses the training traffic parameters.")
+    parser.add_argument("--validation_stress_weights", type=str, default="",
+                        help="Comma-separated weights for --validation_stress_levels when using weighted_blocking. "
+                             "If empty and weighted_blocking is selected, equal weights are used.")
     parser.add_argument("--spectrum_collapse_penalty_coef", type=float, default=0.0,
                         help="Penalty applied to the previous transition when the next decision state's raw C-mask is empty.")
     parser.add_argument("--print_eval_diagnostics", action="store_true")

@@ -1,0 +1,65 @@
+{
+  "phase": "smoke",
+  "elapsed_seconds": 7.510875500040129,
+  "checkpoint_audit": {
+    "status": "PASS_WITH_DISTRIBUTION_SHIFT",
+    "hard_failures": [],
+    "ppo_r_checkpoint": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+    "ppo_r_sha256": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+    "ranker_checkpoint": "sa_hmarl/experiments/v13_strict_fixed/strict_loss_rerun/checkpoints/full_state_uniform_strict/seed_42/ranking_model.pt",
+    "ranker_sha256": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de",
+    "ranker_input_dim": 25,
+    "ranker_feature_names": [
+      "path_length_km",
+      "hop_count",
+      "lfb",
+      "free_ratio",
+      "frag_index",
+      "spectral_efficiency",
+      "reach_km",
+      "required_fs",
+      "block_size",
+      "block_waste",
+      "path_mod_feasible",
+      "split_norm",
+      "server_norm",
+      "deadline_norm",
+      "holding_norm",
+      "intermediate_size_norm",
+      "server_utilization",
+      "selected_valid_r_ratio",
+      "k_c_valid_ratio",
+      "k_r_total_ratio",
+      "phi_spec_norm",
+      "raw_r_valid_ratio",
+      "path_idx_norm",
+      "mod_idx_norm",
+      "block_idx_norm"
+    ],
+    "paper_modulation_names": [
+      "BPSK",
+      "QPSK",
+      "8QAM",
+      "16QAM"
+    ],
+    "paper_modulation_reaches": [
+      10000.0,
+      2500.0,
+      1250.0,
+      625.0
+    ],
+    "known_distribution_shifts": [
+      "checkpoint training used SA-HMARL C/MEC context",
+      "checkpoint evaluation used 320 slots; paper protocol uses 100 slots",
+      "paper reach table is 10000/2500/1250/625 km",
+      "C-only ranker fields are neutralized to checkpoint means"
+    ]
+  },
+  "topology_hashes": {
+    "cost239": "faf2e59ff03e195d0baaa90a30ff27273ef90af9888c8b8629eb46ddf07a8276",
+    "nsfnet": "f8d0db127b9608d9ad3727ef1cef4d727d93bff649787b348ec101f06274fc09",
+    "usnet": "c50f88d67834083215e885a5c5954f94a1c92baeb2f7137be5a237db27a0e849",
+    "jpn48": "54ad216ed185109e335e7af4eb2c807616655abd0605a2ab123ae010a30f85f2"
+  },
+  "request_trace_parity": true
+}

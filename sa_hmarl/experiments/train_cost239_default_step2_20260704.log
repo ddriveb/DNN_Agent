@@ -1,0 +1,69 @@
+Loaded frozen PPO Agent-R from sa_hmarl/checkpoints/agent_r_mixed.pt
+============================================================================
+Train PPO Agent-C with Frozen Agent-R
+Topologies: ['xlron_cost239_ptrnet_real']
+Episodes: 400, Requests/episode: 80
+Traffic: mode=iid, regime_stay_prob=0.9
+Frozen R type: ppo
+Agent-C features: mode=default, input_dim=17
+Agent-C shaping: valid_pressure=0.2, no_suitable_block=0.3
+Agent-C risk: fs=0.0 safe_fs=0.0 pressure=0.0 path=0.0 delay_risk=0.0 mask_pressure=0.0 mask_path=0.0 path_metric=min mask_safe_fs=0.0
+Objective: default
+Episode-level credit: mode=off scale=1.0 block=1.0 no_block=1.0 delay=0.5
+Agent-C activation: tanh
+Spectrum collapse penalty: coef=0.0
+Validation seeds: {'xlron_cost239_ptrnet_real': [1001, 1002, 1003]} (episodes_per_seed=5)
+Checkpoint metric: mean_blocking
+Env config: slots=100 k_paths=5 max_blocks=10 block_sort=mixed
+Critic input dim: 42
+Critic request mean field: enabled=False, window=20
+Checkpoint prefix: agent_c_cost239_default_step2_20260704
+============================================================================
+Ep    0 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.072 shape_r=-0.104 ent=0.0100 kl_c=0.0002
+Ep   10 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.102 shape_r=-0.077 ent=0.0099 kl_c=0.0001
+Ep   20 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.080 shape_r=-0.094 ent=0.0098 kl_c=0.0000
+  >> Best frozen-R C @ ep 25: mean_blk=0.000 std_blk=0.000 mean_rme=0.000 mean_so=0.000 d=9.6ms obj=0.0742 | xlron_cost239_ptrnet_real=blk0.000/d9.6ms/obj0.0742
+Ep   30 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.064 shape_r=-0.113 ent=0.0098 kl_c=0.0000
+Ep   40 [xlron_cost239_ptrnet_real] blk=0.04 rme=0.04 so=0.04 base_r=-0.007 shape_r=-0.183 ent=0.0097 kl_c=0.0000
+         Reasons: server_overload=3
+Ep   50 [xlron_cost239_ptrnet_real] blk=0.05 rme=0.05 so=0.05 base_r=-0.017 shape_r=-0.196 ent=0.0096 kl_c=0.0000
+         Reasons: server_overload=4
+Ep   60 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.064 shape_r=-0.106 ent=0.0095 kl_c=0.0001
+Ep   70 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.064 shape_r=-0.110 ent=0.0095 kl_c=0.0001
+Ep   80 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.068 shape_r=-0.103 ent=0.0094 kl_c=0.0002
+Ep   90 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.095 shape_r=-0.073 ent=0.0093 kl_c=0.0001
+Ep  100 [xlron_cost239_ptrnet_real] blk=0.01 rme=0.01 so=0.01 base_r=+0.036 shape_r=-0.138 ent=0.0092 kl_c=0.0003
+         Reasons: server_overload=1
+Ep  110 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.167 shape_r=-0.010 ent=0.0092 kl_c=0.0002
+Ep  120 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.050 shape_r=-0.123 ent=0.0091 kl_c=0.0002
+Ep  130 [xlron_cost239_ptrnet_real] blk=0.06 rme=0.06 so=0.06 base_r=-0.004 shape_r=-0.184 ent=0.0090 kl_c=0.0004
+         Reasons: server_overload=5
+Ep  140 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.058 shape_r=-0.116 ent=0.0089 kl_c=0.0003
+Ep  150 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.079 shape_r=-0.096 ent=0.0089 kl_c=0.0003
+Ep  160 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.080 shape_r=-0.095 ent=0.0088 kl_c=0.0010
+Ep  170 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.255 shape_r=+0.078 ent=0.0087 kl_c=0.0004
+Ep  180 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.090 shape_r=-0.083 ent=0.0086 kl_c=0.0024
+Ep  190 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.077 shape_r=-0.103 ent=0.0086 kl_c=0.0007
+Ep  200 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.139 shape_r=-0.032 ent=0.0085 kl_c=0.0008
+Ep  210 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.130 shape_r=-0.042 ent=0.0084 kl_c=0.0007
+Ep  220 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.056 shape_r=-0.120 ent=0.0083 kl_c=0.0010
+Ep  230 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.174 shape_r=-0.003 ent=0.0083 kl_c=0.0009
+Ep  240 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.056 shape_r=-0.124 ent=0.0082 kl_c=0.0010
+Ep  250 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.061 shape_r=-0.110 ent=0.0081 kl_c=0.0005
+Ep  260 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.083 shape_r=-0.091 ent=0.0080 kl_c=0.0009
+Ep  270 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.093 shape_r=-0.080 ent=0.0080 kl_c=0.0013
+Ep  280 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.056 shape_r=-0.124 ent=0.0079 kl_c=0.0058
+Ep  290 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.066 shape_r=-0.115 ent=0.0078 kl_c=0.0012
+Ep  300 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.061 shape_r=-0.120 ent=0.0077 kl_c=0.0005
+Ep  310 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.100 shape_r=-0.075 ent=0.0077 kl_c=0.0006
+Ep  320 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.079 shape_r=-0.101 ent=0.0076 kl_c=0.0033
+Ep  330 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.138 shape_r=-0.029 ent=0.0075 kl_c=0.0012
+Ep  340 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.196 shape_r=+0.024 ent=0.0075 kl_c=0.0007
+Ep  350 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.118 shape_r=-0.050 ent=0.0074 kl_c=0.0008
+Ep  360 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.212 shape_r=+0.044 ent=0.0073 kl_c=0.0015
+Ep  370 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.071 shape_r=-0.111 ent=0.0072 kl_c=0.0020
+Ep  380 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.062 shape_r=-0.117 ent=0.0072 kl_c=0.0061
+Ep  390 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.103 shape_r=-0.073 ent=0.0071 kl_c=0.0015
+Ep  399 [xlron_cost239_ptrnet_real] blk=0.00 rme=0.00 so=0.00 base_r=+0.092 shape_r=-0.082 ent=0.0070 kl_c=0.0021
+Best frozen-R Agent-C checkpoint: /mnt/d/project/DNN_Agent/sa_hmarl/checkpoints/agent_c_cost239_default_step2_20260704_best.pt
+Best validation mean_blocking: 0.0000 @ ep 25

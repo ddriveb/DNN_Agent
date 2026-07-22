@@ -1,0 +1,46 @@
+{
+  "schema_version": "v1.3-verified-2026-07-14",
+  "phase": "smoke",
+  "topologies": [
+    "xlron_cost239_ptrnet_real",
+    "xlron_german17",
+    "xlron_nsfnet_deeprmsa",
+    "xlron_jpn48"
+  ],
+  "seeds": [
+    3030,
+    4040,
+    5050,
+    6060,
+    7070
+  ],
+  "c_modes": [
+    "ppo_c",
+    "df_c"
+  ],
+  "r_modes": "ppo_r_top1,ksp_ff_highest,strict_v13",
+  "warmup": 20,
+  "requests": 50,
+  "source_manifest": {
+    "sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py": "cc240bc7d9ef098b703989f8a73bd473d322f15cd5984d14ceb0af7c48cdbf1a",
+    "sa_hmarl/sa_hmarl/evaluation/run_strict_v13_multitopology_cside_verified.py": "fbccd7cd27de710e640d0e7899739e1c4cfe139797c3a75fe446bf1d9499050b",
+    "sa_hmarl/sa_hmarl/evaluation/analyze_strict_v13_multitopology_cside_verified.py": "0714753e90c328fb4090b257833fcba3a98502e5de4cc7166312e19e84521327",
+    "sa_hmarl/sa_hmarl/baselines/rmsa_baselines.py": "d284ee2220fc5613754fa3e3f773400d70af05e6ead94853057f27583e6cf441",
+    "sa_hmarl/sa_hmarl/baselines/ksp.py": "missing",
+    "sa_hmarl/sa_hmarl/env/action_mask.py": "c5cf40c34dfced5ddb54cbbb9748e7aafcf8e1589d509530f5bfe17a00742d67",
+    "sa_hmarl/sa_hmarl/env/observation_builder.py": "d9062b190fd1435d4d63f03b2a808548dd1d3b109d2c9f5b6c28b158d2821a31",
+    "sa_hmarl/sa_hmarl/agents/r_agent.py": "9924e02d63e19c88628d16a85412edb45359c23a50900d0cfd7ec4e00651d479",
+    "sa_hmarl/sa_hmarl/agents/ppo_agents.py": "079babd7a57771db1e07b2132900d0dec58a1840ed1d80a567d5b8417e34a8a6",
+    "sa_hmarl/sa_hmarl/agents/c_agent.py": "5c186b67fc103a70e3c892ab32b32eac07b0cc57d02367afa070a1fd2cd5545b",
+    "sa_hmarl/sa_hmarl/evaluation/offloading_baselines.py": "a71bd64c81020dd4dafc3073532b9390bc856cfe8ef36605dca132ca5e32b33f",
+    "sa_hmarl/sa_hmarl/evaluation/eval_long_horizon_system_comparison.py": "884f5f8ef6e2b1c5564f4684b445db1c194f86faa4a13e276552622a1a2e0064"
+  },
+  "ranker_ckpt": "sa_hmarl/experiments/v13_strict_fixed/strict_loss_rerun/checkpoints/full_state_uniform_strict/seed_42/ranking_model.pt",
+  "old_ranker_ckpt": "sa_hmarl/checkpoints/v13_kpath50_hops_medium_regret_selected/seed_42/ranking_model.pt",
+  "agent_r_ckpt": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+  "checkpoint_sha256s": {
+    "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+    "strict_v13": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de",
+    "old_v13": "f62852c8ee2f1bb0ce59c3a66dfd6ffbd9183ebdfdac8e45c7b4241bb28543fb"
+  }
+}

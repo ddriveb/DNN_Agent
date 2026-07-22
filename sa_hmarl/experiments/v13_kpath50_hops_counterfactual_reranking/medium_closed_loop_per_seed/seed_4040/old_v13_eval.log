@@ -1,0 +1,3 @@
+[fair] Loaded ranker 'old_v13' from sa_hmarl/checkpoints/r_counterfactual_ranking_postdec_topk_k50_s100/ranking_model.pt
+[fair][seed=4040][mode=ranker_old_v13] blocking=4.8000% overload=4.7800% nsb=0.0200% decision_ms=24.47 ppo_agree=8.20%
+[fair] Saved /mnt/d/project/DNN_Agent/sa_hmarl/experiments/v13_kpath50_hops_counterfactual_reranking/medium_closed_loop_per_seed/seed_4040/old_v13_results.json and /mnt/d/project/DNN_Agent/sa_hmarl/experiments/v13_kpath50_hops_counterfactual_reranking/medium_closed_loop_per_seed/seed_4040/old_v13_report.md

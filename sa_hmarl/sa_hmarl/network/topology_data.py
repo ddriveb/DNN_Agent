@@ -11,6 +11,8 @@ Sources:
 - Net-1/2/3: digitized from Yin 2024 (Fig. 7)
 """
 from typing import List, Tuple, Dict
+from pathlib import Path
+import json
 
 # ------------------------------------------------------------------
 # NSFNET (14 nodes, 21 links)
@@ -506,6 +508,51 @@ XLRON_JPN48_EDGES: List[Tuple[int, int, float]] = [
     (46, 47, 673.0),
 ]
 
+COST239_DEEPRMSA_EDGES: List[Tuple[int, int, float]] = [
+    (0, 1, 900.0),
+    (0, 2, 780.0),
+    (0, 3, 1100.0),
+    (0, 7, 2620.0),
+    (1, 2, 600.0),
+    (1, 4, 800.0),
+    (1, 5, 1200.0),
+    (1, 6, 1640.0),
+    (1, 8, 2180.0),
+    (2, 3, 420.0),
+    (2, 4, 440.0),
+    (2, 6, 1860.0),
+    (3, 4, 780.0),
+    (3, 7, 1520.0),
+    (3, 8, 1320.0),
+    (4, 5, 700.0),
+    (4, 9, 1460.0),
+    (5, 6, 640.0),
+    (5, 9, 1130.0),
+    (5, 10, 1460.0),
+    (6, 10, 1640.0),
+    (7, 8, 780.0),
+    (7, 9, 1480.0),
+    (8, 9, 680.0),
+    (8, 10, 1320.0),
+    (9, 10, 640.0),
+]
+
+# ------------------------------------------------------------------
+# XLRON USNet GCN-RMSA (GCN-RNN) / GCN-RMSA paper (Doherty et al. 2025)
+# 24 nodes, 43 undirected links
+# Source: https://github.com/micdoh/XLRON xlron/data/topologies/usnet_gcnrnn_undirected.json
+# Commit: d07980b3233b1edc93507f60dc4a1c64b37af2e9
+# ------------------------------------------------------------------
+_XLRON_USNET_GCNRMSA_PATH = Path(__file__).with_name("topology_data_usnet_gcnrmsa.json")
+if _XLRON_USNET_GCNRMSA_PATH.exists():
+    with open(_XLRON_USNET_GCNRMSA_PATH) as _f:
+        _XLRON_USNET_GCNRMSA_DATA = json.load(_f)
+    XLRON_USNET_GCNRMSA_EDGES: List[Tuple[int, int, float]] = [
+        (int(u), int(v), float(d)) for u, v, d in _XLRON_USNET_GCNRMSA_DATA["edges"]
+    ]
+else:
+    XLRON_USNET_GCNRMSA_EDGES: List[Tuple[int, int, float]] = []
+
 # ------------------------------------------------------------------
 # Registry
 # ------------------------------------------------------------------
@@ -523,6 +570,8 @@ TOPOLOGY_REGISTRY: Dict[str, List[Tuple[int, int, float]]] = {
     "xlron_cost239_ptrnet_real": XLRON_COST239_PTRNET_REAL_EDGES,
     "xlron_german17": XLRON_GERMAN17_EDGES,
     "xlron_jpn48": XLRON_JPN48_EDGES,
+    "cost239_deeprmsa": COST239_DEEPRMSA_EDGES,
+    "xlron_usnet_gcnrmsa": XLRON_USNET_GCNRMSA_EDGES,
 }
 
 

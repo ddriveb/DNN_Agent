@@ -1,0 +1,4368 @@
+{
+  "config": {
+    "agent_c_checkpoint": "sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_last.pt",
+    "agent_r_checkpoint": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+    "ranking_checkpoint": "sa_hmarl/checkpoints/r_counterfactual_ranking_v1_2_mixed_low/ranking_model.pt",
+    "deep_rmsa_checkpoint": "sa_hmarl/checkpoints/deep_rmsa_snap24_s100_k5m10_ai015_h4_10_s5_30.pt",
+    "methods": "ppo_c+ksp_ff_plain_k5_hops,ppo_c+ksp_ff_plain_k50_hops,ppo_c+ksp_ff_highest_mod_k5_hops,ppo_c+ksp_ff_highest_mod_k50_hops",
+    "seeds": "3030,4040,5050,6060,7070",
+    "episodes": 1,
+    "requests_per_episode": 10000,
+    "warmup_requests": 2000,
+    "topology": "xlron_cost239_ptrnet_real",
+    "num_slots": 320,
+    "num_servers": 4,
+    "k_paths": 5,
+    "path_sort_strategy": "hops",
+    "ksp_ff_k50_hops_k_paths": 50,
+    "poisson_arrivals": false,
+    "exponential_holding": false,
+    "ppo_r_proposer_top_k": 8,
+    "post_decision_checkpoint": "sa_hmarl/checkpoints/r_counterfactual_ranking_v1_2_mixed_low/ranking_model.pt",
+    "ppo_r_postdec_top_k": 8,
+    "ppo_r_postdec_ensure_ksp": false,
+    "ranker_candidate_mode": null,
+    "ranker_max_candidates": null,
+    "ranker_ppo_top_k": null,
+    "ranker_num_random_candidates": null,
+    "ranker_min_candidates": null,
+    "ranker_ensure_ksp": false,
+    "ranker_enable_profile": false,
+    "collect_server_diagnostics": true,
+    "server_diag_high_util_threshold": 0.9,
+    "max_blocks": 10,
+    "block_sort_strategy": "start_asc",
+    "split_profile": "default3",
+    "num_splits": 3,
+    "arrival_interval": 0.0625,
+    "holding_min": 20.0,
+    "holding_max": 30.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "size_max_mb": 30.0,
+    "edge_cost_min": 0.1,
+    "edge_cost_max": 2.2,
+    "modulation_profile": "default",
+    "device": "cpu",
+    "output_json": "sa_hmarl/experiments/ksp_k5_vs_k50_overload_audit_fair_rerun.json",
+    "output_md": "sa_hmarl/experiments/ksp_k5_vs_k50_overload_audit_fair_rerun.md"
+  },
+  "methods": {
+    "ppo_c+ksp_ff_plain_k5_hops": {
+      "c_mode": "ppo_c",
+      "r_mode": "ksp_ff_plain_k5_hops",
+      "per_seed": {
+        "3030": {
+          "total": 8000,
+          "blocking_rate": 0.074875,
+          "raw_mask_empty_rate": 0.095625,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.074875,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 599
+          },
+          "mean_delay_ms": 8.870100406617254,
+          "p50_delay_ms": 8.699283460132806,
+          "p95_delay_ms": 16.656361239106282,
+          "avg_fs": 3.493717065261451,
+          "avg_waste": 0.5308780304172632,
+          "avg_path_km": 732.9620321578166,
+          "mean_active_connections": 372.98075,
+          "p95_active_connections": 395.0,
+          "max_active_connections": 412,
+          "mean_valid_c_actions": 6.834875,
+          "mean_total_valid_r_actions": 476.206375,
+          "mean_selected_valid_r_actions": 32.128625,
+          "agreement_with_ppo_c": 0.30974999999999997,
+          "changed_action_count": 5522,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 7.209124287532177,
+          "p95_decision_time_ms": 9.82727711671032,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "2": 7139,
+            "0": 785,
+            "1": 76
+          },
+          "split_dist": {
+            "0": 0.098125,
+            "1": 0.0095,
+            "2": 0.892375
+          },
+          "profile_stats": {}
+        },
+        "4040": {
+          "total": 8000,
+          "blocking_rate": 0.08275,
+          "raw_mask_empty_rate": 0.108875,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.08275,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 662
+          },
+          "mean_delay_ms": 9.077496519906262,
+          "p50_delay_ms": 8.855641696624936,
+          "p95_delay_ms": 16.628135971319395,
+          "avg_fs": 3.477241755246661,
+          "avg_waste": 0.5152788186213416,
+          "avg_path_km": 747.0795857181794,
+          "mean_active_connections": 367.06175,
+          "p95_active_connections": 391.0,
+          "max_active_connections": 404,
+          "mean_valid_c_actions": 6.306125,
+          "mean_total_valid_r_actions": 485.016,
+          "mean_selected_valid_r_actions": 33.4875,
+          "agreement_with_ppo_c": 0.29737499999999994,
+          "changed_action_count": 5621,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 5.639049977282411,
+          "p95_decision_time_ms": 8.136016374919564,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "1": 101,
+            "2": 7021,
+            "0": 878
+          },
+          "split_dist": {
+            "0": 0.10975,
+            "1": 0.012625,
+            "2": 0.877625
+          },
+          "profile_stats": {}
+        },
+        "5050": {
+          "total": 8000,
+          "blocking_rate": 0.061125,
+          "raw_mask_empty_rate": 0.0795,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.061125,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 489
+          },
+          "mean_delay_ms": 8.900238838484688,
+          "p50_delay_ms": 8.766746727948117,
+          "p95_delay_ms": 16.318556260392455,
+          "avg_fs": 3.5039275728930903,
+          "avg_waste": 0.5281447379316104,
+          "avg_path_km": 747.7473039542006,
+          "mean_active_connections": 375.290875,
+          "p95_active_connections": 401.0,
+          "max_active_connections": 409,
+          "mean_valid_c_actions": 7.044875,
+          "mean_total_valid_r_actions": 506.9125,
+          "mean_selected_valid_r_actions": 33.711,
+          "agreement_with_ppo_c": 0.29625,
+          "changed_action_count": 5630,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 5.670218401151942,
+          "p95_decision_time_ms": 8.120456361211835,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "2": 7263,
+            "1": 91,
+            "0": 646
+          },
+          "split_dist": {
+            "0": 0.08075,
+            "1": 0.011375,
+            "2": 0.907875
+          },
+          "profile_stats": {}
+        },
+        "6060": {
+          "total": 8000,
+          "blocking_rate": 0.086625,
+          "raw_mask_empty_rate": 0.1125,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.086625,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 693
+          },
+          "mean_delay_ms": 9.168229815671056,
+          "p50_delay_ms": 9.02594824722706,
+          "p95_delay_ms": 16.57968483868315,
+          "avg_fs": 3.5097851375393456,
+          "avg_waste": 0.5153113883135202,
+          "avg_path_km": 747.7109620911455,
+          "mean_active_connections": 364.78475,
+          "p95_active_connections": 390.0,
+          "max_active_connections": 400,
+          "mean_valid_c_actions": 6.14775,
+          "mean_total_valid_r_actions": 490.1065,
+          "mean_selected_valid_r_actions": 34.08175,
+          "agreement_with_ppo_c": 0.2965,
+          "changed_action_count": 5628,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 5.570741236399044,
+          "p95_decision_time_ms": 8.035322098294271,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "2": 7017,
+            "0": 906,
+            "1": 77
+          },
+          "split_dist": {
+            "0": 0.11325,
+            "1": 0.009625,
+            "2": 0.877125
+          },
+          "profile_stats": {}
+        },
+        "7070": {
+          "total": 8000,
+          "blocking_rate": 0.0675,
+          "raw_mask_empty_rate": 0.087875,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.0675,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 540
+          },
+          "mean_delay_ms": 8.930578875364892,
+          "p50_delay_ms": 8.876694082396366,
+          "p95_delay_ms": 16.16547919915681,
+          "avg_fs": 3.491823056300268,
+          "avg_waste": 0.5262641740482653,
+          "avg_path_km": 743.4522788203753,
+          "mean_active_connections": 372.801,
+          "p95_active_connections": 394.0,
+          "max_active_connections": 404,
+          "mean_valid_c_actions": 6.7625,
+          "mean_total_valid_r_actions": 513.222875,
+          "mean_selected_valid_r_actions": 34.792625,
+          "agreement_with_ppo_c": 0.292875,
+          "changed_action_count": 5657,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 5.625937640390475,
+          "p95_decision_time_ms": 8.069209236418828,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "2": 7218,
+            "1": 71,
+            "0": 711
+          },
+          "split_dist": {
+            "0": 0.088875,
+            "1": 0.008875,
+            "2": 0.90225
+          },
+          "profile_stats": {}
+        }
+      },
+      "server_diagnostics": {
+        "3030": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 599,
+          "selected_count": [
+            2267,
+            1883,
+            1906,
+            1944
+          ],
+          "selected_percentage": [
+            28.3375,
+            23.5375,
+            23.825,
+            24.3
+          ],
+          "utilization": [
+            {
+              "mean": 0.9405313262873817,
+              "p95": 0.9930289085051954,
+              "max": 0.9997950925011964
+            },
+            {
+              "mean": 0.9423298918454655,
+              "p95": 0.9643482867752584,
+              "max": 0.9938374830321925
+            },
+            {
+              "mean": 0.9334075465077869,
+              "p95": 0.9641121154432275,
+              "max": 0.9995504788066129
+            },
+            {
+              "mean": 0.9391475464265662,
+              "p95": 0.9645087840933038,
+              "max": 0.9981706271010732
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.8725,
+            0.93525,
+            0.861625,
+            0.917375
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "1": 125.0625,
+            "2": 125.0625,
+            "3": 125.0625
+          },
+          "overload_by_server": [
+            599,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              599,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "4040": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 662,
+          "selected_count": [
+            2318,
+            1894,
+            1887,
+            1901
+          ],
+          "selected_percentage": [
+            28.975,
+            23.674999999999997,
+            23.5875,
+            23.7625
+          ],
+          "utilization": [
+            {
+              "mean": 0.947466843023339,
+              "p95": 0.9939143570271638,
+              "max": 0.9999993863979743
+            },
+            {
+              "mean": 0.942787975603397,
+              "p95": 0.9645348267463092,
+              "max": 0.9914295381370638
+            },
+            {
+              "mean": 0.9371127680701923,
+              "p95": 0.9633851127656521,
+              "max": 0.9983551607018265
+            },
+            {
+              "mean": 0.9366645578105488,
+              "p95": 0.9637336275098679,
+              "max": 0.9943927952720482
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.907125,
+            0.947,
+            0.894625,
+            0.873375
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "1": 125.0625,
+            "2": 125.0625,
+            "3": 125.0625
+          },
+          "overload_by_server": [
+            662,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              662,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "5050": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 489,
+          "selected_count": [
+            2228,
+            1936,
+            1916,
+            1920
+          ],
+          "selected_percentage": [
+            27.85,
+            24.2,
+            23.95,
+            24.0
+          ],
+          "utilization": [
+            {
+              "mean": 0.9396072220848499,
+              "p95": 0.992067181747828,
+              "max": 0.9999630499124358
+            },
+            {
+              "mean": 0.9419035849846987,
+              "p95": 0.9634838954858687,
+              "max": 0.9970277346966709
+            },
+            {
+              "mean": 0.9276831838944593,
+              "p95": 0.9610892852911216,
+              "max": 0.9963560623861099
+            },
+            {
+              "mean": 0.9351645434335533,
+              "p95": 0.9630497723835091,
+              "max": 0.99669823946074
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.87425,
+            0.95325,
+            0.8485,
+            0.893
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "1": 125.0625,
+            "3": 125.0625,
+            "2": 133.1875
+          },
+          "overload_by_server": [
+            489,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              489,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "6060": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 693,
+          "selected_count": [
+            2267,
+            1920,
+            1878,
+            1935
+          ],
+          "selected_percentage": [
+            28.3375,
+            24.0,
+            23.474999999999998,
+            24.1875
+          ],
+          "utilization": [
+            {
+              "mean": 0.9463497030363761,
+              "p95": 0.9953126705158161,
+              "max": 0.9999161645158
+            },
+            {
+              "mean": 0.944745688387592,
+              "p95": 0.9634662425260749,
+              "max": 0.9980794650462127
+            },
+            {
+              "mean": 0.9357669827316317,
+              "p95": 0.962750825931956,
+              "max": 0.9924379474859212
+            },
+            {
+              "mean": 0.9457940484515751,
+              "p95": 0.9634527113456819,
+              "max": 0.9874776979964701
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.901125,
+            0.963375,
+            0.876875,
+            0.969875
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "1": 125.0625,
+            "2": 125.0625,
+            "3": 125.0625
+          },
+          "overload_by_server": [
+            693,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              693,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "7070": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 540,
+          "selected_count": [
+            2223,
+            1884,
+            1931,
+            1962
+          ],
+          "selected_percentage": [
+            27.787499999999998,
+            23.549999999999997,
+            24.1375,
+            24.525
+          ],
+          "utilization": [
+            {
+              "mean": 0.9387570337621948,
+              "p95": 0.9912546645422854,
+              "max": 0.9999792661137603
+            },
+            {
+              "mean": 0.944586074535388,
+              "p95": 0.9658397888551689,
+              "max": 0.9968791659808534
+            },
+            {
+              "mean": 0.9361801041238657,
+              "p95": 0.9620113163523918,
+              "max": 0.9889362031514244
+            },
+            {
+              "mean": 0.9347991509966932,
+              "p95": 0.9620191501417351,
+              "max": 0.9989467507197541
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.837625,
+            0.951125,
+            0.895375,
+            0.8675
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "1": 125.0625,
+            "3": 125.0625,
+            "2": 130.0625
+          },
+          "overload_by_server": [
+            540,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              540,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      },
+      "aggregate": {
+        "total": 8000.0,
+        "blocking_rate": 0.074575,
+        "raw_mask_empty_rate": 0.096875,
+        "no_suitable_block_rate": 0.0,
+        "server_overload_rate": 0.074575,
+        "deadline_failure_rate": 0.0,
+        "other_failure_rate": 0.0,
+        "mean_delay_ms": 8.989328891208832,
+        "p50_delay_ms": 8.844862842865856,
+        "p95_delay_ms": 16.469643501731618,
+        "avg_fs": 3.4952989174481637,
+        "avg_waste": 0.5231754298664002,
+        "avg_path_km": 743.7904325483435,
+        "mean_active_connections": 370.58382500000005,
+        "p95_active_connections": 394.2,
+        "max_active_connections": 405.8,
+        "mean_valid_c_actions": 6.619225,
+        "mean_total_valid_r_actions": 494.29285,
+        "mean_selected_valid_r_actions": 33.6403,
+        "agreement_with_ppo_c": 0.29855,
+        "changed_action_count": 5611.6,
+        "changed_action_blocking_rate": 0.0,
+        "mean_decision_time_ms": 5.94301430855121,
+        "p95_decision_time_ms": 8.437656237510964,
+        "split_dist": {
+          "0": 0.09815,
+          "1": 0.0104,
+          "2": 0.89145
+        }
+      },
+      "server_diagnostics_aggregate": {
+        "num_servers": 4,
+        "num_splits": 3,
+        "high_util_threshold": 0.9,
+        "total_samples": 40000,
+        "total_overloads": 2983,
+        "selected_count": [
+          11303,
+          9517,
+          9518,
+          9662
+        ],
+        "selected_percentage": [
+          28.2575,
+          23.792499999999997,
+          23.794999999999998,
+          24.155
+        ],
+        "utilization": [
+          {
+            "mean": 0.9425424256388283,
+            "p95": 0.9931155564676578,
+            "max": 0.9999305918882333
+          },
+          {
+            "mean": 0.9432706430713083,
+            "p95": 0.964334608077736,
+            "max": 0.9954506773785987
+          },
+          {
+            "mean": 0.9340301170655871,
+            "p95": 0.9626697311568698,
+            "max": 0.9951271705063789
+          },
+          {
+            "mean": 0.9383139694237872,
+            "p95": 0.9633528090948195,
+            "max": 0.9951372221100172
+          }
+        ],
+        "queue_delay_ms": [
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          }
+        ],
+        "high_util_fraction": [
+          0.878525,
+          0.95,
+          0.8754000000000002,
+          0.904225
+        ],
+        "first_high_util_time": {
+          "0": 125.0625,
+          "1": 125.0625,
+          "2": 125.0625,
+          "3": 125.0625
+        },
+        "overload_by_server": [
+          2983,
+          0,
+          0,
+          0
+        ],
+        "overload_by_server_percentage": [
+          100.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "overload_by_split_server": [
+          [
+            2983,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "ppo_c+ksp_ff_plain_k50_hops": {
+      "c_mode": "ppo_c",
+      "r_mode": "ksp_ff_plain_k50_hops",
+      "per_seed": {
+        "3030": {
+          "total": 8000,
+          "blocking_rate": 0.074875,
+          "raw_mask_empty_rate": 0.095625,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.074875,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 599
+          },
+          "mean_delay_ms": 8.870100406617254,
+          "p50_delay_ms": 8.699283460132806,
+          "p95_delay_ms": 16.656361239106282,
+          "avg_fs": 3.493717065261451,
+          "avg_waste": 0.5308780304172632,
+          "avg_path_km": 732.9620321578166,
+          "mean_active_connections": 372.98075,
+          "p95_active_connections": 395.0,
+          "max_active_connections": 412,
+          "mean_valid_c_actions": 6.834875,
+          "mean_total_valid_r_actions": 476.206375,
+          "mean_selected_valid_r_actions": 32.128625,
+          "agreement_with_ppo_c": 0.30174999999999996,
+          "changed_action_count": 5586,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 8.269156397378538,
+          "p95_decision_time_ms": 12.235880887601525,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "2": 7139,
+            "0": 785,
+            "1": 76
+          },
+          "split_dist": {
+            "0": 0.098125,
+            "1": 0.0095,
+            "2": 0.892375
+          },
+          "profile_stats": {}
+        },
+        "4040": {
+          "total": 8000,
+          "blocking_rate": 0.08275,
+          "raw_mask_empty_rate": 0.108875,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.08275,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 662
+          },
+          "mean_delay_ms": 9.077496519906262,
+          "p50_delay_ms": 8.855641696624936,
+          "p95_delay_ms": 16.628135971319395,
+          "avg_fs": 3.477241755246661,
+          "avg_waste": 0.5152788186213416,
+          "avg_path_km": 747.0795857181794,
+          "mean_active_connections": 367.06175,
+          "p95_active_connections": 391.0,
+          "max_active_connections": 404,
+          "mean_valid_c_actions": 6.306125,
+          "mean_total_valid_r_actions": 485.016,
+          "mean_selected_valid_r_actions": 33.4875,
+          "agreement_with_ppo_c": 0.2865,
+          "changed_action_count": 5708,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 8.525553398882039,
+          "p95_decision_time_ms": 12.467695609666402,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "1": 101,
+            "2": 7021,
+            "0": 878
+          },
+          "split_dist": {
+            "0": 0.10975,
+            "1": 0.012625,
+            "2": 0.877625
+          },
+          "profile_stats": {}
+        },
+        "5050": {
+          "total": 8000,
+          "blocking_rate": 0.07075,
+          "raw_mask_empty_rate": 0.09325,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.07075,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 566
+          },
+          "mean_delay_ms": 8.761640496718323,
+          "p50_delay_ms": 8.542448106259513,
+          "p95_delay_ms": 16.303996170665695,
+          "avg_fs": 3.485337637880011,
+          "avg_waste": 0.5154945196250265,
+          "avg_path_km": 721.5340328221685,
+          "mean_active_connections": 372.227125,
+          "p95_active_connections": 394.0,
+          "max_active_connections": 409,
+          "mean_valid_c_actions": 6.795375,
+          "mean_total_valid_r_actions": 497.851625,
+          "mean_selected_valid_r_actions": 34.147625,
+          "agreement_with_ppo_c": 0.287875,
+          "changed_action_count": 5697,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 8.41043716056447,
+          "p95_decision_time_ms": 12.400176818482578,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "2": 7161,
+            "1": 81,
+            "0": 758
+          },
+          "split_dist": {
+            "0": 0.09475,
+            "1": 0.010125,
+            "2": 0.895125
+          },
+          "profile_stats": {}
+        },
+        "6060": {
+          "total": 8000,
+          "blocking_rate": 0.086625,
+          "raw_mask_empty_rate": 0.1125,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.086625,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 693
+          },
+          "mean_delay_ms": 9.168229815671056,
+          "p50_delay_ms": 9.02594824722706,
+          "p95_delay_ms": 16.57968483868315,
+          "avg_fs": 3.5097851375393456,
+          "avg_waste": 0.5153113883135202,
+          "avg_path_km": 747.7109620911455,
+          "mean_active_connections": 364.78475,
+          "p95_active_connections": 390.0,
+          "max_active_connections": 400,
+          "mean_valid_c_actions": 6.14775,
+          "mean_total_valid_r_actions": 490.1065,
+          "mean_selected_valid_r_actions": 34.08175,
+          "agreement_with_ppo_c": 0.29100000000000004,
+          "changed_action_count": 5672,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 8.342922771669691,
+          "p95_decision_time_ms": 12.30809658882208,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "2": 7017,
+            "0": 906,
+            "1": 77
+          },
+          "split_dist": {
+            "0": 0.11325,
+            "1": 0.009625,
+            "2": 0.877125
+          },
+          "profile_stats": {}
+        },
+        "7070": {
+          "total": 8000,
+          "blocking_rate": 0.080875,
+          "raw_mask_empty_rate": 0.106625,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.080875,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 647
+          },
+          "mean_delay_ms": 8.940720692963792,
+          "p50_delay_ms": 8.764376780124373,
+          "p95_delay_ms": 16.639359622524818,
+          "avg_fs": 3.4833401332789338,
+          "avg_waste": 0.5232706221906649,
+          "avg_path_km": 728.998504011968,
+          "mean_active_connections": 368.094875,
+          "p95_active_connections": 393.0,
+          "max_active_connections": 403,
+          "mean_valid_c_actions": 6.52775,
+          "mean_total_valid_r_actions": 475.128875,
+          "mean_selected_valid_r_actions": 32.5265,
+          "agreement_with_ppo_c": 0.30125,
+          "changed_action_count": 5590,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 8.253326458725496,
+          "p95_decision_time_ms": 12.195391644490883,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "2": 7054,
+            "1": 82,
+            "0": 864
+          },
+          "split_dist": {
+            "0": 0.108,
+            "1": 0.01025,
+            "2": 0.88175
+          },
+          "profile_stats": {}
+        }
+      },
+      "server_diagnostics": {
+        "3030": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 599,
+          "selected_count": [
+            2267,
+            1883,
+            1906,
+            1944
+          ],
+          "selected_percentage": [
+            28.3375,
+            23.5375,
+            23.825,
+            24.3
+          ],
+          "utilization": [
+            {
+              "mean": 0.9405313262873817,
+              "p95": 0.9930289085051954,
+              "max": 0.9997950925011964
+            },
+            {
+              "mean": 0.9423298918454655,
+              "p95": 0.9643482867752584,
+              "max": 0.9938374830321925
+            },
+            {
+              "mean": 0.9334075465077869,
+              "p95": 0.9641121154432275,
+              "max": 0.9995504788066129
+            },
+            {
+              "mean": 0.9391475464265662,
+              "p95": 0.9645087840933038,
+              "max": 0.9981706271010732
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.8725,
+            0.93525,
+            0.861625,
+            0.917375
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "1": 125.0625,
+            "2": 125.0625,
+            "3": 125.0625
+          },
+          "overload_by_server": [
+            599,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              599,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "4040": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 662,
+          "selected_count": [
+            2318,
+            1894,
+            1887,
+            1901
+          ],
+          "selected_percentage": [
+            28.975,
+            23.674999999999997,
+            23.5875,
+            23.7625
+          ],
+          "utilization": [
+            {
+              "mean": 0.947466843023339,
+              "p95": 0.9939143570271638,
+              "max": 0.9999993863979743
+            },
+            {
+              "mean": 0.942787975603397,
+              "p95": 0.9645348267463092,
+              "max": 0.9914295381370638
+            },
+            {
+              "mean": 0.9371127680701923,
+              "p95": 0.9633851127656521,
+              "max": 0.9983551607018265
+            },
+            {
+              "mean": 0.9366645578105488,
+              "p95": 0.9637336275098679,
+              "max": 0.9943927952720482
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.907125,
+            0.947,
+            0.894625,
+            0.873375
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "1": 125.0625,
+            "2": 125.0625,
+            "3": 125.0625
+          },
+          "overload_by_server": [
+            662,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              662,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "5050": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 566,
+          "selected_count": [
+            2279,
+            1879,
+            1895,
+            1947
+          ],
+          "selected_percentage": [
+            28.487499999999997,
+            23.4875,
+            23.6875,
+            24.337500000000002
+          ],
+          "utilization": [
+            {
+              "mean": 0.9367205705997221,
+              "p95": 0.9910345709122172,
+              "max": 0.9999636130549076
+            },
+            {
+              "mean": 0.9425223282799239,
+              "p95": 0.9641457658473348,
+              "max": 0.9957487497900801
+            },
+            {
+              "mean": 0.9304255690619901,
+              "p95": 0.9653205421564521,
+              "max": 0.9977570149685947
+            },
+            {
+              "mean": 0.9381042999373308,
+              "p95": 0.9642736056252973,
+              "max": 0.9955215609367323
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.845,
+            0.938,
+            0.835125,
+            0.897375
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "1": 125.0625,
+            "2": 125.0625,
+            "3": 134.6875
+          },
+          "overload_by_server": [
+            566,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              566,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "6060": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 693,
+          "selected_count": [
+            2267,
+            1920,
+            1878,
+            1935
+          ],
+          "selected_percentage": [
+            28.3375,
+            24.0,
+            23.474999999999998,
+            24.1875
+          ],
+          "utilization": [
+            {
+              "mean": 0.9463497030363761,
+              "p95": 0.9953126705158161,
+              "max": 0.9999161645158
+            },
+            {
+              "mean": 0.944745688387592,
+              "p95": 0.9634662425260749,
+              "max": 0.9980794650462127
+            },
+            {
+              "mean": 0.9357669827316317,
+              "p95": 0.962750825931956,
+              "max": 0.9924379474859212
+            },
+            {
+              "mean": 0.9457940484515751,
+              "p95": 0.9634527113456819,
+              "max": 0.9874776979964701
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.901125,
+            0.963375,
+            0.876875,
+            0.969875
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "1": 125.0625,
+            "2": 125.0625,
+            "3": 125.0625
+          },
+          "overload_by_server": [
+            693,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              693,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "7070": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 647,
+          "selected_count": [
+            2268,
+            1908,
+            1938,
+            1886
+          ],
+          "selected_percentage": [
+            28.349999999999998,
+            23.849999999999998,
+            24.224999999999998,
+            23.575
+          ],
+          "utilization": [
+            {
+              "mean": 0.942668823832992,
+              "p95": 0.9932479491300589,
+              "max": 0.9999015959314661
+            },
+            {
+              "mean": 0.9421777507036855,
+              "p95": 0.9642200234680591,
+              "max": 0.9958165074854706
+            },
+            {
+              "mean": 0.9344856240499276,
+              "p95": 0.9618679628178289,
+              "max": 0.9874881115145268
+            },
+            {
+              "mean": 0.9414733641742365,
+              "p95": 0.9647102007175967,
+              "max": 0.9970397040961306
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.860375,
+            0.93275,
+            0.86575,
+            0.936
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "1": 125.0625,
+            "3": 125.0625,
+            "2": 125.875
+          },
+          "overload_by_server": [
+            647,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              647,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      },
+      "aggregate": {
+        "total": 8000.0,
+        "blocking_rate": 0.079175,
+        "raw_mask_empty_rate": 0.103375,
+        "no_suitable_block_rate": 0.0,
+        "server_overload_rate": 0.079175,
+        "deadline_failure_rate": 0.0,
+        "other_failure_rate": 0.0,
+        "mean_delay_ms": 8.963637586375338,
+        "p50_delay_ms": 8.777539658073737,
+        "p95_delay_ms": 16.561507568459866,
+        "avg_fs": 3.4898843458412805,
+        "avg_waste": 0.5200466758335633,
+        "avg_path_km": 735.6570233602555,
+        "mean_active_connections": 369.02985,
+        "p95_active_connections": 392.6,
+        "max_active_connections": 405.6,
+        "mean_valid_c_actions": 6.522374999999999,
+        "mean_total_valid_r_actions": 484.86187499999994,
+        "mean_selected_valid_r_actions": 33.2744,
+        "agreement_with_ppo_c": 0.293675,
+        "changed_action_count": 5650.6,
+        "changed_action_blocking_rate": 0.0,
+        "mean_decision_time_ms": 8.360279237444047,
+        "p95_decision_time_ms": 12.321448309812693,
+        "split_dist": {
+          "0": 0.104775,
+          "1": 0.010425,
+          "2": 0.8848
+        }
+      },
+      "server_diagnostics_aggregate": {
+        "num_servers": 4,
+        "num_splits": 3,
+        "high_util_threshold": 0.9,
+        "total_samples": 40000,
+        "total_overloads": 3167,
+        "selected_count": [
+          11399,
+          9484,
+          9504,
+          9613
+        ],
+        "selected_percentage": [
+          28.497499999999995,
+          23.71,
+          23.759999999999998,
+          24.032500000000002
+        ],
+        "utilization": [
+          {
+            "mean": 0.9427474533559623,
+            "p95": 0.9933076912180903,
+            "max": 0.9999151704802689
+          },
+          {
+            "mean": 0.9429127269640126,
+            "p95": 0.9641430290726074,
+            "max": 0.9949823486982041
+          },
+          {
+            "mean": 0.9342396980843057,
+            "p95": 0.9634873118230234,
+            "max": 0.9951177426954964
+          },
+          {
+            "mean": 0.9402367633600515,
+            "p95": 0.9641357858583495,
+            "max": 0.9945204770804909
+          }
+        ],
+        "queue_delay_ms": [
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          }
+        ],
+        "high_util_fraction": [
+          0.8772249999999999,
+          0.9432749999999999,
+          0.8668000000000001,
+          0.9188000000000001
+        ],
+        "first_high_util_time": {
+          "0": 125.0625,
+          "1": 125.0625,
+          "2": 125.0625,
+          "3": 125.0625
+        },
+        "overload_by_server": [
+          3167,
+          0,
+          0,
+          0
+        ],
+        "overload_by_server_percentage": [
+          100.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "overload_by_split_server": [
+          [
+            3167,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "ppo_c+ksp_ff_highest_mod_k5_hops": {
+      "c_mode": "ppo_c",
+      "r_mode": "ksp_ff_highest_mod_k5_hops",
+      "per_seed": {
+        "3030": {
+          "total": 8000,
+          "blocking_rate": 0.085,
+          "raw_mask_empty_rate": 0.10725,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.085,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 680
+          },
+          "mean_delay_ms": 8.885171801238137,
+          "p50_delay_ms": 8.567202868828371,
+          "p95_delay_ms": 16.805167647380905,
+          "avg_fs": 2.3153005464480874,
+          "avg_waste": 0.5100934793320578,
+          "avg_path_km": 724.358743169399,
+          "mean_active_connections": 368.10925,
+          "p95_active_connections": 391.0,
+          "max_active_connections": 412,
+          "mean_valid_c_actions": 6.67425,
+          "mean_total_valid_r_actions": 393.354875,
+          "mean_selected_valid_r_actions": 26.70275,
+          "agreement_with_ppo_c": 0.16425,
+          "changed_action_count": 6686,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 5.552285675090388,
+          "p95_decision_time_ms": 8.056101383408528,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "2": 7016,
+            "0": 879,
+            "1": 105
+          },
+          "split_dist": {
+            "0": 0.109875,
+            "1": 0.013125,
+            "2": 0.877
+          },
+          "profile_stats": {}
+        },
+        "4040": {
+          "total": 8000,
+          "blocking_rate": 0.111125,
+          "raw_mask_empty_rate": 0.146375,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.111125,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 889
+          },
+          "mean_delay_ms": 9.264355410781974,
+          "p50_delay_ms": 8.925585554671498,
+          "p95_delay_ms": 17.567420879816527,
+          "avg_fs": 2.329208268879201,
+          "avg_waste": 0.4900518994797639,
+          "avg_path_km": 750.3943186612291,
+          "mean_active_connections": 355.952125,
+          "p95_active_connections": 385.0,
+          "max_active_connections": 403,
+          "mean_valid_c_actions": 5.920125,
+          "mean_total_valid_r_actions": 387.647125,
+          "mean_selected_valid_r_actions": 26.769125,
+          "agreement_with_ppo_c": 0.18362500000000004,
+          "changed_action_count": 6531,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 5.527784848483861,
+          "p95_decision_time_ms": 8.043931052088736,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "2": 6693,
+            "1": 101,
+            "0": 1206
+          },
+          "split_dist": {
+            "0": 0.15075,
+            "1": 0.012625,
+            "2": 0.836625
+          },
+          "profile_stats": {}
+        },
+        "5050": {
+          "total": 8000,
+          "blocking_rate": 0.086375,
+          "raw_mask_empty_rate": 0.1145,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.086375,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 691
+          },
+          "mean_delay_ms": 8.921685514385558,
+          "p50_delay_ms": 8.60027240427622,
+          "p95_delay_ms": 16.920525231213656,
+          "avg_fs": 2.3223423176905187,
+          "avg_waste": 0.49434686241139075,
+          "avg_path_km": 719.2223286359283,
+          "mean_active_connections": 366.21175,
+          "p95_active_connections": 394.0,
+          "max_active_connections": 409,
+          "mean_valid_c_actions": 6.5995,
+          "mean_total_valid_r_actions": 396.248875,
+          "mean_selected_valid_r_actions": 26.73925,
+          "agreement_with_ppo_c": 0.17237499999999994,
+          "changed_action_count": 6621,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 5.583162445545895,
+          "p95_decision_time_ms": 8.048418449470772,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "2": 6968,
+            "1": 87,
+            "0": 945
+          },
+          "split_dist": {
+            "0": 0.118125,
+            "1": 0.010875,
+            "2": 0.871
+          },
+          "profile_stats": {}
+        },
+        "6060": {
+          "total": 8000,
+          "blocking_rate": 0.120875,
+          "raw_mask_empty_rate": 0.16,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.120875,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 967
+          },
+          "mean_delay_ms": 9.34525273424636,
+          "p50_delay_ms": 8.87652719392457,
+          "p95_delay_ms": 17.679127585839897,
+          "avg_fs": 2.339257784729134,
+          "avg_waste": 0.49120547626256933,
+          "avg_path_km": 735.0570169202332,
+          "mean_active_connections": 350.748625,
+          "p95_active_connections": 386.0,
+          "max_active_connections": 395,
+          "mean_valid_c_actions": 5.641125,
+          "mean_total_valid_r_actions": 392.445375,
+          "mean_selected_valid_r_actions": 27.276,
+          "agreement_with_ppo_c": 0.191125,
+          "changed_action_count": 6471,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 5.3881866905867355,
+          "p95_decision_time_ms": 7.924503256799653,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "2": 6597,
+            "0": 1309,
+            "1": 94
+          },
+          "split_dist": {
+            "0": 0.163625,
+            "1": 0.01175,
+            "2": 0.824625
+          },
+          "profile_stats": {}
+        },
+        "7070": {
+          "total": 8000,
+          "blocking_rate": 0.093125,
+          "raw_mask_empty_rate": 0.120375,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.093125,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 745
+          },
+          "mean_delay_ms": 9.012773938456258,
+          "p50_delay_ms": 8.739334955837862,
+          "p95_delay_ms": 16.88137237024136,
+          "avg_fs": 2.3192281185389385,
+          "avg_waste": 0.5012060515965837,
+          "avg_path_km": 729.9035148173673,
+          "mean_active_connections": 362.935375,
+          "p95_active_connections": 386.0,
+          "max_active_connections": 397,
+          "mean_valid_c_actions": 6.32675,
+          "mean_total_valid_r_actions": 396.07425,
+          "mean_selected_valid_r_actions": 27.044625,
+          "agreement_with_ppo_c": 0.17674999999999996,
+          "changed_action_count": 6586,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 5.509141943824943,
+          "p95_decision_time_ms": 8.001893438631667,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "2": 6904,
+            "1": 104,
+            "0": 992
+          },
+          "split_dist": {
+            "0": 0.124,
+            "1": 0.013,
+            "2": 0.863
+          },
+          "profile_stats": {}
+        }
+      },
+      "server_diagnostics": {
+        "3030": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 680,
+          "selected_count": [
+            2366,
+            1868,
+            1874,
+            1892
+          ],
+          "selected_percentage": [
+            29.575000000000003,
+            23.35,
+            23.425,
+            23.65
+          ],
+          "utilization": [
+            {
+              "mean": 0.9511226154061626,
+              "p95": 0.9925658493833535,
+              "max": 0.9997800801284541
+            },
+            {
+              "mean": 0.9393575159637391,
+              "p95": 0.9654540522799685,
+              "max": 0.9987946172412988
+            },
+            {
+              "mean": 0.9344349857285952,
+              "p95": 0.9644171703993494,
+              "max": 0.996521137865739
+            },
+            {
+              "mean": 0.9354924770531045,
+              "p95": 0.9641529977579859,
+              "max": 0.9979962278293286
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.944,
+            0.922375,
+            0.8755,
+            0.8805
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "2": 125.0625,
+            "3": 125.0625,
+            "1": 125.25
+          },
+          "overload_by_server": [
+            680,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              680,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "4040": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 889,
+          "selected_count": [
+            2458,
+            1827,
+            1870,
+            1845
+          ],
+          "selected_percentage": [
+            30.725,
+            22.8375,
+            23.375,
+            23.0625
+          ],
+          "utilization": [
+            {
+              "mean": 0.9547609072984382,
+              "p95": 0.9959729418841985,
+              "max": 0.9999230916284836
+            },
+            {
+              "mean": 0.9418965121903732,
+              "p95": 0.9668139516504453,
+              "max": 0.99522574282426
+            },
+            {
+              "mean": 0.9341557011219928,
+              "p95": 0.9631892697082652,
+              "max": 0.9996185620177765
+            },
+            {
+              "mean": 0.9380861153523702,
+              "p95": 0.9648071380837395,
+              "max": 0.9998084999965476
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.94175,
+            0.92325,
+            0.85025,
+            0.88175
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "1": 125.0625,
+            "2": 125.0625,
+            "3": 125.0625
+          },
+          "overload_by_server": [
+            889,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              889,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "5050": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 691,
+          "selected_count": [
+            2324,
+            1869,
+            1890,
+            1917
+          ],
+          "selected_percentage": [
+            29.049999999999997,
+            23.3625,
+            23.625,
+            23.962500000000002
+          ],
+          "utilization": [
+            {
+              "mean": 0.9498010597900653,
+              "p95": 0.9938000829883141,
+              "max": 0.9997542983411928
+            },
+            {
+              "mean": 0.9379112242286936,
+              "p95": 0.9650434137947949,
+              "max": 0.9993246227377333
+            },
+            {
+              "mean": 0.9351659564024735,
+              "p95": 0.9621478682539949,
+              "max": 0.997174501858542
+            },
+            {
+              "mean": 0.9349668373945883,
+              "p95": 0.9633326710059478,
+              "max": 0.9991407933206312
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.9265,
+            0.903625,
+            0.872125,
+            0.8775
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "1": 125.0625,
+            "2": 125.0625,
+            "3": 125.0625
+          },
+          "overload_by_server": [
+            691,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              691,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "6060": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 967,
+          "selected_count": [
+            2480,
+            1777,
+            1838,
+            1905
+          ],
+          "selected_percentage": [
+            31.0,
+            22.2125,
+            22.975,
+            23.8125
+          ],
+          "utilization": [
+            {
+              "mean": 0.9555875108131094,
+              "p95": 0.9948599853590442,
+              "max": 0.9999965726424692
+            },
+            {
+              "mean": 0.940732593206199,
+              "p95": 0.9680041609340132,
+              "max": 0.9984109317618666
+            },
+            {
+              "mean": 0.9405696390812973,
+              "p95": 0.9658142620998429,
+              "max": 0.9995142050761374
+            },
+            {
+              "mean": 0.944375630910589,
+              "p95": 0.9650053664088852,
+              "max": 0.998137490852079
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.95125,
+            0.89725,
+            0.926,
+            0.949875
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "1": 125.0625,
+            "2": 125.0625,
+            "3": 125.0625
+          },
+          "overload_by_server": [
+            967,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              967,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "7070": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 745,
+          "selected_count": [
+            2378,
+            1844,
+            1862,
+            1916
+          ],
+          "selected_percentage": [
+            29.725,
+            23.05,
+            23.275000000000002,
+            23.95
+          ],
+          "utilization": [
+            {
+              "mean": 0.9509278419068009,
+              "p95": 0.9941589002307859,
+              "max": 0.9999669345745826
+            },
+            {
+              "mean": 0.9431106964626592,
+              "p95": 0.9653997959361295,
+              "max": 0.9989675047570664
+            },
+            {
+              "mean": 0.9329139371454556,
+              "p95": 0.9629469109478873,
+              "max": 0.9994230726284349
+            },
+            {
+              "mean": 0.9362961693087655,
+              "p95": 0.9643153448684574,
+              "max": 0.9996046106726005
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.937,
+            0.942625,
+            0.87,
+            0.887875
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "1": 125.0625,
+            "3": 125.0625,
+            "2": 125.125
+          },
+          "overload_by_server": [
+            745,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              745,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      },
+      "aggregate": {
+        "total": 8000.0,
+        "blocking_rate": 0.0993,
+        "raw_mask_empty_rate": 0.12969999999999998,
+        "no_suitable_block_rate": 0.0,
+        "server_overload_rate": 0.0993,
+        "deadline_failure_rate": 0.0,
+        "other_failure_rate": 0.0,
+        "mean_delay_ms": 9.085847879821657,
+        "p50_delay_ms": 8.741784595507704,
+        "p95_delay_ms": 17.17072274289847,
+        "avg_fs": 2.3250674072571753,
+        "avg_waste": 0.4973807538164731,
+        "avg_path_km": 731.7871844408315,
+        "mean_active_connections": 360.791425,
+        "p95_active_connections": 388.4,
+        "max_active_connections": 403.2,
+        "mean_valid_c_actions": 6.232349999999999,
+        "mean_total_valid_r_actions": 393.1541,
+        "mean_selected_valid_r_actions": 26.906349999999996,
+        "agreement_with_ppo_c": 0.17762499999999998,
+        "changed_action_count": 6579.0,
+        "changed_action_blocking_rate": 0.0,
+        "mean_decision_time_ms": 5.512112320706365,
+        "p95_decision_time_ms": 8.014969516079871,
+        "split_dist": {
+          "0": 0.133275,
+          "1": 0.012275,
+          "2": 0.85445
+        }
+      },
+      "server_diagnostics_aggregate": {
+        "num_servers": 4,
+        "num_splits": 3,
+        "high_util_threshold": 0.9,
+        "total_samples": 40000,
+        "total_overloads": 3972,
+        "selected_count": [
+          12006,
+          9185,
+          9334,
+          9475
+        ],
+        "selected_percentage": [
+          30.014999999999997,
+          22.9625,
+          23.335,
+          23.6875
+        ],
+        "utilization": [
+          {
+            "mean": 0.9524399870429153,
+            "p95": 0.9942715519691392,
+            "max": 0.9998841954630364
+          },
+          {
+            "mean": 0.9406017084103327,
+            "p95": 0.9661430749190704,
+            "max": 0.998144683864445
+          },
+          {
+            "mean": 0.9354480438959628,
+            "p95": 0.9637030962818679,
+            "max": 0.9984502958893259
+          },
+          {
+            "mean": 0.9378434460038834,
+            "p95": 0.9643227036250032,
+            "max": 0.9989375245342373
+          }
+        ],
+        "queue_delay_ms": [
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          }
+        ],
+        "high_util_fraction": [
+          0.9400999999999999,
+          0.917825,
+          0.8787750000000001,
+          0.8955
+        ],
+        "first_high_util_time": {
+          "0": 125.0625,
+          "2": 125.0625,
+          "3": 125.0625,
+          "1": 125.0625
+        },
+        "overload_by_server": [
+          3972,
+          0,
+          0,
+          0
+        ],
+        "overload_by_server_percentage": [
+          100.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "overload_by_split_server": [
+          [
+            3972,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "ppo_c+ksp_ff_highest_mod_k50_hops": {
+      "c_mode": "ppo_c",
+      "r_mode": "ksp_ff_highest_mod_k50_hops",
+      "per_seed": {
+        "3030": {
+          "total": 8000,
+          "blocking_rate": 0.085,
+          "raw_mask_empty_rate": 0.10725,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.085,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 680
+          },
+          "mean_delay_ms": 8.885171801238137,
+          "p50_delay_ms": 8.567202868828371,
+          "p95_delay_ms": 16.805167647380905,
+          "avg_fs": 2.3153005464480874,
+          "avg_waste": 0.5100934793320578,
+          "avg_path_km": 724.358743169399,
+          "mean_active_connections": 368.10925,
+          "p95_active_connections": 391.0,
+          "max_active_connections": 412,
+          "mean_valid_c_actions": 6.67425,
+          "mean_total_valid_r_actions": 393.354875,
+          "mean_selected_valid_r_actions": 26.70275,
+          "agreement_with_ppo_c": 0.15112499999999995,
+          "changed_action_count": 6791,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 8.21900141511287,
+          "p95_decision_time_ms": 12.2260270640254,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "2": 7016,
+            "0": 879,
+            "1": 105
+          },
+          "split_dist": {
+            "0": 0.109875,
+            "1": 0.013125,
+            "2": 0.877
+          },
+          "profile_stats": {}
+        },
+        "4040": {
+          "total": 8000,
+          "blocking_rate": 0.111125,
+          "raw_mask_empty_rate": 0.146375,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.111125,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 889
+          },
+          "mean_delay_ms": 9.264355410781974,
+          "p50_delay_ms": 8.925585554671498,
+          "p95_delay_ms": 17.567420879816527,
+          "avg_fs": 2.329208268879201,
+          "avg_waste": 0.4900518994797639,
+          "avg_path_km": 750.3943186612291,
+          "mean_active_connections": 355.952125,
+          "p95_active_connections": 385.0,
+          "max_active_connections": 403,
+          "mean_valid_c_actions": 5.920125,
+          "mean_total_valid_r_actions": 387.647125,
+          "mean_selected_valid_r_actions": 26.769125,
+          "agreement_with_ppo_c": 0.17425000000000002,
+          "changed_action_count": 6606,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 8.241705985899898,
+          "p95_decision_time_ms": 12.28036890388466,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "2": 6693,
+            "1": 101,
+            "0": 1206
+          },
+          "split_dist": {
+            "0": 0.15075,
+            "1": 0.012625,
+            "2": 0.836625
+          },
+          "profile_stats": {}
+        },
+        "5050": {
+          "total": 8000,
+          "blocking_rate": 0.086375,
+          "raw_mask_empty_rate": 0.1145,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.086375,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 691
+          },
+          "mean_delay_ms": 8.921685514385558,
+          "p50_delay_ms": 8.60027240427622,
+          "p95_delay_ms": 16.920525231213656,
+          "avg_fs": 2.3223423176905187,
+          "avg_waste": 0.49434686241139075,
+          "avg_path_km": 719.2223286359283,
+          "mean_active_connections": 366.21175,
+          "p95_active_connections": 394.0,
+          "max_active_connections": 409,
+          "mean_valid_c_actions": 6.5995,
+          "mean_total_valid_r_actions": 396.248875,
+          "mean_selected_valid_r_actions": 26.73925,
+          "agreement_with_ppo_c": 0.15937500000000004,
+          "changed_action_count": 6725,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 8.39942913413688,
+          "p95_decision_time_ms": 12.414069299120454,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "2": 6968,
+            "1": 87,
+            "0": 945
+          },
+          "split_dist": {
+            "0": 0.118125,
+            "1": 0.010875,
+            "2": 0.871
+          },
+          "profile_stats": {}
+        },
+        "6060": {
+          "total": 8000,
+          "blocking_rate": 0.120875,
+          "raw_mask_empty_rate": 0.16,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.120875,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 967
+          },
+          "mean_delay_ms": 9.34525273424636,
+          "p50_delay_ms": 8.87652719392457,
+          "p95_delay_ms": 17.679127585839897,
+          "avg_fs": 2.339257784729134,
+          "avg_waste": 0.49120547626256933,
+          "avg_path_km": 735.0570169202332,
+          "mean_active_connections": 350.748625,
+          "p95_active_connections": 386.0,
+          "max_active_connections": 395,
+          "mean_valid_c_actions": 5.641125,
+          "mean_total_valid_r_actions": 392.445375,
+          "mean_selected_valid_r_actions": 27.276,
+          "agreement_with_ppo_c": 0.18125000000000002,
+          "changed_action_count": 6550,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 8.280340804412845,
+          "p95_decision_time_ms": 12.387931963894513,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "2": 6597,
+            "0": 1309,
+            "1": 94
+          },
+          "split_dist": {
+            "0": 0.163625,
+            "1": 0.01175,
+            "2": 0.824625
+          },
+          "profile_stats": {}
+        },
+        "7070": {
+          "total": 8000,
+          "blocking_rate": 0.093125,
+          "raw_mask_empty_rate": 0.120375,
+          "no_suitable_block_rate": 0.0,
+          "server_overload_rate": 0.093125,
+          "deadline_failure_rate": 0.0,
+          "other_failure_rate": 0.0,
+          "reason_counts": {
+            "server_overload": 745
+          },
+          "mean_delay_ms": 9.012773938456258,
+          "p50_delay_ms": 8.739334955837862,
+          "p95_delay_ms": 16.88137237024136,
+          "avg_fs": 2.3192281185389385,
+          "avg_waste": 0.5012060515965837,
+          "avg_path_km": 729.9035148173673,
+          "mean_active_connections": 362.935375,
+          "p95_active_connections": 386.0,
+          "max_active_connections": 397,
+          "mean_valid_c_actions": 6.32675,
+          "mean_total_valid_r_actions": 396.07425,
+          "mean_selected_valid_r_actions": 27.044625,
+          "agreement_with_ppo_c": 0.16437500000000005,
+          "changed_action_count": 6685,
+          "changed_action_blocking_rate": 0.0,
+          "mean_decision_time_ms": 8.412381771733635,
+          "p95_decision_time_ms": 12.50619352213107,
+          "mean_H_spec": null,
+          "p95_H_spec": null,
+          "mean_adjustment_abs": null,
+          "changed_action_rate_vs_v12": null,
+          "split_counts": {
+            "2": 6904,
+            "1": 104,
+            "0": 992
+          },
+          "split_dist": {
+            "0": 0.124,
+            "1": 0.013,
+            "2": 0.863
+          },
+          "profile_stats": {}
+        }
+      },
+      "server_diagnostics": {
+        "3030": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 680,
+          "selected_count": [
+            2366,
+            1868,
+            1874,
+            1892
+          ],
+          "selected_percentage": [
+            29.575000000000003,
+            23.35,
+            23.425,
+            23.65
+          ],
+          "utilization": [
+            {
+              "mean": 0.9511226154061626,
+              "p95": 0.9925658493833535,
+              "max": 0.9997800801284541
+            },
+            {
+              "mean": 0.9393575159637391,
+              "p95": 0.9654540522799685,
+              "max": 0.9987946172412988
+            },
+            {
+              "mean": 0.9344349857285952,
+              "p95": 0.9644171703993494,
+              "max": 0.996521137865739
+            },
+            {
+              "mean": 0.9354924770531045,
+              "p95": 0.9641529977579859,
+              "max": 0.9979962278293286
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.944,
+            0.922375,
+            0.8755,
+            0.8805
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "2": 125.0625,
+            "3": 125.0625,
+            "1": 125.25
+          },
+          "overload_by_server": [
+            680,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              680,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "4040": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 889,
+          "selected_count": [
+            2458,
+            1827,
+            1870,
+            1845
+          ],
+          "selected_percentage": [
+            30.725,
+            22.8375,
+            23.375,
+            23.0625
+          ],
+          "utilization": [
+            {
+              "mean": 0.9547609072984382,
+              "p95": 0.9959729418841985,
+              "max": 0.9999230916284836
+            },
+            {
+              "mean": 0.9418965121903732,
+              "p95": 0.9668139516504453,
+              "max": 0.99522574282426
+            },
+            {
+              "mean": 0.9341557011219928,
+              "p95": 0.9631892697082652,
+              "max": 0.9996185620177765
+            },
+            {
+              "mean": 0.9380861153523702,
+              "p95": 0.9648071380837395,
+              "max": 0.9998084999965476
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.94175,
+            0.92325,
+            0.85025,
+            0.88175
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "1": 125.0625,
+            "2": 125.0625,
+            "3": 125.0625
+          },
+          "overload_by_server": [
+            889,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              889,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "5050": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 691,
+          "selected_count": [
+            2324,
+            1869,
+            1890,
+            1917
+          ],
+          "selected_percentage": [
+            29.049999999999997,
+            23.3625,
+            23.625,
+            23.962500000000002
+          ],
+          "utilization": [
+            {
+              "mean": 0.9498010597900653,
+              "p95": 0.9938000829883141,
+              "max": 0.9997542983411928
+            },
+            {
+              "mean": 0.9379112242286936,
+              "p95": 0.9650434137947949,
+              "max": 0.9993246227377333
+            },
+            {
+              "mean": 0.9351659564024735,
+              "p95": 0.9621478682539949,
+              "max": 0.997174501858542
+            },
+            {
+              "mean": 0.9349668373945883,
+              "p95": 0.9633326710059478,
+              "max": 0.9991407933206312
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.9265,
+            0.903625,
+            0.872125,
+            0.8775
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "1": 125.0625,
+            "2": 125.0625,
+            "3": 125.0625
+          },
+          "overload_by_server": [
+            691,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              691,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "6060": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 967,
+          "selected_count": [
+            2480,
+            1777,
+            1838,
+            1905
+          ],
+          "selected_percentage": [
+            31.0,
+            22.2125,
+            22.975,
+            23.8125
+          ],
+          "utilization": [
+            {
+              "mean": 0.9555875108131094,
+              "p95": 0.9948599853590442,
+              "max": 0.9999965726424692
+            },
+            {
+              "mean": 0.940732593206199,
+              "p95": 0.9680041609340132,
+              "max": 0.9984109317618666
+            },
+            {
+              "mean": 0.9405696390812973,
+              "p95": 0.9658142620998429,
+              "max": 0.9995142050761374
+            },
+            {
+              "mean": 0.944375630910589,
+              "p95": 0.9650053664088852,
+              "max": 0.998137490852079
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.95125,
+            0.89725,
+            0.926,
+            0.949875
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "1": 125.0625,
+            "2": 125.0625,
+            "3": 125.0625
+          },
+          "overload_by_server": [
+            967,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              967,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "7070": {
+          "num_servers": 4,
+          "num_splits": 3,
+          "high_util_threshold": 0.9,
+          "total_samples": 8000,
+          "total_overloads": 745,
+          "selected_count": [
+            2378,
+            1844,
+            1862,
+            1916
+          ],
+          "selected_percentage": [
+            29.725,
+            23.05,
+            23.275000000000002,
+            23.95
+          ],
+          "utilization": [
+            {
+              "mean": 0.9509278419068009,
+              "p95": 0.9941589002307859,
+              "max": 0.9999669345745826
+            },
+            {
+              "mean": 0.9431106964626592,
+              "p95": 0.9653997959361295,
+              "max": 0.9989675047570664
+            },
+            {
+              "mean": 0.9329139371454556,
+              "p95": 0.9629469109478873,
+              "max": 0.9994230726284349
+            },
+            {
+              "mean": 0.9362961693087655,
+              "p95": 0.9643153448684574,
+              "max": 0.9996046106726005
+            }
+          ],
+          "queue_delay_ms": [
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            },
+            {
+              "mean": 0.0,
+              "p95": 0.0,
+              "max": 0.0
+            }
+          ],
+          "high_util_fraction": [
+            0.937,
+            0.942625,
+            0.87,
+            0.887875
+          ],
+          "first_high_util_time": {
+            "0": 125.0625,
+            "1": 125.0625,
+            "3": 125.0625,
+            "2": 125.125
+          },
+          "overload_by_server": [
+            745,
+            0,
+            0,
+            0
+          ],
+          "overload_by_server_percentage": [
+            100.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overload_by_split_server": [
+            [
+              745,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      },
+      "aggregate": {
+        "total": 8000.0,
+        "blocking_rate": 0.0993,
+        "raw_mask_empty_rate": 0.12969999999999998,
+        "no_suitable_block_rate": 0.0,
+        "server_overload_rate": 0.0993,
+        "deadline_failure_rate": 0.0,
+        "other_failure_rate": 0.0,
+        "mean_delay_ms": 9.085847879821657,
+        "p50_delay_ms": 8.741784595507704,
+        "p95_delay_ms": 17.17072274289847,
+        "avg_fs": 2.3250674072571753,
+        "avg_waste": 0.4973807538164731,
+        "avg_path_km": 731.7871844408315,
+        "mean_active_connections": 360.791425,
+        "p95_active_connections": 388.4,
+        "max_active_connections": 403.2,
+        "mean_valid_c_actions": 6.232349999999999,
+        "mean_total_valid_r_actions": 393.1541,
+        "mean_selected_valid_r_actions": 26.906349999999996,
+        "agreement_with_ppo_c": 0.16607500000000003,
+        "changed_action_count": 6671.4,
+        "changed_action_blocking_rate": 0.0,
+        "mean_decision_time_ms": 8.310571822259226,
+        "p95_decision_time_ms": 12.362918150611218,
+        "split_dist": {
+          "0": 0.133275,
+          "1": 0.012275,
+          "2": 0.85445
+        }
+      },
+      "server_diagnostics_aggregate": {
+        "num_servers": 4,
+        "num_splits": 3,
+        "high_util_threshold": 0.9,
+        "total_samples": 40000,
+        "total_overloads": 3972,
+        "selected_count": [
+          12006,
+          9185,
+          9334,
+          9475
+        ],
+        "selected_percentage": [
+          30.014999999999997,
+          22.9625,
+          23.335,
+          23.6875
+        ],
+        "utilization": [
+          {
+            "mean": 0.9524399870429153,
+            "p95": 0.9942715519691392,
+            "max": 0.9998841954630364
+          },
+          {
+            "mean": 0.9406017084103327,
+            "p95": 0.9661430749190704,
+            "max": 0.998144683864445
+          },
+          {
+            "mean": 0.9354480438959628,
+            "p95": 0.9637030962818679,
+            "max": 0.9984502958893259
+          },
+          {
+            "mean": 0.9378434460038834,
+            "p95": 0.9643227036250032,
+            "max": 0.9989375245342373
+          }
+        ],
+        "queue_delay_ms": [
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          {
+            "mean": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          }
+        ],
+        "high_util_fraction": [
+          0.9400999999999999,
+          0.917825,
+          0.8787750000000001,
+          0.8955
+        ],
+        "first_high_util_time": {
+          "0": 125.0625,
+          "2": 125.0625,
+          "3": 125.0625,
+          "1": 125.0625
+        },
+        "overload_by_server": [
+          3972,
+          0,
+          0,
+          0
+        ],
+        "overload_by_server_percentage": [
+          100.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "overload_by_split_server": [
+          [
+            3972,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    }
+  },
+  "metadata": {
+    "git": {
+      "commit": "6f6337f44c036518886ce8e1146b07b6b6f6d1af",
+      "dirty": true,
+      "dirty_files": [
+        "D legacy_predictor_topk_project/ARCHIVE_NOTE.md",
+        "D legacy_predictor_topk_project/README.md",
+        "D legacy_predictor_topk_project/configs/agent_config.yaml",
+        "D legacy_predictor_topk_project/configs/env_config.yaml",
+        "D legacy_predictor_topk_project/configs/training_config.yaml",
+        "D legacy_predictor_topk_project/configs/yin2024_protocol.yaml",
+        "D legacy_predictor_topk_project/experiments/agent_c_default_s123_s20_r80_train.log",
+        "D legacy_predictor_topk_project/experiments/agent_c_default_s42_s20_r80_train.log",
+        "D legacy_predictor_topk_project/experiments/agent_c_default_s456_s20_r80_train.log",
+        "D legacy_predictor_topk_project/experiments/agent_c_r_feasibility_s123_s20_r80_train.log",
+        "D legacy_predictor_topk_project/experiments/agent_c_r_feasibility_s42_s20_r80_train.log",
+        "D legacy_predictor_topk_project/experiments/agent_c_r_feasibility_s456_s20_r80_train.log",
+        "D legacy_predictor_topk_project/experiments/agent_c_r_feasibility_safe_s123_s20_r80_train.log",
+        "D legacy_predictor_topk_project/experiments/agent_c_r_feasibility_safe_s42_s20_r80_train.log",
+        "D legacy_predictor_topk_project/experiments/agent_c_r_feasibility_safe_s456_s20_r80_train.log",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/CORRECTIONNET_V1_FINAL_REPORT.md",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/CORRECTIONNET_V1_REPORT.md",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/FINAL_REPORT.md",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/PHASE_C_A_PROGRESS_REPORT.md",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/README.md",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/RETURN_README.md",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/ablate_topk.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/adaptive_rule_agent.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/analyze_correction_net.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/analyze_imitation_errors.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/analyze_predictors.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/baselines.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/collect_replay.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/correction_agent.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/correction_net.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/dnn_models.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/enhance_state_and_retrain.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/env_wrapper.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/eval_adaptive.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/eval_agents.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/eval_comprehensive.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/eval_correction_net_aligned.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/eval_fixed.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/eval_fragfeat_adaptive_lambda.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/eval_fragfeat_formal.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/eval_fragfeat_lambda_sweep.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/eval_fragfeat_quick.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/eval_fragmentation_mainline.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/eval_imitation.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/eval_online_residual_dqn.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/eval_online_residual_formal.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/eval_pruning.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/eval_robustness.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/eval_topk_selector.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/eval_yin_protocol_baselines.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/final_tables.md",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/fixed_trace.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/generate_imitation_data.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/mec_servers.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/online_residual_rl.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/pruned_rule_agent.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/rule_agent.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/run_ablation.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/run_load_sweep.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/run_pipeline.sh",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/state_builder.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/topk_selector_agent.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/traffic_generator.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/train_correction_net.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/train_imitation.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/train_online_residual_dqn.py",
+        "D legacy_predictor_topk_project/experiments/agent_mvp/yin_baselines.py",
+        "D legacy_predictor_topk_project/experiments/complex5_experiment_summary.md",
+        "D legacy_predictor_topk_project/experiments/complex5_offloading_results.json",
+        "D legacy_predictor_topk_project/experiments/complex5_offloading_results.md",
+        "D legacy_predictor_topk_project/experiments/complex5_offloading_results_120req.json",
+        "D legacy_predictor_topk_project/experiments/complex5_offloading_results_120req.md",
+        "D legacy_predictor_topk_project/experiments/complex5_offloading_results_12slots.json",
+        "D legacy_predictor_topk_project/experiments/complex5_offloading_results_12slots.md",
+        "D legacy_predictor_topk_project/experiments/complex5_v2_pressure_easy.json",
+        "D legacy_predictor_topk_project/experiments/complex5_v2_pressure_easy.md",
+        "D legacy_predictor_topk_project/experiments/complex5_v2_pressure_quick.json",
+        "D legacy_predictor_topk_project/experiments/complex5_v2_pressure_quick.md",
+        "D legacy_predictor_topk_project/experiments/complex5v2_bc_eval.json",
+        "D legacy_predictor_topk_project/experiments/complex5v2_bc_eval.md",
+        "D legacy_predictor_topk_project/experiments/complex5v2_debug_notes.md",
+        "D legacy_predictor_topk_project/experiments/data/.gitkeep",
+        "D legacy_predictor_topk_project/experiments/gate_diag_s123.json",
+        "D legacy_predictor_topk_project/experiments/gate_diag_s42.json",
+        "D legacy_predictor_topk_project/experiments/gate_diag_v2_s123.json",
+        "D legacy_predictor_topk_project/experiments/gate_diag_v2_s42.json",
+        "D legacy_predictor_topk_project/experiments/k5_candidate_count_s123.json",
+        "D legacy_predictor_topk_project/experiments/k5_candidate_count_s123.md",
+        "D legacy_predictor_topk_project/experiments/k5_candidate_count_s42.json",
+        "D legacy_predictor_topk_project/experiments/k5_candidate_count_s42.md",
+        "D legacy_predictor_topk_project/experiments/k5_candidate_mf_s42.json",
+        "D legacy_predictor_topk_project/experiments/k5_candidate_mf_s42.md",
+        "D legacy_predictor_topk_project/experiments/k5_default_s123.json",
+        "D legacy_predictor_topk_project/experiments/k5_default_s123.md",
+        "D legacy_predictor_topk_project/experiments/k5_default_s42.json",
+        "D legacy_predictor_topk_project/experiments/k5_default_s42.md",
+        "D legacy_predictor_topk_project/experiments/k5_r_feasibility_s123.json",
+        "D legacy_predictor_topk_project/experiments/k5_r_feasibility_s123.md",
+        "D legacy_predictor_topk_project/experiments/k5_r_feasibility_s42.json",
+        "D legacy_predictor_topk_project/experiments/k5_r_feasibility_s42.md",
+        "D legacy_predictor_topk_project/experiments/k5_typed_mf_s123.json",
+        "D legacy_predictor_topk_project/experiments/k5_typed_mf_s123.md",
+        "D legacy_predictor_topk_project/experiments/k5_v2_s123.json",
+        "D legacy_predictor_topk_project/experiments/k5_v2_s123.md",
+        "D legacy_predictor_topk_project/experiments/k5_v2_s42.json",
+        "D legacy_predictor_topk_project/experiments/k5_v2_s42.md",
+        "D legacy_predictor_topk_project/experiments/logs/.gitkeep",
+        "D legacy_predictor_topk_project/experiments/mean_field_and_r_feasibility_study.md",
+        "D legacy_predictor_topk_project/experiments/paper_compare/eval_dqn_compare_paper.py",
+        "D legacy_predictor_topk_project/experiments/paper_compare/eval_masked_run1_paper.py",
+        "D legacy_predictor_topk_project/experiments/paper_compare/paper_env.py",
+        "D legacy_predictor_topk_project/experiments/paper_compare/paper_requests.py",
+        "D legacy_predictor_topk_project/experiments/paper_compare/topologies/net1.txt",
+        "D legacy_predictor_topk_project/experiments/paper_compare/topologies/net2.txt",
+        "D legacy_predictor_topk_project/experiments/paper_compare/topologies/net3.txt",
+        "D legacy_predictor_topk_project/experiments/paper_compare/train_joint_predictor_paper.py",
+        "D legacy_predictor_topk_project/experiments/paper_compare/train_masked_run1_paper.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/calibration_methods.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/dataset.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/encoder.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/env.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/ksp_fast.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/main.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/main_cross_calibrated.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/main_cross_topology.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/main_finetune.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/main_large_scale.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/main_mixed_training.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/main_numpy.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/main_robustness.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/main_sklearn.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/main_usnet_quick.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/mapper.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/numpy_predictor.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/predictor.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/sklearn_predictor.py",
+        "D legacy_predictor_topk_project/experiments/predictor_mvp/train.py",
+        "D legacy_predictor_topk_project/experiments/results/.gitkeep",
+        "D legacy_predictor_topk_project/experiments/results/c_pressure_eval_best50/c_pressure_eval.json",
+        "D legacy_predictor_topk_project/experiments/results/c_pressure_eval_best50/c_pressure_eval.md",
+        "D legacy_predictor_topk_project/experiments/results/c_pressure_eval_final/c_pressure_eval.json",
+        "D legacy_predictor_topk_project/experiments/results/c_pressure_eval_final/c_pressure_eval.md",
+        "D legacy_predictor_topk_project/experiments/results/c_pressure_eval_prelim/c_pressure_eval.json",
+        "D legacy_predictor_topk_project/experiments/results/c_pressure_eval_prelim/c_pressure_eval.md",
+        "D legacy_predictor_topk_project/experiments/results/sanity/c_pressure_eval.json",
+        "D legacy_predictor_topk_project/experiments/results/sanity/c_pressure_eval.md",
+        "D legacy_predictor_topk_project/experiments/rfeas_round1_eval_nohup.log",
+        "D legacy_predictor_topk_project/experiments/rfeas_round1_training_nohup.log",
+        "D legacy_predictor_topk_project/experiments/rfeas_safe_round2_eval_nohup.log",
+        "D legacy_predictor_topk_project/experiments/rfeas_safe_round2_training_nohup.log",
+        "D legacy_predictor_topk_project/experiments/run_rfeas_round1_eval.sh",
+        "D legacy_predictor_topk_project/experiments/run_rfeas_round1_training.sh",
+        "D legacy_predictor_topk_project/experiments/run_rfeas_safe_round2_eval.sh",
+        "D legacy_predictor_topk_project/experiments/run_rfeas_safe_round2_training.sh",
+        "D legacy_predictor_topk_project/experiments/verify_3split_blocking.json",
+        "D legacy_predictor_topk_project/experiments/verify_3split_blocking.md",
+        "D legacy_predictor_topk_project/experiments/yin2024_sim/smoke_test.py",
+        "D legacy_predictor_topk_project/experiments/yin2024_sim/yin2024_env.py",
+        "D legacy_predictor_topk_project/experiments/yin2024_sim/yin2024_eval.py",
+        "D legacy_predictor_topk_project/experiments/yin2024_sim/yin2024_network.py",
+        "D legacy_predictor_topk_project/experiments/yin2024_sim/yin2024_requests.py",
+        "D legacy_predictor_topk_project/notebooks/.gitkeep",
+        "D legacy_predictor_topk_project/requirements.txt",
+        "D legacy_predictor_topk_project/src/README.md",
+        "D legacy_predictor_topk_project/src/__init__.py",
+        "D legacy_predictor_topk_project/src/agents/__init__.py",
+        "D legacy_predictor_topk_project/src/agents/correction_agent.py",
+        "D legacy_predictor_topk_project/src/agents/correction_net.py",
+        "D legacy_predictor_topk_project/src/agents/topk_selector_agent.py",
+        "D legacy_predictor_topk_project/src/baselines/__init__.py",
+        "D legacy_predictor_topk_project/src/baselines/heuristic_agents.py",
+        "D legacy_predictor_topk_project/src/compile_paper_results.py",
+        "D legacy_predictor_topk_project/src/run_paper_eval.py",
+        "D legacy_predictor_topk_project/tests/__init__.py",
+        "M sa_hmarl/README.md",
+        "M sa_hmarl/experiments/current_experiment_record_complete.md",
+        "M sa_hmarl/experiments/final_experiment_report_cn.md",
+        "M sa_hmarl/experiments/final_v12_ranker_recommendation.md",
+        "M sa_hmarl/experiments/xlron_topology_fairness_review_note.md",
+        "M sa_hmarl/experiments/xlron_topology_r_backend_comparison.md",
+        "M sa_hmarl/sa_hmarl/agents/c_agent.py",
+        "D sa_hmarl/sa_hmarl/agents/centralized_critic.py",
+        "D sa_hmarl/sa_hmarl/agents/joint_replay_buffer.py",
+        "M sa_hmarl/sa_hmarl/agents/ppo_agents.py",
+        "M sa_hmarl/sa_hmarl/agents/r_agent.py",
+        "M sa_hmarl/sa_hmarl/agents/r_frag_selector.py",
+        "M sa_hmarl/sa_hmarl/agents/r_future_aware_selector.py",
+        "M sa_hmarl/sa_hmarl/agents/r_ranker_policy.py",
+        "D sa_hmarl/sa_hmarl/agents/replay_buffer.py",
+        "M sa_hmarl/sa_hmarl/evaluation/c_topk_rerank.py",
+        "M sa_hmarl/sa_hmarl/evaluation/diagnose_r_bottleneck_hardpair_signals.py",
+        "D sa_hmarl/sa_hmarl/evaluation/eval_agent_c.py",
+        "D sa_hmarl/sa_hmarl/evaluation/eval_agent_r.py",
+        "M sa_hmarl/sa_hmarl/evaluation/eval_c_demand_potential_closed_loop.py",
+        "M sa_hmarl/sa_hmarl/evaluation/eval_c_post_decision_closed_loop.py",
+        "D sa_hmarl/sa_hmarl/evaluation/eval_joint.py",
+        "D sa_hmarl/sa_hmarl/evaluation/eval_joint_alternating.py",
+        "M sa_hmarl/sa_hmarl/evaluation/eval_joint_mappo.py",
+        "D sa_hmarl/sa_hmarl/evaluation/eval_joint_multitopo.py",
+        "M sa_hmarl/sa_hmarl/evaluation/eval_main_s100_system_comparison.py",
+        "D sa_hmarl/sa_hmarl/evaluation/eval_multitopo.py",
+        "M sa_hmarl/sa_hmarl/evaluation/eval_r_waiting_closed_loop.py",
+        "D sa_hmarl/sa_hmarl/evaluation/eval_unified.py",
+        "M sa_hmarl/sa_hmarl/evaluation/generate_r_counterfactual_ranking_dataset.py",
+        "M sa_hmarl/sa_hmarl/evaluation/generate_r_counterfactual_ranking_dataset_v2.py",
+        "M sa_hmarl/sa_hmarl/evaluation/generate_r_post_decision_dataset.py",
+        "M sa_hmarl/sa_hmarl/evaluation/offloading_baselines.py",
+        "M sa_hmarl/sa_hmarl/evaluation/r_ranker_features.py",
+        "M sa_hmarl/sa_hmarl/experiments/c_pressure_eval.py",
+        "D sa_hmarl/sa_hmarl/experiments/run_final_comparison.py",
+        "D sa_hmarl/sa_hmarl/experiments/run_joint_ablation.py",
+        "D sa_hmarl/sa_hmarl/experiments/run_nsfnet_extended_reg_sweep.py",
+        "D sa_hmarl/sa_hmarl/training/train_agent_c.py",
+        "D sa_hmarl/sa_hmarl/training/train_agent_c_ablation.py",
+        "D sa_hmarl/sa_hmarl/training/train_agent_c_multitopo.py",
+        "M sa_hmarl/sa_hmarl/training/train_agent_c_with_frozen_r.py",
+        "D sa_hmarl/sa_hmarl/training/train_agent_c_zero_spectrum.py",
+        "D sa_hmarl/sa_hmarl/training/train_agent_r.py",
+        "D sa_hmarl/sa_hmarl/training/train_agent_r_multitopo.py",
+        "D sa_hmarl/sa_hmarl/training/train_joint_alternating.py",
+        "D sa_hmarl/sa_hmarl/training/train_joint_ctde.py",
+        "M sa_hmarl/sa_hmarl/training/train_joint_mappo.py",
+        "M sa_hmarl/sa_hmarl/training/train_joint_mappo_dual_critic.py",
+        "D sa_hmarl/sa_hmarl/training/train_joint_multitopo_alternating.py",
+        "M sa_hmarl/sa_hmarl/training/train_r_counterfactual_ranking.py",
+        "D sa_hmarl/scripts/plot_joint_results.py",
+        "D sa_hmarl/scripts/run_capacity_sensitivity.py",
+        "D sa_hmarl/scripts/run_cross_topology.py",
+        "D sa_hmarl/scripts/run_load_sensitivity.py",
+        "D sa_hmarl/scripts/scan_pressure_metro24_bottleneck.py",
+        "D sa_hmarl/tests/test_agent_c.py",
+        "D sa_hmarl/tests/test_agent_r.py",
+        "D sa_hmarl/tests/test_centralized_critic.py",
+        "D sa_hmarl/tests/test_joint_alternating.py",
+        "D sa_hmarl/tests/test_joint_replay_buffer.py",
+        "M sa_hmarl/tests/test_observation_builder.py",
+        "?? sa_hmarl/checkpoints/README.md",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_default_best.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_default_last.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_default_step2_20260704_best.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_default_step2_20260704_last.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_default_step3_mixedstress_20260704_best.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_default_step3_mixedstress_20260704_last.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_overload_aware_best.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_overload_aware_last.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_overload_aware_step2_20260704_best.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_overload_aware_step2_20260704_last.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_overload_aware_step3_mixedstress_20260704_best.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_overload_aware_step3_mixedstress_20260704_last.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_overload_aware_step3_test_best.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_overload_aware_step3_test_last.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_best.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_last.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_step2_20260704_best.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_step2_20260704_last.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_step3_mixedstress_20260704_best.pt",
+        "?? sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_step3_mixedstress_20260704_last.pt",
+        "?? sa_hmarl/checkpoints/agent_c_overload_aware_smoke_best.pt",
+        "?? sa_hmarl/checkpoints/agent_c_overload_aware_smoke_last.pt",
+        "?? sa_hmarl/checkpoints/r_counterfactual_ranking_postdec_topk_k50_s100/",
+        "?? sa_hmarl/checkpoints/r_counterfactual_ranking_postdec_topk_k8_s100/",
+        "?? sa_hmarl/checkpoints/r_counterfactual_ranking_postdec_topk_smoke/",
+        "?? sa_hmarl/checkpoints/r_counterfactual_ranking_s100_v1_2_rankercont_mlp_v1_h5/",
+        "?? sa_hmarl/checkpoints/r_counterfactual_ranking_xlron_cost239_v1_2_retrain/",
+        "?? sa_hmarl/checkpoints/r_counterfactual_ranking_xlron_cost239_v1_2_retrain_v2/",
+        "?? sa_hmarl/datasets/README.md",
+        "?? sa_hmarl/datasets/future_ksp_consistency_smoke/",
+        "?? sa_hmarl/datasets/r_counterfactual_ranking_postdec_topk_k50_s100/",
+        "?? sa_hmarl/datasets/r_counterfactual_ranking_postdec_topk_k8_s100/",
+        "?? sa_hmarl/datasets/r_counterfactual_ranking_postdec_topk_smoke/",
+        "?? sa_hmarl/datasets/r_counterfactual_ranking_s100_v12_k50_rankercont_hops_smoke/",
+        "?? sa_hmarl/datasets/r_counterfactual_ranking_s100_v1_2_rankercont_v1_h5/",
+        "?? sa_hmarl/datasets/r_counterfactual_ranking_xlron_cost239_v1_2_retrain/",
+        "?? sa_hmarl/datasets/r_counterfactual_ranking_xlron_cost239_v1_2_retrain_v2/",
+        "?? sa_hmarl/experiments/CANONICAL_NAMES.md",
+        "?? sa_hmarl/experiments/README.md",
+        "?? sa_hmarl/experiments/analyze_p0_smoke.py",
+        "?? sa_hmarl/experiments/cost239_c_feature_mode_comparison_report.md",
+        "?? sa_hmarl/experiments/cost239_c_step2_feature_mode_rerun_report.json",
+        "?? sa_hmarl/experiments/cost239_c_step2_feature_mode_rerun_report.md",
+        "?? sa_hmarl/experiments/cost239_cside_overload_diagnostic_full.json",
+        "?? sa_hmarl/experiments/cost239_cside_overload_diagnostic_full.md",
+        "?? sa_hmarl/experiments/cost239_default_heavy.json",
+        "?? sa_hmarl/experiments/cost239_default_heavy.log",
+        "?? sa_hmarl/experiments/cost239_default_heavy.md",
+        "?? sa_hmarl/experiments/cost239_default_last_heavy.json",
+        "?? sa_hmarl/experiments/cost239_default_last_heavy.log",
+        "?? sa_hmarl/experiments/cost239_default_last_heavy.md",
+        "?? sa_hmarl/experiments/cost239_default_last_medium.json",
+        "?? sa_hmarl/experiments/cost239_default_last_medium.log",
+        "?? sa_hmarl/experiments/cost239_default_last_medium.md",
+        "?? sa_hmarl/experiments/cost239_default_last_standard.json",
+        "?? sa_hmarl/experiments/cost239_default_last_standard.log",
+        "?? sa_hmarl/experiments/cost239_default_last_standard.md",
+        "?? sa_hmarl/experiments/cost239_default_medium.json",
+        "?? sa_hmarl/experiments/cost239_default_medium.log",
+        "?? sa_hmarl/experiments/cost239_default_medium.md",
+        "?? sa_hmarl/experiments/cost239_default_standard.json",
+        "?? sa_hmarl/experiments/cost239_default_standard.log",
+        "?? sa_hmarl/experiments/cost239_default_standard.md",
+        "?? sa_hmarl/experiments/cost239_default_step2_20260704_best_heavy.json",
+        "?? sa_hmarl/experiments/cost239_default_step2_20260704_best_heavy.log",
+        "?? sa_hmarl/experiments/cost239_default_step2_20260704_best_heavy.md",
+        "?? sa_hmarl/experiments/cost239_default_step2_20260704_best_medium.json",
+        "?? sa_hmarl/experiments/cost239_default_step2_20260704_best_medium.log",
+        "?? sa_hmarl/experiments/cost239_default_step2_20260704_best_medium.md",
+        "?? sa_hmarl/experiments/cost239_default_step2_20260704_best_standard.json",
+        "?? sa_hmarl/experiments/cost239_default_step2_20260704_best_standard.log",
+        "?? sa_hmarl/experiments/cost239_default_step2_20260704_best_standard.md",
+        "?? sa_hmarl/experiments/cost239_default_step2_20260704_last_heavy.json",
+        "?? sa_hmarl/experiments/cost239_default_step2_20260704_last_heavy.log",
+        "?? sa_hmarl/experiments/cost239_default_step2_20260704_last_heavy.md",
+        "?? sa_hmarl/experiments/cost239_default_step2_20260704_last_medium.json",
+        "?? sa_hmarl/experiments/cost239_default_step2_20260704_last_medium.log",
+        "?? sa_hmarl/experiments/cost239_default_step2_20260704_last_medium.md",
+        "?? sa_hmarl/experiments/cost239_default_step2_20260704_last_standard.json",
+        "?? sa_hmarl/experiments/cost239_default_step2_20260704_last_standard.log",
+        "?? sa_hmarl/experiments/cost239_default_step2_20260704_last_standard.md",
+        "?? sa_hmarl/experiments/cost239_default_step3_mixedstress_20260704_best_heavy.json",
+        "?? sa_hmarl/experiments/cost239_default_step3_mixedstress_20260704_best_heavy.log",
+        "?? sa_hmarl/experiments/cost239_default_step3_mixedstress_20260704_best_heavy.md",
+        "?? sa_hmarl/experiments/cost239_default_step3_mixedstress_20260704_best_medium.json",
+        "?? sa_hmarl/experiments/cost239_default_step3_mixedstress_20260704_best_medium.log",
+        "?? sa_hmarl/experiments/cost239_default_step3_mixedstress_20260704_best_medium.md",
+        "?? sa_hmarl/experiments/cost239_default_step3_mixedstress_20260704_best_standard.json",
+        "?? sa_hmarl/experiments/cost239_default_step3_mixedstress_20260704_best_standard.log",
+        "?? sa_hmarl/experiments/cost239_default_step3_mixedstress_20260704_best_standard.md",
+        "?? sa_hmarl/experiments/cost239_default_step3_mixedstress_20260704_last_heavy.json",
+        "?? sa_hmarl/experiments/cost239_default_step3_mixedstress_20260704_last_heavy.log",
+        "?? sa_hmarl/experiments/cost239_default_step3_mixedstress_20260704_last_heavy.md",
+        "?? sa_hmarl/experiments/cost239_default_step3_mixedstress_20260704_last_medium.json",
+        "?? sa_hmarl/experiments/cost239_default_step3_mixedstress_20260704_last_medium.log",
+        "?? sa_hmarl/experiments/cost239_default_step3_mixedstress_20260704_last_medium.md",
+        "?? sa_hmarl/experiments/cost239_default_step3_mixedstress_20260704_last_standard.json",
+        "?? sa_hmarl/experiments/cost239_default_step3_mixedstress_20260704_last_standard.log",
+        "?? sa_hmarl/experiments/cost239_default_step3_mixedstress_20260704_last_standard.md",
+        "?? sa_hmarl/experiments/cost239_high_pressure_continuation_probe.json",
+        "?? sa_hmarl/experiments/cost239_high_pressure_continuation_probe.md",
+        "?? sa_hmarl/experiments/cost239_overload_aware_heavy.json",
+        "?? sa_hmarl/experiments/cost239_overload_aware_heavy.log",
+        "?? sa_hmarl/experiments/cost239_overload_aware_heavy.md",
+        "?? sa_hmarl/experiments/cost239_overload_aware_last_heavy.json",
+        "?? sa_hmarl/experiments/cost239_overload_aware_last_heavy.log",
+        "?? sa_hmarl/experiments/cost239_overload_aware_last_heavy.md",
+        "?? sa_hmarl/experiments/cost239_overload_aware_last_medium.json",
+        "?? sa_hmarl/experiments/cost239_overload_aware_last_medium.log",
+        "?? sa_hmarl/experiments/cost239_overload_aware_last_medium.md",
+        "?? sa_hmarl/experiments/cost239_overload_aware_last_standard.json",
+        "?? sa_hmarl/experiments/cost239_overload_aware_last_standard.log",
+        "?? sa_hmarl/experiments/cost239_overload_aware_last_standard.md",
+        "?? sa_hmarl/experiments/cost239_overload_aware_medium.json",
+        "?? sa_hmarl/experiments/cost239_overload_aware_medium.log",
+        "?? sa_hmarl/experiments/cost239_overload_aware_medium.md",
+        "?? sa_hmarl/experiments/cost239_overload_aware_standard.json",
+        "?? sa_hmarl/experiments/cost239_overload_aware_standard.log",
+        "?? sa_hmarl/experiments/cost239_overload_aware_standard.md",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step2_20260704_best_heavy.json",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step2_20260704_best_heavy.log",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step2_20260704_best_heavy.md",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step2_20260704_best_medium.json",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step2_20260704_best_medium.log",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step2_20260704_best_medium.md",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step2_20260704_best_standard.json",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step2_20260704_best_standard.log",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step2_20260704_best_standard.md",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step2_20260704_last_heavy.json",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step2_20260704_last_heavy.log",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step2_20260704_last_heavy.md",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step2_20260704_last_medium.json",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step2_20260704_last_medium.log",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step2_20260704_last_medium.md",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step2_20260704_last_standard.json",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step2_20260704_last_standard.log",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step2_20260704_last_standard.md",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step3_mixedstress_20260704_best_heavy.json",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step3_mixedstress_20260704_best_heavy.log",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step3_mixedstress_20260704_best_heavy.md",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step3_mixedstress_20260704_best_medium.json",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step3_mixedstress_20260704_best_medium.log",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step3_mixedstress_20260704_best_medium.md",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step3_mixedstress_20260704_best_standard.json",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step3_mixedstress_20260704_best_standard.log",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step3_mixedstress_20260704_best_standard.md",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step3_mixedstress_20260704_last_heavy.json",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step3_mixedstress_20260704_last_heavy.log",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step3_mixedstress_20260704_last_heavy.md",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step3_mixedstress_20260704_last_medium.json",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step3_mixedstress_20260704_last_medium.log",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step3_mixedstress_20260704_last_medium.md",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step3_mixedstress_20260704_last_standard.json",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step3_mixedstress_20260704_last_standard.log",
+        "?? sa_hmarl/experiments/cost239_overload_aware_step3_mixedstress_20260704_last_standard.md",
+        "?? sa_hmarl/experiments/cost239_paper_style_heavy_continuation_probe.json",
+        "?? sa_hmarl/experiments/cost239_paper_style_heavy_continuation_probe.md",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_heavy.json",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_heavy.log",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_heavy.md",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_last_heavy.json",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_last_heavy.log",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_last_heavy.md",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_last_medium.json",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_last_medium.log",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_last_medium.md",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_last_standard.json",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_last_standard.log",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_last_standard.md",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_medium.json",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_medium.log",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_medium.md",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_standard.json",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_standard.log",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_standard.md",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step2_20260704_best_heavy.json",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step2_20260704_best_heavy.log",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step2_20260704_best_heavy.md",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step2_20260704_best_medium.json",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step2_20260704_best_medium.log",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step2_20260704_best_medium.md",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step2_20260704_best_standard.json",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step2_20260704_best_standard.log",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step2_20260704_best_standard.md",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step2_20260704_last_heavy.json",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step2_20260704_last_heavy.log",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step2_20260704_last_heavy.md",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step2_20260704_last_medium.json",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step2_20260704_last_medium.log",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step2_20260704_last_medium.md",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step2_20260704_last_standard.json",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step2_20260704_last_standard.log",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step2_20260704_last_standard.md",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step3_mixedstress_20260704_best_heavy.json",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step3_mixedstress_20260704_best_heavy.log",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step3_mixedstress_20260704_best_heavy.md",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step3_mixedstress_20260704_best_medium.json",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step3_mixedstress_20260704_best_medium.log",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step3_mixedstress_20260704_best_medium.md",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step3_mixedstress_20260704_best_standard.json",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step3_mixedstress_20260704_best_standard.log",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step3_mixedstress_20260704_best_standard.md",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step3_mixedstress_20260704_last_heavy.json",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step3_mixedstress_20260704_last_heavy.log",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step3_mixedstress_20260704_last_heavy.md",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step3_mixedstress_20260704_last_medium.json",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step3_mixedstress_20260704_last_medium.log",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step3_mixedstress_20260704_last_medium.md",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step3_mixedstress_20260704_last_standard.json",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step3_mixedstress_20260704_last_standard.log",
+        "?? sa_hmarl/experiments/cost239_r_feasibility_safe_step3_mixedstress_20260704_last_standard.md",
+        "?? sa_hmarl/experiments/cost239_v13_vs_kspff_heavy_stress.json",
+        "?? sa_hmarl/experiments/cost239_v13_vs_kspff_heavy_stress.md",
+        "?? sa_hmarl/experiments/cost239_v13_vs_kspff_medium_stress.json",
+        "?? sa_hmarl/experiments/cost239_v13_vs_kspff_medium_stress.md",
+        "?? sa_hmarl/experiments/cost239_v13_vs_kspff_mid_stress.json",
+        "?? sa_hmarl/experiments/cost239_v13_vs_kspff_mid_stress.md",
+        "?? sa_hmarl/experiments/cside_step3_v13_system_synthesis.json",
+        "?? sa_hmarl/experiments/cside_step3_v13_system_synthesis.md",
+        "?? sa_hmarl/experiments/deeprmsa_k50_hop_fair_comparison.json",
+        "?? sa_hmarl/experiments/deeprmsa_k50_hop_fair_comparison.md",
+        "?? sa_hmarl/experiments/deeprmsa_k50_hop_fairness_audit.md",
+        "?? sa_hmarl/experiments/eval_c_cost239_stress.sh",
+        "?? sa_hmarl/experiments/figures/sa_hmarl_architecture.svg",
+        "?? sa_hmarl/experiments/heuristic_c_v13_vs_kspff/",
+        "?? sa_hmarl/experiments/imported_v13_vs_kspff_cost239.json",
+        "?? sa_hmarl/experiments/imported_v13_vs_kspff_cost239.md",
+        "?? sa_hmarl/experiments/imported_v13_vs_kspff_german17.json",
+        "?? sa_hmarl/experiments/imported_v13_vs_kspff_german17.md",
+        "?? sa_hmarl/experiments/imported_v13_vs_kspff_jpn48.json",
+        "?? sa_hmarl/experiments/imported_v13_vs_kspff_jpn48.md",
+        "?? sa_hmarl/experiments/imported_v13_vs_kspff_nsfnet.json",
+        "?? sa_hmarl/experiments/imported_v13_vs_kspff_nsfnet.md",
+        "?? sa_hmarl/experiments/jpn48_candidate_latency_sweep/",
+        "?? sa_hmarl/experiments/jpn48_candidate_latency_sweep_full.json",
+        "?? sa_hmarl/experiments/jpn48_candidate_latency_sweep_full.md",
+        "?? sa_hmarl/experiments/jpn48_ppo_r_proposer_full.json",
+        "?? sa_hmarl/experiments/jpn48_ppo_r_proposer_full.md",
+        "?? sa_hmarl/experiments/jpn48_v12_k50_validation.json",
+        "?? sa_hmarl/experiments/jpn48_v12_k50_validation.md",
+        "?? sa_hmarl/experiments/ksp_k5_vs_k50_overload_audit.json",
+        "?? sa_hmarl/experiments/ksp_k5_vs_k50_overload_audit.md",
+        "?? sa_hmarl/experiments/long_horizon_benchmark/",
+        "?? sa_hmarl/experiments/main_s100_ksp_ff_k50_hops_strict_fixrerun.json",
+        "?? sa_hmarl/experiments/main_s100_ksp_ff_k50_hops_strict_fixrerun.md",
+        "?? sa_hmarl/experiments/main_s100_mixed32_postdec_german17.json",
+        "?? sa_hmarl/experiments/main_s100_mixed32_postdec_german17.md",
+        "?? sa_hmarl/experiments/main_s100_mixed32_postdec_jpn48.json",
+        "?? sa_hmarl/experiments/main_s100_mixed32_postdec_jpn48.md",
+        "?? sa_hmarl/experiments/main_s100_mixed32_postdec_snap24.json",
+        "?? sa_hmarl/experiments/main_s100_mixed32_postdec_snap24.md",
+        "?? sa_hmarl/experiments/main_s100_postdec_comparison.json",
+        "?? sa_hmarl/experiments/main_s100_postdec_comparison.md",
+        "?? sa_hmarl/experiments/main_s100_postdec_topk50_trained.json",
+        "?? sa_hmarl/experiments/main_s100_postdec_topk50_trained.md",
+        "?? sa_hmarl/experiments/main_s100_postdec_topk50_zeroshot.json",
+        "?? sa_hmarl/experiments/main_s100_postdec_topk50_zeroshot.md",
+        "?? sa_hmarl/experiments/main_s100_postdec_trained_comparison.json",
+        "?? sa_hmarl/experiments/main_s100_postdec_trained_comparison.md",
+        "?? sa_hmarl/experiments/main_s100_rankercont_mlp_v1_h5_v12.json",
+        "?? sa_hmarl/experiments/main_s100_rankercont_mlp_v1_h5_v12.md",
+        "?? sa_hmarl/experiments/main_s100_v12_k50_hops_diagnostic_fixrerun.json",
+        "?? sa_hmarl/experiments/main_s100_v12_k50_hops_diagnostic_fixrerun.md",
+        "?? sa_hmarl/experiments/p0_cost239_smoke/",
+        "?? sa_hmarl/experiments/paper_revisions/",
+        "?? sa_hmarl/experiments/pilot2_xlron_german17_ecmax3.0.log",
+        "?? sa_hmarl/experiments/pilot2_xlron_german17_ecmax3.0_kspff.json",
+        "?? sa_hmarl/experiments/pilot2_xlron_german17_ecmax3.0_kspff.md",
+        "?? sa_hmarl/experiments/pilot2_xlron_german17_ecmax3.2.log",
+        "?? sa_hmarl/experiments/pilot2_xlron_german17_ecmax3.2_kspff.json",
+        "?? sa_hmarl/experiments/pilot2_xlron_german17_ecmax3.2_kspff.md",
+        "?? sa_hmarl/experiments/pilot2_xlron_german17_ecmax3.5.log",
+        "?? sa_hmarl/experiments/pilot2_xlron_german17_ecmax3.5_kspff.json",
+        "?? sa_hmarl/experiments/pilot2_xlron_german17_ecmax3.5_kspff.md",
+        "?? sa_hmarl/experiments/pilot2_xlron_jpn48_ecmax4.0.log",
+        "?? sa_hmarl/experiments/pilot2_xlron_jpn48_ecmax4.0_kspff.json",
+        "?? sa_hmarl/experiments/pilot2_xlron_jpn48_ecmax4.0_kspff.md",
+        "?? sa_hmarl/experiments/pilot2_xlron_jpn48_ecmax4.5.log",
+        "?? sa_hmarl/experiments/pilot2_xlron_jpn48_ecmax4.5_kspff.json",
+        "?? sa_hmarl/experiments/pilot2_xlron_jpn48_ecmax4.5_kspff.md",
+        "?? sa_hmarl/experiments/pilot2_xlron_jpn48_ecmax5.0.log",
+        "?? sa_hmarl/experiments/pilot2_xlron_jpn48_ecmax5.0_kspff.json",
+        "?? sa_hmarl/experiments/pilot2_xlron_jpn48_ecmax5.0_kspff.md",
+        "?? sa_hmarl/experiments/pilot2_xlron_jpn48_ecmax5.2.log",
+        "?? sa_hmarl/experiments/pilot2_xlron_jpn48_ecmax5.2_kspff.json",
+        "?? sa_hmarl/experiments/pilot2_xlron_jpn48_ecmax5.2_kspff.md",
+        "?? sa_hmarl/experiments/pilot2_xlron_nsfnet_deeprmsa_ecmax3.5.log",
+        "?? sa_hmarl/experiments/pilot2_xlron_nsfnet_deeprmsa_ecmax3.5_kspff.json",
+        "?? sa_hmarl/experiments/pilot2_xlron_nsfnet_deeprmsa_ecmax3.5_kspff.md",
+        "?? sa_hmarl/experiments/pilot2_xlron_nsfnet_deeprmsa_ecmax4.0.log",
+        "?? sa_hmarl/experiments/pilot2_xlron_nsfnet_deeprmsa_ecmax4.0_kspff.json",
+        "?? sa_hmarl/experiments/pilot2_xlron_nsfnet_deeprmsa_ecmax4.0_kspff.md",
+        "?? sa_hmarl/experiments/pilot2_xlron_nsfnet_deeprmsa_ecmax4.5.log",
+        "?? sa_hmarl/experiments/pilot2_xlron_nsfnet_deeprmsa_ecmax4.5_kspff.json",
+        "?? sa_hmarl/experiments/pilot2_xlron_nsfnet_deeprmsa_ecmax4.5_kspff.md",
+        "?? sa_hmarl/experiments/pilot_cost239_det.json",
+        "?? sa_hmarl/experiments/pilot_cost239_det.md",
+        "?? sa_hmarl/experiments/pilot_cost239_ecmax1.6_fast.log",
+        "?? sa_hmarl/experiments/pilot_cost239_ecmax1.6_fast_kspff.json",
+        "?? sa_hmarl/experiments/pilot_cost239_ecmax1.6_fast_kspff.md",
+        "?? sa_hmarl/experiments/pilot_cost239_ecmax1.8.log",
+        "?? sa_hmarl/experiments/pilot_cost239_ecmax2.0.log",
+        "?? sa_hmarl/experiments/pilot_cost239_ecmax2.0_fast.log",
+        "?? sa_hmarl/experiments/pilot_cost239_ecmax2.0_fast_kspff.json",
+        "?? sa_hmarl/experiments/pilot_cost239_ecmax2.0_fast_kspff.md",
+        "?? sa_hmarl/experiments/pilot_cost239_ecmax2.2.log",
+        "?? sa_hmarl/experiments/pilot_cost239_ecmax2.4.log",
+        "?? sa_hmarl/experiments/pilot_cost239_ecmax2.5_fast.log",
+        "?? sa_hmarl/experiments/pilot_cost239_ecmax2.5_fast_kspff.json",
+        "?? sa_hmarl/experiments/pilot_cost239_ecmax2.5_fast_kspff.md",
+        "?? sa_hmarl/experiments/pilot_cost239_ecmax3.0_fast.log",
+        "?? sa_hmarl/experiments/pilot_cost239_ecmax3.0_fast_kspff.json",
+        "?? sa_hmarl/experiments/pilot_cost239_ecmax3.0_fast_kspff.md",
+        "?? sa_hmarl/experiments/pilot_cost239_lowcost2_kspff.json",
+        "?? sa_hmarl/experiments/pilot_cost239_lowcost2_kspff.md",
+        "?? sa_hmarl/experiments/pilot_cost239_lowcost_kspff.json",
+        "?? sa_hmarl/experiments/pilot_cost239_lowcost_kspff.md",
+        "?? sa_hmarl/experiments/pilot_cost239_poisson_ecmax2.0_fast.log",
+        "?? sa_hmarl/experiments/pilot_cost239_poisson_ecmax2.0_fast_kspff.json",
+        "?? sa_hmarl/experiments/pilot_cost239_poisson_ecmax2.0_fast_kspff.md",
+        "?? sa_hmarl/experiments/pilot_cost239_poisson_ecmax2.2_fast.log",
+        "?? sa_hmarl/experiments/pilot_cost239_poisson_ecmax2.2_fast_kspff.json",
+        "?? sa_hmarl/experiments/pilot_cost239_poisson_ecmax2.2_fast_kspff.md",
+        "?? sa_hmarl/experiments/pilot_xlron_cost239_ptrnet_real_ecmax2.0.log",
+        "?? sa_hmarl/experiments/pilot_xlron_cost239_ptrnet_real_ecmax2.0_kspff.json",
+        "?? sa_hmarl/experiments/pilot_xlron_cost239_ptrnet_real_ecmax2.0_kspff.md",
+        "?? sa_hmarl/experiments/pilot_xlron_cost239_ptrnet_real_ecmax2.2.log",
+        "?? sa_hmarl/experiments/pilot_xlron_cost239_ptrnet_real_ecmax2.2_kspff.json",
+        "?? sa_hmarl/experiments/pilot_xlron_cost239_ptrnet_real_ecmax2.2_kspff.md",
+        "?? sa_hmarl/experiments/pilot_xlron_cost239_ptrnet_real_ecmax2.4.log",
+        "?? sa_hmarl/experiments/pilot_xlron_cost239_ptrnet_real_ecmax2.4_kspff.json",
+        "?? sa_hmarl/experiments/pilot_xlron_cost239_ptrnet_real_ecmax2.4_kspff.md",
+        "?? sa_hmarl/experiments/pilot_xlron_german17_ecmax2.2.log",
+        "?? sa_hmarl/experiments/pilot_xlron_german17_ecmax2.2_kspff.json",
+        "?? sa_hmarl/experiments/pilot_xlron_german17_ecmax2.2_kspff.md",
+        "?? sa_hmarl/experiments/pilot_xlron_german17_ecmax2.5.log",
+        "?? sa_hmarl/experiments/pilot_xlron_german17_ecmax2.5_kspff.json",
+        "?? sa_hmarl/experiments/pilot_xlron_german17_ecmax2.5_kspff.md",
+        "?? sa_hmarl/experiments/pilot_xlron_german17_ecmax2.8.log",
+        "?? sa_hmarl/experiments/pilot_xlron_german17_ecmax2.8_kspff.json",
+        "?? sa_hmarl/experiments/pilot_xlron_german17_ecmax2.8_kspff.md",
+        "?? sa_hmarl/experiments/pilot_xlron_jpn48_ecmax3.0.log",
+        "?? sa_hmarl/experiments/pilot_xlron_jpn48_ecmax3.0_kspff.json",
+        "?? sa_hmarl/experiments/pilot_xlron_jpn48_ecmax3.0_kspff.md",
+        "?? sa_hmarl/experiments/pilot_xlron_jpn48_ecmax3.5.log",
+        "?? sa_hmarl/experiments/pilot_xlron_jpn48_ecmax3.5_kspff.json",
+        "?? sa_hmarl/experiments/pilot_xlron_jpn48_ecmax3.5_kspff.md",
+        "?? sa_hmarl/experiments/pilot_xlron_jpn48_ecmax4.0.log",
+        "?? sa_hmarl/experiments/pilot_xlron_jpn48_ecmax4.0_kspff.json",
+        "?? sa_hmarl/experiments/pilot_xlron_jpn48_ecmax4.0_kspff.md",
+        "?? sa_hmarl/experiments/pilot_xlron_nsfnet_deeprmsa_ecmax2.4.log",
+        "?? sa_hmarl/experiments/pilot_xlron_nsfnet_deeprmsa_ecmax2.4_kspff.json",
+        "?? sa_hmarl/experiments/pilot_xlron_nsfnet_deeprmsa_ecmax2.4_kspff.md",
+        "?? sa_hmarl/experiments/pilot_xlron_nsfnet_deeprmsa_ecmax2.7.log",
+        "?? sa_hmarl/experiments/pilot_xlron_nsfnet_deeprmsa_ecmax2.7_kspff.json",
+        "?? sa_hmarl/experiments/pilot_xlron_nsfnet_deeprmsa_ecmax2.7_kspff.md",
+        "?? sa_hmarl/experiments/pilot_xlron_nsfnet_deeprmsa_ecmax3.0.log",
+        "?? sa_hmarl/experiments/pilot_xlron_nsfnet_deeprmsa_ecmax3.0_kspff.json",
+        "?? sa_hmarl/experiments/pilot_xlron_nsfnet_deeprmsa_ecmax3.0_kspff.md",
+        "?? sa_hmarl/experiments/ppo_r_probe_minimal.json",
+        "?? sa_hmarl/experiments/ppo_r_probe_minimal.md",
+        "?? sa_hmarl/experiments/ppo_r_proposer_s100_full.json",
+        "?? sa_hmarl/experiments/ppo_r_proposer_s100_full.md",
+        "?? sa_hmarl/experiments/r_iterative_refinement_cost239/",
+        "?? sa_hmarl/experiments/run_p0_cost239_smoke.sh",
+        "?? sa_hmarl/experiments/smoke_mixed32_postdec.json",
+        "?? sa_hmarl/experiments/smoke_mixed32_postdec.md",
+        "?? sa_hmarl/experiments/smoke_postdec.json",
+        "?? sa_hmarl/experiments/smoke_postdec.md",
+        "?? sa_hmarl/experiments/train_cost239_default.log",
+        "?? sa_hmarl/experiments/train_cost239_default_step2_20260704.log",
+        "?? sa_hmarl/experiments/train_cost239_default_step3_mixedstress_20260704.log",
+        "?? sa_hmarl/experiments/train_cost239_overload_aware.log",
+        "?? sa_hmarl/experiments/train_cost239_overload_aware_step2_20260704.log",
+        "?? sa_hmarl/experiments/train_cost239_overload_aware_step3_mixedstress_20260704.log",
+        "?? sa_hmarl/experiments/train_cost239_r_feasibility_safe.log",
+        "?? sa_hmarl/experiments/train_cost239_r_feasibility_safe_step2_20260704.log",
+        "?? sa_hmarl/experiments/train_cost239_r_feasibility_safe_step3_mixedstress_20260704.log",
+        "?? sa_hmarl/experiments/v12_future_ksp_consistency_note.md",
+        "?? sa_hmarl/experiments/v12_high_pressure_pilot1.json",
+        "?? sa_hmarl/experiments/v12_high_pressure_pilot1.md",
+        "?? sa_hmarl/experiments/v12_high_pressure_pilot2.json",
+        "?? sa_hmarl/experiments/v12_high_pressure_pilot2.md",
+        "?? sa_hmarl/experiments/v12_high_pressure_pilot3.json",
+        "?? sa_hmarl/experiments/v12_high_pressure_pilot3.md",
+        "?? sa_hmarl/experiments/v12_high_pressure_probe.json",
+        "?? sa_hmarl/experiments/v12_high_pressure_probe.md",
+        "?? sa_hmarl/experiments/v12_k50_candidate_coverage_probe.json",
+        "?? sa_hmarl/experiments/v12_k50_candidate_coverage_probe.md",
+        "?? sa_hmarl/experiments/v12_k50_candidate_coverage_probe_tiny.json",
+        "?? sa_hmarl/experiments/v12_k50_candidate_coverage_probe_tiny.md",
+        "?? sa_hmarl/experiments/v12_k5_hops_cost239_fair.json",
+        "?? sa_hmarl/experiments/v12_k5_hops_cost239_fair.md",
+        "?? sa_hmarl/experiments/v12_p0_p1_validation_summary.md",
+        "?? sa_hmarl/experiments/v12_topology_typing_diagnostic.md",
+        "?? sa_hmarl/experiments/v13_full_direction_summary.md",
+        "?? sa_hmarl/experiments/v13_k5_hops_cost239_fair.json",
+        "?? sa_hmarl/experiments/v13_k5_hops_cost239_fair.md",
+        "?? sa_hmarl/experiments/xlron_cost239_bc_ppor_compare.json",
+        "?? sa_hmarl/experiments/xlron_cost239_bc_ppor_compare.md",
+        "?? sa_hmarl/experiments/xlron_cost239_old_ppor_baseline.json",
+        "?? sa_hmarl/experiments/xlron_cost239_old_ppor_baseline.md",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_heavy.json",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_heavy.md",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_light.json",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_light.md",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_mid.json",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_mid.md",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_pilot_heavy.json",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_pilot_heavy.md",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_pilot_light.json",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_pilot_light.md",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_pilot_light2.json",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_pilot_light2.md",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_pilot_mid.json",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_pilot_mid.md",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_pilot_mid2.json",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_pilot_mid2.md",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_pilot_mid3.json",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_pilot_mid3.md",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_pilot_size.json",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_pilot_size.md",
+        "?? sa_hmarl/experiments/xlron_cost239_paper_style_summary.md",
+        "?? sa_hmarl/experiments/xlron_cost239_s100_r_compare_fixrerun.json",
+        "?? sa_hmarl/experiments/xlron_cost239_s100_r_compare_fixrerun.md",
+        "?? sa_hmarl/experiments/xlron_cost239_s100_r_compare_retrain_v2.json",
+        "?? sa_hmarl/experiments/xlron_cost239_s100_r_compare_retrain_v2.md",
+        "?? sa_hmarl/experiments/xlron_cost239_s100_r_retrained_compare.json",
+        "?? sa_hmarl/experiments/xlron_cost239_s100_r_retrained_compare.md",
+        "?? sa_hmarl/experiments/xlron_german17_s100_r_compare_fixrerun.json",
+        "?? sa_hmarl/experiments/xlron_german17_s100_r_compare_fixrerun.md",
+        "?? sa_hmarl/experiments/xlron_jpn48_s100_r_compare_fixrerun.json",
+        "?? sa_hmarl/experiments/xlron_jpn48_s100_r_compare_fixrerun.md",
+        "?? sa_hmarl/experiments/xlron_nsfnet_deeprmsa_s100_r_compare_fixrerun.json",
+        "?? sa_hmarl/experiments/xlron_nsfnet_deeprmsa_s100_r_compare_fixrerun.md",
+        "?? sa_hmarl/experiments/xlron_topology_fixrerun_summary.md",
+        "?? sa_hmarl/sa_hmarl/agents/action_feature_builders.py",
+        "?? sa_hmarl/sa_hmarl/agents/post_decision_finalizer_policy.py",
+        "?? sa_hmarl/sa_hmarl/evaluation/diagnose_ksp_ff_k5_vs_k50.py",
+        "?? sa_hmarl/sa_hmarl/evaluation/diagnose_v12_k50_candidate_coverage.py",
+        "?? sa_hmarl/sa_hmarl/evaluation/eval_long_horizon_system_comparison.py",
+        "?? sa_hmarl/sa_hmarl/evaluation/server_diagnostics.py",
+        "?? sa_hmarl/sa_hmarl/training/ppo_training_support.py",
+        "?? sa_hmarl/scripts/aggregate_jpn48_candidate_latency_sweep.py",
+        "?? sa_hmarl/scripts/compute_topology_stats.py",
+        "?? sa_hmarl/scripts/run_jpn48_candidate_latency_sweep.sh",
+        "?? sa_hmarl/tests/test_offloading_baselines.py",
+        "?? sa_hmarl/tests/test_r_ranker_feature_batch_consistency.py",
+        "?? sa_hmarl/tests/test_ranker_candidate_consistency.py"
+      ],
+      "evaluator_file_sha256": "be7a31f358dfd4eb6d2972710ba5ecbb1ec53bb24227cecc52776142caec2a86"
+    },
+    "python_version": "3.14.4 (main, Jun 18 2026, 14:25:02) [GCC 15.2.0]",
+    "torch_version": "2.11.0+cu130",
+    "numpy_version": "2.4.4",
+    "checkpoint_sha256": {
+      "agent_c": "a5c9eb39bc33cf3b77a06d80e9c45315880dcb963ad9c3c95663eadaded9f2c8",
+      "agent_r": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+      "ranking": "9e9f06c766bdd8ea6c37400a5fed6cc3ed3c7593804183a58be13a65dfaaeb21"
+    },
+    "ranker_config": {
+      "candidate_mode": null,
+      "max_candidates": null,
+      "ensure_ksp": false,
+      "ppo_top_k": null,
+      "num_random_candidates": null,
+      "min_candidates": null
+    }
+  }
+}

@@ -1,0 +1,65 @@
+[nsfnet seed=44] req=  25000 upd= 109 eps=0.999 train_blk=18.927% val_blk=12.378% best=12.378%
+[nsfnet seed=44] req=  50000 upd= 234 eps=0.998 train_blk=13.416% val_blk=12.378% best=12.378%
+[nsfnet seed=44] req=  75000 upd= 359 eps=0.996 train_blk=13.096% val_blk=12.378% best=12.378%
+[nsfnet seed=44] req= 100000 upd= 484 eps=0.995 train_blk=12.508% val_blk=12.378% best=12.378%
+[nsfnet seed=44] req= 125000 upd= 609 eps=0.994 train_blk=12.796% val_blk=11.678% best=11.678%
+[nsfnet seed=44] req= 150000 upd= 734 eps=0.993 train_blk=12.044% val_blk=11.267% best=11.267%
+[nsfnet seed=44] req= 175000 upd= 859 eps=0.991 train_blk=11.564% val_blk=9.711% best=9.711%
+[nsfnet seed=44] req= 200000 upd= 984 eps=0.990 train_blk=11.028% val_blk=9.289% best=9.289%
+[nsfnet seed=44] req= 225000 upd=1109 eps=0.989 train_blk=9.140% val_blk=9.033% best=9.033%
+[nsfnet seed=44] req= 250000 upd=1234 eps=0.988 train_blk=11.600% val_blk=9.200% best=9.033%
+[nsfnet seed=44] req= 275000 upd=1359 eps=0.986 train_blk=9.180% val_blk=8.156% best=8.156%
+[nsfnet seed=44] req= 300000 upd=1484 eps=0.985 train_blk=9.124% val_blk=9.111% best=8.156%
+[nsfnet seed=44] req= 325000 upd=1609 eps=0.984 train_blk=9.996% val_blk=8.989% best=8.156%
+[nsfnet seed=44] req= 350000 upd=1734 eps=0.983 train_blk=8.844% val_blk=7.533% best=7.533%
+[nsfnet seed=44] req= 375000 upd=1859 eps=0.981 train_blk=8.288% val_blk=7.200% best=7.200%
+[nsfnet seed=44] req= 400000 upd=1984 eps=0.980 train_blk=8.056% val_blk=7.433% best=7.200%
+[nsfnet seed=44] req= 425000 upd=2109 eps=0.979 train_blk=7.728% val_blk=7.056% best=7.056%
+[nsfnet seed=44] req= 450000 upd=2234 eps=0.978 train_blk=6.716% val_blk=6.233% best=6.233%
+[nsfnet seed=44] req= 475000 upd=2359 eps=0.976 train_blk=6.596% val_blk=6.511% best=6.233%
+[nsfnet seed=44] req= 500000 upd=2484 eps=0.975 train_blk=7.384% val_blk=8.156% best=6.233%
+[nsfnet seed=44] req= 525000 upd=2609 eps=0.974 train_blk=7.760% val_blk=6.022% best=6.022%
+[nsfnet seed=44] req= 550000 upd=2734 eps=0.973 train_blk=6.468% val_blk=6.589% best=6.022%
+[nsfnet seed=44] req= 575000 upd=2859 eps=0.971 train_blk=6.384% val_blk=6.022% best=6.022%
+[nsfnet seed=44] req= 600000 upd=2984 eps=0.970 train_blk=6.868% val_blk=6.344% best=6.022%
+[nsfnet seed=44] req= 625000 upd=3109 eps=0.969 train_blk=6.632% val_blk=6.344% best=6.022%
+[nsfnet seed=44] req= 650000 upd=3234 eps=0.968 train_blk=7.020% val_blk=7.733% best=6.022%
+[nsfnet seed=44] req= 675000 upd=3359 eps=0.966 train_blk=7.260% val_blk=6.500% best=6.022%
+[nsfnet seed=44] req= 700000 upd=3484 eps=0.965 train_blk=8.168% val_blk=6.889% best=6.022%
+[nsfnet seed=44] req= 725000 upd=3609 eps=0.964 train_blk=7.012% val_blk=6.456% best=6.022%
+[nsfnet seed=44] req= 750000 upd=3734 eps=0.963 train_blk=5.976% val_blk=6.078% best=6.022%
+[nsfnet seed=44] req= 775000 upd=3859 eps=0.961 train_blk=6.352% val_blk=5.544% best=5.544%
+[nsfnet seed=44] req= 800000 upd=3984 eps=0.960 train_blk=7.384% val_blk=7.956% best=5.544%
+[nsfnet seed=44] req= 825000 upd=4109 eps=0.959 train_blk=7.668% val_blk=6.300% best=5.544%
+[nsfnet seed=44] req= 850000 upd=4234 eps=0.958 train_blk=5.836% val_blk=5.522% best=5.522%
+[nsfnet seed=44] req= 875000 upd=4359 eps=0.956 train_blk=5.812% val_blk=5.633% best=5.522%
+[nsfnet seed=44] req= 900000 upd=4484 eps=0.955 train_blk=7.200% val_blk=7.644% best=5.522%
+[nsfnet seed=44] req= 925000 upd=4609 eps=0.954 train_blk=8.804% val_blk=8.089% best=5.522%
+[nsfnet seed=44] req= 950000 upd=4734 eps=0.953 train_blk=8.752% val_blk=7.189% best=5.522%
+[nsfnet seed=44] req= 975000 upd=4859 eps=0.951 train_blk=8.132% val_blk=7.267% best=5.522%
+[nsfnet seed=44] req=1000000 upd=4984 eps=0.950 train_blk=7.100% val_blk=7.022% best=5.522%
+{
+  "protocol_id": "DEEPRMSA_VS_KSP_FF_PAPER_PARITY_V1",
+  "topology": "nsfnet",
+  "training_seed": 44,
+  "lr_effective": 0.0001,
+  "normalize_advantages": false,
+  "grad_clip_effective": 5.0,
+  "entropy_coef_effective": 0.01,
+  "total_requests": 1000000,
+  "gradient_updates": 4984,
+  "final_epsilon": 0.9501600000002268,
+  "train_admitted": 909913,
+  "train_blocked": 87087,
+  "train_invalid_choice": 87087,
+  "train_blocking_rate": 0.08734904714142427,
+  "best_validation_blocking_rate": 0.05522222222222222,
+  "best_meta": {
+    "requests": 850000,
+    "updates": 4234,
+    "val_blocking": 0.05522222222222222
+  },
+  "best_checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/experiments/deeprmsa_vs_ksp_ff_paper_parity/checkpoints/nsfnet/seed_44/best.pt",
+  "final_checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/experiments/deeprmsa_vs_ksp_ff_paper_parity/checkpoints/nsfnet/seed_44/final.pt",
+  "elapsed_seconds": 1296.252719958
+}

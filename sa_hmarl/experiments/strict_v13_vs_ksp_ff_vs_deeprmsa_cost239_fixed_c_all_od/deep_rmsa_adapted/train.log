@@ -1,0 +1,23 @@
+======================================================================
+Topology-matched adapted DeepRMSA K=50 hops
+Output: sa_hmarl/experiments/strict_v13_vs_ksp_ff_vs_deeprmsa_cost239_fixed_c_all_od/deep_rmsa_adapted
+State dim: 1172, Action dim: 2000
+Trainable parameters: 690513
+Train epochs: 150, requests/epoch: 1500, warmup: 500
+Validation every 5 epochs on seeds: [6001, 6002, 6003]
+Validation requests: 3000, warmup: 500
+======================================================================
+[seed=42] epoch=0001 train_blk=4.867% val_blk=5.789% best=5.789% (ep 1)
+[seed=42] epoch=0002 train_blk=6.000%
+[seed=42] epoch=0003 train_blk=5.667%
+[seed=42] epoch=0004 train_blk=6.000%
+[seed=42] epoch=0005 train_blk=5.733% val_blk=5.789% best=5.789% (ep 1)
+[seed=42] epoch=0006 train_blk=4.933%
+[seed=42] epoch=0007 train_blk=6.200%
+[seed=42] epoch=0008 train_blk=5.133%
+[seed=42] epoch=0009 train_blk=5.133%
+[seed=42] epoch=0010 train_blk=5.200% val_blk=5.789% best=5.789% (ep 1)
+[seed=42] epoch=0011 train_blk=6.267%
+[seed=42] epoch=0012 train_blk=5.133%
+[seed=42] epoch=0013 train_blk=5.933%
+[seed=42] epoch=0014 train_blk=6.867%

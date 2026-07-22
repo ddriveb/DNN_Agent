@@ -1,0 +1,626 @@
+{
+  "protocol_id": "DEEPRMSA_SOURCE_SEMANTIC_PAPER_PRIMARY_K50",
+  "implementation_label": "DeepRMSA source-semantic unmasked PyTorch port",
+  "training_seeds": [
+    42,
+    123,
+    456
+  ],
+  "test_seeds": [
+    3030,
+    4040,
+    5050,
+    6060,
+    7070,
+    8080,
+    9090,
+    1010,
+    2020,
+    3031,
+    4041,
+    5051
+  ],
+  "per_training_seed": {
+    "42": {
+      "per_seed": {
+        "3030": {
+          "seed": 3030,
+          "evaluated_requests": 10000,
+          "admitted": 4612,
+          "blocked": 5388,
+          "blocking_rate": 0.5388,
+          "invalid_policy_choice": 5388,
+          "request_trace_hash": "efb30b11eba772e3488f58c42df1d001d27fe95568f238cdf300fbd816ff7da3",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "4040": {
+          "seed": 4040,
+          "evaluated_requests": 10000,
+          "admitted": 4691,
+          "blocked": 5309,
+          "blocking_rate": 0.5309,
+          "invalid_policy_choice": 5309,
+          "request_trace_hash": "492d38b2c6bc90de697e9389aefb1b63f93df8b5ab262e4226eff53e29f5c835",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "5050": {
+          "seed": 5050,
+          "evaluated_requests": 10000,
+          "admitted": 4681,
+          "blocked": 5319,
+          "blocking_rate": 0.5319,
+          "invalid_policy_choice": 5319,
+          "request_trace_hash": "0a8664eccf43d936f818fcc9e56405812cf9206a5eba2cd9f7691dde9b810fa0",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "6060": {
+          "seed": 6060,
+          "evaluated_requests": 10000,
+          "admitted": 4750,
+          "blocked": 5250,
+          "blocking_rate": 0.525,
+          "invalid_policy_choice": 5250,
+          "request_trace_hash": "dc119850b6a76325253c3d5e9a0cc75373f49a6b089f548926cd5b7b223fe1f6",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "7070": {
+          "seed": 7070,
+          "evaluated_requests": 10000,
+          "admitted": 4679,
+          "blocked": 5321,
+          "blocking_rate": 0.5321,
+          "invalid_policy_choice": 5321,
+          "request_trace_hash": "583905750ebf51989731ce70cbbdd208acf122de84b61456d4445bbbe7943e72",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "8080": {
+          "seed": 8080,
+          "evaluated_requests": 10000,
+          "admitted": 4776,
+          "blocked": 5224,
+          "blocking_rate": 0.5224,
+          "invalid_policy_choice": 5224,
+          "request_trace_hash": "742d17ade71c726c8f584277b2a216cc1addb7a948a4bad2b2fedb5bbae825d6",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "9090": {
+          "seed": 9090,
+          "evaluated_requests": 10000,
+          "admitted": 4713,
+          "blocked": 5287,
+          "blocking_rate": 0.5287,
+          "invalid_policy_choice": 5287,
+          "request_trace_hash": "475e445ed2458ca6f18ba4adba1fb3058b05d6158b0215dfd45952f930b4aa4b",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "1010": {
+          "seed": 1010,
+          "evaluated_requests": 10000,
+          "admitted": 4749,
+          "blocked": 5251,
+          "blocking_rate": 0.5251,
+          "invalid_policy_choice": 5251,
+          "request_trace_hash": "495c415a765f1491e18ae2bb70e00c16e4e946ebf8a7ac378435d7469da233d8",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "2020": {
+          "seed": 2020,
+          "evaluated_requests": 10000,
+          "admitted": 4727,
+          "blocked": 5273,
+          "blocking_rate": 0.5273,
+          "invalid_policy_choice": 5273,
+          "request_trace_hash": "dee3dcd54bdc3ad251bd3758630e9067f22e2f65dd5ccb667214ac2516f9edf4",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "3031": {
+          "seed": 3031,
+          "evaluated_requests": 10000,
+          "admitted": 4751,
+          "blocked": 5249,
+          "blocking_rate": 0.5249,
+          "invalid_policy_choice": 5249,
+          "request_trace_hash": "bca1c9b9259d88678dd874833667b9cddf4f23d8976328f9fa294f2b28f4bcf9",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "4041": {
+          "seed": 4041,
+          "evaluated_requests": 10000,
+          "admitted": 4737,
+          "blocked": 5263,
+          "blocking_rate": 0.5263,
+          "invalid_policy_choice": 5263,
+          "request_trace_hash": "c1194d272a2734d0fd70e9402338dbc383b61962bee121d9f5b90c3c7edd0da4",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "5051": {
+          "seed": 5051,
+          "evaluated_requests": 10000,
+          "admitted": 4647,
+          "blocked": 5353,
+          "blocking_rate": 0.5353,
+          "invalid_policy_choice": 5353,
+          "request_trace_hash": "ff59237c67ed1cd904d491e0f37976d00adbc43bc3edef09c3a8ae87fea37794",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        }
+      },
+      "mean_blocking_rate": 0.5290583333333333,
+      "std_blocking_rate": 0.0048539502813000944,
+      "selected_epoch": 75
+    },
+    "123": {
+      "per_seed": {
+        "3030": {
+          "seed": 3030,
+          "evaluated_requests": 10000,
+          "admitted": 5699,
+          "blocked": 4301,
+          "blocking_rate": 0.4301,
+          "invalid_policy_choice": 4301,
+          "request_trace_hash": "efb30b11eba772e3488f58c42df1d001d27fe95568f238cdf300fbd816ff7da3",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "4040": {
+          "seed": 4040,
+          "evaluated_requests": 10000,
+          "admitted": 5787,
+          "blocked": 4213,
+          "blocking_rate": 0.4213,
+          "invalid_policy_choice": 4213,
+          "request_trace_hash": "492d38b2c6bc90de697e9389aefb1b63f93df8b5ab262e4226eff53e29f5c835",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "5050": {
+          "seed": 5050,
+          "evaluated_requests": 10000,
+          "admitted": 5779,
+          "blocked": 4221,
+          "blocking_rate": 0.4221,
+          "invalid_policy_choice": 4221,
+          "request_trace_hash": "0a8664eccf43d936f818fcc9e56405812cf9206a5eba2cd9f7691dde9b810fa0",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "6060": {
+          "seed": 6060,
+          "evaluated_requests": 10000,
+          "admitted": 5745,
+          "blocked": 4255,
+          "blocking_rate": 0.4255,
+          "invalid_policy_choice": 4255,
+          "request_trace_hash": "dc119850b6a76325253c3d5e9a0cc75373f49a6b089f548926cd5b7b223fe1f6",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "7070": {
+          "seed": 7070,
+          "evaluated_requests": 10000,
+          "admitted": 5733,
+          "blocked": 4267,
+          "blocking_rate": 0.4267,
+          "invalid_policy_choice": 4267,
+          "request_trace_hash": "583905750ebf51989731ce70cbbdd208acf122de84b61456d4445bbbe7943e72",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "8080": {
+          "seed": 8080,
+          "evaluated_requests": 10000,
+          "admitted": 5906,
+          "blocked": 4094,
+          "blocking_rate": 0.4094,
+          "invalid_policy_choice": 4094,
+          "request_trace_hash": "742d17ade71c726c8f584277b2a216cc1addb7a948a4bad2b2fedb5bbae825d6",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "9090": {
+          "seed": 9090,
+          "evaluated_requests": 10000,
+          "admitted": 5758,
+          "blocked": 4242,
+          "blocking_rate": 0.4242,
+          "invalid_policy_choice": 4242,
+          "request_trace_hash": "475e445ed2458ca6f18ba4adba1fb3058b05d6158b0215dfd45952f930b4aa4b",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "1010": {
+          "seed": 1010,
+          "evaluated_requests": 10000,
+          "admitted": 5813,
+          "blocked": 4187,
+          "blocking_rate": 0.4187,
+          "invalid_policy_choice": 4187,
+          "request_trace_hash": "495c415a765f1491e18ae2bb70e00c16e4e946ebf8a7ac378435d7469da233d8",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "2020": {
+          "seed": 2020,
+          "evaluated_requests": 10000,
+          "admitted": 5774,
+          "blocked": 4226,
+          "blocking_rate": 0.4226,
+          "invalid_policy_choice": 4226,
+          "request_trace_hash": "dee3dcd54bdc3ad251bd3758630e9067f22e2f65dd5ccb667214ac2516f9edf4",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "3031": {
+          "seed": 3031,
+          "evaluated_requests": 10000,
+          "admitted": 5861,
+          "blocked": 4139,
+          "blocking_rate": 0.4139,
+          "invalid_policy_choice": 4139,
+          "request_trace_hash": "bca1c9b9259d88678dd874833667b9cddf4f23d8976328f9fa294f2b28f4bcf9",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "4041": {
+          "seed": 4041,
+          "evaluated_requests": 10000,
+          "admitted": 5808,
+          "blocked": 4192,
+          "blocking_rate": 0.4192,
+          "invalid_policy_choice": 4192,
+          "request_trace_hash": "c1194d272a2734d0fd70e9402338dbc383b61962bee121d9f5b90c3c7edd0da4",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "5051": {
+          "seed": 5051,
+          "evaluated_requests": 10000,
+          "admitted": 5713,
+          "blocked": 4287,
+          "blocking_rate": 0.4287,
+          "invalid_policy_choice": 4287,
+          "request_trace_hash": "ff59237c67ed1cd904d491e0f37976d00adbc43bc3edef09c3a8ae87fea37794",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        }
+      },
+      "mean_blocking_rate": 0.42186666666666667,
+      "std_blocking_rate": 0.005980473276092843,
+      "selected_epoch": 80
+    },
+    "456": {
+      "per_seed": {
+        "3030": {
+          "seed": 3030,
+          "evaluated_requests": 10000,
+          "admitted": 5663,
+          "blocked": 4337,
+          "blocking_rate": 0.4337,
+          "invalid_policy_choice": 4337,
+          "request_trace_hash": "efb30b11eba772e3488f58c42df1d001d27fe95568f238cdf300fbd816ff7da3",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "4040": {
+          "seed": 4040,
+          "evaluated_requests": 10000,
+          "admitted": 5790,
+          "blocked": 4210,
+          "blocking_rate": 0.421,
+          "invalid_policy_choice": 4210,
+          "request_trace_hash": "492d38b2c6bc90de697e9389aefb1b63f93df8b5ab262e4226eff53e29f5c835",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "5050": {
+          "seed": 5050,
+          "evaluated_requests": 10000,
+          "admitted": 5763,
+          "blocked": 4237,
+          "blocking_rate": 0.4237,
+          "invalid_policy_choice": 4237,
+          "request_trace_hash": "0a8664eccf43d936f818fcc9e56405812cf9206a5eba2cd9f7691dde9b810fa0",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "6060": {
+          "seed": 6060,
+          "evaluated_requests": 10000,
+          "admitted": 5709,
+          "blocked": 4291,
+          "blocking_rate": 0.4291,
+          "invalid_policy_choice": 4291,
+          "request_trace_hash": "dc119850b6a76325253c3d5e9a0cc75373f49a6b089f548926cd5b7b223fe1f6",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "7070": {
+          "seed": 7070,
+          "evaluated_requests": 10000,
+          "admitted": 5653,
+          "blocked": 4347,
+          "blocking_rate": 0.4347,
+          "invalid_policy_choice": 4347,
+          "request_trace_hash": "583905750ebf51989731ce70cbbdd208acf122de84b61456d4445bbbe7943e72",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "8080": {
+          "seed": 8080,
+          "evaluated_requests": 10000,
+          "admitted": 5869,
+          "blocked": 4131,
+          "blocking_rate": 0.4131,
+          "invalid_policy_choice": 4131,
+          "request_trace_hash": "742d17ade71c726c8f584277b2a216cc1addb7a948a4bad2b2fedb5bbae825d6",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "9090": {
+          "seed": 9090,
+          "evaluated_requests": 10000,
+          "admitted": 5795,
+          "blocked": 4205,
+          "blocking_rate": 0.4205,
+          "invalid_policy_choice": 4205,
+          "request_trace_hash": "475e445ed2458ca6f18ba4adba1fb3058b05d6158b0215dfd45952f930b4aa4b",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "1010": {
+          "seed": 1010,
+          "evaluated_requests": 10000,
+          "admitted": 5817,
+          "blocked": 4183,
+          "blocking_rate": 0.4183,
+          "invalid_policy_choice": 4183,
+          "request_trace_hash": "495c415a765f1491e18ae2bb70e00c16e4e946ebf8a7ac378435d7469da233d8",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "2020": {
+          "seed": 2020,
+          "evaluated_requests": 10000,
+          "admitted": 5766,
+          "blocked": 4234,
+          "blocking_rate": 0.4234,
+          "invalid_policy_choice": 4234,
+          "request_trace_hash": "dee3dcd54bdc3ad251bd3758630e9067f22e2f65dd5ccb667214ac2516f9edf4",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "3031": {
+          "seed": 3031,
+          "evaluated_requests": 10000,
+          "admitted": 5894,
+          "blocked": 4106,
+          "blocking_rate": 0.4106,
+          "invalid_policy_choice": 4106,
+          "request_trace_hash": "bca1c9b9259d88678dd874833667b9cddf4f23d8976328f9fa294f2b28f4bcf9",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "4041": {
+          "seed": 4041,
+          "evaluated_requests": 10000,
+          "admitted": 5745,
+          "blocked": 4255,
+          "blocking_rate": 0.4255,
+          "invalid_policy_choice": 4255,
+          "request_trace_hash": "c1194d272a2734d0fd70e9402338dbc383b61962bee121d9f5b90c3c7edd0da4",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        },
+        "5051": {
+          "seed": 5051,
+          "evaluated_requests": 10000,
+          "admitted": 5767,
+          "blocked": 4233,
+          "blocking_rate": 0.4233,
+          "invalid_policy_choice": 4233,
+          "request_trace_hash": "ff59237c67ed1cd904d491e0f37976d00adbc43bc3edef09c3a8ae87fea37794",
+          "final_active_connections": 0,
+          "final_utilization": 0.0
+        }
+      },
+      "mean_blocking_rate": 0.4230749999999999,
+      "std_blocking_rate": 0.007258991289804275,
+      "selected_epoch": 80
+    }
+  },
+  "aggregated_per_test_seed": {
+    "3030": {
+      "mean_blocking_rate": 0.4675333333333333,
+      "std_blocking_rate": 0.06174498630118344
+    },
+    "4040": {
+      "mean_blocking_rate": 0.4577333333333333,
+      "std_blocking_rate": 0.0633643695883841
+    },
+    "5050": {
+      "mean_blocking_rate": 0.4592333333333333,
+      "std_blocking_rate": 0.06293626405605385
+    },
+    "6060": {
+      "mean_blocking_rate": 0.45986666666666665,
+      "std_blocking_rate": 0.05643583377016181
+    },
+    "7070": {
+      "mean_blocking_rate": 0.46449999999999997,
+      "std_blocking_rate": 0.058679809133977266
+    },
+    "8080": {
+      "mean_blocking_rate": 0.4483,
+      "std_blocking_rate": 0.06419914329646462
+    },
+    "9090": {
+      "mean_blocking_rate": 0.4578,
+      "std_blocking_rate": 0.06142906478207198
+    },
+    "1010": {
+      "mean_blocking_rate": 0.4540333333333333,
+      "std_blocking_rate": 0.06154586365738427
+    },
+    "2020": {
+      "mean_blocking_rate": 0.45776666666666666,
+      "std_blocking_rate": 0.060218961576345154
+    },
+    "3031": {
+      "mean_blocking_rate": 0.44980000000000003,
+      "std_blocking_rate": 0.06505943436581663
+    },
+    "4041": {
+      "mean_blocking_rate": 0.457,
+      "std_blocking_rate": 0.060098169689267567
+    },
+    "5051": {
+      "mean_blocking_rate": 0.4624333333333333,
+      "std_blocking_rate": 0.06316211944934505
+    }
+  },
+  "mean_blocking_rate": 0.45799999999999996,
+  "std_blocking_rate": 0.00552699527480137,
+  "training_seed_variation": 0.0615412875185793,
+  "comparisons": {
+    "ksp_ff_highest": {
+      "label": "Formal KSP-FF K=50",
+      "baseline_rates": [
+        0.1351,
+        0.1335,
+        0.1278,
+        0.1377,
+        0.1408,
+        0.1231,
+        0.1345,
+        0.1391,
+        0.1216,
+        0.1316,
+        0.1268,
+        0.1324
+      ],
+      "method_rates": [
+        0.4675333333333333,
+        0.4577333333333333,
+        0.4592333333333333,
+        0.45986666666666665,
+        0.46449999999999997,
+        0.4483,
+        0.4578,
+        0.4540333333333333,
+        0.45776666666666666,
+        0.44980000000000003,
+        0.457,
+        0.4624333333333333
+      ],
+      "mean_baseline_minus_method": -0.326,
+      "mean_difference_pp": -32.6,
+      "bootstrap_ci95": [
+        -0.32935,
+        -0.32264715277777783
+      ],
+      "paired_sign_permutation_p_one_sided": 1.0,
+      "wins_ties_losses": {
+        "wins": 0,
+        "ties": 0,
+        "losses": 12
+      }
+    },
+    "strict_v13": {
+      "label": "Strict v1.3 zero-shot",
+      "baseline_rates": [
+        0.1678,
+        0.1642,
+        0.1656,
+        0.1654,
+        0.1715,
+        0.1451,
+        0.1593,
+        0.1642,
+        0.1507,
+        0.1602,
+        0.1509,
+        0.1619
+      ],
+      "method_rates": [
+        0.4675333333333333,
+        0.4577333333333333,
+        0.4592333333333333,
+        0.45986666666666665,
+        0.46449999999999997,
+        0.4483,
+        0.4578,
+        0.4540333333333333,
+        0.45776666666666666,
+        0.44980000000000003,
+        0.457,
+        0.4624333333333333
+      ],
+      "mean_baseline_minus_method": -0.29743333333333327,
+      "mean_difference_pp": -29.74333333333333,
+      "bootstrap_ci95": [
+        -0.30073333333333335,
+        -0.29433055555555554
+      ],
+      "paired_sign_permutation_p_one_sided": 1.0,
+      "wins_ties_losses": {
+        "wins": 0,
+        "ties": 0,
+        "losses": 12
+      }
+    },
+    "ppo_r_top1": {
+      "label": "PPO-R Top-1 zero-shot",
+      "baseline_rates": [
+        0.2587,
+        0.2517,
+        0.2567,
+        0.2544,
+        0.2594,
+        0.2466,
+        0.2516,
+        0.2548,
+        0.2481,
+        0.2542,
+        0.2421,
+        0.2556
+      ],
+      "method_rates": [
+        0.4675333333333333,
+        0.4577333333333333,
+        0.4592333333333333,
+        0.45986666666666665,
+        0.46449999999999997,
+        0.4483,
+        0.4578,
+        0.4540333333333333,
+        0.45776666666666666,
+        0.44980000000000003,
+        0.457,
+        0.4624333333333333
+      ],
+      "mean_baseline_minus_method": -0.205175,
+      "mean_difference_pp": -20.5175,
+      "bootstrap_ci95": [
+        -0.20787784722222225,
+        -0.20246104166666665
+      ],
+      "paired_sign_permutation_p_one_sided": 1.0,
+      "wins_ties_losses": {
+        "wins": 0,
+        "ties": 0,
+        "losses": 12
+      }
+    }
+  }
+}

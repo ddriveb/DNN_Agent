@@ -1,0 +1,8 @@
+[eval] Saved sa_hmarl/experiments/v13_strict_multitopology_cside_corrected/per_task/xlron_nsfnet_deeprmsa/seed_4040/results.json and sa_hmarl/experiments/v13_strict_multitopology_cside_corrected/per_task/xlron_nsfnet_deeprmsa/seed_4040/eval.log
+king=28.3000% overload=1.7800% nsb=0.0000% c_no=94 r_no=0 r_decisions=4906 policy_ms=0.431 audit_ms=2.209 ppo_agree=10.0285%
+[xlron_nsfnet_deeprmsa][seed=4040][ppo_c+strict_v13] blocking=69.3000% overload=0.6200% nsb=5.4600% c_no=16 r_no=0 r_decisions=4984 policy_ms=6.630 audit_ms=1.990 ppo_agree=3.0096%
+[xlron_nsfnet_deeprmsa][seed=4040][ppo_c+old_v13] blocking=71.5000% overload=0.2400% nsb=7.5800% c_no=0 r_no=0 r_decisions=5000 policy_ms=6.766 audit_ms=2.058 ppo_agree=3.4000%
+[xlron_nsfnet_deeprmsa][seed=4040][df_c+ppo_r_top1] blocking=35.2600% overload=0.0000% nsb=10.9600% c_no=0 r_no=0 r_decisions=5000 policy_ms=0.117 audit_ms=3.103 ppo_agree=100.0000%
+[xlron_nsfnet_deeprmsa][seed=4040][df_c+ksp_ff_highest] blocking=29.9600% overload=0.0000% nsb=0.3200% c_no=0 r_no=0 r_decisions=5000 policy_ms=0.157 audit_ms=3.192 ppo_agree=11.0200%
+[xlron_nsfnet_deeprmsa][seed=4040][df_c+strict_v13] blocking=61.4000% overload=0.0000% nsb=6.4600% c_no=0 r_no=0 r_decisions=5000 policy_ms=8.807 audit_ms=2.855 ppo_agree=3.5200%
+[xlron_nsfnet_deeprmsa][seed=4040][df_c+old_v13] blocking=60.4200% overload=0.0000% nsb=7.4800% c_no=0 r_no=0 r_decisions=5000 policy_ms=9.053 audit_ms=2.917 ppo_agree=5.8600%

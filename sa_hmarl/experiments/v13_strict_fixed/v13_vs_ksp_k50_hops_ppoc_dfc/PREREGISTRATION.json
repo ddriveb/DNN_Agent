@@ -1,0 +1,122 @@
+{
+  "title": "Strict v1.3 vs KSP-FF K=50 hops under PPO-C and DF_C: pre-registration",
+  "protocol_version": "strict_v1.3_loss_matched",
+  "pre_registration_date": "2026-07-14T09:40:55+08:00",
+  "objective": "Verify whether SA-HMARL Strict v1.3 significantly outperforms standard KSP-FF K=50 hops on COST239 when the C-side policy is either the learned PPO-C or the distance-first heuristic DF_C.",
+  "topology": "xlron_cost239_ptrnet_real",
+  "environment": {
+    "num_slots": 320,
+    "num_servers": 4,
+    "num_splits": 3,
+    "split_profile": "default3",
+    "modulation_profile": "default",
+    "max_blocks": 10,
+    "slot_bw_hz": 1250000000.0,
+    "guard_band_fs": 1
+  },
+  "c_side": {
+    "ppo_c": {
+      "checkpoint": "sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_last.pt",
+      "sha256": "a5c9eb39bc33cf3b77a06d80e9c45315880dcb963ad9c3c95663eadaded9f2c8",
+      "k_paths": 5,
+      "path_sort_strategy": "hops",
+      "block_sort_strategy": "start_asc"
+    },
+    "df_c": {
+      "function": "sa_hmarl.evaluation.offloading_baselines.select_df",
+      "file": "sa_hmarl/sa_hmarl/evaluation/offloading_baselines.py",
+      "lines": "157-196",
+      "k_paths": 5,
+      "path_sort_strategy": "hops",
+      "block_sort_strategy": "start_asc"
+    }
+  },
+  "r_side": {
+    "ppo_r": {
+      "checkpoint": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+      "sha256": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+      "k_paths": 50,
+      "path_sort_strategy": "hops",
+      "block_sort_strategy": "start_asc"
+    },
+    "ksp_ff_k50_hops": {
+      "function": "sa_hmarl.baselines.rmsa_baselines.ksp_ff_highest_mod_action",
+      "file": "sa_hmarl/sa_hmarl/baselines/rmsa_baselines.py",
+      "lines": "32-84"
+    },
+    "strict_v1.3": {
+      "checkpoint": "sa_hmarl/experiments/v13_strict_fixed/strict_loss_rerun/checkpoints/full_state_uniform_strict/seed_42/ranking_model.pt",
+      "sha256": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de",
+      "k_prop": 30,
+      "candidate_mode": "ppo_r_topk_only",
+      "ranker_gate": "all",
+      "h": 5,
+      "gamma": 1.0
+    }
+  },
+  "traffic": {
+    "arrival_interval": 0.0625,
+    "holding_min": 20.0,
+    "holding_max": 30.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "size_max_mb": 30.0,
+    "edge_cost_min": 0.1,
+    "edge_cost_max": 2.2,
+    "poisson_arrivals": true,
+    "exponential_holding": true
+  },
+  "experiment_matrix": [
+    ["ppo_c", "ppo_r_top1"],
+    ["ppo_c", "ksp_ff_k50_hops"],
+    ["ppo_c", "strict_v1.3"],
+    ["df_c", "ppo_r_top1"],
+    ["df_c", "ksp_ff_k50_hops"],
+    ["df_c", "strict_v1.3"]
+  ],
+  "diagnostic_rows": [
+    ["ppo_c", "naive_flat_ff"],
+    ["df_c", "naive_flat_ff"],
+    ["ppo_c", "legacy_e1_gated"],
+    ["df_c", "legacy_e1_gated"]
+  ],
+  "smoke_test": {
+    "seeds": [6001, 6002],
+    "warmup_requests": 500,
+    "requests_per_episode": 1000
+  },
+  "formal_experiment": {
+    "seeds": [5001, 5002, 5003, 5004, 5005, 5006, 5007, 5008, 5009, 5010, 5011, 5012, 5013, 5014, 5015, 5016, 5017, 5018, 5019, 5020],
+    "warmup_requests": 500,
+    "requests_per_episode": 6000
+  },
+  "excluded_seeds": {
+    "training_seeds": [42, 43, 44],
+    "previous_evaluation_seeds": [4001, 4002, 4003, 4004, 4005]
+  },
+  "statistical_tests": [
+    "paired_mean_difference",
+    "paired_median_difference",
+    "paired_bootstrap_95_ci_100000_resamples",
+    "wilcoxon_signed_rank",
+    "exact_sign_flip_permutation_test_or_monte_carlo_1000000"
+  ],
+  "multiple_comparison": "holm_correction_across_ppo_c_and_df_c_comparisons",
+  "stopping_rules": {
+    "seed_failure": "Save error, fix implementation, rerun all six main combinations for that seed; do not drop or selectively rerun methods.",
+    "checkpoint_selection": "Strict v1.3 checkpoint is fixed by pre-registration; no post-hoc selection based on closed-loop results."
+  },
+  "distribution_shift_notes": {
+    "ppo_r": "Checkpoint agent_r_mixed.pt trained on NSFNET with modulation_profile=extended and num_slots=32; deployed here on COST239/default/320 slots.",
+    "ppo_c": "Checkpoint agent_c_cost239_r_feasibility_safe_last.pt trained on COST239/default but with num_slots=100 and requests_per_episode=80; deployed here on 320 slots/6000 requests per episode."
+  },
+  "forbidden_actions": [
+    "Do not start v1.35 full pilot.",
+    "Do not run Japan/German topology expansion.",
+    "Do not redefine KSP-FF.",
+    "Do not use Naive Flat-FF as the formal KSP-FF baseline.",
+    "Do not call the legacy E1-only checkpoint the current v1.3.",
+    "Do not retrain or replace the Strict v1.3 checkpoint for this experiment."
+  ]
+}

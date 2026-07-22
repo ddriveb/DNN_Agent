@@ -1,0 +1,179 @@
+{
+  "status": "pass",
+  "generator_elapsed_sec": 1196.7426916060067,
+  "comparisons": [
+    {
+      "checks": {
+        "common_groups": {
+          "pass": true,
+          "detail": "common=581"
+        },
+        "mask_identical": {
+          "pass": true,
+          "detail": "diff=0"
+        },
+        "action_ids_identical": {
+          "pass": true,
+          "detail": "old_max=1921 new_max=1921"
+        },
+        "path_indices_identical": {
+          "pass": true,
+          "detail": ""
+        },
+        "features_identical": {
+          "pass": true,
+          "detail": "max_abs_diff=0.000e+00"
+        },
+        "returns_identical": {
+          "pass": true,
+          "detail": "max_abs_diff=9.537e-07"
+        },
+        "returns_reconstruct_from_components": {
+          "pass": true,
+          "detail": "max_abs_diff=9.155e-07"
+        },
+        "action_id_range": {
+          "pass": true,
+          "detail": "max_action_id=1921"
+        },
+        "path_diversity": {
+          "pass": true,
+          "detail": "max_path_idx=48"
+        },
+        "candidate_budget": {
+          "pass": true,
+          "detail": "max_candidates=30"
+        },
+        "trace_hash_present": {
+          "pass": true,
+          "detail": "n=581"
+        },
+        "trace_hash_consistency": {
+          "pass": true,
+          "detail": "groups_with_hash=581"
+        }
+      },
+      "failures": [],
+      "common_groups": 581,
+      "shard_id": "train_s1001_e0"
+    },
+    {
+      "checks": {
+        "common_groups": {
+          "pass": true,
+          "detail": "common=429"
+        },
+        "mask_identical": {
+          "pass": true,
+          "detail": "diff=0"
+        },
+        "action_ids_identical": {
+          "pass": true,
+          "detail": "old_max=1803 new_max=1803"
+        },
+        "path_indices_identical": {
+          "pass": true,
+          "detail": ""
+        },
+        "features_identical": {
+          "pass": true,
+          "detail": "max_abs_diff=0.000e+00"
+        },
+        "returns_identical": {
+          "pass": true,
+          "detail": "max_abs_diff=9.537e-07"
+        },
+        "returns_reconstruct_from_components": {
+          "pass": true,
+          "detail": "max_abs_diff=8.965e-07"
+        },
+        "action_id_range": {
+          "pass": true,
+          "detail": "max_action_id=1803"
+        },
+        "path_diversity": {
+          "pass": true,
+          "detail": "max_path_idx=45"
+        },
+        "candidate_budget": {
+          "pass": true,
+          "detail": "max_candidates=30"
+        },
+        "trace_hash_present": {
+          "pass": true,
+          "detail": "n=429"
+        },
+        "trace_hash_consistency": {
+          "pass": true,
+          "detail": "groups_with_hash=429"
+        }
+      },
+      "failures": [],
+      "common_groups": 429,
+      "shard_id": "val_s2001_e0"
+    },
+    {
+      "checks": {
+        "common_groups": {
+          "pass": true,
+          "detail": "common=602"
+        },
+        "mask_identical": {
+          "pass": true,
+          "detail": "diff=0"
+        },
+        "action_ids_identical": {
+          "pass": true,
+          "detail": "old_max=1683 new_max=1683"
+        },
+        "path_indices_identical": {
+          "pass": true,
+          "detail": ""
+        },
+        "features_identical": {
+          "pass": true,
+          "detail": "max_abs_diff=0.000e+00"
+        },
+        "returns_identical": {
+          "pass": true,
+          "detail": "max_abs_diff=4.768e-07"
+        },
+        "returns_reconstruct_from_components": {
+          "pass": true,
+          "detail": "max_abs_diff=9.012e-07"
+        },
+        "action_id_range": {
+          "pass": true,
+          "detail": "max_action_id=1683"
+        },
+        "path_diversity": {
+          "pass": true,
+          "detail": "max_path_idx=42"
+        },
+        "candidate_budget": {
+          "pass": true,
+          "detail": "max_candidates=30"
+        },
+        "trace_hash_present": {
+          "pass": true,
+          "detail": "n=602"
+        },
+        "trace_hash_consistency": {
+          "pass": true,
+          "detail": "groups_with_hash=602"
+        }
+      },
+      "failures": [],
+      "common_groups": 602,
+      "shard_id": "test_s3001_e0"
+    }
+  ],
+  "smoke_test": {
+    "returncode": 0,
+    "stdout_tail": [
+      "[smoke] PASS: /mnt/d/project/DNN_Agent/sa_hmarl/experiments/v13_kpath50_hops_counterfactual_reranking/SMOKE_TEST.md"
+    ],
+    "stderr_tail": []
+  },
+  "all_failures": []
+}

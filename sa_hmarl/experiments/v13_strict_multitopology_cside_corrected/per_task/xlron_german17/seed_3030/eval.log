@@ -1,0 +1,8 @@
+[eval] Saved sa_hmarl/experiments/v13_strict_multitopology_cside_corrected/per_task/xlron_german17/seed_3030/results.json and sa_hmarl/experiments/v13_strict_multitopology_cside_corrected/per_task/xlron_german17/seed_3030/eval.log
+king=9.3200% overload=0.6400% nsb=0.0000% c_no=163 r_no=0 r_decisions=4837 policy_ms=0.487 audit_ms=2.003 ppo_agree=6.5123%
+[xlron_german17][seed=3030][ppo_c+strict_v13] blocking=37.9200% overload=0.0000% nsb=32.4000% c_no=0 r_no=0 r_decisions=5000 policy_ms=14.780 audit_ms=2.507 ppo_agree=1.7000%
+[xlron_german17][seed=3030][ppo_c+old_v13] blocking=39.8400% overload=0.0000% nsb=23.2000% c_no=0 r_no=0 r_decisions=5000 policy_ms=14.518 audit_ms=2.487 ppo_agree=3.6600%
+[xlron_german17][seed=3030][df_c+ppo_r_top1] blocking=29.6200% overload=0.0000% nsb=11.7400% c_no=0 r_no=0 r_decisions=5000 policy_ms=0.119 audit_ms=2.508 ppo_agree=100.0000%
+[xlron_german17][seed=3030][df_c+ksp_ff_highest] blocking=13.7600% overload=0.0000% nsb=5.0000% c_no=0 r_no=0 r_decisions=5000 policy_ms=0.154 audit_ms=2.541 ppo_agree=5.4200%
+[xlron_german17][seed=3030][df_c+strict_v13] blocking=42.8600% overload=0.0000% nsb=34.3400% c_no=0 r_no=0 r_decisions=5000 policy_ms=14.390 audit_ms=2.585 ppo_agree=2.6200%
+[xlron_german17][seed=3030][df_c+old_v13] blocking=43.8000% overload=0.0000% nsb=16.1800% c_no=0 r_no=0 r_decisions=5000 policy_ms=14.267 audit_ms=2.532 ppo_agree=6.4000%

@@ -1,0 +1,168 @@
+{
+  "title": "SA-HMARL strict v1.3 diagnosis and v1.35 launch decision (corrected)",
+  "date": "2026-07-08",
+  "supersedes": "sa_hmarl/experiments/v13_kpath50_hops_counterfactual_reranking/FINAL_V13_DECISION.md",
+  "dataset": "r_counterfactual_ranking_cost239_kpath50_hops_kprop30_h5_medium",
+  "protocol": {
+    "K_C": 5,
+    "K_path": 50,
+    "K_prop": 30,
+    "H": 5,
+    "gamma": 1.0,
+    "candidate_mode": "ppo_r_topk_only"
+  },
+  "model": {
+    "architecture": "MLP [128,64]",
+    "loss": "listwise KL + SmoothL1 MSE (reg_weight=1.0, lambda_pair=0, lambda_hard=0)",
+    "selection_metric": "lowest validation model regret",
+    "selected_seed": 42,
+    "selected_checkpoint": "sa_hmarl/checkpoints/v13_kpath50_hops_medium_regret_selected/seed_42/ranking_model.pt"
+  },
+  "offline_results": {
+    "test_model_regret": 0.0682368266593968,
+    "test_ppo_regret": 0.10504814551952199,
+    "absolute_regret_improvement": 0.03681131886012519,
+    "aggregate_regret_reduction": 0.35042330997917737,
+    "model_better_than_ppo_rate": 0.26336061627347135,
+    "oracle_tie_hit_rate": 0.46220510351468463,
+    "all_seeds": {
+      "42": {
+        "val_selection_score": -0.046542713684695106,
+        "test_model_regret": 0.0682368266593968,
+        "aggregate_regret_reduction": 0.35042330997917737
+      },
+      "123": {
+        "val_selection_score": -0.04322802555561066,
+        "test_model_regret": 0.06963451837311012,
+        "aggregate_regret_reduction": 0.33711806116397036
+      },
+      "456": {
+        "val_selection_score": -0.04501501939126423,
+        "test_model_regret": 0.07914867694411189,
+        "aggregate_regret_reduction": 0.2465485558771429
+      }
+    }
+  },
+  "closed_loop_results": {
+    "report": "sa_hmarl/experiments/v13_kpath50_hops_counterfactual_reranking/MEDIUM_CLOSED_LOOP.md",
+    "seeds": [
+      3030,
+      4040,
+      5050,
+      6060,
+      7070
+    ],
+    "warmup": 1000,
+    "evaluated_per_seed": 5000,
+    "summary": {
+      "ppo_r_top1": {
+        "blocking_rate_mean": 0.0682,
+        "blocking_rate_std": 0.01884717485460354
+      },
+      "ksp_ff_plain": {
+        "blocking_rate_mean": 0.0794,
+        "blocking_rate_std": 0.0147
+      },
+      "ksp_ff_highest": {
+        "blocking_rate_mean": 0.0704,
+        "blocking_rate_std": 0.0094
+      },
+      "ranker_new_v13": {
+        "blocking_rate_mean": 0.0637,
+        "blocking_rate_std": 0.0147
+      },
+      "ranker_old_v13": {
+        "blocking_rate_mean": 0.06008,
+        "blocking_rate_std": 0.0075
+      }
+    },
+    "per_seed_blocking": {
+      "3030": {
+        "ppo_r_top1": 0.0762,
+        "ksp_ff_plain": 0.0758,
+        "ksp_ff_highest": 0.0812,
+        "ranker_new_v13": 0.07,
+        "ranker_old_v13": 0.0648
+      },
+      "4040": {
+        "ppo_r_top1": 0.0454,
+        "ksp_ff_plain": 0.1056,
+        "ksp_ff_highest": 0.062,
+        "ranker_new_v13": 0.0468,
+        "ranker_old_v13": 0.048
+      },
+      "5050": {
+        "ppo_r_top1": 0.0512,
+        "ksp_ff_plain": 0.0602,
+        "ksp_ff_highest": 0.0806,
+        "ranker_new_v13": 0.05,
+        "ranker_old_v13": 0.0546
+      },
+      "6060": {
+        "ppo_r_top1": 0.0982,
+        "ksp_ff_plain": 0.079,
+        "ksp_ff_highest": 0.058,
+        "ranker_new_v13": 0.0876,
+        "ranker_old_v13": 0.066
+      },
+      "7070": {
+        "ppo_r_top1": 0.07,
+        "ksp_ff_plain": 0.0762,
+        "ksp_ff_highest": 0.07,
+        "ranker_new_v13": 0.064,
+        "ranker_old_v13": 0.067
+      }
+    }
+  },
+  "paired_tests": {
+    "new_v13_minus_ppo": {
+      "mean_difference": -0.004519999999999996,
+      "relative_blocking_reduction": 0.06627565982404687,
+      "wins_ties_losses": "4/0/1",
+      "bootstrap_95ci_for_ppo_minus_new": [
+        0.0010000000000000009,
+        0.00792099999999999
+      ],
+      "wilcoxon_pvalue": 0.1875,
+      "permutation_one_sided_p": 0.0933
+    },
+    "new_v13_minus_ksp_ff_plain": {
+      "mean_difference": -0.015680000000000013,
+      "bootstrap_95ci_for_plain_minus_new": [
+        -0.0015600000000000058,
+        0.03848
+      ],
+      "wilcoxon_pvalue": 0.1875
+    },
+    "new_v13_minus_ksp_ff_highest": {
+      "mean_difference": -0.006680000000000005,
+      "bootstrap_95ci_for_highest_minus_new": [
+        -0.013519999999999997,
+        0.021360000000000004
+      ],
+      "wilcoxon_pvalue": 0.4375
+    },
+    "new_v13_minus_ranker_old_v13": {
+      "mean_difference": 0.0036000000000000003,
+      "wins_ties_losses": "2/0/3",
+      "wilcoxon_pvalue": 0.625
+    }
+  },
+  "classification": {
+    "grade": "B",
+    "rationale": "Significantly better than PPO-R by bootstrap CI, but small absolute effect, n=5 non-significant by Wilcoxon/permutation, and non-inferiority to KSP-FF not established.",
+    "v1_35_full_launch": false,
+    "v1_35_pilot_launch": true,
+    "pilot_constraints": [
+      "Maximum 1,000 groups",
+      "Target afterstate/state-enhanced features",
+      "Evaluate with same K_C/K_path/K_prop/H/gamma protocol and regret-based model selection",
+      "Only upgrade to full v1.35 if pilot achieves grade A"
+    ]
+  },
+  "open_items": [
+    "Real same-state / multi-trace stability study not completed",
+    "Label ablations (H=0/1/2/5, blocking-only, future-only) designed but not run",
+    "ranker_old_v13 row back-filled after parser bug fix"
+  ]
+}

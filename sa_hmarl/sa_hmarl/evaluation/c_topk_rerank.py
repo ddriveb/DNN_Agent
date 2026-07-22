@@ -45,11 +45,10 @@ def _get_action_scores(
 ) -> Tuple[np.ndarray, np.ndarray]:
     """Return (scores, mask) for all C actions.
 
-    scores[i] is the raw policy logit (PPO) or Q-value (DQN); higher = better.
+    scores[i] is the raw PPO policy logit; higher = better.
     Invalid actions are set to -inf.
     """
     from sa_hmarl.agents.ppo_agents import PPOAgentC
-    from sa_hmarl.agents.c_agent import AgentC
 
     features, mask = agent_c.build_action_features(obs_c)
 
@@ -57,12 +56,10 @@ def _get_action_scores(
         x = torch.tensor(features, dtype=torch.float32, device=agent_c.device).unsqueeze(0)
         if isinstance(agent_c, PPOAgentC):
             raw = agent_c.policy_net(x).squeeze(0).cpu().numpy()
-        elif isinstance(agent_c, AgentC):
-            raw = agent_c.q_net(x).squeeze(0).cpu().numpy()
         else:
             raise TypeError(
                 f"Unsupported agent type: {type(agent_c)}. "
-                f"Expected PPOAgentC or AgentC."
+                f"Expected PPOAgentC."
             )
 
     scores = raw.copy()
@@ -130,7 +127,7 @@ def select_c_topk_rerank(
     5. Return the action with the lowest rerank score.
 
     Args:
-        agent_c: A ``PPOAgentC`` or ``AgentC`` (DQN) instance.
+        agent_c: A ``PPOAgentC`` instance.
         obs_c: Pre-built Agent-C observation dict.
         env: The current SMDP environment (read-only).
         req: The current DNN request.
@@ -214,7 +211,7 @@ def select_c_topk_rerank_from_raw(
     evaluation loops.
 
     Args:
-        agent_c: PPOAgentC or AgentC instance.
+        agent_c: PPOAgentC instance.
         env: Current SMDP environment.
         req: Current DNN request.
         top_k: Number of top-K candidates.

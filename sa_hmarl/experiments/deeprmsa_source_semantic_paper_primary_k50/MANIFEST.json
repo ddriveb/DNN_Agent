@@ -1,0 +1,21 @@
+{
+  "experiment": "deeprmsa_source_semantic_paper_primary_k50",
+  "deliverables": [
+    "PROTOCOL_LOCK.md/.json",
+    "UPSTREAM_SOURCE_PROVENANCE.md/.json",
+    "SOURCE_TO_PORT_LINE_PARITY.md",
+    "MASK_REMOVAL_AUDIT.md",
+    "STATE_FEATURE_EQUATION_AUDIT.md",
+    "ACTION_AND_REWARD_SEMANTICS_AUDIT.md",
+    "TRAINING_CONFIG.md/.json",
+    "TRAINING_CURVES.md/.json",
+    "CHECKPOINT_PROVENANCE.md/.json",
+    "REQUEST_TRACE_AUDIT.md/.json",
+    "DEEPRMSA_RESULTS.md/.json",
+    "PAIRED_STATISTICS.md/.json",
+    "TRAINING_FAIRNESS_LIMITS.md",
+    "FINAL_DECISION.md/.json",
+    "STATUS.md/.json",
+    "MANIFEST.json"
+  ]
+}

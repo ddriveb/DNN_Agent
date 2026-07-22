@@ -1,0 +1,7 @@
+[nsfnet seed=999] req=  25000 upd= 109 eps=0.999 train_blk=18.627% val_blk=10.311% best=10.311%
+[nsfnet seed=999] req=  50000 upd= 234 eps=0.998 train_blk=11.196% val_blk=11.756% best=10.311%
+[nsfnet seed=999] req=  75000 upd= 359 eps=0.996 train_blk=10.388% val_blk=7.589% best=7.589%
+[nsfnet seed=999] req= 100000 upd= 484 eps=0.995 train_blk=9.184% val_blk=7.711% best=7.589%
+[nsfnet seed=999] req= 125000 upd= 609 eps=0.994 train_blk=8.048% val_blk=7.433% best=7.433%
+[nsfnet seed=999] req= 150000 upd= 734 eps=0.993 train_blk=8.740% val_blk=7.067% best=7.067%
+[nsfnet seed=999] req= 175000 upd= 859 eps=0.991 train_blk=8.004% val_blk=7.611% best=7.067%

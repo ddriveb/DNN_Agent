@@ -1,0 +1,47 @@
+======================================================================
+PREFLIGHT SMOKE TEST: Phase-R0 Expanded-Path Rescue Ceiling
+======================================================================
+
+--- Topology: xlron_cost239_ptrnet_real (seed 5001) ---
+Nodes: 11, Links: 26
+Server nodes: [0, 1, 2, 3]
+  Strict v1.3 frozen cross-topology transfer: blocking=5.7000%, total=2000, admitted=1886, blocked=114, rescue_attempted=0, rescue_success=0
+  KSP-FF K=50 hops: blocking=5.7000%, total=2000, admitted=1886, blocked=114, rescue_attempted=0, rescue_success=0
+  Strict v1.3 + K500 rescue: blocking=5.7000%, total=2000, admitted=1886, blocked=114, rescue_attempted=114, rescue_success=0
+  KSP-FF K=50 hops + K500 rescue: blocking=5.7000%, total=2000, admitted=1886, blocked=114, rescue_attempted=114, rescue_success=0
+  K50-empty events (baseline): 228
+  Rescue successes: strict=0, preferred=0
+
+--- Topology: xlron_nsfnet_deeprmsa (seed 6101) ---
+Nodes: 14, Links: 22
+Server nodes: [0, 1, 2, 3]
+  Strict v1.3 frozen cross-topology transfer: blocking=6.1000%, total=2000, admitted=1878, blocked=122, rescue_attempted=0, rescue_success=0
+  KSP-FF K=50 hops: blocking=6.1500%, total=2000, admitted=1877, blocked=123, rescue_attempted=0, rescue_success=0
+  Strict v1.3 + K500 rescue: blocking=6.1000%, total=2000, admitted=1878, blocked=122, rescue_attempted=122, rescue_success=0
+  KSP-FF K=50 hops + K500 rescue: blocking=6.1500%, total=2000, admitted=1877, blocked=123, rescue_attempted=123, rescue_success=0
+  K50-empty events (baseline): 245
+  Rescue successes: strict=0, preferred=0
+
+--- Topology: xlron_usnet_gcnrmsa (seed 6101) ---
+Nodes: 24, Links: 43
+Server nodes: [0, 1, 2, 3]
+  Strict v1.3 frozen cross-topology transfer: blocking=6.4500%, total=2000, admitted=1871, blocked=129, rescue_attempted=0, rescue_success=0
+  FF-KSP K=50 hops: blocking=6.4500%, total=2000, admitted=1871, blocked=129, rescue_attempted=0, rescue_success=0
+  Strict v1.3 + K500 rescue: blocking=6.4500%, total=2000, admitted=1871, blocked=129, rescue_attempted=129, rescue_success=0
+  FF-KSP K=50 hops + K500 rescue: blocking=6.4500%, total=2000, admitted=1871, blocked=129, rescue_attempted=129, rescue_success=0
+  K50-empty events (baseline): 258
+  Rescue successes: strict=0, preferred=0
+
+--- Topology: xlron_jpn48 (seed 6101) ---
+Nodes: 48, Links: 82
+Server nodes: [0, 1, 2, 3]
+  Strict v1.3 frozen cross-topology transfer: blocking=5.9000%, total=2000, admitted=1882, blocked=118, rescue_attempted=0, rescue_success=0
+  FF-KSP K=50 hops: blocking=5.9000%, total=2000, admitted=1882, blocked=118, rescue_attempted=0, rescue_success=0
+  Strict v1.3 + K500 rescue: blocking=5.9000%, total=2000, admitted=1882, blocked=118, rescue_attempted=118, rescue_success=0
+  FF-KSP K=50 hops + K500 rescue: blocking=5.9000%, total=2000, admitted=1882, blocked=118, rescue_attempted=118, rescue_success=0
+  K50-empty events (baseline): 236
+  Rescue successes: strict=0, preferred=0
+
+======================================================================
+SMOKE TEST COMPLETE. Results written to sa_hmarl/experiments/r_mask_empty_expanded_path_rescue_phase_r0/SMOKE_RESULTS.json and sa_hmarl/experiments/r_mask_empty_expanded_path_rescue_phase_r0/SMOKE_RESULTS.md
+======================================================================

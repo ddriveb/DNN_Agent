@@ -1,0 +1,8 @@
+{
+  "classification": "C",
+  "reason": "benefit over KSP but inconsistent vs PPO-R",
+  "ksp_stable": 4,
+  "ppo_stable": 2,
+  "ksp_holm_significant": 0,
+  "ppo_holm_significant": 0
+}

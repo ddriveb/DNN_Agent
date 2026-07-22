@@ -1,10 +1,10 @@
 """Generate supervised R-side post-decision value datasets.
 
 For each request, Agent-C is frozen and selects a split/server.  We then
-enumerate every raw-mask-legal Agent-R action, execute that action in a copied
-environment, roll out H future requests with the frozen C+R pair, and assign a
-label that rewards current success, low future blocking, and healthy spectrum
-structure.
+either enumerate every raw-mask-legal Agent-R action (the default) or only the
+top-K actions proposed by PPO-R, execute each candidate in a copied environment,
+roll out H future requests with the frozen C+R pair, and assign a label that
+rewards current success, low future blocking, and healthy spectrum structure.
 """
 from __future__ import annotations
 
@@ -46,6 +46,24 @@ SPLIT_SEEDS = {
     "val": (789, 101112),
     "test": (2024, 2025),
 }
+
+
+def _ppo_r_topk_actions(agent_r, obs_r: Dict[str, Any], top_k: int) -> List[int]:
+    """Return the top-k legal flat action ids ranked by PPO-R logits."""
+    features, mask = agent_r.build_action_features(obs_r)
+    legal = np.flatnonzero(np.asarray(mask, dtype=bool))
+    if legal.size == 0:
+        return []
+    with torch.no_grad():
+        x = (
+            torch.as_tensor(features, dtype=torch.float32, device=agent_r.device)
+            .unsqueeze(0)
+        )
+        logits = agent_r.policy_net(x).squeeze(0).cpu().numpy()
+    logits[~np.asarray(mask, dtype=bool)] = -np.inf
+    top_k = min(top_k, legal.size)
+    top_local = np.argsort(-logits[legal], kind="stable")[:top_k]
+    return [int(legal[i]) for i in top_local]
 
 R_BASE_FEATURE_NAMES = [
     "path_length_km", "hop_count", "lfb", "free_ratio", "frag_index",
@@ -254,12 +272,17 @@ def _generate_episode(
         legal = np.flatnonzero(np.asarray(r_mask, dtype=bool)).tolist()
         groups["group_r_mask_empty"].append(len(legal) == 0)
 
-        if legal:
+        if args.candidate_source == "ppo_r_topk":
+            candidates = _ppo_r_topk_actions(agent_r, obs_r, args.ppo_r_top_k)
+        else:
+            candidates = legal
+
+        if candidates:
             snapshot = _snapshot_before_c_decision(env, req.req_id)
             ppo_r_action = agent_r.select_action(obs_r, deterministic=True)
             labels = []
             records = []
-            for r_action_idx in legal:
+            for r_action_idx in candidates:
                 branch = copy.deepcopy(snapshot)
                 info = _execute_fixed_r(branch, req, split_id, server_id, int(r_action_idx), obs_r)
                 actual_horizon = max(min(args.label_horizon, len(requests) - request_index - 1), 0)
@@ -476,6 +499,8 @@ def generate_dataset(args: argparse.Namespace) -> Dict[str, Any]:
         ),
         "diagnostics": diagnostics,
         "label_horizon": args.label_horizon,
+        "candidate_source": args.candidate_source,
+        "ppo_r_top_k": args.ppo_r_top_k,
         "agent_r_unchanged": r_unchanged,
         "elapsed_seconds": time.time() - started,
         "verdict": (
@@ -533,6 +558,18 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--label_delay_coef", type=float, default=0.1)
     parser.add_argument("--device", default="cpu")
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument(
+        "--candidate_source",
+        default="all_legal",
+        choices=["all_legal", "ppo_r_topk"],
+        help="Which candidate set to use for post-decision labels.",
+    )
+    parser.add_argument(
+        "--ppo_r_top_k",
+        type=int,
+        default=8,
+        help="Number of PPO-R top-K proposals when candidate_source=ppo_r_topk.",
+    )
     return parser
 
 

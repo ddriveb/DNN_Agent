@@ -1,0 +1,15 @@
+/mnt/d/project/DNN_Agent/sa_hmarl/sa_hmarl/training/train_r_counterfactual_ranking.py:175: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho, _ = stats.spearmanr(rank_score, rank_return)
+[epoch=1] train_loss=0.2413 val_top1=5.31% val_top3=13.83% val_spearman=0.001 val_ppo_agreement=6.74% score_std=0.3471
+[epoch=5] train_loss=0.2111 val_top1=2.97% val_top3=7.26% val_spearman=-0.038 val_ppo_agreement=3.26% score_std=0.4993
+[epoch=10] train_loss=0.1995 val_top1=4.40% val_top3=9.94% val_spearman=-0.034 val_ppo_agreement=5.43% score_std=0.5080
+[epoch=15] train_loss=0.1971 val_top1=5.20% val_top3=12.06% val_spearman=-0.020 val_ppo_agreement=8.11% score_std=0.6104
+[epoch=20] train_loss=0.1966 val_top1=5.77% val_top3=13.31% val_spearman=-0.034 val_ppo_agreement=9.89% score_std=0.5761
+[epoch=25] train_loss=0.1891 val_top1=5.89% val_top3=13.31% val_spearman=-0.018 val_ppo_agreement=7.89% score_std=0.5800
+[epoch=30] train_loss=0.1891 val_top1=5.54% val_top3=11.60% val_spearman=-0.007 val_ppo_agreement=6.69% score_std=0.5625
+[epoch=35] train_loss=0.1853 val_top1=6.11% val_top3=14.23% val_spearman=0.012 val_ppo_agreement=7.43% score_std=0.5313
+[epoch=40] train_loss=0.1852 val_top1=6.91% val_top3=14.86% val_spearman=0.020 val_ppo_agreement=8.06% score_std=0.6139
+[epoch=45] train_loss=0.1845 val_top1=5.03% val_top3=11.14% val_spearman=-0.007 val_ppo_agreement=7.66% score_std=0.6429
+[epoch=50] train_loss=0.1818 val_top1=6.63% val_top3=14.63% val_spearman=0.009 val_ppo_agreement=8.23% score_std=0.5684
+Early stopping at epoch 52
+Training complete. Best checkpoint val top-1=7.54% selection_metric=top1 selection_score=0.0754 Test top-1=5.92%

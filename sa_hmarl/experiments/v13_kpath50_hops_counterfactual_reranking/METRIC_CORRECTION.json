@@ -1,0 +1,50 @@
+{
+  "title": "SA-HMARL v1.3 Metric Correction",
+  "date": "2026-07-08",
+  "supersedes_reports_using": ["relative_regret_reduction"],
+  "old_metric": {
+    "name": "relative_regret_reduction",
+    "formula": "mean over groups where ppo_regret > 0 of (ppo_regret - model_regret) / ppo_regret",
+    "problems": [
+      "Conditions on PPO regret > 0 and discards optimal groups.",
+      "Per-group ratio is unbounded and unstable when ppo_regret is tiny."
+    ],
+    "example_full_medium_seed_42": {
+      "model_regret": 0.0682368266593968,
+      "ppo_regret": 0.10504814551952199,
+      "old_conditional_ratio": -1.154,
+      "new_aggregate_reduction": 0.35042330997917737
+    }
+  },
+  "new_metric": {
+    "name": "aggregate_regret_reduction",
+    "formula": "(mean_ppo_regret - mean_model_regret) / max(mean_ppo_regret, 1e-12)",
+    "alias": "absolute_regret_improvement = mean_ppo_regret - mean_model_regret",
+    "properties": [
+      "Uses all groups, no conditioning.",
+      "Bounded and stable.",
+      "Monotonic in model quality for a fixed baseline."
+    ],
+    "retired_alias": "conditional_mean_relative_reduction_on_ppo_error_groups"
+  },
+  "code_files_changed": [
+    "sa_hmarl/sa_hmarl/training/train_r_counterfactual_ranking.py",
+    "sa_hmarl/tests/test_regret_metrics.py"
+  ],
+  "unit_tests": {
+    "command": "PYTHONPATH=sa_hmarl python3 -m pytest sa_hmarl/tests/test_regret_metrics.py -v",
+    "result": "4 passed",
+    "tests": [
+      "test_aggregate_regret_reduction_positive_when_model_better",
+      "test_aggregate_regret_reduction_does_not_explode_with_small_ppo_regret",
+      "test_better_equal_worse_rates_sum_to_one",
+      "test_model_better_rate_reflects_actual_rescues"
+    ]
+  },
+  "impact": {
+    "offline_gate_full_medium": "PASS",
+    "selected_checkpoint": "sa_hmarl/checkpoints/v13_kpath50_hops_medium_regret_selected/seed_42/ranking_model.pt",
+    "closed_loop_launched": true,
+    "v1_35_launch": "pilot only"
+  }
+}

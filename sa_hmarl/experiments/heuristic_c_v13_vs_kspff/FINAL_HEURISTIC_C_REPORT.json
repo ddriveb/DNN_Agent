@@ -1,0 +1,260 @@
+{
+  "title": "Heuristic C vs v1.3 Hybrid: R-side Gain Dependency on C-side Policy",
+  "date": "2026-07-04",
+  "c_heuristic": "df_c",
+  "c_heuristic_selection": {
+    "global_best": true,
+    "selection_basis": "Lowest blocking on snap24 (tied with iwd) and best among five heuristics on COST239 long-horizon smoke.",
+    "candidates_evaluated": [
+      "greedy_c",
+      "df_c",
+      "rf_c",
+      "wo_c",
+      "iwd_c"
+    ]
+  },
+  "r_backends": [
+    "ksp_ff_k50_hops",
+    "v12_k50_hops"
+  ],
+  "protocol": {
+    "slots": 320,
+    "servers": 4,
+    "server_nodes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "capacities": [
+      50,
+      50,
+      50,
+      50
+    ],
+    "splits": 3,
+    "split_profile": "default3",
+    "requests_per_episode": 10000,
+    "warmup_requests": 2000,
+    "arrivals": "poisson",
+    "holding": "exponential_mean_25s",
+    "request_size_mb": "5-30",
+    "seeds": [
+      3030,
+      4040,
+      5050,
+      6060,
+      7070
+    ],
+    "ksp_ff_k50_hops_k_paths": 50,
+    "path_sort_strategy": "hops",
+    "block_sort_strategy": "start_asc",
+    "v12_config": {
+      "ranker_candidate_mode": "legalctx48",
+      "ranker_max_candidates": 48,
+      "ranker_ensure_ksp": true
+    }
+  },
+  "per_topology": {
+    "xlron_cost239_ptrnet_real": {
+      "topology": "xlron_cost239_ptrnet_real",
+      "lambda": 16,
+      "edge_cost_max": 2.2,
+      "df_c+ksp_ff_k50_hops": {
+        "blocking_rate_mean": 0.14837499999999998,
+        "blocking_rate_std": 0.019172734546746333,
+        "blocking_rate_per_seed": {
+          "3030": 0.121,
+          "4040": 0.143125,
+          "5050": 0.166,
+          "6060": 0.14425,
+          "7070": 0.1675
+        },
+        "server_overload_rate": 0.14837499999999998,
+        "no_suitable_block_rate": 0.0,
+        "raw_mask_empty_rate": 0.17504999999999998,
+        "mean_delay_ms": 9.063574674658147,
+        "avg_fs": 2.238975562561749,
+        "avg_path_km": 707.3315505640933
+      },
+      "df_c+v12_k50_hops": {
+        "blocking_rate_mean": 0.14837499999999998,
+        "blocking_rate_std": 0.019172734546746333,
+        "blocking_rate_per_seed": {
+          "3030": 0.121,
+          "4040": 0.143125,
+          "5050": 0.166,
+          "6060": 0.14425,
+          "7070": 0.1675
+        },
+        "server_overload_rate": 0.14837499999999998,
+        "no_suitable_block_rate": 0.0,
+        "raw_mask_empty_rate": 0.17504999999999998,
+        "mean_delay_ms": 9.809222511317262,
+        "avg_fs": 2.4038837823337946,
+        "avg_path_km": 771.8640012450384
+      },
+      "delta_pp": 0.0,
+      "delta_relative_percent": 0.0,
+      "t_statistic": NaN,
+      "p_value": NaN,
+      "significant": false,
+      "ppo_c_reference": {
+        "ksp_ff": 0.1037,
+        "v12": 0.0768,
+        "delta_pp": -2.69,
+        "delta_rel": -25.9
+      }
+    },
+    "xlron_german17": {
+      "topology": "xlron_german17",
+      "lambda": 14,
+      "edge_cost_max": 3.0,
+      "df_c+ksp_ff_k50_hops": {
+        "blocking_rate_mean": 0.1269,
+        "blocking_rate_std": 0.007289440136251896,
+        "blocking_rate_per_seed": {
+          "3030": 0.13675,
+          "4040": 0.119125,
+          "5050": 0.124,
+          "6060": 0.132125,
+          "7070": 0.1225
+        },
+        "server_overload_rate": 0.1267,
+        "no_suitable_block_rate": 0.000175,
+        "raw_mask_empty_rate": 0.14980000000000002,
+        "mean_delay_ms": 11.142185502564647,
+        "avg_fs": 2.3695295016878473,
+        "avg_path_km": 800.6094413067294
+      },
+      "df_c+v12_k50_hops": {
+        "blocking_rate_mean": 0.12965,
+        "blocking_rate_std": 0.010968135666557013,
+        "blocking_rate_per_seed": {
+          "3030": 0.144625,
+          "4040": 0.117625,
+          "5050": 0.122,
+          "6060": 0.136625,
+          "7070": 0.127375
+        },
+        "server_overload_rate": 0.12925,
+        "no_suitable_block_rate": 0.000325,
+        "raw_mask_empty_rate": 0.153225,
+        "mean_delay_ms": 11.640928635388988,
+        "avg_fs": 2.6021227104632514,
+        "avg_path_km": 837.8209719603035
+      },
+      "delta_pp": 0.002749999999999997,
+      "delta_relative_percent": 2.1670606776989727,
+      "t_statistic": 1.4251502707318318,
+      "p_value": 0.22724216287322438,
+      "significant": false,
+      "ppo_c_reference": {
+        "ksp_ff": 0.076,
+        "v12": 0.0763,
+        "delta_pp": 0.04,
+        "delta_rel": 0.5
+      }
+    },
+    "xlron_jpn48": {
+      "topology": "xlron_jpn48",
+      "lambda": 10,
+      "edge_cost_max": 5.2,
+      "df_c+ksp_ff_k50_hops": {
+        "blocking_rate_mean": 0.112825,
+        "blocking_rate_std": 0.017582084276330835,
+        "blocking_rate_per_seed": {
+          "3030": 0.140125,
+          "4040": 0.09675,
+          "5050": 0.12025,
+          "6060": 0.104875,
+          "7070": 0.102125
+        },
+        "server_overload_rate": 0.10800000000000001,
+        "no_suitable_block_rate": 0.0014750000000000002,
+        "raw_mask_empty_rate": 0.128425,
+        "mean_delay_ms": 16.352839755526368,
+        "avg_fs": 2.628680088456508,
+        "avg_path_km": 1056.561943933367
+      },
+      "df_c+v12_k50_hops": {
+        "blocking_rate_mean": 0.10845,
+        "blocking_rate_std": 0.018571357314423734,
+        "blocking_rate_per_seed": {
+          "3030": 0.137125,
+          "4040": 0.0915,
+          "5050": 0.11675,
+          "6060": 0.099,
+          "7070": 0.097875
+        },
+        "server_overload_rate": 0.101025,
+        "no_suitable_block_rate": 0.0022,
+        "raw_mask_empty_rate": 0.12217499999999999,
+        "mean_delay_ms": 17.884685029691223,
+        "avg_fs": 2.6497610039079427,
+        "avg_path_km": 1122.3009206619452
+      },
+      "delta_pp": -0.004374999999999995,
+      "delta_relative_percent": -3.8776866829160164,
+      "t_statistic": -8.204126541423664,
+      "p_value": 0.0012027775982652348,
+      "significant": true,
+      "ppo_c_reference": {
+        "ksp_ff": 0.0919,
+        "v12": 0.0803,
+        "delta_pp": -1.16,
+        "delta_rel": -12.6
+      }
+    },
+    "xlron_nsfnet_deeprmsa": {
+      "topology": "xlron_nsfnet_deeprmsa",
+      "lambda": 13,
+      "edge_cost_max": 4.0,
+      "df_c+ksp_ff_k50_hops": {
+        "blocking_rate_mean": 0.203275,
+        "blocking_rate_std": 0.014376739025244913,
+        "blocking_rate_per_seed": {
+          "3030": 0.18875,
+          "4040": 0.19175,
+          "5050": 0.216875,
+          "6060": 0.199,
+          "7070": 0.22
+        },
+        "server_overload_rate": 0.20095000000000002,
+        "no_suitable_block_rate": 0.0007,
+        "raw_mask_empty_rate": 0.2323,
+        "mean_delay_ms": 18.189873172777183,
+        "avg_fs": 3.6722189197182273,
+        "avg_path_km": 2190.0511763266027
+      },
+      "df_c+v12_k50_hops": {
+        "blocking_rate_mean": 0.1994,
+        "blocking_rate_std": 0.011715507884850746,
+        "blocking_rate_per_seed": {
+          "3030": 0.188375,
+          "4040": 0.185375,
+          "5050": 0.210125,
+          "6060": 0.204,
+          "7070": 0.209125
+        },
+        "server_overload_rate": 0.19532500000000003,
+        "no_suitable_block_rate": 0.00155,
+        "raw_mask_empty_rate": 0.22667500000000002,
+        "mean_delay_ms": 18.030599279161226,
+        "avg_fs": 3.6207873219698086,
+        "avg_path_km": 2154.41623798472
+      },
+      "delta_pp": -0.003875000000000006,
+      "delta_relative_percent": -1.906284589841351,
+      "t_statistic": -1.3940506262811971,
+      "p_value": 0.23575290984399108,
+      "significant": false,
+      "ppo_c_reference": {
+        "ksp_ff": 0.1529,
+        "v12": 0.1492,
+        "delta_pp": -0.37,
+        "delta_rel": -2.4
+      }
+    }
+  }
+}

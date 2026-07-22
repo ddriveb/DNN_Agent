@@ -1,0 +1,87 @@
+{
+  "dataset_dir": "sa_hmarl/experiments/v13_strict_fixed/pilot_dataset_cost239",
+  "train": {
+    "groups": 593,
+    "avg_candidates": 30.0,
+    "nonzero_return_range_rate": 0.9005059021922428,
+    "return_min": -20.0,
+    "return_max": -0.0,
+    "return_mean": -1.3650364875793457,
+    "return_std": 3.686924457550049,
+    "ppo_regret_mean": 0.0337429371290223,
+    "ppo_regret_headroom": 0.47463399171829224,
+    "future_blocking_difference_rate": 0.008431703204047217,
+    "e0_groups": 59,
+    "e1_groups": 534,
+    "e1_rate": 0.9005059021922428
+  },
+  "val": {
+    "groups": 580,
+    "avg_candidates": 25.239655172413794,
+    "nonzero_return_range_rate": 0.9257950530035336,
+    "return_min": -20.0,
+    "return_max": -0.0,
+    "return_mean": -1.6130272150039673,
+    "return_std": 3.5335450172424316,
+    "ppo_regret_mean": 0.27188489899553103,
+    "ppo_regret_headroom": 8.19583797454834,
+    "future_blocking_difference_rate": 0.07241379310344828,
+    "e0_groups": 50,
+    "e1_groups": 530,
+    "e1_rate": 0.9137931034482759
+  },
+  "test": {
+    "groups": 580,
+    "avg_candidates": 24.620689655172413,
+    "nonzero_return_range_rate": 0.653448275862069,
+    "return_min": -20.0,
+    "return_max": -0.0,
+    "return_mean": -0.711527943611145,
+    "return_std": 2.1986513137817383,
+    "ppo_regret_mean": 0.03194383799002088,
+    "ppo_regret_headroom": 0.3203567862510681,
+    "future_blocking_difference_rate": 0.008620689655172414,
+    "e0_groups": 120,
+    "e1_groups": 460,
+    "e1_rate": 0.7931034482758621
+  },
+  "metadata": {
+    "K_C": 5,
+    "K_path": 50,
+    "K_prop": 30,
+    "H": 5,
+    "gamma": 1.0,
+    "group_filter": "all",
+    "candidate_mode": "ppo_r_topk_only"
+  },
+  "train_stratum": {
+    "0": {
+      "groups": 59,
+      "return_mean": -0.9761756062507629,
+      "return_std": 2.9407224655151367,
+      "nonzero_range_rate": 0.7627118644067796,
+      "label_variance_proxy": 0.001008499175834402
+    },
+    "1": {
+      "groups": 23,
+      "return_mean": -1.9736007452011108,
+      "return_std": 4.606544017791748,
+      "nonzero_range_rate": 0.9130434782608695,
+      "label_variance_proxy": 0.001054378638135586
+    },
+    "2": {
+      "groups": 406,
+      "return_mean": -1.5422252416610718,
+      "return_std": 3.9587228298187256,
+      "nonzero_range_rate": 0.9113300492610837,
+      "label_variance_proxy": 0.003835044587478907
+    },
+    "3": {
+      "groups": 105,
+      "return_mean": -0.7651053071022034,
+      "return_std": 2.4533796310424805,
+      "nonzero_range_rate": 0.9333333333333333,
+      "label_variance_proxy": 0.0084504306881703
+    }
+  }
+}

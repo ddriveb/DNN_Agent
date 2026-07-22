@@ -1,0 +1,31 @@
+{
+  "delta_ppo_c": {
+    "mean": -0.024391666666666666,
+    "median": -0.02066666666666667,
+    "std": 0.009219429489776419,
+    "bootstrap_95_ci": [
+      -0.02843333333333333,
+      -0.020591666666666668
+    ]
+  },
+  "delta_df_c": {
+    "mean": -0.0003416666666666665,
+    "median": 0.0,
+    "std": 0.0015279797846248554,
+    "bootstrap_95_ci": [
+      -0.0010249999999999994,
+      0.0
+    ]
+  },
+  "interaction": {
+    "mean": 0.02405,
+    "median": 0.02066666666666667,
+    "std": 0.008967794881086419,
+    "bootstrap_95_ci": [
+      0.020391666666666662,
+      0.028008333333333336
+    ],
+    "wilcoxon_p": 8.844915021211901e-05
+  },
+  "interpretation": "Strict v1.3's advantage over KSP-FF is smaller under DF_C than under PPO-C (interaction significant)."
+}

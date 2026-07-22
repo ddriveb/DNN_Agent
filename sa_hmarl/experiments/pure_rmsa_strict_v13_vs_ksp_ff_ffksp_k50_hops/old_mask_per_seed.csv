@@ -1,0 +1,6 @@
+seed,evaluated,accepted,blocked,blocking_rate,server_capacity_infeasible,deadline_budget_infeasible,no_reach_feasible_path_mod,fs_exceeds_total_slots,no_common_free_capacity,continuity_mismatch,contiguity_fragmentation,k50_path_pool_empty
+5001,6000,5677,323,0.05383333333333333,323,0,0,0,0,0,0,0
+5002,6000,5660,340,0.056666666666666664,340,0,0,0,0,0,0,0
+5003,6000,5684,316,0.05266666666666667,316,0,0,0,0,0,0,0
+5004,6000,5650,350,0.058333333333333334,350,0,0,0,0,0,0,0
+5005,6000,5651,349,0.058166666666666665,349,0,0,0,0,0,0,0

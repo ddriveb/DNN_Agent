@@ -1,0 +1,10 @@
+{
+  "shard_id": "train_s1002_e1",
+  "config_hash": "d5cd3658fd77da12",
+  "status": "ok",
+  "groups": 704,
+  "elapsed_sec": 1454.845293803999,
+  "checksum": "3e4c8a9fbef02507",
+  "version": "1.3",
+  "schema": "r_counterfactual_ranking_v1.3"
+}

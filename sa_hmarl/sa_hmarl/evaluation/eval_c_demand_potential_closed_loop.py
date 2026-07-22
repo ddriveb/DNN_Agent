@@ -214,10 +214,16 @@ class PerMethodMetrics:
     no_suitable_block: int = 0
     server_overload: int = 0
     deadline_failure: int = 0
+    reason_counts: Dict[str, int] = field(default_factory=dict)
     delays: List[float] = field(default_factory=list)
     fses: List[float] = field(default_factory=list)
     wastes: List[float] = field(default_factory=list)
     path_kms: List[float] = field(default_factory=list)
+    hop_counts: List[float] = field(default_factory=list)
+    block_starts: List[float] = field(default_factory=list)
+    block_sizes: List[float] = field(default_factory=list)
+    mod_counts: Dict[str, int] = field(default_factory=dict)
+    server_counts: Dict[int, int] = field(default_factory=dict)
     active_connections: List[int] = field(default_factory=list)
     valid_c_actions: List[int] = field(default_factory=list)
     total_valid_r_actions: List[int] = field(default_factory=list)
@@ -230,6 +236,16 @@ class PerMethodMetrics:
     lyap_H_spec: List[float] = field(default_factory=list)
     lyap_adjustment_abs: List[float] = field(default_factory=list)
     lyap_changed_vs_v12: List[bool] = field(default_factory=list)
+    # Split choice distribution (for fixed-split / no-partition-style ablations)
+    split_counts: Dict[int, int] = field(default_factory=dict)
+    # Optional ranker profiling breakdown (only populated when enable_profile=True)
+    profile_r_feature_build_ms: List[float] = field(default_factory=list)
+    profile_legal_extract_ms: List[float] = field(default_factory=list)
+    profile_candidate_select_ms: List[float] = field(default_factory=list)
+    profile_feature_batch_ms: List[float] = field(default_factory=list)
+    profile_normalize_ms: List[float] = field(default_factory=list)
+    profile_ranker_forward_ms: List[float] = field(default_factory=list)
+    profile_total_ranker_policy_ms: List[float] = field(default_factory=list)
 
 
 # ---------------------------------------------------------------------------
@@ -547,6 +563,12 @@ def _aggregate_metrics(m: PerMethodMetrics) -> Dict[str, Any]:
     changed_n = sum(1 for same in m.actions_same if not same)
     changed_safe = max(changed_n, 1)
     changed_blocked_rate = m.changed_blocked_count / changed_safe if changed_n > 0 else None
+    categorized_blocked = (
+        m.no_suitable_block
+        + m.server_overload
+        + m.deadline_failure
+    )
+    other_failure = max(m.blocked - categorized_blocked, 0)
 
     return {
         "total": m.total,
@@ -555,12 +577,19 @@ def _aggregate_metrics(m: PerMethodMetrics) -> Dict[str, Any]:
         "no_suitable_block_rate": m.no_suitable_block / n,
         "server_overload_rate": m.server_overload / n,
         "deadline_failure_rate": m.deadline_failure / n,
+        "other_failure_rate": other_failure / n,
+        "reason_counts": dict(m.reason_counts),
         "mean_delay_ms": float(np.mean(m.delays)) if m.delays else 0.0,
         "p50_delay_ms": float(np.percentile(m.delays, 50)) if m.delays else 0.0,
         "p95_delay_ms": float(np.percentile(m.delays, 95)) if m.delays else 0.0,
         "avg_fs": float(np.mean(m.fses)) if m.fses else 0.0,
         "avg_waste": float(np.mean(m.wastes)) if m.wastes else 0.0,
         "avg_path_km": float(np.mean(m.path_kms)) if m.path_kms else 0.0,
+        "avg_hop_count": float(np.mean(m.hop_counts)) if m.hop_counts else 0.0,
+        "avg_block_start": float(np.mean(m.block_starts)) if m.block_starts else 0.0,
+        "avg_block_size": float(np.mean(m.block_sizes)) if m.block_sizes else 0.0,
+        "mod_dist": {str(k): v / max(sum(m.mod_counts.values()), 1) for k, v in sorted(m.mod_counts.items())} if m.mod_counts else {},
+        "server_dist": {str(k): v / n for k, v in sorted(m.server_counts.items())} if m.server_counts else {},
         "mean_active_connections": float(np.mean(m.active_connections)) if m.active_connections else 0.0,
         "p95_active_connections": float(np.percentile(m.active_connections, 95)) if m.active_connections else 0.0,
         "max_active_connections": max(m.active_connections) if m.active_connections else 0,
@@ -580,7 +609,40 @@ def _aggregate_metrics(m: PerMethodMetrics) -> Dict[str, Any]:
             float(np.mean([float(x) for x in m.lyap_changed_vs_v12]))
             if m.lyap_changed_vs_v12 else None
         ),
+        # Split choice distribution
+        "split_counts": dict(m.split_counts),
+        "split_dist": {
+            str(split_id): count / n
+            for split_id, count in sorted(m.split_counts.items())
+        },
+        # Ranker profiling breakdown (only meaningful when profile samples exist)
+        "profile_stats": _aggregate_profile_lists(m),
     }
+
+
+def _aggregate_profile_lists(m: PerMethodMetrics) -> Dict[str, Any]:
+    """Return mean/P95 profile timings if any samples were collected."""
+    keys = [
+        "profile_r_feature_build_ms",
+        "profile_legal_extract_ms",
+        "profile_candidate_select_ms",
+        "profile_feature_batch_ms",
+        "profile_normalize_ms",
+        "profile_ranker_forward_ms",
+        "profile_total_ranker_policy_ms",
+    ]
+    out: Dict[str, Any] = {}
+    has_any = False
+    for key in keys:
+        samples = getattr(m, key, [])
+        if samples:
+            has_any = True
+            short = key.replace("profile_", "").replace("_ms", "")
+            out[f"{short}_mean_ms"] = float(np.mean(samples))
+            out[f"{short}_p95_ms"] = float(np.percentile(samples, 95))
+    if not has_any:
+        return {}
+    return out
 
 
 # ---------------------------------------------------------------------------

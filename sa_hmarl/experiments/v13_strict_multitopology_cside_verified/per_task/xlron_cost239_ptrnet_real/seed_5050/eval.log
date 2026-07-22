@@ -1,0 +1,6 @@
+[eval] Saved sa_hmarl/experiments/v13_strict_multitopology_cside_verified/per_task/xlron_cost239_ptrnet_real/seed_5050/results.json and sa_hmarl/experiments/v13_strict_multitopology_cside_verified/per_task/xlron_cost239_ptrnet_real/seed_5050/eval.log
+16 r_no=0 r_reached=4984 r_decisions=4984 policy_ms=1.282 audit_ms=2.603 ppo_agree=0.09430176565008026
+[xlron_cost239_ptrnet_real][seed=5050][ppo_c+strict_v13] blocking=31.9400% c_no=0 r_no=0 r_reached=5000 r_decisions=5000 policy_ms=14.372 audit_ms=2.617 ppo_agree=0.0602
+[xlron_cost239_ptrnet_real][seed=5050][df_c+ppo_r_top1] blocking=18.1800% c_no=9 r_no=0 r_reached=4991 r_decisions=4991 policy_ms=0.138 audit_ms=3.957 ppo_agree=1.0
+[xlron_cost239_ptrnet_real][seed=5050][df_c+ksp_ff_highest] blocking=12.3800% c_no=24 r_no=0 r_reached=4976 r_decisions=4976 policy_ms=0.165 audit_ms=3.911 ppo_agree=0.00482315112540193
+[xlron_cost239_ptrnet_real][seed=5050][df_c+strict_v13] blocking=18.7800% c_no=6 r_no=0 r_reached=4994 r_decisions=4994 policy_ms=17.707 audit_ms=3.460 ppo_agree=0.03584301161393672

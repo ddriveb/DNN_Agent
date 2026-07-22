@@ -1,0 +1,1466 @@
+{
+  "methods": {
+    "full_state_uniform_strict": {
+      "42": {
+        "e0": {
+          "top1_accuracy": 0.0,
+          "top3_accuracy": 0.008333333333333333,
+          "score_tie_fractional_top1": 1.0,
+          "oracle_tie_hit_rate": 1.0,
+          "ppo_oracle_tie_hit_rate": 1.0,
+          "ndcg_at_3": 1.0,
+          "spearman_mean": 0.0,
+          "kendall_tau_b": 0.0,
+          "model_regret_mean": 0.0,
+          "ppo_regret_mean": 0.0,
+          "absolute_regret_improvement": 0.0,
+          "aggregate_regret_reduction": 0.0,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": 0.0,
+          "model_better_than_ppo_rate": 0.0,
+          "model_worse_than_ppo_rate": 0.0,
+          "model_equal_to_ppo_rate": 1.0,
+          "mean_improvement_on_rescued_groups": 0.0,
+          "mean_harm_on_harmed_groups": 0.0,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": 0.0,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.0,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 120,
+              "mean_model_regret": 0.0,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": 0.0,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.0,
+              "model_equal_rate": 1.0
+            },
+            "(0,0.01]": {
+              "count": 0
+            },
+            "(0.01,0.05]": {
+              "count": 0
+            },
+            "(0.05,0.1]": {
+              "count": 0
+            },
+            ">0.1": {
+              "count": 0
+            }
+          },
+          "ppo_agreement": 0.0,
+          "pairwise_accuracy": 0.0,
+          "pairwise_pairs": 0,
+          "score_std": 2.5609285831451416,
+          "groups": 120,
+          "candidates_per_group": 4.0
+        },
+        "e1": {
+          "top1_accuracy": 0.12391304347826088,
+          "top3_accuracy": 0.17173913043478262,
+          "score_tie_fractional_top1": 0.3673913043478261,
+          "oracle_tie_hit_rate": 0.3673913043478261,
+          "ppo_oracle_tie_hit_rate": 0.39565217391304347,
+          "ndcg_at_3": 0.5943737297293641,
+          "spearman_mean": -0.07584176125705397,
+          "kendall_tau_b": -0.061102880176639826,
+          "model_regret_mean": 0.03932242166736852,
+          "ppo_regret_mean": 0.040277013117852416,
+          "absolute_regret_improvement": 0.0009545914504838979,
+          "aggregate_regret_reduction": 0.0237006514780706,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": -0.06265648994047647,
+          "model_better_than_ppo_rate": 0.21304347826086956,
+          "model_worse_than_ppo_rate": 0.21739130434782608,
+          "model_equal_to_ppo_rate": 0.5695652173913044,
+          "mean_improvement_on_rescued_groups": 0.03469919671817702,
+          "mean_harm_on_harmed_groups": -0.029614092111587526,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": -0.02889999747276306,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.029413768649101307,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 182,
+              "mean_model_regret": 0.0049383782750957615,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": -0.0049383782750957615,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.2032967032967033,
+              "model_equal_rate": 0.7967032967032966
+            },
+            "(0,0.01]": {
+              "count": 40,
+              "mean_model_regret": 0.006453638523817062,
+              "mean_ppo_regret": 0.0053868360817432405,
+              "mean_regret_delta": -0.001066802442073822,
+              "model_better_rate": 0.2,
+              "model_worse_rate": 0.175,
+              "model_equal_rate": 0.625
+            },
+            "(0.01,0.05]": {
+              "count": 102,
+              "mean_model_regret": 0.030576117190660213,
+              "mean_ppo_regret": 0.027686036100574567,
+              "mean_regret_delta": -0.0028900810900856465,
+              "model_better_rate": 0.2549019607843137,
+              "model_worse_rate": 0.28431372549019607,
+              "model_equal_rate": 0.46078431372549017
+            },
+            "(0.05,0.1]": {
+              "count": 73,
+              "mean_model_regret": 0.060309584826639256,
+              "mean_ppo_regret": 0.07041525432508286,
+              "mean_regret_delta": 0.010105669498443604,
+              "model_better_rate": 0.4794520547945205,
+              "model_worse_rate": 0.2054794520547945,
+              "model_equal_rate": 0.3150684931506849
+            },
+            ">0.1": {
+              "count": 63,
+              "mean_model_regret": 0.14936539578059363,
+              "mean_ppo_regret": 0.16424862449131314,
+              "mean_regret_delta": 0.014883228710719518,
+              "model_better_rate": 0.4603174603174603,
+              "model_worse_rate": 0.19047619047619047,
+              "model_equal_rate": 0.3492063492063492
+            }
+          },
+          "ppo_agreement": 0.13043478260869565,
+          "pairwise_accuracy": 0.44161795651157354,
+          "pairwise_pairs": 42770,
+          "score_std": 0.3021441400051117,
+          "groups": 460,
+          "candidates_per_group": 30.0
+        },
+        "all": {
+          "top1_accuracy": 0.09827586206896552,
+          "top3_accuracy": 0.13793103448275862,
+          "score_tie_fractional_top1": 0.4982758620689655,
+          "oracle_tie_hit_rate": 0.4982758620689655,
+          "ppo_oracle_tie_hit_rate": 0.5206896551724138,
+          "ndcg_at_3": 0.6782964063370818,
+          "spearman_mean": -0.07584176125705397,
+          "kendall_tau_b": -0.061102880176639826,
+          "model_regret_mean": 0.031186748218947444,
+          "ppo_regret_mean": 0.03194383799002088,
+          "absolute_regret_improvement": 0.0007570897710734367,
+          "aggregate_regret_reduction": 0.023700651478070617,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": -0.06265648994047647,
+          "model_better_than_ppo_rate": 0.16896551724137931,
+          "model_worse_than_ppo_rate": 0.1724137931034483,
+          "model_equal_to_ppo_rate": 0.6586206896551724,
+          "mean_improvement_on_rescued_groups": 0.03469919671817702,
+          "mean_harm_on_harmed_groups": -0.029614092111587526,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": -0.019299986958503722,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.02000493109226227,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 302,
+              "mean_model_regret": 0.0029761087618126775,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": -0.0029761087618126775,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.12251655629139073,
+              "model_equal_rate": 0.8774834437086093
+            },
+            "(0,0.01]": {
+              "count": 40,
+              "mean_model_regret": 0.006453638523817062,
+              "mean_ppo_regret": 0.0053868360817432405,
+              "mean_regret_delta": -0.001066802442073822,
+              "model_better_rate": 0.2,
+              "model_worse_rate": 0.175,
+              "model_equal_rate": 0.625
+            },
+            "(0.01,0.05]": {
+              "count": 102,
+              "mean_model_regret": 0.030576117190660213,
+              "mean_ppo_regret": 0.027686036100574567,
+              "mean_regret_delta": -0.0028900810900856465,
+              "model_better_rate": 0.2549019607843137,
+              "model_worse_rate": 0.28431372549019607,
+              "model_equal_rate": 0.46078431372549017
+            },
+            "(0.05,0.1]": {
+              "count": 73,
+              "mean_model_regret": 0.060309584826639256,
+              "mean_ppo_regret": 0.07041525432508286,
+              "mean_regret_delta": 0.010105669498443604,
+              "model_better_rate": 0.4794520547945205,
+              "model_worse_rate": 0.2054794520547945,
+              "model_equal_rate": 0.3150684931506849
+            },
+            ">0.1": {
+              "count": 63,
+              "mean_model_regret": 0.14936539578059363,
+              "mean_ppo_regret": 0.16424862449131314,
+              "mean_regret_delta": 0.014883228710719518,
+              "model_better_rate": 0.4603174603174603,
+              "model_worse_rate": 0.19047619047619047,
+              "model_equal_rate": 0.3492063492063492
+            }
+          },
+          "ppo_agreement": 0.10344827586206896,
+          "pairwise_accuracy": 0.44576249520644257,
+          "pairwise_pairs": 39115,
+          "score_std": 0.9240546822547913,
+          "groups": 580
+        }
+      },
+      "43": {
+        "e0": {
+          "top1_accuracy": 0.8583333333333333,
+          "top3_accuracy": 0.9666666666666667,
+          "score_tie_fractional_top1": 1.0,
+          "oracle_tie_hit_rate": 1.0,
+          "ppo_oracle_tie_hit_rate": 1.0,
+          "ndcg_at_3": 1.0,
+          "spearman_mean": 0.0,
+          "kendall_tau_b": 0.0,
+          "model_regret_mean": 0.0,
+          "ppo_regret_mean": 0.0,
+          "absolute_regret_improvement": 0.0,
+          "aggregate_regret_reduction": 0.0,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": 0.0,
+          "model_better_than_ppo_rate": 0.0,
+          "model_worse_than_ppo_rate": 0.0,
+          "model_equal_to_ppo_rate": 1.0,
+          "mean_improvement_on_rescued_groups": 0.0,
+          "mean_harm_on_harmed_groups": 0.0,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": 0.0,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.0,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 120,
+              "mean_model_regret": 0.0,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": 0.0,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.0,
+              "model_equal_rate": 1.0
+            },
+            "(0,0.01]": {
+              "count": 0
+            },
+            "(0.01,0.05]": {
+              "count": 0
+            },
+            "(0.05,0.1]": {
+              "count": 0
+            },
+            ">0.1": {
+              "count": 0
+            }
+          },
+          "ppo_agreement": 0.8583333333333333,
+          "pairwise_accuracy": 0.0,
+          "pairwise_pairs": 0,
+          "score_std": 0.7382626533508301,
+          "groups": 120,
+          "candidates_per_group": 4.0
+        },
+        "e1": {
+          "top1_accuracy": 0.017391304347826087,
+          "top3_accuracy": 0.07173913043478261,
+          "score_tie_fractional_top1": 0.3869565217391304,
+          "oracle_tie_hit_rate": 0.38913043478260867,
+          "ppo_oracle_tie_hit_rate": 0.39565217391304347,
+          "ndcg_at_3": 0.6432483810941246,
+          "spearman_mean": -0.005472900860463309,
+          "kendall_tau_b": -0.004512316735926318,
+          "model_regret_mean": 0.03533802894146546,
+          "ppo_regret_mean": 0.040277013117852416,
+          "absolute_regret_improvement": 0.004938984176386954,
+          "aggregate_regret_reduction": 0.12262538341498304,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": 0.05843046418970949,
+          "model_better_than_ppo_rate": 0.24347826086956523,
+          "model_worse_than_ppo_rate": 0.19130434782608696,
+          "model_equal_to_ppo_rate": 0.5652173913043478,
+          "mean_improvement_on_rescued_groups": 0.043145952480179925,
+          "mean_harm_on_harmed_groups": -0.029095613143660805,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": -0.016850247979164117,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.041859993338584915,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 182,
+              "mean_model_regret": 0.005785738537599752,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": -0.005785738537599752,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.2032967032967033,
+              "model_equal_rate": 0.7967032967032966
+            },
+            "(0,0.01]": {
+              "count": 40,
+              "mean_model_regret": 0.006699205935001373,
+              "mean_ppo_regret": 0.0053868360817432405,
+              "mean_regret_delta": -0.0013123698532581328,
+              "model_better_rate": 0.225,
+              "model_worse_rate": 0.15,
+              "model_equal_rate": 0.625
+            },
+            "(0.01,0.05]": {
+              "count": 102,
+              "mean_model_regret": 0.024514261706202637,
+              "mean_ppo_regret": 0.027686036100574567,
+              "mean_regret_delta": 0.00317177439437193,
+              "model_better_rate": 0.37254901960784315,
+              "model_worse_rate": 0.2549019607843137,
+              "model_equal_rate": 0.37254901960784315
+            },
+            "(0.05,0.1]": {
+              "count": 73,
+              "mean_model_regret": 0.05327643760263103,
+              "mean_ppo_regret": 0.07041525432508286,
+              "mean_regret_delta": 0.017138816722451825,
+              "model_better_rate": 0.5068493150684932,
+              "model_worse_rate": 0.1506849315068493,
+              "model_equal_rate": 0.3424657534246575
+            },
+            ">0.1": {
+              "count": 63,
+              "mean_model_regret": 0.13563311147311377,
+              "mean_ppo_regret": 0.16424862449131314,
+              "mean_regret_delta": 0.028615513018199375,
+              "model_better_rate": 0.4444444444444444,
+              "model_worse_rate": 0.12698412698412698,
+              "model_equal_rate": 0.42857142857142855
+            }
+          },
+          "ppo_agreement": 0.0,
+          "pairwise_accuracy": 0.5143558569090484,
+          "pairwise_pairs": 42770,
+          "score_std": 0.20457756519317627,
+          "groups": 460,
+          "candidates_per_group": 30.0
+        },
+        "all": {
+          "top1_accuracy": 0.19137931034482758,
+          "top3_accuracy": 0.25689655172413794,
+          "score_tie_fractional_top1": 0.5137931034482759,
+          "oracle_tie_hit_rate": 0.5155172413793103,
+          "ppo_oracle_tie_hit_rate": 0.5206896551724138,
+          "ndcg_at_3": 0.717059060867754,
+          "spearman_mean": -0.005472900860463309,
+          "kendall_tau_b": -0.004512316735926318,
+          "model_regret_mean": 0.02802671260874847,
+          "ppo_regret_mean": 0.03194383799002088,
+          "absolute_regret_improvement": 0.00391712538127241,
+          "aggregate_regret_reduction": 0.12262538341498298,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": 0.05843046418970949,
+          "model_better_than_ppo_rate": 0.19310344827586207,
+          "model_worse_than_ppo_rate": 0.15172413793103448,
+          "model_equal_to_ppo_rate": 0.6551724137931034,
+          "mean_improvement_on_rescued_groups": 0.043145952480179925,
+          "mean_harm_on_harmed_groups": -0.029095613143660805,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": -0.010000020265579224,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.03459642529487611,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 302,
+              "mean_model_regret": 0.0034867695822621025,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": -0.0034867695822621025,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.12251655629139073,
+              "model_equal_rate": 0.8774834437086093
+            },
+            "(0,0.01]": {
+              "count": 40,
+              "mean_model_regret": 0.006699205935001373,
+              "mean_ppo_regret": 0.0053868360817432405,
+              "mean_regret_delta": -0.0013123698532581328,
+              "model_better_rate": 0.225,
+              "model_worse_rate": 0.15,
+              "model_equal_rate": 0.625
+            },
+            "(0.01,0.05]": {
+              "count": 102,
+              "mean_model_regret": 0.024514261706202637,
+              "mean_ppo_regret": 0.027686036100574567,
+              "mean_regret_delta": 0.00317177439437193,
+              "model_better_rate": 0.37254901960784315,
+              "model_worse_rate": 0.2549019607843137,
+              "model_equal_rate": 0.37254901960784315
+            },
+            "(0.05,0.1]": {
+              "count": 73,
+              "mean_model_regret": 0.05327643760263103,
+              "mean_ppo_regret": 0.07041525432508286,
+              "mean_regret_delta": 0.017138816722451825,
+              "model_better_rate": 0.5068493150684932,
+              "model_worse_rate": 0.1506849315068493,
+              "model_equal_rate": 0.3424657534246575
+            },
+            ">0.1": {
+              "count": 63,
+              "mean_model_regret": 0.13563311147311377,
+              "mean_ppo_regret": 0.16424862449131314,
+              "mean_regret_delta": 0.028615513018199375,
+              "model_better_rate": 0.4444444444444444,
+              "model_worse_rate": 0.12698412698412698,
+              "model_equal_rate": 0.42857142857142855
+            }
+          },
+          "ppo_agreement": 0.17758620689655172,
+          "pairwise_accuracy": 0.5112872299629299,
+          "pairwise_pairs": 39115,
+          "score_std": 0.24933241307735443,
+          "groups": 580
+        }
+      },
+      "44": {
+        "e0": {
+          "top1_accuracy": 0.0,
+          "top3_accuracy": 0.025,
+          "score_tie_fractional_top1": 1.0,
+          "oracle_tie_hit_rate": 1.0,
+          "ppo_oracle_tie_hit_rate": 1.0,
+          "ndcg_at_3": 1.0,
+          "spearman_mean": 0.0,
+          "kendall_tau_b": 0.0,
+          "model_regret_mean": 0.0,
+          "ppo_regret_mean": 0.0,
+          "absolute_regret_improvement": 0.0,
+          "aggregate_regret_reduction": 0.0,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": 0.0,
+          "model_better_than_ppo_rate": 0.0,
+          "model_worse_than_ppo_rate": 0.0,
+          "model_equal_to_ppo_rate": 1.0,
+          "mean_improvement_on_rescued_groups": 0.0,
+          "mean_harm_on_harmed_groups": 0.0,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": 0.0,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.0,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 120,
+              "mean_model_regret": 0.0,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": 0.0,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.0,
+              "model_equal_rate": 1.0
+            },
+            "(0,0.01]": {
+              "count": 0
+            },
+            "(0.01,0.05]": {
+              "count": 0
+            },
+            "(0.05,0.1]": {
+              "count": 0
+            },
+            ">0.1": {
+              "count": 0
+            }
+          },
+          "ppo_agreement": 0.0,
+          "pairwise_accuracy": 0.0,
+          "pairwise_pairs": 0,
+          "score_std": 1.3611581325531006,
+          "groups": 120,
+          "candidates_per_group": 4.0
+        },
+        "e1": {
+          "top1_accuracy": 0.0391304347826087,
+          "top3_accuracy": 0.14565217391304347,
+          "score_tie_fractional_top1": 0.3826086956521739,
+          "oracle_tie_hit_rate": 0.3826086956521739,
+          "ppo_oracle_tie_hit_rate": 0.39565217391304347,
+          "ndcg_at_3": 0.644894722975714,
+          "spearman_mean": 0.058387463581693305,
+          "kendall_tau_b": 0.04663296494987974,
+          "model_regret_mean": 0.03583641551111055,
+          "ppo_regret_mean": 0.040277013117852416,
+          "absolute_regret_improvement": 0.004440597606741863,
+          "aggregate_regret_reduction": 0.1102514129771358,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": 0.05678865191758171,
+          "model_better_than_ppo_rate": 0.2391304347826087,
+          "model_worse_than_ppo_rate": 0.18043478260869567,
+          "model_equal_to_ppo_rate": 0.5804347826086956,
+          "mean_improvement_on_rescued_groups": 0.040616381710225885,
+          "mean_harm_on_harmed_groups": -0.02921839866293482,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": -0.010000020265579224,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.039299997687339785,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 182,
+              "mean_model_regret": 0.004440047256239168,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": -0.004440047256239168,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.19230769230769232,
+              "model_equal_rate": 0.8076923076923077
+            },
+            "(0,0.01]": {
+              "count": 40,
+              "mean_model_regret": 0.006061552464962006,
+              "mean_ppo_regret": 0.0053868360817432405,
+              "mean_regret_delta": -0.0006747163832187652,
+              "model_better_rate": 0.125,
+              "model_worse_rate": 0.175,
+              "model_equal_rate": 0.7
+            },
+            "(0.01,0.05]": {
+              "count": 102,
+              "mean_model_regret": 0.025252494741888606,
+              "mean_ppo_regret": 0.027686036100574567,
+              "mean_regret_delta": 0.002433541358685961,
+              "model_better_rate": 0.38235294117647056,
+              "model_worse_rate": 0.23529411764705882,
+              "model_equal_rate": 0.38235294117647056
+            },
+            "(0.05,0.1]": {
+              "count": 73,
+              "mean_model_regret": 0.06183667868784029,
+              "mean_ppo_regret": 0.07041525432508286,
+              "mean_regret_delta": 0.008578575637242566,
+              "model_better_rate": 0.4657534246575342,
+              "model_worse_rate": 0.136986301369863,
+              "model_equal_rate": 0.3972602739726027
+            },
+            ">0.1": {
+              "count": 63,
+              "mean_model_regret": 0.1324502925078074,
+              "mean_ppo_regret": 0.16424862449131314,
+              "mean_regret_delta": 0.031798331983505734,
+              "model_better_rate": 0.5079365079365079,
+              "model_worse_rate": 0.1111111111111111,
+              "model_equal_rate": 0.38095238095238093
+            }
+          },
+          "ppo_agreement": 0.06304347826086956,
+          "pairwise_accuracy": 0.5802431610942249,
+          "pairwise_pairs": 42770,
+          "score_std": 0.06144603714346886,
+          "groups": 460,
+          "candidates_per_group": 30.0
+        },
+        "all": {
+          "top1_accuracy": 0.03103448275862069,
+          "top3_accuracy": 0.1206896551724138,
+          "score_tie_fractional_top1": 0.5103448275862069,
+          "oracle_tie_hit_rate": 0.5103448275862069,
+          "ppo_oracle_tie_hit_rate": 0.5206896551724138,
+          "ndcg_at_3": 0.7183647802910835,
+          "spearman_mean": 0.058387463581693305,
+          "kendall_tau_b": 0.04663296494987974,
+          "model_regret_mean": 0.028421984715708372,
+          "ppo_regret_mean": 0.03194383799002088,
+          "absolute_regret_improvement": 0.0035218532743125086,
+          "aggregate_regret_reduction": 0.1102514129771357,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": 0.05678865191758171,
+          "model_better_than_ppo_rate": 0.1896551724137931,
+          "model_worse_than_ppo_rate": 0.14310344827586208,
+          "model_equal_to_ppo_rate": 0.6672413793103448,
+          "mean_improvement_on_rescued_groups": 0.040616381710225885,
+          "mean_harm_on_harmed_groups": -0.02921839866293482,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": -0.009436389803886412,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.02707479000091554,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 302,
+              "mean_model_regret": 0.0026757900683295646,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": -0.0026757900683295646,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.11589403973509933,
+              "model_equal_rate": 0.8841059602649006
+            },
+            "(0,0.01]": {
+              "count": 40,
+              "mean_model_regret": 0.006061552464962006,
+              "mean_ppo_regret": 0.0053868360817432405,
+              "mean_regret_delta": -0.0006747163832187652,
+              "model_better_rate": 0.125,
+              "model_worse_rate": 0.175,
+              "model_equal_rate": 0.7
+            },
+            "(0.01,0.05]": {
+              "count": 102,
+              "mean_model_regret": 0.025252494741888606,
+              "mean_ppo_regret": 0.027686036100574567,
+              "mean_regret_delta": 0.002433541358685961,
+              "model_better_rate": 0.38235294117647056,
+              "model_worse_rate": 0.23529411764705882,
+              "model_equal_rate": 0.38235294117647056
+            },
+            "(0.05,0.1]": {
+              "count": 73,
+              "mean_model_regret": 0.06183667868784029,
+              "mean_ppo_regret": 0.07041525432508286,
+              "mean_regret_delta": 0.008578575637242566,
+              "model_better_rate": 0.4657534246575342,
+              "model_worse_rate": 0.136986301369863,
+              "model_equal_rate": 0.3972602739726027
+            },
+            ">0.1": {
+              "count": 63,
+              "mean_model_regret": 0.1324502925078074,
+              "mean_ppo_regret": 0.16424862449131314,
+              "mean_regret_delta": 0.031798331983505734,
+              "model_better_rate": 0.5079365079365079,
+              "model_worse_rate": 0.1111111111111111,
+              "model_equal_rate": 0.38095238095238093
+            }
+          },
+          "ppo_agreement": 0.05,
+          "pairwise_accuracy": 0.5828710213473092,
+          "pairwise_pairs": 39115,
+          "score_std": 0.36015573143959045,
+          "groups": 580
+        }
+      }
+    },
+    "full_state_stratified_depth_strict": {
+      "42": {
+        "e0": {
+          "top1_accuracy": 0.49166666666666664,
+          "top3_accuracy": 0.6666666666666666,
+          "score_tie_fractional_top1": 1.0,
+          "oracle_tie_hit_rate": 1.0,
+          "ppo_oracle_tie_hit_rate": 1.0,
+          "ndcg_at_3": 1.0,
+          "spearman_mean": 0.0,
+          "kendall_tau_b": 0.0,
+          "model_regret_mean": 0.0,
+          "ppo_regret_mean": 0.0,
+          "absolute_regret_improvement": 0.0,
+          "aggregate_regret_reduction": 0.0,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": 0.0,
+          "model_better_than_ppo_rate": 0.0,
+          "model_worse_than_ppo_rate": 0.0,
+          "model_equal_to_ppo_rate": 1.0,
+          "mean_improvement_on_rescued_groups": 0.0,
+          "mean_harm_on_harmed_groups": 0.0,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": 0.0,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.0,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 120,
+              "mean_model_regret": 0.0,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": 0.0,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.0,
+              "model_equal_rate": 1.0
+            },
+            "(0,0.01]": {
+              "count": 0
+            },
+            "(0.01,0.05]": {
+              "count": 0
+            },
+            "(0.05,0.1]": {
+              "count": 0
+            },
+            ">0.1": {
+              "count": 0
+            }
+          },
+          "ppo_agreement": 0.49166666666666664,
+          "pairwise_accuracy": 0.0,
+          "pairwise_pairs": 0,
+          "score_std": 0.7910798788070679,
+          "groups": 120,
+          "candidates_per_group": 4.0
+        },
+        "e1": {
+          "top1_accuracy": 0.030434782608695653,
+          "top3_accuracy": 0.06086956521739131,
+          "score_tie_fractional_top1": 0.3739130434782609,
+          "oracle_tie_hit_rate": 0.3739130434782609,
+          "ppo_oracle_tie_hit_rate": 0.39565217391304347,
+          "ndcg_at_3": 0.5966269191420354,
+          "spearman_mean": -0.0762868560345425,
+          "kendall_tau_b": -0.06125545116265712,
+          "model_regret_mean": 0.03835885829251746,
+          "ppo_regret_mean": 0.040277013117852416,
+          "absolute_regret_improvement": 0.0019181548253349584,
+          "aggregate_regret_reduction": 0.04762405841074531,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": -0.09919839262050792,
+          "model_better_than_ppo_rate": 0.2543478260869565,
+          "model_worse_than_ppo_rate": 0.21956521739130436,
+          "model_equal_to_ppo_rate": 0.5260869565217391,
+          "mean_improvement_on_rescued_groups": 0.03597861401036254,
+          "mean_harm_on_harmed_groups": -0.03294204573820133,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": -0.030599975585937477,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.035259982943534884,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 182,
+              "mean_model_regret": 0.005428996551167834,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": -0.005428996551167834,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.21428571428571427,
+              "model_equal_rate": 0.7857142857142857
+            },
+            "(0,0.01]": {
+              "count": 40,
+              "mean_model_regret": 0.0073131129145622255,
+              "mean_ppo_regret": 0.0053868360817432405,
+              "mean_regret_delta": -0.001926276832818985,
+              "model_better_rate": 0.25,
+              "model_worse_rate": 0.2,
+              "model_equal_rate": 0.55
+            },
+            "(0.01,0.05]": {
+              "count": 102,
+              "mean_model_regret": 0.02940041498810637,
+              "mean_ppo_regret": 0.027686036100574567,
+              "mean_regret_delta": -0.001714378887531804,
+              "model_better_rate": 0.37254901960784315,
+              "model_worse_rate": 0.27450980392156865,
+              "model_equal_rate": 0.35294117647058826
+            },
+            "(0.05,0.1]": {
+              "count": 73,
+              "mean_model_regret": 0.06072519699188128,
+              "mean_ppo_regret": 0.07041525432508286,
+              "mean_regret_delta": 0.009690057333201578,
+              "model_better_rate": 0.4931506849315068,
+              "model_worse_rate": 0.2191780821917808,
+              "model_equal_rate": 0.2876712328767123
+            },
+            ">0.1": {
+              "count": 63,
+              "mean_model_regret": 0.1417887494677589,
+              "mean_ppo_regret": 0.16424862449131314,
+              "mean_regret_delta": 0.022459875023554243,
+              "model_better_rate": 0.5238095238095238,
+              "model_worse_rate": 0.15873015873015872,
+              "model_equal_rate": 0.31746031746031744
+            }
+          },
+          "ppo_agreement": 0.013043478260869565,
+          "pairwise_accuracy": 0.43465045592705165,
+          "pairwise_pairs": 42770,
+          "score_std": 0.18371091783046722,
+          "groups": 460,
+          "candidates_per_group": 30.0
+        },
+        "all": {
+          "top1_accuracy": 0.12586206896551724,
+          "top3_accuracy": 0.18620689655172415,
+          "score_tie_fractional_top1": 0.503448275862069,
+          "oracle_tie_hit_rate": 0.503448275862069,
+          "ppo_oracle_tie_hit_rate": 0.5206896551724138,
+          "ndcg_at_3": 0.6800834186298902,
+          "spearman_mean": -0.0762868560345425,
+          "kendall_tau_b": -0.06125545116265712,
+          "model_regret_mean": 0.03042254278372074,
+          "ppo_regret_mean": 0.03194383799002088,
+          "absolute_regret_improvement": 0.001521295206300139,
+          "aggregate_regret_reduction": 0.047624058410745296,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": -0.09919839262050792,
+          "model_better_than_ppo_rate": 0.20172413793103447,
+          "model_worse_than_ppo_rate": 0.17413793103448275,
+          "model_equal_to_ppo_rate": 0.6241379310344828,
+          "mean_improvement_on_rescued_groups": 0.03597861401036254,
+          "mean_harm_on_harmed_groups": -0.03294204573820133,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": -0.020070010423660273,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.025625777244567875,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 302,
+              "mean_model_regret": 0.0032717793785183636,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": -0.0032717793785183636,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.1291390728476821,
+              "model_equal_rate": 0.8708609271523179
+            },
+            "(0,0.01]": {
+              "count": 40,
+              "mean_model_regret": 0.0073131129145622255,
+              "mean_ppo_regret": 0.0053868360817432405,
+              "mean_regret_delta": -0.001926276832818985,
+              "model_better_rate": 0.25,
+              "model_worse_rate": 0.2,
+              "model_equal_rate": 0.55
+            },
+            "(0.01,0.05]": {
+              "count": 102,
+              "mean_model_regret": 0.02940041498810637,
+              "mean_ppo_regret": 0.027686036100574567,
+              "mean_regret_delta": -0.001714378887531804,
+              "model_better_rate": 0.37254901960784315,
+              "model_worse_rate": 0.27450980392156865,
+              "model_equal_rate": 0.35294117647058826
+            },
+            "(0.05,0.1]": {
+              "count": 73,
+              "mean_model_regret": 0.06072519699188128,
+              "mean_ppo_regret": 0.07041525432508286,
+              "mean_regret_delta": 0.009690057333201578,
+              "model_better_rate": 0.4931506849315068,
+              "model_worse_rate": 0.2191780821917808,
+              "model_equal_rate": 0.2876712328767123
+            },
+            ">0.1": {
+              "count": 63,
+              "mean_model_regret": 0.1417887494677589,
+              "mean_ppo_regret": 0.16424862449131314,
+              "mean_regret_delta": 0.022459875023554243,
+              "model_better_rate": 0.5238095238095238,
+              "model_worse_rate": 0.15873015873015872,
+              "model_equal_rate": 0.31746031746031744
+            }
+          },
+          "ppo_agreement": 0.11206896551724138,
+          "pairwise_accuracy": 0.4383995909497635,
+          "pairwise_pairs": 39115,
+          "score_std": 0.44646841287612915,
+          "groups": 580
+        }
+      },
+      "43": {
+        "e0": {
+          "top1_accuracy": 0.4,
+          "top3_accuracy": 0.8583333333333333,
+          "score_tie_fractional_top1": 1.0,
+          "oracle_tie_hit_rate": 1.0,
+          "ppo_oracle_tie_hit_rate": 1.0,
+          "ndcg_at_3": 1.0,
+          "spearman_mean": 0.0,
+          "kendall_tau_b": 0.0,
+          "model_regret_mean": 0.0,
+          "ppo_regret_mean": 0.0,
+          "absolute_regret_improvement": 0.0,
+          "aggregate_regret_reduction": 0.0,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": 0.0,
+          "model_better_than_ppo_rate": 0.0,
+          "model_worse_than_ppo_rate": 0.0,
+          "model_equal_to_ppo_rate": 1.0,
+          "mean_improvement_on_rescued_groups": 0.0,
+          "mean_harm_on_harmed_groups": 0.0,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": 0.0,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.0,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 120,
+              "mean_model_regret": 0.0,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": 0.0,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.0,
+              "model_equal_rate": 1.0
+            },
+            "(0,0.01]": {
+              "count": 0
+            },
+            "(0.01,0.05]": {
+              "count": 0
+            },
+            "(0.05,0.1]": {
+              "count": 0
+            },
+            ">0.1": {
+              "count": 0
+            }
+          },
+          "ppo_agreement": 0.4,
+          "pairwise_accuracy": 0.0,
+          "pairwise_pairs": 0,
+          "score_std": 0.6180265545845032,
+          "groups": 120,
+          "candidates_per_group": 4.0
+        },
+        "e1": {
+          "top1_accuracy": 0.015217391304347827,
+          "top3_accuracy": 0.06304347826086956,
+          "score_tie_fractional_top1": 0.3934782608695652,
+          "oracle_tie_hit_rate": 0.3978260869565217,
+          "ppo_oracle_tie_hit_rate": 0.39565217391304347,
+          "ndcg_at_3": 0.6422633960892239,
+          "spearman_mean": -0.01532886927236462,
+          "kendall_tau_b": -0.01343165282769006,
+          "model_regret_mean": 0.03581400137880574,
+          "ppo_regret_mean": 0.040277013117852416,
+          "absolute_regret_improvement": 0.004463011739046674,
+          "aggregate_regret_reduction": 0.11080791234413769,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": 0.08423083206150894,
+          "model_better_than_ppo_rate": 0.25217391304347825,
+          "model_worse_than_ppo_rate": 0.19130434782608696,
+          "model_equal_to_ppo_rate": 0.5565217391304348,
+          "mean_improvement_on_rescued_groups": 0.041330783274667014,
+          "mean_harm_on_harmed_groups": -0.031152107498862526,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": -0.016345772147178646,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.04165129065513611,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 182,
+              "mean_model_regret": 0.00547145290689154,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": -0.00547145290689154,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.19230769230769232,
+              "model_equal_rate": 0.8076923076923077
+            },
+            "(0,0.01]": {
+              "count": 40,
+              "mean_model_regret": 0.004860526323318482,
+              "mean_ppo_regret": 0.0053868360817432405,
+              "mean_regret_delta": 0.000526309758424759,
+              "model_better_rate": 0.275,
+              "model_worse_rate": 0.125,
+              "model_equal_rate": 0.6
+            },
+            "(0.01,0.05]": {
+              "count": 102,
+              "mean_model_regret": 0.02506470329621259,
+              "mean_ppo_regret": 0.027686036100574567,
+              "mean_regret_delta": 0.002621332804361979,
+              "model_better_rate": 0.37254901960784315,
+              "model_worse_rate": 0.24509803921568626,
+              "model_equal_rate": 0.38235294117647056
+            },
+            "(0.05,0.1]": {
+              "count": 73,
+              "mean_model_regret": 0.057391038904451346,
+              "mean_ppo_regret": 0.07041525432508286,
+              "mean_regret_delta": 0.013024215420631513,
+              "model_better_rate": 0.4794520547945205,
+              "model_worse_rate": 0.1917808219178082,
+              "model_equal_rate": 0.3287671232876712
+            },
+            ">0.1": {
+              "count": 63,
+              "mean_model_regret": 0.1355249139051589,
+              "mean_ppo_regret": 0.16424862449131314,
+              "mean_regret_delta": 0.02872371058615427,
+              "model_better_rate": 0.5079365079365079,
+              "model_worse_rate": 0.14285714285714285,
+              "model_equal_rate": 0.3492063492063492
+            }
+          },
+          "ppo_agreement": 0.002173913043478261,
+          "pairwise_accuracy": 0.501823708206687,
+          "pairwise_pairs": 42770,
+          "score_std": 0.1483050435781479,
+          "groups": 460,
+          "candidates_per_group": 30.0
+        },
+        "all": {
+          "top1_accuracy": 0.09482758620689655,
+          "top3_accuracy": 0.22758620689655173,
+          "score_tie_fractional_top1": 0.5189655172413793,
+          "oracle_tie_hit_rate": 0.5224137931034483,
+          "ppo_oracle_tie_hit_rate": 0.5206896551724138,
+          "ndcg_at_3": 0.7162778658638672,
+          "spearman_mean": -0.01532886927236462,
+          "kendall_tau_b": -0.01343165282769006,
+          "model_regret_mean": 0.02840420799008731,
+          "ppo_regret_mean": 0.03194383799002088,
+          "absolute_regret_improvement": 0.003539629999933569,
+          "aggregate_regret_reduction": 0.11080791234413769,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": 0.08423083206150894,
+          "model_better_than_ppo_rate": 0.2,
+          "model_worse_than_ppo_rate": 0.15172413793103448,
+          "model_equal_to_ppo_rate": 0.6482758620689655,
+          "mean_improvement_on_rescued_groups": 0.041330783274667014,
+          "mean_harm_on_harmed_groups": -0.031152107498862526,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": -0.009999993443489074,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.03459642529487611,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 302,
+              "mean_model_regret": 0.003297365659120067,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": -0.003297365659120067,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.11589403973509933,
+              "model_equal_rate": 0.8841059602649006
+            },
+            "(0,0.01]": {
+              "count": 40,
+              "mean_model_regret": 0.004860526323318482,
+              "mean_ppo_regret": 0.0053868360817432405,
+              "mean_regret_delta": 0.000526309758424759,
+              "model_better_rate": 0.275,
+              "model_worse_rate": 0.125,
+              "model_equal_rate": 0.6
+            },
+            "(0.01,0.05]": {
+              "count": 102,
+              "mean_model_regret": 0.02506470329621259,
+              "mean_ppo_regret": 0.027686036100574567,
+              "mean_regret_delta": 0.002621332804361979,
+              "model_better_rate": 0.37254901960784315,
+              "model_worse_rate": 0.24509803921568626,
+              "model_equal_rate": 0.38235294117647056
+            },
+            "(0.05,0.1]": {
+              "count": 73,
+              "mean_model_regret": 0.057391038904451346,
+              "mean_ppo_regret": 0.07041525432508286,
+              "mean_regret_delta": 0.013024215420631513,
+              "model_better_rate": 0.4794520547945205,
+              "model_worse_rate": 0.1917808219178082,
+              "model_equal_rate": 0.3287671232876712
+            },
+            ">0.1": {
+              "count": 63,
+              "mean_model_regret": 0.1355249139051589,
+              "mean_ppo_regret": 0.16424862449131314,
+              "mean_regret_delta": 0.02872371058615427,
+              "model_better_rate": 0.5079365079365079,
+              "model_worse_rate": 0.14285714285714285,
+              "model_equal_rate": 0.3492063492063492
+            }
+          },
+          "ppo_agreement": 0.08448275862068966,
+          "pairwise_accuracy": 0.4990157228684648,
+          "pairwise_pairs": 39115,
+          "score_std": 0.18846692144870758,
+          "groups": 580
+        }
+      },
+      "44": {
+        "e0": {
+          "top1_accuracy": 0.0,
+          "top3_accuracy": 0.0,
+          "score_tie_fractional_top1": 1.0,
+          "oracle_tie_hit_rate": 1.0,
+          "ppo_oracle_tie_hit_rate": 1.0,
+          "ndcg_at_3": 1.0,
+          "spearman_mean": 0.0,
+          "kendall_tau_b": 0.0,
+          "model_regret_mean": 0.0,
+          "ppo_regret_mean": 0.0,
+          "absolute_regret_improvement": 0.0,
+          "aggregate_regret_reduction": 0.0,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": 0.0,
+          "model_better_than_ppo_rate": 0.0,
+          "model_worse_than_ppo_rate": 0.0,
+          "model_equal_to_ppo_rate": 1.0,
+          "mean_improvement_on_rescued_groups": 0.0,
+          "mean_harm_on_harmed_groups": 0.0,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": 0.0,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.0,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 120,
+              "mean_model_regret": 0.0,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": 0.0,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.0,
+              "model_equal_rate": 1.0
+            },
+            "(0,0.01]": {
+              "count": 0
+            },
+            "(0.01,0.05]": {
+              "count": 0
+            },
+            "(0.05,0.1]": {
+              "count": 0
+            },
+            ">0.1": {
+              "count": 0
+            }
+          },
+          "ppo_agreement": 0.0,
+          "pairwise_accuracy": 0.0,
+          "pairwise_pairs": 0,
+          "score_std": 1.4536569118499756,
+          "groups": 120,
+          "candidates_per_group": 4.0
+        },
+        "e1": {
+          "top1_accuracy": 0.10434782608695652,
+          "top3_accuracy": 0.20434782608695654,
+          "score_tie_fractional_top1": 0.3847826086956522,
+          "oracle_tie_hit_rate": 0.3847826086956522,
+          "ppo_oracle_tie_hit_rate": 0.39565217391304347,
+          "ndcg_at_3": 0.6399996766308672,
+          "spearman_mean": 0.05282403384333816,
+          "kendall_tau_b": 0.04219415470066116,
+          "model_regret_mean": 0.035650772828122845,
+          "ppo_regret_mean": 0.040277013117852416,
+          "absolute_regret_improvement": 0.00462624028972957,
+          "aggregate_regret_reduction": 0.11486056019578651,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": 0.09228404255602732,
+          "model_better_than_ppo_rate": 0.25869565217391305,
+          "model_worse_than_ppo_rate": 0.19782608695652174,
+          "model_equal_to_ppo_rate": 0.5434782608695652,
+          "mean_improvement_on_rescued_groups": 0.037381267848135044,
+          "mean_harm_on_harmed_groups": -0.02549780594123589,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": -0.010000020265579224,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.039299994707107544,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 182,
+              "mean_model_regret": 0.004559972784021399,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": -0.004559972784021399,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.24175824175824176,
+              "model_equal_rate": 0.7582417582417582
+            },
+            "(0,0.01]": {
+              "count": 40,
+              "mean_model_regret": 0.005575172603130341,
+              "mean_ppo_regret": 0.0053868360817432405,
+              "mean_regret_delta": -0.0001883365213871002,
+              "model_better_rate": 0.325,
+              "model_worse_rate": 0.175,
+              "model_equal_rate": 0.5
+            },
+            "(0.01,0.05]": {
+              "count": 102,
+              "mean_model_regret": 0.024714912269629685,
+              "mean_ppo_regret": 0.027686036100574567,
+              "mean_regret_delta": 0.002971123830944884,
+              "model_better_rate": 0.4215686274509804,
+              "model_worse_rate": 0.24509803921568626,
+              "model_equal_rate": 0.3333333333333333
+            },
+            "(0.05,0.1]": {
+              "count": 73,
+              "mean_model_regret": 0.06273111864312055,
+              "mean_ppo_regret": 0.07041525432508286,
+              "mean_regret_delta": 0.007684135681962314,
+              "model_better_rate": 0.410958904109589,
+              "model_worse_rate": 0.136986301369863,
+              "model_equal_rate": 0.4520547945205479
+            },
+            ">0.1": {
+              "count": 63,
+              "mean_model_regret": 0.13089112440745035,
+              "mean_ppo_regret": 0.16424862449131314,
+              "mean_regret_delta": 0.03335750008386279,
+              "model_better_rate": 0.5238095238095238,
+              "model_worse_rate": 0.07936507936507936,
+              "model_equal_rate": 0.3968253968253968
+            }
+          },
+          "ppo_agreement": 0.12608695652173912,
+          "pairwise_accuracy": 0.5767827916764087,
+          "pairwise_pairs": 42770,
+          "score_std": 0.055326927453279495,
+          "groups": 460,
+          "candidates_per_group": 30.0
+        },
+        "all": {
+          "top1_accuracy": 0.08275862068965517,
+          "top3_accuracy": 0.16206896551724137,
+          "score_tie_fractional_top1": 0.5120689655172413,
+          "oracle_tie_hit_rate": 0.5120689655172413,
+          "ppo_oracle_tie_hit_rate": 0.5206896551724138,
+          "ndcg_at_3": 0.7144825021555155,
+          "spearman_mean": 0.05282403384333816,
+          "kendall_tau_b": 0.04219415470066116,
+          "model_regret_mean": 0.028274750863683636,
+          "ppo_regret_mean": 0.03194383799002088,
+          "absolute_regret_improvement": 0.003669087126337244,
+          "aggregate_regret_reduction": 0.11486056019578647,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": 0.09228404255602732,
+          "model_better_than_ppo_rate": 0.20517241379310344,
+          "model_worse_than_ppo_rate": 0.15689655172413794,
+          "model_equal_to_ppo_rate": 0.6379310344827587,
+          "mean_improvement_on_rescued_groups": 0.037381267848135044,
+          "mean_harm_on_harmed_groups": -0.02549780594123589,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": -0.009000003337860107,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.025010004639625553,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 302,
+              "mean_model_regret": 0.0027480630685162073,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": -0.0027480630685162073,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.1456953642384106,
+              "model_equal_rate": 0.8543046357615894
+            },
+            "(0,0.01]": {
+              "count": 40,
+              "mean_model_regret": 0.005575172603130341,
+              "mean_ppo_regret": 0.0053868360817432405,
+              "mean_regret_delta": -0.0001883365213871002,
+              "model_better_rate": 0.325,
+              "model_worse_rate": 0.175,
+              "model_equal_rate": 0.5
+            },
+            "(0.01,0.05]": {
+              "count": 102,
+              "mean_model_regret": 0.024714912269629685,
+              "mean_ppo_regret": 0.027686036100574567,
+              "mean_regret_delta": 0.002971123830944884,
+              "model_better_rate": 0.4215686274509804,
+              "model_worse_rate": 0.24509803921568626,
+              "model_equal_rate": 0.3333333333333333
+            },
+            "(0.05,0.1]": {
+              "count": 73,
+              "mean_model_regret": 0.06273111864312055,
+              "mean_ppo_regret": 0.07041525432508286,
+              "mean_regret_delta": 0.007684135681962314,
+              "model_better_rate": 0.410958904109589,
+              "model_worse_rate": 0.136986301369863,
+              "model_equal_rate": 0.4520547945205479
+            },
+            ">0.1": {
+              "count": 63,
+              "mean_model_regret": 0.13089112440745035,
+              "mean_ppo_regret": 0.16424862449131314,
+              "mean_regret_delta": 0.03335750008386279,
+              "model_better_rate": 0.5238095238095238,
+              "model_worse_rate": 0.07936507936507936,
+              "model_equal_rate": 0.3968253968253968
+            }
+          },
+          "ppo_agreement": 0.1,
+          "pairwise_accuracy": 0.5786271251438068,
+          "pairwise_pairs": 39115,
+          "score_std": 0.3843801021575928,
+          "groups": 580
+        }
+      }
+    },
+    "current_v13_old_checkpoint": {
+      "42": {
+        "e0": {
+          "top1_accuracy": 0.0,
+          "top3_accuracy": 0.0,
+          "score_tie_fractional_top1": 1.0,
+          "oracle_tie_hit_rate": 1.0,
+          "ppo_oracle_tie_hit_rate": 1.0,
+          "ndcg_at_3": 1.0,
+          "spearman_mean": 0.0,
+          "kendall_tau_b": 0.0,
+          "model_regret_mean": 0.0,
+          "ppo_regret_mean": 0.0,
+          "absolute_regret_improvement": 0.0,
+          "aggregate_regret_reduction": 0.0,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": 0.0,
+          "model_better_than_ppo_rate": 0.0,
+          "model_worse_than_ppo_rate": 0.0,
+          "model_equal_to_ppo_rate": 1.0,
+          "mean_improvement_on_rescued_groups": 0.0,
+          "mean_harm_on_harmed_groups": 0.0,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": 0.0,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.0,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 120,
+              "mean_model_regret": 0.0,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": 0.0,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.0,
+              "model_equal_rate": 1.0
+            },
+            "(0,0.01]": {
+              "count": 0
+            },
+            "(0.01,0.05]": {
+              "count": 0
+            },
+            "(0.05,0.1]": {
+              "count": 0
+            },
+            ">0.1": {
+              "count": 0
+            }
+          },
+          "ppo_agreement": 0.0,
+          "pairwise_accuracy": 0.0,
+          "pairwise_pairs": 0,
+          "score_std": 0.9874026775360107,
+          "groups": 120,
+          "candidates_per_group": 4.0
+        },
+        "e1": {
+          "top1_accuracy": 0.09782608695652174,
+          "top3_accuracy": 0.16956521739130434,
+          "score_tie_fractional_top1": 0.3760869565217391,
+          "oracle_tie_hit_rate": 0.3782608695652174,
+          "ppo_oracle_tie_hit_rate": 0.39565217391304347,
+          "ndcg_at_3": 0.6077394387224279,
+          "spearman_mean": -0.028680418609377582,
+          "kendall_tau_b": -0.022896570861137788,
+          "model_regret_mean": 0.03809215186730675,
+          "ppo_regret_mean": 0.040277013117852416,
+          "absolute_regret_improvement": 0.002184861250545664,
+          "aggregate_regret_reduction": 0.054245860887267336,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": -0.02836082738484226,
+          "model_better_than_ppo_rate": 0.21304347826086956,
+          "model_worse_than_ppo_rate": 0.18043478260869567,
+          "model_equal_to_ppo_rate": 0.6065217391304348,
+          "mean_improvement_on_rescued_groups": 0.0338670623545744,
+          "mean_harm_on_harmed_groups": -0.02787874621081065,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": -0.019300013780593872,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.029771015048027066,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 182,
+              "mean_model_regret": 0.004528556878750141,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": -0.004528556878750141,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.17582417582417584,
+              "model_equal_rate": 0.8241758241758241
+            },
+            "(0,0.01]": {
+              "count": 40,
+              "mean_model_regret": 0.006979703158140183,
+              "mean_ppo_regret": 0.0053868360817432405,
+              "mean_regret_delta": -0.0015928670763969421,
+              "model_better_rate": 0.175,
+              "model_worse_rate": 0.2,
+              "model_equal_rate": 0.625
+            },
+            "(0.01,0.05]": {
+              "count": 102,
+              "mean_model_regret": 0.02624346695694269,
+              "mean_ppo_regret": 0.027686036100574567,
+              "mean_regret_delta": 0.001442569143631879,
+              "model_better_rate": 0.3137254901960784,
+              "model_worse_rate": 0.24509803921568626,
+              "model_equal_rate": 0.4411764705882353
+            },
+            "(0.05,0.1]": {
+              "count": 73,
+              "mean_model_regret": 0.06101908871572312,
+              "mean_ppo_regret": 0.07041525432508286,
+              "mean_regret_delta": 0.009396165609359741,
+              "model_better_rate": 0.4520547945205479,
+              "model_worse_rate": 0.1506849315068493,
+              "model_equal_rate": 0.3972602739726027
+            },
+            ">0.1": {
+              "count": 63,
+              "mean_model_regret": 0.14742503610868302,
+              "mean_ppo_regret": 0.16424862449131314,
+              "mean_regret_delta": 0.016823588382630122,
+              "model_better_rate": 0.4126984126984127,
+              "model_worse_rate": 0.1111111111111111,
+              "model_equal_rate": 0.47619047619047616
+            }
+          },
+          "ppo_agreement": 0.1282608695652174,
+          "pairwise_accuracy": 0.490671031096563,
+          "pairwise_pairs": 42770,
+          "score_std": 0.4497586488723755,
+          "groups": 460,
+          "candidates_per_group": 30.0
+        },
+        "all": {
+          "top1_accuracy": 0.07758620689655173,
+          "top3_accuracy": 0.13448275862068965,
+          "score_tie_fractional_top1": 0.5051724137931034,
+          "oracle_tie_hit_rate": 0.506896551724138,
+          "ppo_oracle_tie_hit_rate": 0.5206896551724138,
+          "ndcg_at_3": 0.6888967962281327,
+          "spearman_mean": -0.028680418609377582,
+          "kendall_tau_b": -0.022896570861137788,
+          "model_regret_mean": 0.0302110169982088,
+          "ppo_regret_mean": 0.03194383799002088,
+          "absolute_regret_improvement": 0.0017328209918120799,
+          "aggregate_regret_reduction": 0.05424586088726739,
+          "conditional_mean_relative_reduction_on_ppo_error_groups": -0.02836082738484226,
+          "model_better_than_ppo_rate": 0.16896551724137931,
+          "model_worse_than_ppo_rate": 0.14310344827586208,
+          "model_equal_to_ppo_rate": 0.6879310344827586,
+          "mean_improvement_on_rescued_groups": 0.0338670623545744,
+          "mean_harm_on_harmed_groups": -0.02787874621081065,
+          "median_regret_delta": 0.0,
+          "regret_delta_p10": -0.009999990463256836,
+          "regret_delta_p50": 0.0,
+          "regret_delta_p90": 0.02096800506114966,
+          "ppo_regret_buckets": {
+            "exactly_zero": {
+              "count": 302,
+              "mean_model_regret": 0.0027291303044123367,
+              "mean_ppo_regret": 0.0,
+              "mean_regret_delta": -0.0027291303044123367,
+              "model_better_rate": 0.0,
+              "model_worse_rate": 0.10596026490066225,
+              "model_equal_rate": 0.8940397350993378
+            },
+            "(0,0.01]": {
+              "count": 40,
+              "mean_model_regret": 0.006979703158140183,
+              "mean_ppo_regret": 0.0053868360817432405,
+              "mean_regret_delta": -0.0015928670763969421,
+              "model_better_rate": 0.175,
+              "model_worse_rate": 0.2,
+              "model_equal_rate": 0.625
+            },
+            "(0.01,0.05]": {
+              "count": 102,
+              "mean_model_regret": 0.02624346695694269,
+              "mean_ppo_regret": 0.027686036100574567,
+              "mean_regret_delta": 0.001442569143631879,
+              "model_better_rate": 0.3137254901960784,
+              "model_worse_rate": 0.24509803921568626,
+              "model_equal_rate": 0.4411764705882353
+            },
+            "(0.05,0.1]": {
+              "count": 73,
+              "mean_model_regret": 0.06101908871572312,
+              "mean_ppo_regret": 0.07041525432508286,
+              "mean_regret_delta": 0.009396165609359741,
+              "model_better_rate": 0.4520547945205479,
+              "model_worse_rate": 0.1506849315068493,
+              "model_equal_rate": 0.3972602739726027
+            },
+            ">0.1": {
+              "count": 63,
+              "mean_model_regret": 0.14742503610868302,
+              "mean_ppo_regret": 0.16424862449131314,
+              "mean_regret_delta": 0.016823588382630122,
+              "model_better_rate": 0.4126984126984127,
+              "model_worse_rate": 0.1111111111111111,
+              "model_equal_rate": 0.47619047619047616
+            }
+          },
+          "ppo_agreement": 0.10172413793103448,
+          "pairwise_accuracy": 0.48799693212322637,
+          "pairwise_pairs": 39115,
+          "score_std": 0.7613978981971741,
+          "groups": 580
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "status": "complete",
+  "seeds": [
+    5001,
+    5002,
+    5003,
+    5004,
+    5005,
+    5006,
+    5007,
+    5008,
+    5009,
+    5010,
+    5011,
+    5012,
+    5013,
+    5014,
+    5015,
+    5016,
+    5017,
+    5018,
+    5019,
+    5020
+  ],
+  "warmup": 500,
+  "evaluated_per_seed": 6000,
+  "methods": {
+    "strict_v13": "Frozen Strict v1.3 pure-RMSA transfer",
+    "ksp_ff_k50_hops": "KSP-FF K=50 hops",
+    "ff_ksp_k50_hops": "FF-KSP K=50 hops"
+  },
+  "worker_peak_mb_probe": 260.1,
+  "formal_max_workers": 8,
+  "source_sha256": {
+    "sa_hmarl\\sa_hmarl\\evaluation\\pure_rmsa_paper_env.py": "2274933c5caf159264a56391406b8acf345869f4ce0c7f0cee306696adeaaa91",
+    "sa_hmarl\\sa_hmarl\\evaluation\\eval_pure_rmsa_strict_v13_three_way.py": "e408978e2d18bc68a8e4feac99ae341bb067ea8f104ed1352d05407b1b5cb5ea",
+    "sa_hmarl\\sa_hmarl\\evaluation\\audit_pure_rmsa_gates.py": "d6b51c246607432af492a6137e6b8493383cdfa07bd0368af197aa8242333d27",
+    "sa_hmarl\\sa_hmarl\\evaluation\\diagnose_old_fixed_c_mask_causes.py": "45b011c37bae023caf33e0043b90cbbed6b0b060704a6d7993511a28db2784c8",
+    "sa_hmarl\\sa_hmarl\\baselines\\rmsa_baselines.py": "0348500ee61df54f8552678ec33c9b1853fc899d1402721c22d4f75242ee3863"
+  },
+  "checkpoint_sha256": {
+    "sa_hmarl/checkpoints/agent_r_mixed.pt": "e32e908196ac0c39898aab6e98516842c53f817150eeaba97e4ac172a61f8b94",
+    "sa_hmarl/experiments/v13_strict_fixed/strict_loss_rerun/checkpoints/full_state_uniform_strict/seed_42/ranking_model.pt": "ae2f17b3644e17e19b3967918d654177c7d84666bdb7469e40c1b8c13fa2e2de"
+  },
+  "request_hash_parity": true
+}

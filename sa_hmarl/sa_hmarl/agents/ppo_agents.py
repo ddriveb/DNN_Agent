@@ -11,8 +11,10 @@ import numpy as np
 import torch
 import torch.nn as nn
 
-from sa_hmarl.agents.c_agent import AgentC
-from sa_hmarl.agents.r_agent import AgentR
+from sa_hmarl.agents.action_feature_builders import (
+    AgentCFeatureBuilder,
+    AgentRFeatureBuilder,
+)
 from sa_hmarl.network.modulation import ModulationRegistry
 
 
@@ -360,6 +362,7 @@ class PPOAgentC(_MaskedPPOBase):
             "default",
             "enhanced",
             "pressure_aware",
+            "overload_aware",
             "cross_pressure",
             "r_feasibility",
             "r_feasibility_safe",
@@ -388,6 +391,8 @@ class PPOAgentC(_MaskedPPOBase):
                 actual_dim = 17 + 7
             elif feature_mode == "pressure_aware":
                 actual_dim = 17 + 8
+            elif feature_mode == "overload_aware":
+                actual_dim = 17 + 9
             elif feature_mode == "r_feasibility":
                 actual_dim = 17 + 10
             elif feature_mode == "r_feasibility_safe":
@@ -441,7 +446,7 @@ class PPOAgentC(_MaskedPPOBase):
         )
 
     def build_action_features(self, obs: Dict[str, Any]) -> Tuple[np.ndarray, np.ndarray]:
-        return AgentC.build_action_features(self, obs)
+        return AgentCFeatureBuilder.build_action_features(self, obs)
 
     def select_action(self, obs: Dict[str, Any], deterministic: bool = True) -> Optional[int]:
         features, mask = self.build_action_features(obs)
@@ -579,7 +584,7 @@ class PPOAgentR(_MaskedPPOBase):
         super().__init__(input_dim, hidden_dims, lr, entropy_coef, max_grad_norm, device)
 
     def build_action_features(self, obs: Dict[str, Any]) -> Tuple[np.ndarray, np.ndarray]:
-        return AgentR.build_action_features(self, obs)
+        return AgentRFeatureBuilder.build_action_features(self, obs)
 
     def select_action(self, obs: Dict[str, Any], deterministic: bool = True) -> Optional[int]:
         features, mask = self.build_action_features(obs)

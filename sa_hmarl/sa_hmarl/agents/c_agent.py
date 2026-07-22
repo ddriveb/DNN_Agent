@@ -1,41 +1,19 @@
-"""Agent-C: DQN-based split-server selector.
+"""Legacy-compatible Agent-C feature helper.
 
-Shared MLP scorer over variable-length (split, server) candidate vectors,
-with epsilon-greedy exploration constrained by agent_c_mask.
+The old DQN Agent-C policy has been removed. This module is kept only as a
+feature-builder shim for diagnostics and backward-compatible imports.
 """
 import numpy as np
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
 from typing import Optional, Dict, Any, Tuple
 
 
-class AgentCNetwork(nn.Module):
-    """Shared MLP that scores each action independently.
-
-    Input:  (batch, num_actions, input_dim)
-    Output: (batch, num_actions)
-    """
-
-    def __init__(self, input_dim: int, hidden_dims=(128, 64)):
-        super().__init__()
-        layers = []
-        prev = input_dim
-        for h in hidden_dims:
-            layers.extend([nn.Linear(prev, h), nn.ReLU()])
-            prev = h
-        layers.append(nn.Linear(prev, 1))
-        self.net = nn.Sequential(*layers)
-
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        batch_size, num_actions, input_dim = x.shape
-        x = x.view(-1, input_dim)
-        out = self.net(x).view(batch_size, num_actions)
-        return out
-
-
 class AgentC:
-    """DQN agent for Agent-C: selects (split, server)."""
+    """Feature-only Agent-C helper kept for compatibility.
+
+    It no longer contains a learnable control policy. Active training and
+    evaluation code should use ``PPOAgentC`` or the neutral feature-builder
+    aliases in :mod:`sa_hmarl.agents.action_feature_builders`.
+    """
 
     def __init__(self,
                  input_dim: int = 17,
@@ -59,6 +37,7 @@ class AgentC:
             "default",
             "enhanced",
             "pressure_aware",
+            "overload_aware",
             "cross_pressure",
             "r_feasibility",
             "r_feasibility_safe",
@@ -79,6 +58,8 @@ class AgentC:
                 actual_dim = 17 + 7
             elif feature_mode == "pressure_aware":
                 actual_dim = 17 + 8
+            elif feature_mode == "overload_aware":
+                actual_dim = 17 + 9
             elif feature_mode == "r_feasibility":
                 actual_dim = 17 + 10
             elif feature_mode == "r_feasibility_safe":
@@ -112,20 +93,15 @@ class AgentC:
                 actual_dim = 17 + 7
         self.input_dim = actual_dim
         self.fixed_blend_alpha = float(fixed_blend_alpha)
-        self.gamma = gamma
-        self.epsilon = epsilon
         self.device = device
-        self.step_count = 0
         self.ablation = ablation
         self.zero_spectrum = zero_spectrum
         self.feature_mode = feature_mode
-
-        self.q_net = AgentCNetwork(self.input_dim, hidden_dims).to(device)
-        self.target_net = AgentCNetwork(self.input_dim, hidden_dims).to(device)
-        self.target_net.load_state_dict(self.q_net.state_dict())
-        self.target_net.eval()
-
-        self.optimizer = torch.optim.Adam(self.q_net.parameters(), lr=lr)
+        # Legacy DQN args are accepted for caller compatibility but unused.
+        self.hidden_dims = tuple(hidden_dims)
+        self.gamma = gamma
+        self.epsilon = epsilon
+        self.lr = lr
 
     # ------------------------------------------------------------------
     # Action-feature construction
@@ -171,6 +147,8 @@ class AgentC:
                     feat.extend(AgentC._build_enhanced_features(self, obs, feat_dict, spec))
                 elif getattr(self, "feature_mode", "default") == "pressure_aware":
                     feat.extend(AgentC._build_pressure_aware_features(self, feat_dict, spec))
+                elif getattr(self, "feature_mode", "default") == "overload_aware":
+                    feat.extend(AgentC._build_overload_aware_features(self, obs, feat_dict, idx))
                 elif getattr(self, "feature_mode", "default") == "r_feasibility":
                     feat.extend(AgentC._build_r_feasibility_features(self, obs, feat_dict))
                 elif getattr(self, "feature_mode", "default") == "r_feasibility_safe":
@@ -586,6 +564,101 @@ class AgentC:
         ]
 
     # ------------------------------------------------------------------
+    # overload-aware features (9-dim, appended to base 17)
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def _build_overload_aware_features(
+        self,
+        obs: Dict[str, Any],
+        feat_dict: Dict[str, Any],
+        idx: int,
+    ) -> list:
+        """Build C-side features that make split-server overload risk explicit.
+
+        These features are designed for topologies like COST239 where blocking is
+        dominated by C-side server overload, not R-side spectrum shortage.  They
+        expose per-candidate post-action compute pressure and the relative
+        attractiveness of the other servers for the same split.
+
+        Returns 9 features:
+            1. server_available_ratio     = available / capacity
+            2. server_margin_after        = (available - edge_cost) / capacity
+            3. server_util_after          = projected utilization after assignment
+            4. projected_utilization      = current util + edge_cost / capacity
+            5. high_util_risk_90          = 1 if projected_utilization > 0.90
+            6. high_util_risk_95          = 1 if projected_utilization > 0.95
+            7. server_relative_load       = this server util / mean util
+            8. best_margin_server         = 1 if this server has max margin for this split
+            9. min_other_server_avail_ratio = min available ratio among other servers for this split
+        """
+        available = float(feat_dict.get("server_available_compute", 0.0))
+        capacity = float(feat_dict.get("server_capacity", 1.0))
+        edge_cost = float(feat_dict.get("edge_compute_cost", 0.0))
+        current_util = float(feat_dict.get("server_utilization", 0.0))
+        capacity = max(capacity, 1e-6)
+
+        server_available_ratio = available / capacity
+        margin_after = (available - edge_cost) / capacity
+        util_after = (capacity - (available - edge_cost)) / capacity
+        projected_util = current_util + edge_cost / capacity
+
+        high_util_risk_90 = 1.0 if projected_util > 0.90 else 0.0
+        high_util_risk_95 = 1.0 if projected_util > 0.95 else 0.0
+
+        server_utils = obs.get("server_utilizations")
+        num_servers = len(server_utils) if server_utils else 1
+        num_servers = max(num_servers, 1)
+        server_id = idx % num_servers
+
+        server_relative_load = 1.0
+        if server_utils and len(server_utils) > 0:
+            mean_util = float(np.mean(server_utils))
+            if mean_util > 1e-6:
+                server_relative_load = current_util / mean_util
+
+        candidate_features = obs.get("candidate_features", [])
+        avail_ratios = []
+        margins = []
+        for c in candidate_features:
+            c_available = float(c.get("server_available_compute", 0.0))
+            c_capacity = float(c.get("server_capacity", 1.0))
+            c_edge_cost = float(c.get("edge_compute_cost", 0.0))
+            c_capacity = max(c_capacity, 1e-6)
+            avail_ratios.append(c_available / c_capacity)
+            margins.append((c_available - c_edge_cost) / c_capacity)
+
+        split_id = idx // num_servers
+        start = split_id * num_servers
+        end = start + num_servers
+        split_margins = margins[start:end] if len(margins) >= end else margins[start:]
+        split_avail_ratios = avail_ratios[start:end] if len(avail_ratios) >= end else avail_ratios[start:]
+
+        best_margin_server = 0.0
+        if split_margins:
+            best_server = int(np.argmax(split_margins))
+            if best_server == server_id:
+                best_margin_server = 1.0
+
+        min_other_server_avail_ratio = 1.0
+        if split_avail_ratios:
+            others = [r for i, r in enumerate(split_avail_ratios) if i != server_id]
+            if others:
+                min_other_server_avail_ratio = float(np.min(others))
+
+        return [
+            float(np.clip(server_available_ratio, 0.0, 1.0)),
+            float(np.clip(margin_after, -1.0, 1.0)),
+            float(np.clip(util_after, 0.0, 1.0)),
+            float(np.clip(projected_util, 0.0, 2.0)),
+            high_util_risk_90,
+            high_util_risk_95,
+            float(np.clip(server_relative_load, 0.0, 2.0)),
+            best_margin_server,
+            float(np.clip(min_other_server_avail_ratio, 0.0, 1.0)),
+        ]
+
+    # ------------------------------------------------------------------
     # MR-feasibility rule features (6-dim, appended to r_feasibility)
     # ------------------------------------------------------------------
 
@@ -994,123 +1067,21 @@ class AgentC:
     # ------------------------------------------------------------------
 
     def select_action(self, obs: Dict[str, Any], epsilon: Optional[float] = None) -> Optional[int]:
-        """Epsilon-greedy action selection over mask-valid actions.
-
-        Args:
-            obs: Agent-C observation dict.
-            epsilon: Override default epsilon if provided.
-
-        Returns:
-            Action index (flat) or None if no valid action exists.
-        """
-        if epsilon is None:
-            epsilon = self.epsilon
-
-        action_features, mask = self.build_action_features(obs)
-
-        if len(mask) == 0 or not np.any(mask):
-            return None
-
-        if np.random.random() < epsilon:
-            valid_actions = np.where(mask)[0]
-            return int(np.random.choice(valid_actions))
-
-        # Exploit: argmax Q over valid actions
-        with torch.no_grad():
-            x = torch.tensor(action_features, dtype=torch.float32).unsqueeze(0).to(self.device)
-            q_values = self.q_net(x).squeeze(0).cpu().numpy()
-            q_values[~mask] = -np.inf
-            return int(np.argmax(q_values))
+        raise RuntimeError(
+            "Legacy DQN Agent-C has been removed. Use PPOAgentC for policy "
+            "selection; AgentC now only provides feature construction helpers."
+        )
 
     # ------------------------------------------------------------------
     # Training
     # ------------------------------------------------------------------
 
     def optimize(self, batch: Tuple, batch_size: int) -> Optional[float]:
-        """Run one DQN optimization step on a sampled batch.
-
-        Handles variable-length action spaces by padding to the maximum
-        number of actions in the batch.
-
-        Args:
-            batch: Tuple of (obs_features_list, masks_list, actions, rewards,
-                   next_obs_features_list, next_masks_list, dones) from
-                   ReplayBuffer.sample().
-            batch_size: Number of transitions in the batch.
-
-        Returns:
-            Loss scalar or None if batch is too small.
-        """
-        if batch is None:
-            return None
-
-        (obs_features_list, masks_list, actions,
-         rewards, next_obs_features_list, next_masks_list, dones) = batch
-
-        if len(actions) < batch_size:
-            return None
-
-        # Determine max action count for padding
-        max_actions = max(
-            max(len(m) for m in masks_list),
-            max(len(m) for m in next_masks_list),
+        raise RuntimeError(
+            "Legacy DQN Agent-C optimization has been removed from the active codebase."
         )
 
-        def _pad(features: np.ndarray, mask: np.ndarray, target_size: int):
-            pad_len = target_size - len(mask)
-            if pad_len > 0:
-                features = np.concatenate([
-                    features,
-                    np.zeros((pad_len, features.shape[1]), dtype=np.float32)
-                ], axis=0)
-                mask = np.concatenate([mask, np.zeros(pad_len, dtype=bool)], axis=0)
-            return features, mask
-
-        padded_obs = []
-        padded_masks = []
-        for obs_f, m in zip(obs_features_list, masks_list):
-            f, m = _pad(obs_f, m, max_actions)
-            padded_obs.append(f)
-            padded_masks.append(m)
-
-        padded_next_obs = []
-        padded_next_masks = []
-        for obs_f, m in zip(next_obs_features_list, next_masks_list):
-            f, m = _pad(obs_f, m, max_actions)
-            padded_next_obs.append(f)
-            padded_next_masks.append(m)
-
-        obs_t = torch.tensor(np.stack(padded_obs), dtype=torch.float32, device=self.device)
-        masks_t = torch.tensor(np.stack(padded_masks), dtype=torch.bool, device=self.device)
-        actions_t = torch.tensor(actions, dtype=torch.long, device=self.device)
-        rewards_t = torch.tensor(rewards, dtype=torch.float32, device=self.device)
-        next_obs_t = torch.tensor(np.stack(padded_next_obs), dtype=torch.float32, device=self.device)
-        next_masks_t = torch.tensor(np.stack(padded_next_masks), dtype=torch.bool, device=self.device)
-        dones_t = torch.tensor(dones, dtype=torch.float32, device=self.device)
-
-        # Current Q(s, a)
-        current_q_all = self.q_net(obs_t)  # (batch, max_actions)
-        current_q = current_q_all.gather(1, actions_t.unsqueeze(1)).squeeze(1)
-
-        # Target: r + gamma * max_a' Q_target(s', a')
-        with torch.no_grad():
-            next_q = self.target_net(next_obs_t)
-            next_q = next_q.masked_fill(~next_masks_t, -1e9)
-            next_q_max = next_q.max(1)[0]
-            has_next_action = next_masks_t.any(dim=1)
-            next_q_max = torch.where(has_next_action, next_q_max,
-                                     torch.zeros_like(next_q_max))
-            target_q = rewards_t + self.gamma * next_q_max * (1.0 - dones_t)
-
-        loss = F.smooth_l1_loss(current_q, target_q)
-
-        self.optimizer.zero_grad()
-        loss.backward()
-        self.optimizer.step()
-        self.step_count += 1
-
-        return loss.item()
-
     def update_target(self):
-        """Hard update: copy Q-net weights to target net."""
-        self.target_net.load_state_dict(self.q_net.state_dict())
+        raise RuntimeError(
+            "Legacy DQN Agent-C target updates have been removed from the active codebase."
+        )

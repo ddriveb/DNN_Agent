@@ -1,0 +1,237 @@
+{
+  "config": {
+    "agent_c_checkpoint": "sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_last.pt",
+    "agent_r_checkpoint": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+    "topology": "xlron_cost239_ptrnet_real",
+    "num_slots": 320,
+    "num_servers": 4,
+    "modulation_profile": "default",
+    "max_blocks": 10,
+    "split_profile": "default3",
+    "num_splits": 3,
+    "arrival_interval": 0.0625,
+    "holding_min": 20.0,
+    "holding_max": 30.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "size_max_mb": 30.0,
+    "edge_cost_min": 0.1,
+    "edge_cost_max": 2.2,
+    "label_a_horizon": 5,
+    "gamma": 1.0,
+    "label_b_horizons": [
+      5,
+      12,
+      20
+    ],
+    "max_candidates": 8,
+    "ppo_top_k": 30,
+    "candidate_mode": "ppo_r_topk_only",
+    "num_random_candidates": 5,
+    "min_candidates": 15,
+    "candidate_seed": 12345,
+    "ensure_ksp_action": false,
+    "return_coefs": {
+      "return_current_block_coef": 1.0,
+      "return_future_block_coef": 1.0,
+      "return_future_nsb_coef": 1.0,
+      "return_future_server_overload_coef": 0.0,
+      "return_delay_coef": 0.0,
+      "return_fs_coef": 0.0
+    },
+    "path_penalty_coef": 0.0,
+    "fs_penalty_coef": 0.0,
+    "viability_phi_coef": 0.0,
+    "device": "cpu",
+    "requests_per_episode": 200,
+    "warmup_requests": 50,
+    "bucket_targets": [
+      0.1111111111111111,
+      0.1111111111111111,
+      0.1111111111111111,
+      0.1111111111111111,
+      0.1111111111111111,
+      0.1111111111111111,
+      0.1111111111111111,
+      0.1111111111111111,
+      0.1111111111111111
+    ],
+    "target_groups_per_shard": 400,
+    "schema": "corrected_paired_feature_v1",
+    "version": "1.35"
+  },
+  "config_hash": "7dd08d2efeb20ff5",
+  "feature_names_v1": [
+    "path_length_km",
+    "hop_count",
+    "lfb",
+    "free_ratio",
+    "frag_index",
+    "spectral_efficiency",
+    "reach_km",
+    "required_fs",
+    "block_size",
+    "block_waste",
+    "path_mod_feasible",
+    "split_norm",
+    "server_norm",
+    "deadline_norm",
+    "holding_norm",
+    "intermediate_size_norm",
+    "server_utilization",
+    "selected_valid_r_ratio",
+    "k_c_valid_ratio",
+    "k_r_total_ratio",
+    "phi_spec_norm",
+    "raw_r_valid_ratio",
+    "path_idx_norm",
+    "mod_idx_norm",
+    "block_idx_norm"
+  ],
+  "feature_dim_v1": 25,
+  "feature_names_poststate_compact_v2": [
+    "path_length_km",
+    "hop_count",
+    "lfb",
+    "free_ratio",
+    "frag_index",
+    "spectral_efficiency",
+    "reach_km",
+    "required_fs",
+    "block_size",
+    "block_waste",
+    "split_norm",
+    "server_norm",
+    "deadline_norm",
+    "holding_norm",
+    "intermediate_size_norm",
+    "server_utilization",
+    "selected_valid_r_ratio",
+    "k_r_total_ratio",
+    "phi_spec_norm",
+    "raw_r_valid_ratio",
+    "path_idx_norm",
+    "block_idx_norm",
+    "delta_frag",
+    "free_block_count_delta",
+    "occupied_slot_hops_norm",
+    "path_conflict_after_norm",
+    "path_free_ratio_after",
+    "min_edge_free_ratio_after",
+    "global_frag_delta",
+    "global_free_ratio_mean_after",
+    "global_free_ratio_p10_after",
+    "global_lfb_mean_after",
+    "global_lfb_p10_after"
+  ],
+  "feature_dim_poststate_compact_v2": 33,
+  "feature_names_poststate_full_corrected": [
+    "path_length_km",
+    "hop_count",
+    "lfb",
+    "free_ratio",
+    "frag_index",
+    "spectral_efficiency",
+    "reach_km",
+    "required_fs",
+    "block_size",
+    "block_waste",
+    "path_mod_feasible",
+    "split_norm",
+    "server_norm",
+    "deadline_norm",
+    "holding_norm",
+    "intermediate_size_norm",
+    "server_utilization",
+    "selected_valid_r_ratio",
+    "k_c_valid_ratio",
+    "k_r_total_ratio",
+    "phi_spec_norm",
+    "raw_r_valid_ratio",
+    "path_idx_norm",
+    "mod_idx_norm",
+    "block_idx_norm",
+    "path_lfb_after",
+    "path_free_ratio_after",
+    "global_lfb_after",
+    "global_lfb_ratio_after",
+    "frag_after",
+    "delta_frag",
+    "free_block_count_after",
+    "free_block_count_delta",
+    "min_edge_lfb_margin_after",
+    "min_edge_free_ratio_after",
+    "bottleneck_edge_util_after",
+    "occupied_slot_hops",
+    "path_conflict_after",
+    "server_util_context",
+    "server_margin_context",
+    "holding_time_norm"
+  ],
+  "feature_dim_poststate_full_corrected": 41,
+  "load_bucket_definitions": {
+    "server_util": [
+      [
+        0.0,
+        0.5
+      ],
+      [
+        0.5,
+        0.75
+      ],
+      [
+        0.75,
+        1.01
+      ]
+    ],
+    "spectrum_util": [
+      [
+        0.0,
+        0.5
+      ],
+      [
+        0.5,
+        0.75
+      ],
+      [
+        0.75,
+        1.01
+      ]
+    ],
+    "target_probs": [
+      0.1111111111111111,
+      0.1111111111111111,
+      0.1111111111111111,
+      0.1111111111111111,
+      0.1111111111111111,
+      0.1111111111111111,
+      0.1111111111111111,
+      0.1111111111111111,
+      0.1111111111111111
+    ]
+  },
+  "load_bucket_counts": {},
+  "split_stats": {},
+  "splits": {
+    "train": {
+      "seeds": [
+        9000
+      ],
+      "episodes": 1
+    },
+    "val": {
+      "seeds": [
+        9001
+      ],
+      "episodes": 1
+    },
+    "test": {
+      "seeds": [
+        9002
+      ],
+      "episodes": 1
+    }
+  },
+  "shards": {}
+}

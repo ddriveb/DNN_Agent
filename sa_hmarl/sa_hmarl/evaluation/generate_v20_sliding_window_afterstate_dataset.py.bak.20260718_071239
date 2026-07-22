@@ -1,0 +1,1068 @@
+#!/usr/bin/env python3
+"""v2.0 Phase-1 sliding-window afterstate dataset generator.
+
+For every evaluated request this script branches the *pre-decision* environment
+state once per PPO-R proposal candidate, executes the candidate R action,
+extracts a 32-d post-decision (afterstate) feature vector, and then rolls the
+branched environment forward with a fixed future policy.  Sliding-window labels
+at horizons H in {5, 20, 50} are extracted from that single future trace, so the
+dataset links
+
+    R-side action -> post-decision state -> future C/R decisions -> future blocking.
+
+Protocol lock (mirrors the fixed-C / all-OD diagnosis protocol):
+  - topology = xlron_cost239_ptrnet_real, num_slots = 320, num_servers = 4
+  - R-side K_path = 50, path_sort_strategy = "hops",
+    block_sort_strategy = "start_asc", max_blocks = 10
+  - all-OD traffic: src uniform over all nodes, dst uniform over server nodes
+    (server_node_ids = [0, 1, 2, 3] for the default COST239 server placement)
+  - mode A (fixed-C / all-OD pure RMSA): split_id = fixed_split_id (0),
+    server_id is deterministically determined by dst_node.  No PPO-C is loaded
+    or called.
+  - mode B (DF_C closed loop): (split_id, server_id) comes from the DF_C
+    heuristic (distance-first) applied to the Agent-C observation/mask.
+  - Candidate pool = frozen PPO-R legal Top-30 only.  No KSP anchor, no
+    heuristic filler, no diversity/random candidate, no all-legal pool.
+  - KSP-FF K=50 hops (``ksp_ff_highest_mod_action``) is computed only for the
+    coverage diagnostic flag ``is_ksp_ff_k50_hops_action``; it is never added to
+    the candidate pool and ``ksp_ff_action`` is never used.
+  - This script does NOT train any network and does NOT modify any checkpoint.
+
+Afterstate features (32 dims, AFTERSTATE_FEATURE_NAMES):
+  A. Current action info (12): path_idx_norm, mod_idx_norm, block_idx_norm,
+     path_hops, path_length_km, required_fs, block_start, block_size,
+     block_waste, modulation_spectral_efficiency, modulation_reach_km,
+     feasibility_flag (1 iff the candidate executed successfully).
+  B. Post-decision spectrum summary (10): global_free_ratio, global_lfb,
+     global_frag, phi_spec, legal_r_ratio, path_free_ratio, path_lfb,
+     path_frag, bottleneck_link_free_ratio, bottleneck_link_lfb.
+     Global/path/bottleneck quantities are measured on the branched env
+     immediately after the candidate step.  ``legal_r_ratio`` is the legal
+     fraction of the R mask for the *next* future request (first step of the
+     future rollout, after time advancement and resource releases), i.e. the
+     post-decision feasibility landscape the next decision will face; it is 0.0
+     when no future request remains.  ``phi_spec`` follows the diagnosis
+     convention log1p(free_ratio*100) + 0.3*log1p(lfb*100).  The bottleneck
+     link is the on-path link with the smallest free ratio; its free ratio and
+     largest-free-block ratio are reported.
+  C. Post-decision server/request context (10): split_id_norm, server_id_norm,
+     server_utilization, global_mean_util, global_max_util, deadline_norm,
+     holding_norm, intermediate_size_norm, src_node_norm, dst_node_norm.
+     NOTE: the v2.0 spec text lists 11 names for block C but fixes the total at
+     32 dims (12 + 10 + 10).  To honor the fixed 32-d contract,
+     ``global_util_std`` is omitted from the feature vector; per-window server
+     utilization dispersion is still available in the labels
+     (``server_util_std``).
+
+Sliding-window labels (one dict per horizon, stored under labels_H5 /
+labels_H20 / labels_H50 with unsuffixed keys):
+  - Core outcomes: block_count, block_rate, server_overload_count,
+    r_no_valid_action_count, deadline_fail_count, success_count.
+  - Spectrum state (pre-decision values at each future step; "final" is the
+    last in-window step): mean/min/final phi_spec, mean/min/final lfb,
+    mean/max/final frag, mean/min legal_r_ratio.
+  - Resource usage (means over *successful* future requests, 0.0 if none):
+    mean_required_fs, mean_path_hops, mean_path_km, mean_block_start,
+    mean_block_waste.
+  - Server state (per-step summaries over the server farm, post-step):
+    mean_server_util (mean over steps of the cross-server mean),
+    max_server_util (max over steps of the cross-server max),
+    final_server_util (cross-server mean at the last in-window step),
+    server_util_std (std over steps of the cross-server mean).
+  - risk = 4.0*block_count + 3.0*server_overload_count
+         + 3.0*r_no_valid_action_count + 1.0*deadline_fail_count
+         + 0.05*mean_required_fs + 0.02*mean_path_hops + 0.02*max_frag
+         - 0.02*mean_lfb - 0.02*mean_legal_r_ratio
+  - Group-relative (filled after all candidates of the group are evaluated):
+    label_rank_by_block_count, label_rank_by_risk_score (competition/"min"
+    ranking, 1 = best, ties share the best rank), regret_vs_best,
+    delta_vs_group_mean, delta_vs_ppo_r_top1 (all risk-based).
+  - actual_horizon: number of future steps actually available (truncated near
+    the end of the request trace).
+
+Output: per-seed ``seed_{seed}.jsonl.gz`` shards in --output_dir plus a
+top-level ``metadata.json``.  ``group_id = seed * 1000000 + request_index``.
+"""
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+import argparse
+import copy
+import gzip
+import hashlib
+import json
+import os
+import time
+from typing import Any, Dict, List, Optional, Tuple
+
+import numpy as np
+import torch
+
+from sa_hmarl.baselines.rmsa_baselines import ksp_ff_highest_mod_action
+from sa_hmarl.env.observation_builder import (
+    build_agent_c_observation,
+    build_agent_r_observation,
+    decode_agent_c_action,
+    decode_agent_r_action,
+)
+from sa_hmarl.env.request import DNNRequest, SplitProfile  # noqa: F401  (protocol types)
+from sa_hmarl.evaluation.diagnose_r_action_horizon_oracle import (
+    _load_ppo_r,
+    _select_r_action_from_obs,
+    _snapshot_before_r_decision,
+)
+from sa_hmarl.evaluation.diagnose_strict_v13_vs_ksp_ff_k50_hops_all_od import (
+    _generate_all_od_requests,
+)
+from sa_hmarl.evaluation.generate_r_counterfactual_ranking_cost239_kpath50_hops_kprop30_h5 import (
+    _ppo_r_topk_actions_with_scores,
+)
+from sa_hmarl.evaluation.offloading_baselines import select_offloading_action
+from sa_hmarl.training.utils import make_env
+
+
+# ---------------------------------------------------------------------------
+# Schema constants
+# ---------------------------------------------------------------------------
+SCHEMA_NAME = "v20_sliding_window_afterstate"
+SCHEMA_VERSION = "2.0.0"
+
+AFTERSTATE_FEATURE_NAMES = [
+    # A. Current action info (12)
+    "path_idx_norm",
+    "mod_idx_norm",
+    "block_idx_norm",
+    "path_hops",
+    "path_length_km",
+    "required_fs",
+    "block_start",
+    "block_size",
+    "block_waste",
+    "modulation_spectral_efficiency",
+    "modulation_reach_km",
+    "feasibility_flag",
+    # B. Post-decision spectrum summary (10)
+    "global_free_ratio",
+    "global_lfb",
+    "global_frag",
+    "phi_spec",
+    "legal_r_ratio",
+    "path_free_ratio",
+    "path_lfb",
+    "path_frag",
+    "bottleneck_link_free_ratio",
+    "bottleneck_link_lfb",
+    # C. Post-decision server/request context (10)
+    "split_id_norm",
+    "server_id_norm",
+    "server_utilization",
+    "global_mean_util",
+    "global_max_util",
+    "deadline_norm",
+    "holding_norm",
+    "intermediate_size_norm",
+    "src_node_norm",
+    "dst_node_norm",
+]
+assert len(AFTERSTATE_FEATURE_NAMES) == 32
+
+RISK_COEFS = {
+    "block_count": 4.0,
+    "server_overload_count": 3.0,
+    "r_no_valid_action_count": 3.0,
+    "deadline_fail_count": 1.0,
+    "mean_required_fs": 0.05,
+    "mean_path_hops": 0.02,
+    "max_frag": 0.02,
+    "mean_lfb": -0.02,
+    "mean_legal_r_ratio": -0.02,
+}
+
+FUTURE_POLICIES = ("df_c_ppo_r_top1", "fixed_c_ppo_r_top1")
+
+# Index of the legal_r_ratio slot in the afterstate vector.  It is the only
+# feature filled *after* the future rollout (from its first step), because the
+# legal ratio is defined on the post-release state at the next arrival.
+LEGAL_R_RATIO_FEATURE_IDX = AFTERSTATE_FEATURE_NAMES.index("legal_r_ratio")
+
+
+# ---------------------------------------------------------------------------
+# Small numeric helpers
+# ---------------------------------------------------------------------------
+def _finite(value: Any, default: float = 0.0) -> float:
+    """Convert to a finite float, replacing NaN/Inf/None with ``default``."""
+    try:
+        val = float(value)
+    except (TypeError, ValueError):
+        return float(default)
+    if not np.isfinite(val):
+        return float(default)
+    return val
+
+
+def _phi_spec(free_ratio: float, lfb_ratio: float) -> float:
+    """Spectrum field proxy used by the fixed-C / all-OD diagnosis scripts."""
+    return float(np.log1p(free_ratio * 100.0) + 0.3 * np.log1p(lfb_ratio * 100.0))
+
+
+def _global_spectrum(env) -> Dict[str, float]:
+    """Global spectrum summary with an explicit free-ratio field."""
+    stats = env.net.get_global_spectrum_stats()
+    free_ratio = 1.0 - float(stats.get("spectrum_utilization", 0.0))
+    lfb = float(stats.get("largest_free_block_ratio", 0.0))
+    frag = float(stats.get("avg_frag_index", 0.0))
+    return {
+        "free_ratio": free_ratio,
+        "lfb": lfb,
+        "frag": frag,
+        "phi_spec": _phi_spec(free_ratio, lfb),
+    }
+
+
+def _path_spectrum(env, path: List[int]) -> Dict[str, float]:
+    """Post-decision spectrum stats for one path (free ratio / LFB / frag)."""
+    num_slots = max(int(env.net.num_slots), 1)
+    if not path or len(path) < 2:
+        return {"free_ratio": 1.0, "lfb": 1.0, "frag": 0.0}
+    stats = env.net.get_path_spectrum_stats(path)
+    return {
+        "free_ratio": float(stats.get("total_free_slots", 0)) / num_slots,
+        "lfb": float(stats.get("largest_free_block_ratio", 0.0)),
+        "frag": float(stats.get("frag_index", 0.0)),
+    }
+
+
+def _bottleneck_link_spectrum(env, path: List[int]) -> Tuple[float, float]:
+    """(free_ratio, lfb_ratio) of the on-path link with the least free ratio."""
+    if not path or len(path) < 2:
+        return 1.0, 1.0
+    num_slots = max(int(env.net.num_slots), 1)
+    min_free_ratio = 1.0
+    bottleneck_lfb = 1.0
+    for u, v in zip(path[:-1], path[1:]):
+        key = (min(u, v), max(u, v))
+        free_arr = ~env.net.link_states[key]
+        stats = env.net.summarize_availability(free_arr)
+        free_ratio = float(stats["total_free_slots"]) / num_slots
+        if free_ratio < min_free_ratio:
+            min_free_ratio = free_ratio
+            bottleneck_lfb = float(stats["largest_free_block_ratio"])
+    return min_free_ratio, bottleneck_lfb
+
+
+def _server_util_summary(env) -> Tuple[float, float, float]:
+    """(mean, max, std) of utilization across the server farm."""
+    utils = np.asarray([s.utilization for s in env.mec.servers], dtype=np.float64)
+    if utils.size == 0:
+        return 0.0, 0.0, 0.0
+    return float(np.mean(utils)), float(np.max(utils)), float(np.std(utils))
+
+
+def _min_ranks(values: List[float]) -> np.ndarray:
+    """Competition ("min") ranking in ascending order; ties share the best rank."""
+    arr = np.asarray(values, dtype=np.float64)
+    order = np.argsort(arr, kind="stable")
+    ranks = np.empty(len(arr), dtype=np.int64)
+    best_rank = 1
+    for pos, idx in enumerate(order):
+        if pos > 0 and arr[order[pos]] > arr[order[pos - 1]]:
+            best_rank = pos + 1
+        ranks[idx] = best_rank
+    return ranks
+
+
+def _sha256_file(path: str) -> str:
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(8192), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+# ---------------------------------------------------------------------------
+# Afterstate features (32 dims)
+# ---------------------------------------------------------------------------
+def _build_afterstate_features(
+    branch,
+    req,
+    obs_r: Dict[str, Any],
+    r_action: Tuple[int, int, int],
+    info: Dict[str, Any],
+    split_id: int,
+    server_id: int,
+    dst_node: int,
+    legal_r_ratio_next: float,
+    args: argparse.Namespace,
+) -> np.ndarray:
+    """Build the 32-d post-decision afterstate feature vector.
+
+    ``branch`` is the deep-copied env immediately *after* executing the
+    candidate action and *before* the future rollout.  ``legal_r_ratio_next``
+    fills the legal_r_ratio slot; callers that do not have the rollout result
+    yet may pass 0.0 and overwrite ``LEGAL_R_RATIO_FEATURE_IDX`` afterwards.
+    """
+    path_idx, mod_idx, block_idx = r_action
+    num_paths = max(len(obs_r["candidate_paths"]), 1)
+    num_mods = max(len(obs_r["mod_names"]), 1)
+    max_blocks = max(int(branch.max_blocks), 1)
+    num_servers = max(len(branch.mec.servers), 1)
+    num_splits = max(len(req.splits), 1)
+    num_nodes = max(int(branch.net.NUM_NODES), 1)
+
+    path = obs_r["candidate_paths"][path_idx] if path_idx < len(obs_r["candidate_paths"]) else []
+    path_feats = obs_r["path_features"][path_idx] if path_idx < len(obs_r["path_features"]) else {}
+    mod = branch.mod_reg[mod_idx]
+    blocks = obs_r["candidate_blocks_per_path_mod"][path_idx][mod_idx]
+    if 0 <= block_idx < len(blocks):
+        block_start = int(blocks[block_idx][0])
+        block_size = int(blocks[block_idx][1])
+    else:
+        block_start, block_size = -1, 0
+    req_fs = obs_r["required_fs_per_path_mod"][path_idx][mod_idx]
+    required_fs = float(req_fs) if req_fs is not None else 0.0
+    block_waste = (block_size - required_fs) / max(float(block_size), 1.0) if block_size > 0 else 0.0
+    success = bool(info.get("success", False))
+
+    # B. Post-decision spectrum (measured on the branch before the rollout).
+    glob = _global_spectrum(branch)
+    path_spec = _path_spectrum(branch, path)
+    bn_free, bn_lfb = _bottleneck_link_spectrum(branch, path)
+
+    # C. Post-decision server/request context.
+    split = req.splits[split_id]
+    server_util = float(branch.mec.servers[server_id].utilization)
+    mean_util, max_util, _std_util = _server_util_summary(branch)
+
+    vec = np.asarray([
+        # A. Current action info (12)
+        float(path_idx) / max(num_paths - 1, 1),
+        float(mod_idx) / max(num_mods - 1, 1),
+        float(block_idx) / max(max_blocks - 1, 1),
+        float(path_feats.get("hop_count", len(path) - 1 if path else 0)),
+        float(path_feats.get("path_length_km", 0.0)),
+        required_fs,
+        float(block_start),
+        float(block_size),
+        float(block_waste),
+        float(mod.spectral_efficiency),
+        float(mod.reach_km),
+        1.0 if success else 0.0,
+        # B. Post-decision spectrum summary (10)
+        glob["free_ratio"],
+        glob["lfb"],
+        glob["frag"],
+        glob["phi_spec"],
+        float(legal_r_ratio_next),
+        path_spec["free_ratio"],
+        path_spec["lfb"],
+        path_spec["frag"],
+        float(bn_free),
+        float(bn_lfb),
+        # C. Post-decision server/request context (10)
+        float(split_id) / max(num_splits - 1, 1),
+        float(server_id) / max(num_servers - 1, 1),
+        server_util,
+        mean_util,
+        max_util,
+        float(req.deadline_ms) / max(float(args.deadline_max), 1.0),
+        float(req.holding_time) / max(float(args.holding_max), 1.0),
+        float(split.intermediate_size_mb) / max(float(args.size_max_mb), 1.0),
+        float(req.src_node) / max(num_nodes - 1, 1),
+        float(dst_node) / max(num_nodes - 1, 1),
+    ], dtype=np.float32)
+    vec = np.nan_to_num(vec, nan=0.0, posinf=0.0, neginf=0.0)
+    return vec
+
+
+# ---------------------------------------------------------------------------
+# Future rollout with the fixed future policy
+# ---------------------------------------------------------------------------
+def _select_future_c_action(
+    env,
+    req,
+    obs_c: Dict[str, Any],
+    raw_c_mask: np.ndarray,
+    args: argparse.Namespace,
+    node_to_server: Dict[int, int],
+) -> Optional[Tuple[int, int]]:
+    """Return (split_id, server_id) under the configured future C policy."""
+    if args.future_policy == "fixed_c_ppo_r_top1":
+        dst_node = int(getattr(req, "_dst_node", req.src_node))
+        server_id = node_to_server.get(dst_node)
+        if server_id is None:
+            server_id = min(node_to_server.values(), key=lambda i: abs(i - dst_node))
+        return int(args.fixed_split_id), int(server_id)
+    if args.future_policy == "df_c_ppo_r_top1":
+        if int(raw_c_mask.sum()) == 0:
+            return None
+        c_idx = select_offloading_action("df", env, req, obs_c, raw_c_mask)
+        if c_idx is None:
+            return None
+        split_id, server_id = decode_agent_c_action(int(c_idx), len(env.mec.servers))
+        return int(split_id), int(server_id)
+    raise ValueError(f"Unknown future_policy: {args.future_policy}")
+
+
+def _rollout_future_sliding(
+    env,
+    requests: List[Any],
+    start_idx: int,
+    horizon: int,
+    agent_r,
+    node_to_server: Dict[int, int],
+    args: argparse.Namespace,
+) -> Dict[str, List[Any]]:
+    """Roll out up to ``horizon`` future requests with the fixed future policy.
+
+    Returns per-step arrays used to extract sliding-window labels at any
+    H <= horizon from this single trace.  Per step we record the pre-decision
+    spectrum field, the legal R ratio of the chosen observation, the outcome
+    class, successful-request resource usage, and post-step server utilization.
+    """
+    trace: Dict[str, List[Any]] = {
+        "blocked": [],
+        "reason": [],
+        "phi_spec": [],
+        "lfb": [],
+        "frag": [],
+        "legal_r_ratio": [],
+        "required_fs": [],
+        "path_hops": [],
+        "path_km": [],
+        "block_start": [],
+        "block_waste": [],
+        "server_util_mean": [],
+        "server_util_max": [],
+    }
+
+    def _record(
+        blocked: int,
+        reason: str,
+        phi: float,
+        lfb: float,
+        frag: float,
+        legal_ratio: float,
+        info: Optional[Dict[str, Any]],
+    ) -> None:
+        trace["blocked"].append(int(blocked))
+        trace["reason"].append(reason)
+        trace["phi_spec"].append(float(phi))
+        trace["lfb"].append(float(lfb))
+        trace["frag"].append(float(frag))
+        trace["legal_r_ratio"].append(float(legal_ratio))
+        success = info is not None and bool(info.get("success", False))
+        trace["required_fs"].append(float(info.get("num_slots", 0)) if success else None)
+        trace["path_hops"].append(float(info.get("num_hops", 0)) if success else None)
+        trace["path_km"].append(float(info.get("path_dist_km", 0.0)) if success else None)
+        trace["block_start"].append(float(info.get("start_slot", -1)) if success else None)
+        trace["block_waste"].append(float(info.get("block_waste", 0.0)) if success else None)
+        mean_util, max_util, _ = _server_util_summary(env)
+        trace["server_util_mean"].append(mean_util)
+        trace["server_util_max"].append(max_util)
+
+    num_servers = len(env.mec.servers)
+    for offset in range(horizon):
+        t = start_idx + offset
+        if t >= len(requests):
+            break
+        req = requests[t]
+        env.advance_time(req.arrival_time)
+
+        # Pre-decision spectrum state.
+        glob = _global_spectrum(env)
+        phi, lfb, frag = glob["phi_spec"], glob["lfb"], glob["frag"]
+
+        # C side under the future policy (DF_C uses a K_C-sized observation).
+        if args.future_policy == "df_c_ppo_r_top1":
+            env.k = args.k_paths_c
+            env.path_sort_strategy = args.path_sort_strategy_c
+            env.block_sort_strategy = args.block_sort_strategy_c
+            obs_c = build_agent_c_observation(env, req)
+            raw_c_mask = np.asarray(obs_c["agent_c_mask"], dtype=bool)
+        else:
+            obs_c, raw_c_mask = None, None
+        c_action = _select_future_c_action(env, req, obs_c, raw_c_mask, args, node_to_server)
+        if c_action is None:
+            env.reject_next_request(req.req_id, "c_no_valid_action")
+            _record(1, "c_no_valid_action", phi, lfb, frag, 0.0, None)
+            continue
+        split_id, server_id = c_action
+
+        # R side under K_path = k_paths_r.
+        env.k = args.k_paths_r
+        env.path_sort_strategy = args.path_sort_strategy_r
+        env.block_sort_strategy = args.block_sort_strategy_r
+        obs_r = build_agent_r_observation(env, req, split_id, server_id)
+        raw_r_mask = np.asarray(obs_r["agent_r_mask"], dtype=bool)
+        legal_ratio = float(raw_r_mask.sum()) / max(len(raw_r_mask), 1)
+        if int(raw_r_mask.sum()) == 0:
+            env.reject_next_request(req.req_id, "r_no_valid_action")
+            _record(1, "r_no_valid_action", phi, lfb, frag, 0.0, None)
+            continue
+
+        r_idx, _ = _select_r_action_from_obs(agent_r, obs_r, env.max_blocks)
+        r_action = decode_agent_r_action(r_idx, len(obs_r["mod_names"]), env.max_blocks)
+        _, _, _, info = env.step((split_id, server_id), r_action)
+        success = bool(info.get("success", False))
+        reason = "" if success else str(info.get("reason", "unknown"))
+        _record(0 if success else 1, reason, phi, lfb, frag, legal_ratio, info)
+
+    return trace
+
+
+# ---------------------------------------------------------------------------
+# Sliding-window labels
+# ---------------------------------------------------------------------------
+def _risk_score(labels: Dict[str, Any]) -> float:
+    """v2.0 risk score (higher = worse future window)."""
+    return float(
+        RISK_COEFS["block_count"] * labels["block_count"]
+        + RISK_COEFS["server_overload_count"] * labels["server_overload_count"]
+        + RISK_COEFS["r_no_valid_action_count"] * labels["r_no_valid_action_count"]
+        + RISK_COEFS["deadline_fail_count"] * labels["deadline_fail_count"]
+        + RISK_COEFS["mean_required_fs"] * labels["mean_required_fs"]
+        + RISK_COEFS["mean_path_hops"] * labels["mean_path_hops"]
+        + RISK_COEFS["max_frag"] * labels["max_frag"]
+        + RISK_COEFS["mean_lfb"] * labels["mean_lfb"]
+        + RISK_COEFS["mean_legal_r_ratio"] * labels["mean_legal_r_ratio"]
+    )
+
+
+def _labels_from_trace(trace: Dict[str, List[Any]], horizon: int) -> Dict[str, Any]:
+    """Extract sliding-window labels for the first ``horizon`` steps of a trace."""
+    n = min(horizon, len(trace["blocked"]))
+    if n <= 0:
+        labels = {
+            "block_count": 0,
+            "block_rate": 0.0,
+            "server_overload_count": 0,
+            "r_no_valid_action_count": 0,
+            "deadline_fail_count": 0,
+            "success_count": 0,
+            "mean_phi_spec": 0.0, "min_phi_spec": 0.0, "final_phi_spec": 0.0,
+            "mean_lfb": 0.0, "min_lfb": 0.0, "final_lfb": 0.0,
+            "mean_frag": 0.0, "max_frag": 0.0, "final_frag": 0.0,
+            "mean_legal_r_ratio": 0.0, "min_legal_r_ratio": 0.0,
+            "mean_required_fs": 0.0, "mean_path_hops": 0.0, "mean_path_km": 0.0,
+            "mean_block_start": 0.0, "mean_block_waste": 0.0,
+            "mean_server_util": 0.0, "max_server_util": 0.0,
+            "final_server_util": 0.0, "server_util_std": 0.0,
+            "actual_horizon": 0,
+        }
+        labels["risk"] = _risk_score(labels)
+        return labels
+
+    blocked = trace["blocked"][:n]
+    reasons = trace["reason"][:n]
+    block_count = int(sum(blocked))
+    success_count = int(n - block_count)
+    overload_count = sum(1 for r in reasons if r in ("server_overload", "server_saturated"))
+    r_no_valid_count = sum(1 for r in reasons if r == "r_no_valid_action")
+    deadline_fail_count = sum(1 for r in reasons if r in ("deadline_infeasible", "deadline_failure"))
+
+    phi = trace["phi_spec"][:n]
+    lfb = trace["lfb"][:n]
+    frag = trace["frag"][:n]
+    legal = trace["legal_r_ratio"][:n]
+    util_mean = trace["server_util_mean"][:n]
+    util_max = trace["server_util_max"][:n]
+
+    def _success_mean(key: str) -> float:
+        vals = [trace[key][i] for i in range(n) if not blocked[i] and trace[key][i] is not None]
+        return float(np.mean(vals)) if vals else 0.0
+
+    labels = {
+        "block_count": block_count,
+        "block_rate": float(block_count / n),
+        "server_overload_count": int(overload_count),
+        "r_no_valid_action_count": int(r_no_valid_count),
+        "deadline_fail_count": int(deadline_fail_count),
+        "success_count": success_count,
+        "mean_phi_spec": float(np.mean(phi)),
+        "min_phi_spec": float(np.min(phi)),
+        "final_phi_spec": float(phi[-1]),
+        "mean_lfb": float(np.mean(lfb)),
+        "min_lfb": float(np.min(lfb)),
+        "final_lfb": float(lfb[-1]),
+        "mean_frag": float(np.mean(frag)),
+        "max_frag": float(np.max(frag)),
+        "final_frag": float(frag[-1]),
+        "mean_legal_r_ratio": float(np.mean(legal)),
+        "min_legal_r_ratio": float(np.min(legal)),
+        "mean_required_fs": _success_mean("required_fs"),
+        "mean_path_hops": _success_mean("path_hops"),
+        "mean_path_km": _success_mean("path_km"),
+        "mean_block_start": _success_mean("block_start"),
+        "mean_block_waste": _success_mean("block_waste"),
+        "mean_server_util": float(np.mean(util_mean)),
+        "max_server_util": float(np.max(util_max)),
+        "final_server_util": float(util_mean[-1]),
+        "server_util_std": float(np.std(util_mean)),
+        "actual_horizon": int(n),
+    }
+    labels["risk"] = _risk_score(labels)
+    return labels
+
+
+def _add_group_relative_labels(candidates: List[Dict[str, Any]], horizons: List[int]) -> None:
+    """Fill per-group relative labels (ranks / regrets / deltas) in place."""
+    for h in horizons:
+        key = f"labels_H{h}"
+        block_counts = [cand[key]["block_count"] for cand in candidates]
+        risks = [cand[key]["risk"] for cand in candidates]
+        bc_ranks = _min_ranks(block_counts)
+        risk_ranks = _min_ranks(risks)
+        best_risk = float(min(risks))
+        mean_risk = float(np.mean(risks))
+        top1_risk = next(
+            (cand[key]["risk"] for cand in candidates if cand["is_ppo_r_top1"]),
+            risks[0],
+        )
+        for i, cand in enumerate(candidates):
+            cand[key]["label_rank_by_block_count"] = int(bc_ranks[i])
+            cand[key]["label_rank_by_risk_score"] = int(risk_ranks[i])
+            cand[key]["regret_vs_best"] = float(risks[i] - best_risk)
+            cand[key]["delta_vs_group_mean"] = float(risks[i] - mean_risk)
+            cand[key]["delta_vs_ppo_r_top1"] = float(risks[i] - top1_risk)
+
+
+# ---------------------------------------------------------------------------
+# Per-seed generation
+# ---------------------------------------------------------------------------
+def _run_seed(
+    seed: int,
+    args: argparse.Namespace,
+    agent_r,
+    server_node_ids: List[int],
+    output_dir: Path,
+) -> Dict[str, Any]:
+    """Generate all groups for one seed and stream them to seed_{seed}.jsonl.gz."""
+    rng = np.random.RandomState(seed)
+    total_requests = args.warmup_requests + args.requests_per_episode
+    horizons = sorted(set(int(h) for h in args.horizons))
+    max_horizon = max(horizons)
+
+    env = make_env(
+        args.topology,
+        args.num_slots,
+        args.num_servers,
+        seed,
+        modulation_profile=args.modulation_profile,
+        max_blocks=args.max_blocks,
+        block_sort_strategy=args.block_sort_strategy_r,
+        path_sort_strategy=args.path_sort_strategy_r,
+        k=args.k_paths_r,
+    )
+    num_servers = len(env.mec.servers)
+    node_to_server = {int(s.node_id): i for i, s in enumerate(env.mec.servers)}
+
+    requests = _generate_all_od_requests(
+        num_nodes=env.net.NUM_NODES,
+        server_node_ids=server_node_ids,
+        rng=rng,
+        num_requests=total_requests,
+        arrival_interval=args.arrival_interval,
+        holding_min=args.holding_min,
+        holding_max=args.holding_max,
+        deadline_min=args.deadline_min,
+        deadline_max=args.deadline_max,
+        size_min_mb=args.size_min_mb,
+        size_max_mb=args.size_max_mb,
+        edge_cost_min=args.edge_cost_min,
+        edge_cost_max=args.edge_cost_max,
+        num_splits=args.num_splits,
+        split_profile=args.split_profile,
+        poisson_arrivals=args.poisson_arrivals,
+        exponential_holding=args.exponential_holding,
+    )
+    env.reset(requests)
+
+    shard_path = output_dir / f"seed_{seed}.jsonl.gz"
+    t_start = time.time()
+    groups_written = 0
+    candidates_written = 0
+    skipped_c_no_valid = 0
+    skipped_r_no_valid = 0
+    ksp_coverage_hits = 0
+
+    with gzip.open(shard_path, "wt", encoding="utf-8") as fh:
+        for request_index, req in enumerate(requests):
+            if args.max_groups_per_seed is not None and groups_written >= args.max_groups_per_seed:
+                break
+            env.advance_time(req.arrival_time)
+            is_warmup = request_index < args.warmup_requests
+
+            dst_node = int(getattr(req, "_dst_node", req.src_node))
+
+            # --- Current C action (mode A: fixed deterministic; mode B: DF_C) ---
+            if args.mode == "A":
+                split_id = int(args.fixed_split_id)
+                server_id = node_to_server.get(dst_node)
+                if server_id is None:
+                    server_id = min(node_to_server.values(), key=lambda i: abs(i - dst_node))
+                c_policy = "fixed_deterministic"
+            else:
+                env.k = args.k_paths_c
+                env.path_sort_strategy = args.path_sort_strategy_c
+                env.block_sort_strategy = args.block_sort_strategy_c
+                obs_c = build_agent_c_observation(env, req)
+                raw_c_mask = np.asarray(obs_c["agent_c_mask"], dtype=bool)
+                c_idx = None
+                if int(raw_c_mask.sum()) > 0:
+                    c_idx = select_offloading_action("df", env, req, obs_c, raw_c_mask)
+                if c_idx is None:
+                    env.reject_next_request(req.req_id, "c_no_valid_action")
+                    skipped_c_no_valid += 0 if is_warmup else 1
+                    continue
+                split_id, server_id = decode_agent_c_action(int(c_idx), num_servers)
+                c_policy = "df_c"
+
+            # --- R observation under K_path = k_paths_r ---
+            env.k = args.k_paths_r
+            env.path_sort_strategy = args.path_sort_strategy_r
+            env.block_sort_strategy = args.block_sort_strategy_r
+            obs_r = build_agent_r_observation(env, req, split_id, server_id)
+            raw_r_mask = np.asarray(obs_r["agent_r_mask"], dtype=bool)
+            legal_r_count = int(raw_r_mask.sum())
+
+            if legal_r_count == 0:
+                env.reject_next_request(req.req_id, "r_no_valid_action")
+                skipped_r_no_valid += 0 if is_warmup else 1
+                continue
+
+            # Frozen PPO-R proposal: Top-K legal candidates + deployed Top-1.
+            candidate_actions, candidate_logits = _ppo_r_topk_actions_with_scores(
+                agent_r, obs_r, args.topk
+            )
+            ppo_r_idx, _ = _select_r_action_from_obs(agent_r, obs_r, env.max_blocks)
+
+            # KSP-FF K=50 hops coverage diagnostic only (never a candidate).
+            ksp_idx = ksp_ff_highest_mod_action(obs_r)
+            ksp_idx = int(ksp_idx) if ksp_idx is not None else None
+            ksp_rank_in_topk = (
+                candidate_actions.index(ksp_idx)
+                if ksp_idx is not None and ksp_idx in candidate_actions
+                else -1
+            )
+            if not is_warmup and ksp_rank_in_topk >= 0:
+                ksp_coverage_hits += 1
+
+            group_id = int(seed) * 1000000 + int(request_index)
+            candidates: List[Dict[str, Any]] = []
+
+            if not is_warmup and candidate_actions:
+                # Pre-decision snapshot: queue head is still the current request.
+                snapshot = _snapshot_before_r_decision(env, req.req_id)
+
+                for rank, r_action_idx in enumerate(candidate_actions):
+                    branch = copy.deepcopy(snapshot)
+                    r_action = decode_agent_r_action(
+                        int(r_action_idx), len(obs_r["mod_names"]), branch.max_blocks
+                    )
+                    _, _, _, info = branch.step((split_id, server_id), r_action)
+
+                    # Post-decision spectrum/server features are measured now,
+                    # before the rollout mutates the branch any further.  The
+                    # legal_r_ratio slot is filled after the rollout with the
+                    # first future step's legal ratio.
+                    feat_vec = _build_afterstate_features(
+                        branch,
+                        req,
+                        obs_r,
+                        r_action,
+                        info,
+                        split_id,
+                        server_id,
+                        dst_node,
+                        0.0,
+                        args,
+                    )
+
+                    trace = _rollout_future_sliding(
+                        branch,
+                        requests,
+                        request_index + 1,
+                        max_horizon,
+                        agent_r,
+                        node_to_server,
+                        args,
+                    )
+                    feat_vec[LEGAL_R_RATIO_FEATURE_IDX] = (
+                        float(trace["legal_r_ratio"][0]) if trace["legal_r_ratio"] else 0.0
+                    )
+                    feat_vec = np.nan_to_num(feat_vec, nan=0.0, posinf=0.0, neginf=0.0)
+
+                    cand = {
+                        "r_action_flat": int(r_action_idx),
+                        "path_idx": int(r_action[0]),
+                        "mod_idx": int(r_action[1]),
+                        "block_idx": int(r_action[2]),
+                        "is_ppo_r_top1": bool(rank == 0),
+                        "ppo_r_rank": int(rank),
+                        "ppo_r_logit": _finite(candidate_logits[rank]),
+                        "is_ksp_ff_k50_hops_action": bool(
+                            ksp_idx is not None and int(r_action_idx) == ksp_idx
+                        ),
+                        "current_success": bool(info.get("success", False)),
+                        "current_reason": str(info.get("reason", ""))
+                        if not info.get("success", False)
+                        else "",
+                        "feature_afterstate": [float(v) for v in feat_vec],
+                    }
+                    for h in horizons:
+                        cand[f"labels_H{h}"] = _labels_from_trace(trace, h)
+                    candidates.append(cand)
+
+                _add_group_relative_labels(candidates, horizons)
+
+                split = req.splits[split_id]
+                group = {
+                    "group_id": group_id,
+                    "seed": int(seed),
+                    "request_id": int(req.req_id),
+                    "request_index": int(request_index),
+                    "source_mode": str(args.mode),
+                    "future_policy": str(args.future_policy),
+                    "request": {
+                        "req_id": int(req.req_id),
+                        "src_node": int(req.src_node),
+                        "dst_node": int(dst_node),
+                        "arrival_time": _finite(req.arrival_time),
+                        "holding_time": _finite(req.holding_time),
+                        "deadline_ms": _finite(req.deadline_ms),
+                        "split_id": int(split_id),
+                        "server_id": int(server_id),
+                        "intermediate_size_mb": _finite(split.intermediate_size_mb),
+                        "edge_compute_cost": _finite(split.edge_compute_cost),
+                        "local_compute_cost": _finite(split.local_compute_cost),
+                    },
+                    "c_action": {
+                        "policy": c_policy,
+                        "split_id": int(split_id),
+                        "server_id": int(server_id),
+                        "c_action_flat": int(split_id * num_servers + server_id),
+                    },
+                    "proposer": {
+                        "name": "ppo_r_frozen",
+                        "checkpoint": str(args.agent_r_checkpoint),
+                        "topk": int(args.topk),
+                        "legal_r_count": int(legal_r_count),
+                        "ppo_r_top1_action_flat": int(ppo_r_idx),
+                        "ksp_ff_k50_hops_action_flat": ksp_idx,
+                        "ksp_ff_in_topk": bool(ksp_rank_in_topk >= 0),
+                        "ksp_ff_rank_in_topk": int(ksp_rank_in_topk),
+                    },
+                    "candidates": candidates,
+                }
+                fh.write(json.dumps(group, default=str) + "\n")
+                groups_written += 1
+                candidates_written += len(candidates)
+
+                if groups_written % args.log_interval == 0:
+                    elapsed = time.time() - t_start
+                    print(
+                        f"[seed={seed}] groups={groups_written} "
+                        f"({groups_written / max(elapsed, 1e-9):.2f} groups/s) "
+                        f"request_index={request_index}",
+                        flush=True,
+                    )
+
+            # --- Advance the real trajectory with the frozen PPO-R Top-1 ---
+            deployed_action = decode_agent_r_action(
+                int(ppo_r_idx), len(obs_r["mod_names"]), env.max_blocks
+            )
+            env.step((split_id, server_id), deployed_action)
+
+    elapsed = time.time() - t_start
+    summary = {
+        "seed": int(seed),
+        "shard_path": str(shard_path),
+        "groups": groups_written,
+        "candidates": candidates_written,
+        "skipped_c_no_valid": skipped_c_no_valid,
+        "skipped_r_no_valid": skipped_r_no_valid,
+        "ksp_ff_in_topk_rate": ksp_coverage_hits / max(groups_written, 1),
+        "elapsed_seconds": elapsed,
+    }
+    print(
+        f"[seed={seed}] done: groups={groups_written} candidates={candidates_written} "
+        f"skipped_c={skipped_c_no_valid} skipped_r={skipped_r_no_valid} "
+        f"elapsed={elapsed:.1f}s",
+        flush=True,
+    )
+    return summary
+
+
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--seeds", type=str, default="5001,5002")
+    parser.add_argument("--mode", choices=["A", "B"], default="B",
+                        help="A = fixed-C / all-OD pure RMSA; B = DF_C closed loop.")
+    parser.add_argument("--future_policy", choices=list(FUTURE_POLICIES),
+                        default="df_c_ppo_r_top1")
+    parser.add_argument("--agent_r_checkpoint",
+                        default="sa_hmarl/checkpoints/agent_r_mixed.pt")
+    parser.add_argument("--topology", default="xlron_cost239_ptrnet_real")
+    parser.add_argument("--num_slots", type=int, default=320)
+    parser.add_argument("--num_servers", type=int, default=4)
+    parser.add_argument("--k_paths_r", type=int, default=50)
+    parser.add_argument("--k_paths_c", type=int, default=5)
+    parser.add_argument("--path_sort_strategy_r", default="hops")
+    parser.add_argument("--block_sort_strategy_r", default="start_asc")
+    parser.add_argument("--path_sort_strategy_c", default="hops")
+    parser.add_argument("--block_sort_strategy_c", default="start_asc")
+    parser.add_argument("--modulation_profile", default="default")
+    parser.add_argument("--max_blocks", type=int, default=10)
+    parser.add_argument("--split_profile", default="default3")
+    parser.add_argument("--num_splits", type=int, default=3)
+    parser.add_argument("--arrival_interval", type=float, default=0.3)
+    parser.add_argument("--holding_min", type=float, default=20.0)
+    parser.add_argument("--holding_max", type=float, default=30.0)
+    parser.add_argument("--deadline_min", type=float, default=30.0)
+    parser.add_argument("--deadline_max", type=float, default=100.0)
+    parser.add_argument("--size_min_mb", type=float, default=5.0)
+    parser.add_argument("--size_max_mb", type=float, default=30.0)
+    parser.add_argument("--edge_cost_min", type=float, default=0.1)
+    parser.add_argument("--edge_cost_max", type=float, default=2.2)
+    parser.add_argument("--warmup_requests", type=int, default=500)
+    parser.add_argument("--requests_per_episode", type=int, default=6000)
+    parser.add_argument("--topk", type=int, default=30)
+    parser.add_argument("--horizons", type=str, default="5,20,50")
+    parser.add_argument("--fixed_split_id", type=int, default=0)
+    parser.add_argument("--poisson_arrivals", action="store_true")
+    parser.add_argument("--exponential_holding", action="store_true")
+    parser.add_argument("--output_dir",
+                        default="sa_hmarl/experiments/"
+                                "v20_sliding_window_afterstate_dataset_phase1/dataset_shards")
+    parser.add_argument("--device", default="cpu")
+    parser.add_argument("--max_groups_per_seed", type=int, default=None,
+                        help="Optional cap on emitted groups per seed (smoke tests).")
+    parser.add_argument("--log_interval", type=int, default=100)
+    return parser
+
+
+def main() -> int:
+    parser = build_parser()
+    args = parser.parse_args()
+
+    os.environ.setdefault("OMP_NUM_THREADS", "1")
+    os.environ.setdefault("MKL_NUM_THREADS", "1")
+    os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
+    os.environ.setdefault("NUMEXPR_NUM_THREADS", "1")
+    os.environ.setdefault("TORCH_NUM_THREADS", "1")
+
+    seeds = [int(s.strip()) for s in args.seeds.split(",") if s.strip()]
+    if not seeds:
+        raise ValueError("--seeds must contain at least one integer")
+    args.horizons = sorted(set(
+        int(h.strip()) for h in str(args.horizons).split(",") if h.strip()
+    ))
+    if not args.horizons or any(h <= 0 for h in args.horizons):
+        raise ValueError(f"--horizons must be positive integers, got {args.horizons}")
+    if args.topk < 1 or args.topk > 30:
+        raise ValueError(f"--topk must be in [1, 30] (PPO-R legal Top-30 pool); got {args.topk}")
+    if args.mode == "A" and args.future_policy not in FUTURE_POLICIES:
+        raise ValueError(f"Unknown future_policy: {args.future_policy}")
+
+    output_dir = Path(args.output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    env_proto = make_env(
+        args.topology,
+        args.num_slots,
+        args.num_servers,
+        42,
+        modulation_profile=args.modulation_profile,
+        max_blocks=args.max_blocks,
+        block_sort_strategy=args.block_sort_strategy_r,
+        path_sort_strategy=args.path_sort_strategy_r,
+        k=args.k_paths_r,
+    )
+    server_node_ids = [int(s.node_id) for s in env_proto.mec.servers]
+
+    print(f"Loading frozen PPO-R: {args.agent_r_checkpoint}")
+    agent_r = _load_ppo_r(args.agent_r_checkpoint, env_proto.mod_reg, args.device)
+    r_state_ref = {k: v.clone() for k, v in agent_r.policy_net.state_dict().items()}
+
+    t_start = time.time()
+    per_seed = []
+    for seed in seeds:
+        per_seed.append(_run_seed(seed, args, agent_r, server_node_ids, output_dir))
+
+    frozen_unchanged = all(
+        torch.equal(agent_r.policy_net.state_dict()[k], r_state_ref[k])
+        for k in r_state_ref
+    )
+
+    metadata = {
+        "schema": SCHEMA_NAME,
+        "schema_version": SCHEMA_VERSION,
+        "config": {k: v for k, v in vars(args).items() if not k.startswith("_")},
+        "seeds": seeds,
+        "server_node_ids": server_node_ids,
+        "fixed_split_id": args.fixed_split_id,
+        "no_ppo_c_loaded": True,
+        "no_ppo_c_action_selected": True,
+        "traffic_matrix": "uniform_all_od",
+        "candidate_pool": "ppo_r_legal_topk_only",
+        "ksp_ff_role": "coverage_diagnostic_only",
+        "ksp_ff_implementation": "ksp_ff_highest_mod_action",
+        "feature_names": AFTERSTATE_FEATURE_NAMES,
+        "feature_dim": len(AFTERSTATE_FEATURE_NAMES),
+        "feature_notes": {
+            "total_dim": 32,
+            "section_C_note": (
+                "Spec listed 11 names for section C but fixed the total at 32 "
+                "dims; global_util_std is omitted from features. Server "
+                "utilization dispersion remains available as the per-window "
+                "label server_util_std."
+            ),
+            "legal_r_ratio": (
+                "Legal R-mask ratio of the first future step (next request, "
+                "after time advancement, under the future policy C choice); "
+                "0.0 when no future request remains."
+            ),
+            "phi_spec": "log1p(free_ratio*100) + 0.3*log1p(lfb*100)",
+            "normalization": {
+                "deadline_norm": "deadline_ms / deadline_max",
+                "holding_norm": "holding_time / holding_max",
+                "intermediate_size_norm": "intermediate_size_mb / size_max_mb",
+            },
+        },
+        "horizons": args.horizons,
+        "risk_coefs": RISK_COEFS,
+        "label_notes": {
+            "containers": [f"labels_H{h}" for h in args.horizons],
+            "keys_unsuffixed": True,
+            "resource_usage_means": "over successful future requests only (0.0 if none)",
+            "ranking": "competition (min) ranking, ascending, 1 = best, ties share best rank",
+            "single_rollout": (
+                "One future rollout per candidate at max(horizons); labels for "
+                "all horizons are extracted from the same trace."
+            ),
+        },
+        "group_id_rule": "seed * 1000000 + request_index",
+        "agent_r_checkpoint": args.agent_r_checkpoint,
+        "agent_r_sha256": _sha256_file(args.agent_r_checkpoint),
+        "agent_r_frozen_unchanged": frozen_unchanged,
+        "per_seed": per_seed,
+        "generation_seconds": time.time() - t_start,
+    }
+    meta_path = output_dir / "metadata.json"
+    meta_path.write_text(json.dumps(metadata, indent=2, default=str), encoding="utf-8")
+    print(f"[dataset] Wrote metadata to {meta_path}")
+    print(f"[dataset] Done in {metadata['generation_seconds']:.1f}s")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

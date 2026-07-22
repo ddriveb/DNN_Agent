@@ -113,28 +113,53 @@ def _record_outcome(
     metrics: PerMethodMetrics, info: Dict[str, Any], raw_empty: bool,
     obs_c: Dict[str, Any], split_id: int, server_id: int, decision_ms: float,
     same_as_ppo: bool,
+    profile: Optional[Dict[str, float]] = None,
 ) -> None:
     success = bool(info.get("success", False))
     reason = info.get("reason", "")
     metrics.total += 1
     metrics.blocked += int(not success)
     metrics.raw_empty += int(raw_empty)
+    if not success:
+        metrics.reason_counts[reason or "unknown"] = (
+            metrics.reason_counts.get(reason or "unknown", 0) + 1
+        )
     metrics.no_suitable_block += int(reason == "no_suitable_block")
-    metrics.server_overload += int(reason == "server_overload")
+    metrics.server_overload += int(reason in ("server_overload", "server_saturated"))
     metrics.deadline_failure += int(reason == "deadline_infeasible")
     if success:
         metrics.delays.append(float(info.get("delay_ms", 0.0)))
         metrics.fses.append(float(info.get("num_slots", 0.0)))
         metrics.wastes.append(float(info.get("block_waste", 0.0) or 0.0))
         metrics.path_kms.append(float(info.get("path_dist_km", 0.0) or 0.0))
+        metrics.hop_counts.append(float(info.get("num_hops", 0.0) or 0.0))
+        metrics.block_starts.append(float(info.get("start_slot", 0.0) or 0.0))
+        metrics.block_sizes.append(float(info.get("block_size", 0.0) or 0.0))
+        mod_name = str(info.get("modulation", "unknown"))
+        metrics.mod_counts[mod_name] = metrics.mod_counts.get(mod_name, 0) + 1
     metrics.active_connections.append(0)  # overwritten by caller after env.step
     metrics.valid_c_actions.append(int(np.asarray(obs_c["agent_c_mask"], dtype=bool).sum()))
     metrics.total_valid_r_actions.append(int(sum(sum(row) for row in obs_c["feasible_counts"])))
     metrics.selected_valid_r_actions.append(int(obs_c["feasible_counts"][split_id][server_id]))
     metrics.decision_times_ms.append(decision_ms)
     metrics.actions_same.append(same_as_ppo)
+    metrics.split_counts[split_id] = metrics.split_counts.get(split_id, 0) + 1
+    metrics.server_counts[server_id] = metrics.server_counts.get(server_id, 0) + 1
     if not same_as_ppo and not success:
         metrics.changed_blocked_count += 1
+    if profile:
+        for key in [
+            "r_feature_build_ms",
+            "legal_extract_ms",
+            "candidate_select_ms",
+            "feature_batch_ms",
+            "normalize_ms",
+            "ranker_forward_ms",
+            "total_ranker_policy_ms",
+        ]:
+            val = profile.get(key)
+            if val is not None:
+                getattr(metrics, f"profile_{key}").append(float(val))
 
 
 def run_episode_post_decision(

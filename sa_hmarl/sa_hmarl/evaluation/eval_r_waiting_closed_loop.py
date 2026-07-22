@@ -47,7 +47,7 @@ from sa_hmarl.training.utils import generate_requests, make_env
 def _next_release_time(env) -> Optional[float]:
     future = [
         float(conn["release_time"])
-        for conn in env.active_connections
+        for _, _, conn in env.active_connections
         if float(conn["release_time"]) > float(env.time) + 1e-12
     ]
     return min(future) if future else None

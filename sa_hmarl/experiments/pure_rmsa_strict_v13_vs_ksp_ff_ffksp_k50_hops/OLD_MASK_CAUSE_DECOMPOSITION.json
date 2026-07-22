@@ -1,0 +1,1811 @@
+{
+  "protocol": {
+    "topology": "xlron_cost239_ptrnet_real",
+    "num_slots": 320,
+    "fixed_split_id": 0,
+    "traffic": "fixed-C/all-OD",
+    "selector": "KSP-FF K=50 hops",
+    "warmup": 500,
+    "evaluated_per_seed": 6000,
+    "seeds": [
+      5001,
+      5002,
+      5003,
+      5004,
+      5005
+    ],
+    "primary_order": [
+      "server_capacity_infeasible",
+      "deadline_budget_infeasible",
+      "no_reach_feasible_path_mod",
+      "fs_exceeds_total_slots",
+      "no_common_free_capacity",
+      "continuity_mismatch",
+      "contiguity_fragmentation",
+      "k50_path_pool_empty"
+    ]
+  },
+  "runs": [
+    {
+      "seed": 5001,
+      "evaluated": 6000,
+      "accepted": 5677,
+      "blocked": 323,
+      "blocking_rate": 0.05383333333333333,
+      "primary_causes": {
+        "server_capacity_infeasible": 323
+      },
+      "nonexclusive_flags": {
+        "server_capacity_infeasible": 323
+      },
+      "examples": [
+        {
+          "request_index": 501,
+          "req_id": 501,
+          "src": 4,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 529,
+          "req_id": 529,
+          "src": 0,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 537,
+          "req_id": 537,
+          "src": 2,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 538,
+          "req_id": 538,
+          "src": 0,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 543,
+          "req_id": 543,
+          "src": 3,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 548,
+          "req_id": 548,
+          "src": 6,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 601,
+          "req_id": 601,
+          "src": 4,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 602,
+          "req_id": 602,
+          "src": 1,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 606,
+          "req_id": 606,
+          "src": 8,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 642,
+          "req_id": 642,
+          "src": 1,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 648,
+          "req_id": 648,
+          "src": 4,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 738,
+          "req_id": 738,
+          "src": 0,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 869,
+          "req_id": 869,
+          "src": 8,
+          "dst": 2,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 893,
+          "req_id": 893,
+          "src": 4,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 897,
+          "req_id": 897,
+          "src": 2,
+          "dst": 2,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 898,
+          "req_id": 898,
+          "src": 1,
+          "dst": 2,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 928,
+          "req_id": 928,
+          "src": 6,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 930,
+          "req_id": 930,
+          "src": 1,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 977,
+          "req_id": 977,
+          "src": 10,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 979,
+          "req_id": 979,
+          "src": 8,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        }
+      ]
+    },
+    {
+      "seed": 5002,
+      "evaluated": 6000,
+      "accepted": 5660,
+      "blocked": 340,
+      "blocking_rate": 0.056666666666666664,
+      "primary_causes": {
+        "server_capacity_infeasible": 340
+      },
+      "nonexclusive_flags": {
+        "server_capacity_infeasible": 340
+      },
+      "examples": [
+        {
+          "request_index": 541,
+          "req_id": 541,
+          "src": 4,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 556,
+          "req_id": 556,
+          "src": 3,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 574,
+          "req_id": 574,
+          "src": 9,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 585,
+          "req_id": 585,
+          "src": 10,
+          "dst": 2,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 592,
+          "req_id": 592,
+          "src": 0,
+          "dst": 2,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 595,
+          "req_id": 595,
+          "src": 1,
+          "dst": 2,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 619,
+          "req_id": 619,
+          "src": 8,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 623,
+          "req_id": 623,
+          "src": 4,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 643,
+          "req_id": 643,
+          "src": 5,
+          "dst": 2,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 644,
+          "req_id": 644,
+          "src": 3,
+          "dst": 2,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 708,
+          "req_id": 708,
+          "src": 2,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 712,
+          "req_id": 712,
+          "src": 5,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 721,
+          "req_id": 721,
+          "src": 4,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 784,
+          "req_id": 784,
+          "src": 10,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 859,
+          "req_id": 859,
+          "src": 5,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 875,
+          "req_id": 875,
+          "src": 10,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 876,
+          "req_id": 876,
+          "src": 3,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 877,
+          "req_id": 877,
+          "src": 7,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 955,
+          "req_id": 955,
+          "src": 2,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 957,
+          "req_id": 957,
+          "src": 2,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        }
+      ]
+    },
+    {
+      "seed": 5003,
+      "evaluated": 6000,
+      "accepted": 5684,
+      "blocked": 316,
+      "blocking_rate": 0.05266666666666667,
+      "primary_causes": {
+        "server_capacity_infeasible": 316
+      },
+      "nonexclusive_flags": {
+        "server_capacity_infeasible": 316
+      },
+      "examples": [
+        {
+          "request_index": 513,
+          "req_id": 513,
+          "src": 8,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 534,
+          "req_id": 534,
+          "src": 3,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 536,
+          "req_id": 536,
+          "src": 8,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 591,
+          "req_id": 591,
+          "src": 0,
+          "dst": 2,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 600,
+          "req_id": 600,
+          "src": 4,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 629,
+          "req_id": 629,
+          "src": 6,
+          "dst": 2,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 678,
+          "req_id": 678,
+          "src": 4,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 701,
+          "req_id": 701,
+          "src": 6,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 704,
+          "req_id": 704,
+          "src": 10,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 711,
+          "req_id": 711,
+          "src": 9,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 714,
+          "req_id": 714,
+          "src": 3,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 715,
+          "req_id": 715,
+          "src": 2,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 718,
+          "req_id": 718,
+          "src": 0,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 721,
+          "req_id": 721,
+          "src": 9,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 768,
+          "req_id": 768,
+          "src": 0,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 770,
+          "req_id": 770,
+          "src": 5,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 771,
+          "req_id": 771,
+          "src": 6,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 893,
+          "req_id": 893,
+          "src": 8,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 921,
+          "req_id": 921,
+          "src": 6,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 925,
+          "req_id": 925,
+          "src": 6,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        }
+      ]
+    },
+    {
+      "seed": 5004,
+      "evaluated": 6000,
+      "accepted": 5650,
+      "blocked": 350,
+      "blocking_rate": 0.058333333333333334,
+      "primary_causes": {
+        "server_capacity_infeasible": 350
+      },
+      "nonexclusive_flags": {
+        "server_capacity_infeasible": 350
+      },
+      "examples": [
+        {
+          "request_index": 507,
+          "req_id": 507,
+          "src": 7,
+          "dst": 2,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 515,
+          "req_id": 515,
+          "src": 8,
+          "dst": 2,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 526,
+          "req_id": 526,
+          "src": 5,
+          "dst": 2,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 561,
+          "req_id": 561,
+          "src": 1,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 583,
+          "req_id": 583,
+          "src": 7,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 592,
+          "req_id": 592,
+          "src": 1,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 604,
+          "req_id": 604,
+          "src": 10,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 626,
+          "req_id": 626,
+          "src": 2,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 632,
+          "req_id": 632,
+          "src": 10,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 635,
+          "req_id": 635,
+          "src": 9,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 646,
+          "req_id": 646,
+          "src": 1,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 670,
+          "req_id": 670,
+          "src": 0,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 672,
+          "req_id": 672,
+          "src": 7,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 681,
+          "req_id": 681,
+          "src": 1,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 705,
+          "req_id": 705,
+          "src": 4,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 721,
+          "req_id": 721,
+          "src": 9,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 724,
+          "req_id": 724,
+          "src": 10,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 725,
+          "req_id": 725,
+          "src": 6,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 731,
+          "req_id": 731,
+          "src": 4,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 781,
+          "req_id": 781,
+          "src": 5,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        }
+      ]
+    },
+    {
+      "seed": 5005,
+      "evaluated": 6000,
+      "accepted": 5651,
+      "blocked": 349,
+      "blocking_rate": 0.058166666666666665,
+      "primary_causes": {
+        "server_capacity_infeasible": 349
+      },
+      "nonexclusive_flags": {
+        "server_capacity_infeasible": 349
+      },
+      "examples": [
+        {
+          "request_index": 513,
+          "req_id": 513,
+          "src": 10,
+          "dst": 2,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 548,
+          "req_id": 548,
+          "src": 2,
+          "dst": 0,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 568,
+          "req_id": 568,
+          "src": 3,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 605,
+          "req_id": 605,
+          "src": 8,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 616,
+          "req_id": 616,
+          "src": 1,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 619,
+          "req_id": 619,
+          "src": 5,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 623,
+          "req_id": 623,
+          "src": 7,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 703,
+          "req_id": 703,
+          "src": 6,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 706,
+          "req_id": 706,
+          "src": 1,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 710,
+          "req_id": 710,
+          "src": 4,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 778,
+          "req_id": 778,
+          "src": 6,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 782,
+          "req_id": 782,
+          "src": 0,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 785,
+          "req_id": 785,
+          "src": 6,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 887,
+          "req_id": 887,
+          "src": 8,
+          "dst": 3,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 913,
+          "req_id": 913,
+          "src": 4,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 917,
+          "req_id": 917,
+          "src": 2,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 919,
+          "req_id": 919,
+          "src": 7,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 923,
+          "req_id": 923,
+          "src": 8,
+          "dst": 1,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 962,
+          "req_id": 962,
+          "src": 6,
+          "dst": 2,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        },
+        {
+          "request_index": 964,
+          "req_id": 964,
+          "src": 3,
+          "dst": 2,
+          "primary_reason": "server_capacity_infeasible",
+          "flags": {
+            "server_capacity_infeasible": true,
+            "deadline_budget_infeasible": false,
+            "no_reach_feasible_path_mod": false,
+            "fs_exceeds_total_slots": false,
+            "no_common_free_capacity": false,
+            "continuity_mismatch": false,
+            "contiguity_fragmentation": false,
+            "k50_path_pool_empty": false
+          }
+        }
+      ]
+    }
+  ],
+  "aggregate_primary_causes": {
+    "server_capacity_infeasible": 1678
+  },
+  "aggregate_nonexclusive_flags": {
+    "server_capacity_infeasible": 1678
+  }
+}

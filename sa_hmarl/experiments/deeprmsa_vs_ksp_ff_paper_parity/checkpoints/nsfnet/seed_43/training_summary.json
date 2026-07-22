@@ -1,0 +1,25 @@
+{
+  "protocol_id": "DEEPRMSA_VS_KSP_FF_PAPER_PARITY_V1",
+  "topology": "nsfnet",
+  "training_seed": 43,
+  "lr_effective": 0.0001,
+  "normalize_advantages": false,
+  "grad_clip_effective": 5.0,
+  "entropy_coef_effective": 0.01,
+  "total_requests": 1000000,
+  "gradient_updates": 4984,
+  "final_epsilon": 0.9501600000002268,
+  "train_admitted": 845111,
+  "train_blocked": 151889,
+  "train_invalid_choice": 151889,
+  "train_blocking_rate": 0.15234603811434302,
+  "best_validation_blocking_rate": 0.0868888888888889,
+  "best_meta": {
+    "requests": 1000000,
+    "updates": 4984,
+    "val_blocking": 0.0868888888888889
+  },
+  "best_checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/experiments/deeprmsa_vs_ksp_ff_paper_parity/checkpoints/nsfnet/seed_43/best.pt",
+  "final_checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/experiments/deeprmsa_vs_ksp_ff_paper_parity/checkpoints/nsfnet/seed_43/final.pt",
+  "elapsed_seconds": 1305.1425646960051
+}

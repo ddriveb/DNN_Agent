@@ -1,0 +1,79 @@
+{
+  "experiment_id": "strict_v13_vs_ksp_ff_vs_deeprmsa_cost239_fixed_c_all_od",
+  "scenario": "fixed-C / all-OD pure RMSA",
+  "topology": "xlron_cost239_ptrnet_real",
+  "num_slots": 320,
+  "num_servers": 4,
+  "server_node_ids": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "fixed_split_id": 0,
+  "k_paths_r": 50,
+  "path_sort_strategy_r": "hops",
+  "block_sort_strategy_r": "start_asc",
+  "max_blocks": 10,
+  "modulation_profile": "default",
+  "n_modulations": 4,
+  "unified_action_space_size": 2000,
+  "action_encoding": "a = p * (|M| * B) + m * B + b",
+  "arrival_interval": 0.3,
+  "holding_min": 20.0,
+  "holding_max": 30.0,
+  "deadline_min": 30.0,
+  "deadline_max": 100.0,
+  "size_min_mb": 5.0,
+  "size_max_mb": 30.0,
+  "edge_cost_min": 0.1,
+  "edge_cost_max": 2.2,
+  "split_profile": "default3",
+  "num_splits": 3,
+  "warmup_requests": 500,
+  "requests_per_episode": 6000,
+  "poisson_arrivals": false,
+  "exponential_holding": false,
+  "traffic_matrix": "uniform_all_od",
+  "evaluation_seeds": [
+    5001,
+    5002,
+    5003,
+    5004,
+    5005
+  ],
+  "no_ppo_c_loaded": true,
+  "no_ppo_c_action_selected": true,
+  "no_df_c": true,
+  "methods": {
+    "strict_v13": {
+      "name": "Strict v1.3",
+      "ppo_r_checkpoint": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+      "ranker_checkpoint": "sa_hmarl/experiments/v13_strict_fixed/strict_loss_rerun/checkpoints/full_state_uniform_strict/seed_42/ranking_model.pt",
+      "candidate_pool": "ppo_r_legal_topk_only",
+      "topk": 30,
+      "feature_dim": 25
+    },
+    "ksp_ff_k50_hops": {
+      "name": "KSP-FF K=50 hops",
+      "function": "ksp_ff_highest_mod_action",
+      "k_path": 50,
+      "path_sort_strategy": "hops",
+      "block_sort_strategy": "start_asc",
+      "max_blocks": 10
+    },
+    "deep_rmsa_adapted_k50": {
+      "name": "Topology-matched adapted DeepRMSA K=50 hops",
+      "base_architecture": "DeepRMSA 5-layer 128-unit ELU MLP A2C",
+      "output_dim": 2000,
+      "train_from_scratch": true,
+      "no_pretrained_checkpoint": true,
+      "action_mask": "same physical R mask as PPO-R"
+    }
+  },
+  "hashes": {
+    "topology_config_sha256": "73c17618bf93e5aabdee916f8e3fc1837f94765f8bbdd61824dfb823e78d656e",
+    "action_space_sha256": "6c785f837afdc68e98224a653e6ccf89d078a1aebca3f2bc9237bde26df11eb3",
+    "traffic_config_sha256": "3527f83928d22a8151757c72fea09911a2b5e24ea8e393fa2c7d64ddc5cab2bc"
+  }
+}

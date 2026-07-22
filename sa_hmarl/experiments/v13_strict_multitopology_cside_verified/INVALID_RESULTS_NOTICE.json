@@ -1,0 +1,28 @@
+{
+  "status": "INVALID / SUPERSEDED",
+  "directory": "sa_hmarl/experiments/v13_strict_multitopology_cside_verified",
+  "root_cause": "C/R no-valid-action branches executed 'continue' without consuming the current request from env.event_queue, causing permanent request/action desynchronization from the first blocking occurrence onward.",
+  "affected_phases": ["micro", "smoke", "full"],
+  "direct_evidence": {
+    "xlron_cost239_ptrnet_real_seed_3030": {
+      "ppo_c+ksp_ff_highest_modulation_reach": 515,
+      "ppo_c+strict_v13_invalid_path": 193,
+      "ppo_c+strict_v13_modulation_reach": 1170
+    }
+  },
+  "consequences": [
+    "Previous 120-cell full results are invalid.",
+    "Previous Category E classification is invalid.",
+    "Old results must not be used for paper tables or v1.35 decisions."
+  ],
+  "superseded_by": "sa_hmarl/experiments/v13_strict_multitopology_cside_verified_v2",
+  "preservation_reason": "audit trail only",
+  "fix_summary": [
+    "Added SMDPEnv.reject_next_request(expected_req_id, reason)",
+    "Added per-loop queue-head req_id/arrival_time assertions and queue-length conservation",
+    "R-mask checked before PPO-R/KSP-FF/Strict ranker",
+    "Selected R actions hard-validated against mask, required_fs, modulation reach, block size",
+    "E=0/E=1 computed from PPO-R Top-30 legal candidates",
+    "Delta direction unified as baseline - strict; failure decomposition split into independent columns"
+  ]
+}

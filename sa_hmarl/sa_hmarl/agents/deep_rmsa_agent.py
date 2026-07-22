@@ -126,7 +126,7 @@ class DeepRMSAAgent:
         features.extend(dst_onehot.tolist())
 
         # Per-path features (matching DeepRMSA normalization)
-        for p_idx in range(num_paths):
+        for p_idx in range(min(num_paths, self.k_path)):
             best_mod_idx = self._best_mod_for_path(obs, p_idx)
 
             if best_mod_idx is None:

@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "states": 1000,
+  "checks": [
+    {
+      "name": "request_trace_exact_parity",
+      "pass": true,
+      "evidence": {
+        "states": 1000
+      }
+    },
+    {
+      "name": "mask_vs_independent_enumerator",
+      "pass": true,
+      "evidence": {
+        "states": 1000,
+        "mismatches": 0
+      }
+    },
+    {
+      "name": "ksp_vs_canonical_paper_core",
+      "pass": true,
+      "evidence": {
+        "states": 1000,
+        "mismatches": 0
+      }
+    },
+    {
+      "name": "legal_action_execution",
+      "pass": true,
+      "evidence": {
+        "failures": 0
+      }
+    },
+    {
+      "name": "action_space_2000",
+      "pass": true,
+      "evidence": {
+        "observed_sizes": [
+          2000
+        ]
+      }
+    },
+    {
+      "name": "fixed_seed_reproducibility",
+      "pass": true,
+      "evidence": {
+        "states": 1000
+      }
+    },
+    {
+      "name": "holding_truncation",
+      "pass": true,
+      "evidence": {
+        "min": 0.05638405472599321,
+        "max": 19.95256774737728,
+        "mean": 6.90742558073687
+      }
+    },
+    {
+      "name": "load_changes_arrival_trace",
+      "pass": true,
+      "evidence": {
+        "load100_mean_interarrival": 0.09966526117332182,
+        "load600_mean_interarrival": 0.016610876862220257
+      }
+    },
+    {
+      "name": "no_c_mec_state",
+      "pass": true,
+      "evidence": {
+        "forbidden_attributes": []
+      }
+    },
+    {
+      "name": "pure_request_schema",
+      "pass": true,
+      "evidence": {
+        "fields": [
+          "arrival_time",
+          "bitrate_gbps",
+          "dst_node",
+          "holding_time",
+          "req_id",
+          "src_node"
+        ]
+      }
+    },
+    {
+      "name": "required_fs_known_values",
+      "pass": true,
+      "evidence": {
+        "25Gbps_BPSK": 3,
+        "100Gbps_16QAM": 3
+      }
+    }
+  ]
+}

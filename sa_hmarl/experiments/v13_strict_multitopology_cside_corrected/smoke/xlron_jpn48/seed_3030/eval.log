@@ -1,0 +1,8 @@
+[eval] Saved sa_hmarl/experiments/v13_strict_multitopology_cside_corrected/smoke/xlron_jpn48/seed_3030/results.json and sa_hmarl/experiments/v13_strict_multitopology_cside_corrected/smoke/xlron_jpn48/seed_3030/eval.log
+cking=0.0000% overload=0.0000% nsb=0.0000% c_no=0 r_no=0 r_decisions=50 policy_ms=0.506 audit_ms=2.135 ppo_agree=8.0000%
+[xlron_jpn48][seed=3030][ppo_c+strict_v13] blocking=0.0000% overload=0.0000% nsb=0.0000% c_no=0 r_no=0 r_decisions=50 policy_ms=9.591 audit_ms=2.014 ppo_agree=2.0000%
+[xlron_jpn48][seed=3030][ppo_c+old_v13] blocking=0.0000% overload=0.0000% nsb=0.0000% c_no=0 r_no=0 r_decisions=50 policy_ms=9.079 audit_ms=2.834 ppo_agree=4.0000%
+[xlron_jpn48][seed=3030][df_c+ppo_r_top1] blocking=0.0000% overload=0.0000% nsb=0.0000% c_no=0 r_no=0 r_decisions=50 policy_ms=0.144 audit_ms=2.884 ppo_agree=100.0000%
+[xlron_jpn48][seed=3030][df_c+ksp_ff_highest] blocking=0.0000% overload=0.0000% nsb=0.0000% c_no=0 r_no=0 r_decisions=50 policy_ms=0.172 audit_ms=2.056 ppo_agree=14.0000%
+[xlron_jpn48][seed=3030][df_c+strict_v13] blocking=0.0000% overload=0.0000% nsb=0.0000% c_no=0 r_no=0 r_decisions=50 policy_ms=7.710 audit_ms=2.753 ppo_agree=8.0000%
+[xlron_jpn48][seed=3030][df_c+old_v13] blocking=0.0000% overload=0.0000% nsb=0.0000% c_no=0 r_no=0 r_decisions=50 policy_ms=8.713 audit_ms=3.343 ppo_agree=6.0000%

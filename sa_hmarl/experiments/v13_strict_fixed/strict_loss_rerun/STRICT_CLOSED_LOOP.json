@@ -1,0 +1,410 @@
+[
+  {
+    "gate": "all",
+    "mode": "PPO-R Top-1",
+    "blocking_mean": 0.0563,
+    "blocking_std": 0.029396598442677006,
+    "overload_mean": 0.0551,
+    "nsb_mean": 0.0012000000000000001,
+    "delay_mean": 11.180444522875836,
+    "fs_mean": 3.447620495263884,
+    "ppo_agree_mean": 1.0,
+    "per_seed": [
+      0.057,
+      0.113,
+      0.0385,
+      0.038,
+      0.035
+    ],
+    "e0": {
+      "total_mean": 0.0,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.0,
+      "change_rate_mean": 0.0,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    },
+    "e1": {
+      "total_mean": 0.0,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.0,
+      "change_rate_mean": 0.0,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    }
+  },
+  {
+    "gate": "all",
+    "mode": "KSP-FF plain",
+    "blocking_mean": 0.09570000000000001,
+    "blocking_std": 0.015538983235720411,
+    "overload_mean": 0.0927,
+    "nsb_mean": 0.003,
+    "delay_mean": 10.496310406506025,
+    "fs_mean": 3.167058014011075,
+    "ppo_agree_mean": 0.2677,
+    "per_seed": [
+      0.125,
+      0.0815,
+      0.0955,
+      0.084,
+      0.0925
+    ],
+    "e0": {
+      "total_mean": 0.0,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.0,
+      "change_rate_mean": 0.0,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    },
+    "e1": {
+      "total_mean": 0.0,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.0,
+      "change_rate_mean": 0.0,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    }
+  },
+  {
+    "gate": "all",
+    "mode": "KSP-FF highest-mod",
+    "blocking_mean": 0.0644,
+    "blocking_std": 0.016159826731744372,
+    "overload_mean": 0.0643,
+    "nsb_mean": 0.0001,
+    "delay_mean": 10.195692177645212,
+    "fs_mean": 2.3635268200380706,
+    "ppo_agree_mean": 0.09530000000000001,
+    "per_seed": [
+      0.054,
+      0.079,
+      0.0385,
+      0.069,
+      0.0815
+    ],
+    "e0": {
+      "total_mean": 0.0,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.0,
+      "change_rate_mean": 0.0,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    },
+    "e1": {
+      "total_mean": 0.0,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.0,
+      "change_rate_mean": 0.0,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    }
+  },
+  {
+    "gate": "all",
+    "mode": "Old v1.3",
+    "blocking_mean": 0.0484,
+    "blocking_std": 0.014019272449025304,
+    "overload_mean": 0.047799999999999995,
+    "nsb_mean": 0.0006000000000000001,
+    "delay_mean": 13.053197195527975,
+    "fs_mean": 3.1730030008868813,
+    "ppo_agree_mean": 0.0726,
+    "per_seed": [
+      0.0505,
+      0.0745,
+      0.035,
+      0.039,
+      0.043
+    ],
+    "e0": {
+      "total_mean": 513.6,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.07539289450204242,
+      "change_rate_mean": 0.9246071054979575,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    },
+    "e1": {
+      "total_mean": 1389.6,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.023662996702220638,
+      "change_rate_mean": 0.9763370032977793,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    }
+  },
+  {
+    "gate": "all",
+    "mode": "Full-state uniform strict",
+    "blocking_mean": 0.04820000000000001,
+    "blocking_std": 0.025582415835882274,
+    "overload_mean": 0.047400000000000005,
+    "nsb_mean": 0.0008,
+    "delay_mean": 14.267868458542381,
+    "fs_mean": 3.2325431644125233,
+    "ppo_agree_mean": 0.0749,
+    "per_seed": [
+      0.04,
+      0.099,
+      0.0315,
+      0.0375,
+      0.033
+    ],
+    "e0": {
+      "total_mean": 635.2,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.11948602722398469,
+      "change_rate_mean": 0.8805139727760153,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    },
+    "e1": {
+      "total_mean": 1268.4,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.015016489285335435,
+      "change_rate_mean": 0.9849835107146646,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    }
+  },
+  {
+    "gate": "all",
+    "mode": "Full-state stratified strict",
+    "blocking_mean": 0.0505,
+    "blocking_std": 0.02318404623873926,
+    "overload_mean": 0.049300000000000004,
+    "nsb_mean": 0.0010999999999999998,
+    "delay_mean": 14.4951774131788,
+    "fs_mean": 3.209095422773219,
+    "ppo_agree_mean": 0.07110000000000001,
+    "per_seed": [
+      0.0455,
+      0.096,
+      0.0375,
+      0.032,
+      0.0415
+    ],
+    "e0": {
+      "total_mean": 660.0,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.07660727202725995,
+      "change_rate_mean": 0.92339272797274,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    },
+    "e1": {
+      "total_mean": 1239.0,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.007254693103348453,
+      "change_rate_mean": 0.9927453068966516,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    }
+  },
+  {
+    "gate": "deep_path_only",
+    "mode": "PPO-R Top-1",
+    "blocking_mean": 0.0563,
+    "blocking_std": 0.029396598442677006,
+    "overload_mean": 0.0551,
+    "nsb_mean": 0.0012000000000000001,
+    "delay_mean": 11.180444522875836,
+    "fs_mean": 3.447620495263884,
+    "ppo_agree_mean": 1.0,
+    "per_seed": [
+      0.057,
+      0.113,
+      0.0385,
+      0.038,
+      0.035
+    ],
+    "e0": {
+      "total_mean": 0.0,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.0,
+      "change_rate_mean": 0.0,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    },
+    "e1": {
+      "total_mean": 0.0,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.0,
+      "change_rate_mean": 0.0,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    }
+  },
+  {
+    "gate": "deep_path_only",
+    "mode": "KSP-FF plain",
+    "blocking_mean": 0.09570000000000001,
+    "blocking_std": 0.015538983235720411,
+    "overload_mean": 0.0927,
+    "nsb_mean": 0.003,
+    "delay_mean": 10.496310406506025,
+    "fs_mean": 3.167058014011075,
+    "ppo_agree_mean": 0.2677,
+    "per_seed": [
+      0.125,
+      0.0815,
+      0.0955,
+      0.084,
+      0.0925
+    ],
+    "e0": {
+      "total_mean": 0.0,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.0,
+      "change_rate_mean": 0.0,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    },
+    "e1": {
+      "total_mean": 0.0,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.0,
+      "change_rate_mean": 0.0,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    }
+  },
+  {
+    "gate": "deep_path_only",
+    "mode": "KSP-FF highest-mod",
+    "blocking_mean": 0.0644,
+    "blocking_std": 0.016159826731744372,
+    "overload_mean": 0.0643,
+    "nsb_mean": 0.0001,
+    "delay_mean": 10.195692177645212,
+    "fs_mean": 2.3635268200380706,
+    "ppo_agree_mean": 0.09530000000000001,
+    "per_seed": [
+      0.054,
+      0.079,
+      0.0385,
+      0.069,
+      0.0815
+    ],
+    "e0": {
+      "total_mean": 0.0,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.0,
+      "change_rate_mean": 0.0,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    },
+    "e1": {
+      "total_mean": 0.0,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.0,
+      "change_rate_mean": 0.0,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    }
+  },
+  {
+    "gate": "deep_path_only",
+    "mode": "Old v1.3",
+    "blocking_mean": 0.0444,
+    "blocking_std": 0.013211358749197603,
+    "overload_mean": 0.0436,
+    "nsb_mean": 0.0008,
+    "delay_mean": 13.04266962917809,
+    "fs_mean": 3.333702514558125,
+    "ppo_agree_mean": 0.3083,
+    "per_seed": [
+      0.0495,
+      0.068,
+      0.038,
+      0.033,
+      0.0335
+    ],
+    "e0": {
+      "total_mean": 485.4,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 1.0,
+      "change_rate_mean": 0.0,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    },
+    "e1": {
+      "total_mean": 1425.8,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.028377986020471258,
+      "change_rate_mean": 0.9716220139795289,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    }
+  },
+  {
+    "gate": "deep_path_only",
+    "mode": "Full-state uniform strict",
+    "blocking_mean": 0.053200000000000004,
+    "blocking_std": 0.026774241352464125,
+    "overload_mean": 0.05230000000000001,
+    "nsb_mean": 0.0009,
+    "delay_mean": 14.018492091518164,
+    "fs_mean": 3.379201210887145,
+    "ppo_agree_mean": 0.36210000000000003,
+    "per_seed": [
+      0.0475,
+      0.106,
+      0.0415,
+      0.036,
+      0.035
+    ],
+    "e0": {
+      "total_mean": 593.6,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 1.0,
+      "change_rate_mean": 0.0,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    },
+    "e1": {
+      "total_mean": 1300.0,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.016096351769252552,
+      "change_rate_mean": 0.9839036482307474,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    }
+  },
+  {
+    "gate": "deep_path_only",
+    "mode": "Full-state stratified strict",
+    "blocking_mean": 0.0521,
+    "blocking_std": 0.024503877244224027,
+    "overload_mean": 0.0514,
+    "nsb_mean": 0.0006000000000000001,
+    "delay_mean": 14.31514864305704,
+    "fs_mean": 3.3673253226146693,
+    "ppo_agree_mean": 0.3577,
+    "per_seed": [
+      0.047,
+      0.1005,
+      0.04,
+      0.036,
+      0.037
+    ],
+    "e0": {
+      "total_mean": 601.8,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 1.0,
+      "change_rate_mean": 0.0,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    },
+    "e1": {
+      "total_mean": 1294.0,
+      "blocking_rate_mean": 0.0,
+      "ppo_agreement_mean": 0.0063356793342905695,
+      "change_rate_mean": 0.9936643206657095,
+      "better_rate_mean": 0.0,
+      "worse_rate_mean": 0.0
+    }
+  }
+]

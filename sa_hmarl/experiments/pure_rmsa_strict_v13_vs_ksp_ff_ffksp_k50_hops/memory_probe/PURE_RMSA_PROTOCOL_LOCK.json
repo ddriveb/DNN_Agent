@@ -1,0 +1,63 @@
+{
+  "protocol": "Doherty paper-parity pure RMSA",
+  "methods": [
+    "strict_v13",
+    "ksp_ff_k50_hops",
+    "ff_ksp_k50_hops"
+  ],
+  "k_paths": 50,
+  "path_sort": "hops",
+  "same_hop_tiebreak": "km",
+  "max_blocks": 10,
+  "block_sort": "start_asc",
+  "num_slots": 100,
+  "slot_bw_hz": 12500000000.0,
+  "guard_band_fs": 1,
+  "bitrate_gbps": [
+    25,
+    100
+  ],
+  "mean_holding_parameter": 10.0,
+  "holding_rule": "exponential; redraw while ttl == 0 or ttl >= 20",
+  "arrival_interval": "10/load_erlang",
+  "directed_arc_independent_spectrum": true,
+  "locked_loads": {
+    "cost239": [
+      600.0
+    ],
+    "nsfnet": [
+      250.0
+    ],
+    "usnet": [
+      450.0,
+      550.0,
+      650.0,
+      900.0
+    ],
+    "jpn48": [
+      300.0,
+      375.0,
+      475.0,
+      650.0
+    ]
+  },
+  "topologies": {
+    "cost239": {
+      "key": "cost239_deeprmsa",
+      "paper_load": 600.0
+    },
+    "nsfnet": {
+      "key": "xlron_nsfnet_deeprmsa",
+      "paper_load": 250.0
+    },
+    "usnet": {
+      "key": "xlron_usnet_gcnrmsa",
+      "paper_load": null
+    },
+    "jpn48": {
+      "key": "xlron_jpn48",
+      "paper_load": null
+    }
+  },
+  "equivalence_margin_pp": 0.1
+}

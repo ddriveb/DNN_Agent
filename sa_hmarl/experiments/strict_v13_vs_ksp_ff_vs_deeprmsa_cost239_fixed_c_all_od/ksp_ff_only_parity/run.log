@@ -1,0 +1,8 @@
+[ksp_ff_parity][seed=5001] blocking=5.3833%
+[ksp_ff_parity][seed=5002] blocking=5.6667%
+[ksp_ff_parity][seed=5003] blocking=5.2667%
+[ksp_ff_parity][seed=5004] blocking=5.8333%
+[ksp_ff_parity][seed=5005] blocking=5.8167%
+[ksp_ff_parity] Overall blocking=5.5933%
+[ksp_ff_parity] Wrote sa_hmarl/experiments/strict_v13_vs_ksp_ff_vs_deeprmsa_cost239_fixed_c_all_od/ksp_ff_only_parity/parity.json
+[ksp_ff_parity] Done in 133.7s

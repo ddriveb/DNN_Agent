@@ -35,7 +35,7 @@ from sa_hmarl.env.observation_builder import (
 )
 from sa_hmarl.evaluation.offloading_baselines import select_offloading_action
 from sa_hmarl.network.modulation import ModulationRegistry
-from sa_hmarl.training.train_joint_alternating import _build_eval_set
+from sa_hmarl.training.ppo_training_support import _build_eval_set
 from sa_hmarl.training.utils import (
     compute_agent_c_reward,
     compute_agent_c_reward_delay_aware,

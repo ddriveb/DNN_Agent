@@ -1,0 +1,96 @@
+{
+  "config": {
+    "agent_c_checkpoint": "sa_hmarl/checkpoints/agent_c_cost239_r_feasibility_safe_last.pt",
+    "agent_r_checkpoint": "sa_hmarl/checkpoints/agent_r_mixed.pt",
+    "ranker_specs": [
+      "old_v13=sa_hmarl/checkpoints/r_counterfactual_ranking_postdec_topk_k50_s100/ranking_model.pt"
+    ],
+    "modes": "ranker_old_v13",
+    "topology": "xlron_cost239_ptrnet_real",
+    "num_slots": 320,
+    "num_servers": 4,
+    "k_paths_c": 5,
+    "k_paths_r": 50,
+    "k_prop": 30,
+    "path_sort_strategy_c": "hops",
+    "path_sort_strategy_r": "hops",
+    "block_sort_strategy_c": "start_asc",
+    "block_sort_strategy_r": "start_asc",
+    "modulation_profile": "default",
+    "max_blocks": 10,
+    "split_profile": "default3",
+    "num_splits": 3,
+    "arrival_interval": 0.0625,
+    "holding_min": 20.0,
+    "holding_max": 30.0,
+    "deadline_min": 30.0,
+    "deadline_max": 100.0,
+    "size_min_mb": 5.0,
+    "size_max_mb": 30.0,
+    "edge_cost_min": 0.1,
+    "edge_cost_max": 2.2,
+    "seeds": "6060",
+    "requests_per_episode": 5000,
+    "warmup_requests": 1000,
+    "device": "cpu",
+    "output_dir": "/mnt/d/project/DNN_Agent/sa_hmarl/experiments/v13_kpath50_hops_counterfactual_reranking/medium_closed_loop_per_seed/seed_6060",
+    "output_json": "old_v13_results.json",
+    "output_md": "old_v13_report.md"
+  },
+  "summary": {
+    "ranker_old_v13": {
+      "seeds": [
+        6060
+      ],
+      "blocking_rate_mean": 0.066,
+      "blocking_rate_std": 0.0,
+      "overload_rate_mean": 0.0648,
+      "nsb_rate_mean": 0.0008,
+      "avg_delay_ms_mean": 14.095230768666266,
+      "avg_fs_mean": 2.9057815845824413,
+      "avg_decision_ms_mean": 22.592007311605265,
+      "ppo_agreement_mean": 0.0978,
+      "ranker_top1_in_candidates_mean": 0.934,
+      "per_seed": [
+        {
+          "seed": 6060,
+          "mode": "ranker_old_v13",
+          "total": 5000,
+          "blocked": 330,
+          "blocking_rate": 0.066,
+          "server_overload": 324,
+          "overload_rate": 0.0648,
+          "no_suitable_block": 4,
+          "nsb_rate": 0.0008,
+          "other_failure": 2,
+          "avg_delay_ms": 14.095230768666266,
+          "avg_fs": 2.9057815845824413,
+          "avg_decision_ms": 22.592007311605265,
+          "ppo_agreement": 0.0978,
+          "ranker_top1_in_candidates": 4670,
+          "ranker_top1_in_candidates_rate": 0.934
+        }
+      ]
+    }
+  },
+  "results": [
+    {
+      "seed": 6060,
+      "mode": "ranker_old_v13",
+      "total": 5000,
+      "blocked": 330,
+      "blocking_rate": 0.066,
+      "server_overload": 324,
+      "overload_rate": 0.0648,
+      "no_suitable_block": 4,
+      "nsb_rate": 0.0008,
+      "other_failure": 2,
+      "avg_delay_ms": 14.095230768666266,
+      "avg_fs": 2.9057815845824413,
+      "avg_decision_ms": 22.592007311605265,
+      "ppo_agreement": 0.0978,
+      "ranker_top1_in_candidates": 4670,
+      "ranker_top1_in_candidates_rate": 0.934
+    }
+  ]
+}

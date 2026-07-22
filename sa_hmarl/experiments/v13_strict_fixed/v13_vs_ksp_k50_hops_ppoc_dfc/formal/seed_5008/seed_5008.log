@@ -1,0 +1,8 @@
+[xlron_cost239_ptrnet_real][seed=5008][ppo_c+ppo_r_top1] blocking=5.2833% overload=5.2833% nsb=0.0000% decision_ms=10.19
+[xlron_cost239_ptrnet_real][seed=5008][ppo_c+ksp_ff_highest] blocking=7.1500% overload=7.1500% nsb=0.0000% decision_ms=9.71
+[xlron_cost239_ptrnet_real][seed=5008][ppo_c+strict_v13] blocking=5.2667% overload=5.2667% nsb=0.0000% decision_ms=19.25
+[xlron_cost239_ptrnet_real][seed=5008][ppo_c+old_v13] blocking=4.9167% overload=4.9167% nsb=0.0000% decision_ms=19.43
+[xlron_cost239_ptrnet_real][seed=5008][df_c+ppo_r_top1] blocking=5.1833% overload=5.1833% nsb=0.0000% decision_ms=10.83
+[xlron_cost239_ptrnet_real][seed=5008][df_c+ksp_ff_highest] blocking=5.1833% overload=5.1833% nsb=0.0000% decision_ms=10.21
+[xlron_cost239_ptrnet_real][seed=5008][df_c+strict_v13] blocking=5.1833% overload=5.1833% nsb=0.0000% decision_ms=21.98
+[xlron_cost239_ptrnet_real][seed=5008][df_c+old_v13] blocking=5.1833% overload=5.1833% nsb=0.0000% decision_ms=22.61

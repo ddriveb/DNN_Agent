@@ -1,0 +1,10 @@
+{
+  "shard_id": "val_s6001_e0",
+  "config_hash": "0092d94351e63f7c",
+  "status": "ok",
+  "groups": 582,
+  "elapsed_sec": 1176.4957879959984,
+  "checksum": "2a0d1b9b8282af07",
+  "version": "1.3",
+  "schema": "r_counterfactual_ranking_v1.3"
+}

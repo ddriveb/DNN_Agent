@@ -1,0 +1,32 @@
+[cost239 seed=44] req=  25000 upd= 109 eps=0.999 train_blk=16.864% val_blk=14.822% best=14.822%
+[cost239 seed=44] req=  50000 upd= 234 eps=0.998 train_blk=15.212% val_blk=14.822% best=14.822%
+[cost239 seed=44] req=  75000 upd= 359 eps=0.996 train_blk=16.664% val_blk=14.822% best=14.822%
+[cost239 seed=44] req= 100000 upd= 484 eps=0.995 train_blk=16.108% val_blk=14.822% best=14.822%
+[cost239 seed=44] req= 125000 upd= 609 eps=0.994 train_blk=16.300% val_blk=14.822% best=14.822%
+[cost239 seed=44] req= 150000 upd= 734 eps=0.993 train_blk=16.352% val_blk=14.822% best=14.822%
+[cost239 seed=44] req= 175000 upd= 859 eps=0.991 train_blk=16.168% val_blk=14.822% best=14.822%
+[cost239 seed=44] req= 200000 upd= 984 eps=0.990 train_blk=16.212% val_blk=14.822% best=14.822%
+[cost239 seed=44] req= 225000 upd=1109 eps=0.989 train_blk=16.000% val_blk=14.822% best=14.822%
+[cost239 seed=44] req= 250000 upd=1234 eps=0.988 train_blk=16.012% val_blk=14.822% best=14.822%
+{
+  "protocol_id": "DEEPRMSA_VS_KSP_FF_PAPER_PARITY_V1",
+  "topology": "cost239",
+  "training_seed": 44,
+  "lr_effective": 0.0005,
+  "total_requests": 250000,
+  "gradient_updates": 1234,
+  "final_epsilon": 0.9876600000000562,
+  "train_admitted": 207033,
+  "train_blocked": 39967,
+  "train_invalid_choice": 39967,
+  "train_blocking_rate": 0.16180971659919027,
+  "best_validation_blocking_rate": 0.14822222222222223,
+  "best_meta": {
+    "requests": 25000,
+    "updates": 109,
+    "val_blocking": 0.14822222222222223
+  },
+  "best_checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/experiments/deeprmsa_vs_ksp_ff_paper_parity/checkpoints/cost239/seed_44/best.pt",
+  "final_checkpoint": "/mnt/d/project/DNN_Agent/sa_hmarl/experiments/deeprmsa_vs_ksp_ff_paper_parity/checkpoints/cost239/seed_44/final.pt",
+  "elapsed_seconds": 235.6739822180025
+}

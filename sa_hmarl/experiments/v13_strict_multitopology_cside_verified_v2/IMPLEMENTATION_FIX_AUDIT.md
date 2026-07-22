@@ -1,0 +1,48 @@
+# Implementation Fix Audit
+
+```json
+{
+  "fixes": [
+    {
+      "item": "SMDPEnv.reject_next_request(expected_req_id, reason)",
+      "file": "/mnt/d/project/DNN_Agent/sa_hmarl/sa_hmarl/env/event_env.py",
+      "sha256": "7bf4dbe2628abec32c811fb687db3c59288116573a380ba39c4b59769e982662"
+    },
+    {
+      "item": "Per-loop queue-head req_id/arrival_time assertions and queue-length conservation",
+      "file": "/mnt/d/project/DNN_Agent/sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py",
+      "sha256": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f"
+    },
+    {
+      "item": "R-mask checked before PPO-R/KSP-FF/Strict ranker",
+      "file": "/mnt/d/project/DNN_Agent/sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py",
+      "sha256": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f"
+    },
+    {
+      "item": "Hard validation of selected R actions against mask, required_fs, modulation reach, block size",
+      "file": "/mnt/d/project/DNN_Agent/sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py",
+      "sha256": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f"
+    },
+    {
+      "item": "E=0/E=1 computed from PPO-R Top-30 legal candidates",
+      "file": "/mnt/d/project/DNN_Agent/sa_hmarl/sa_hmarl/evaluation/eval_strict_v13_multitopology_cside_verified.py",
+      "sha256": "40047a969f2c7fabcf8430235e40d436f96a196f2af2164b3a9038370927cf9f"
+    },
+    {
+      "item": "Phase-isolated output directories (micro/smoke/full)",
+      "file": "/mnt/d/project/DNN_Agent/sa_hmarl/sa_hmarl/evaluation/run_strict_v13_multitopology_cside_verified.py",
+      "sha256": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3"
+    },
+    {
+      "item": "Smoke marker enrichment and full-phase gate (no --skip_smoke_check)",
+      "file": "/mnt/d/project/DNN_Agent/sa_hmarl/sa_hmarl/evaluation/run_strict_v13_multitopology_cside_verified.py",
+      "sha256": "d974ef3c9723b0e1779967cd97a29ddefef8ea1380bbbc226e3d569cd39b04d3"
+    },
+    {
+      "item": "Delta direction unified to baseline - strict and failure decomposition split",
+      "file": "/mnt/d/project/DNN_Agent/sa_hmarl/sa_hmarl/evaluation/analyze_strict_v13_multitopology_cside_verified.py",
+      "sha256": "2e593200f2d72ea4aa95a22d167bc7cf04b0ac7852e24324717c7377e87639b1"
+    }
+  ]
+}
+```

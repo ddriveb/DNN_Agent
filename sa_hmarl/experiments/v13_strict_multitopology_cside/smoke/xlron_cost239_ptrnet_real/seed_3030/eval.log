@@ -1,0 +1,12 @@
+[eval] Saved sa_hmarl/experiments/v13_strict_multitopology_cside/smoke/xlron_cost239_ptrnet_real/seed_3030/results.json and sa_hmarl/experiments/v13_strict_multitopology_cside/smoke/xlron_cost239_ptrnet_real/seed_3030/eval.log
+decision_ms=9.47
+[xlron_cost239_ptrnet_real][seed=3030][ppo_c+strict_v13] blocking=0.0000% overload=0.0000% nsb=0.0000% decision_ms=15.55
+[xlron_cost239_ptrnet_real][seed=3030][ppo_c+old_v13] blocking=0.0000% overload=0.0000% nsb=0.0000% decision_ms=15.60
+[xlron_cost239_ptrnet_real][seed=3030][df_c+ppo_r_top1] blocking=0.0000% overload=0.0000% nsb=0.0000% decision_ms=10.35
+[xlron_cost239_ptrnet_real][seed=3030][df_c+ksp_ff_highest] blocking=0.0000% overload=0.0000% nsb=0.0000% decision_ms=11.49
+[xlron_cost239_ptrnet_real][seed=3030][df_c+strict_v13] blocking=0.0000% overload=0.0000% nsb=0.0000% decision_ms=21.13
+[xlron_cost239_ptrnet_real][seed=3030][df_c+old_v13] blocking=0.0000% overload=0.0000% nsb=0.0000% decision_ms=19.70
+[xlron_cost239_ptrnet_real][seed=3030][ppo_c_snap24+ppo_r_top1] blocking=0.0000% overload=0.0000% nsb=0.0000% decision_ms=8.08
+[xlron_cost239_ptrnet_real][seed=3030][ppo_c_snap24+ksp_ff_highest] blocking=0.0000% overload=0.0000% nsb=0.0000% decision_ms=8.07
+[xlron_cost239_ptrnet_real][seed=3030][ppo_c_snap24+strict_v13] blocking=0.0000% overload=0.0000% nsb=0.0000% decision_ms=18.06
+[xlron_cost239_ptrnet_real][seed=3030][ppo_c_snap24+old_v13] blocking=0.0000% overload=0.0000% nsb=0.0000% decision_ms=14.99

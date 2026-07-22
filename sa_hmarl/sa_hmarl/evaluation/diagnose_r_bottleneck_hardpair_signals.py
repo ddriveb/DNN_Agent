@@ -277,7 +277,7 @@ def _path_overlap(env, path: List[int]) -> Tuple[int, float]:
     """Count active lightpaths that share at least one edge with path."""
     path_edges = set(_edges_of_path(path))
     count = 0
-    for conn in env.active_connections:
+    for _, _, conn in env.active_connections:
         conn_edges = set(_edges_of_path(conn["path"]))
         if conn_edges & path_edges:
             count += 1
@@ -290,7 +290,7 @@ def _release_features(env, path: List[int], arrival_interval: float) -> Dict[str
     path_edges = set(_edges_of_path(path))
     now = float(env.time)
     overlapping = []
-    for conn in env.active_connections:
+    for _, _, conn in env.active_connections:
         conn_edges = set(_edges_of_path(conn["path"]))
         if conn_edges & path_edges:
             overlapping.append(conn)

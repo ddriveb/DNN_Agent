@@ -1,7 +1,0 @@
-[Thu Jun 18 14:34:50 CST 2026] Starting r_feasibility_safe seed=42 -> agent_c_r_feasibility_safe_s42_s20_r80
-[Thu Jun 18 14:34:50 CST 2026] Starting r_feasibility_safe seed=123 -> agent_c_r_feasibility_safe_s123_s20_r80
-[Thu Jun 18 14:34:50 CST 2026] Starting r_feasibility_safe seed=456 -> agent_c_r_feasibility_safe_s456_s20_r80
-[Thu Jun 18 14:43:55 CST 2026] Finished r_feasibility_safe seed=123
-[Thu Jun 18 14:43:57 CST 2026] Finished r_feasibility_safe seed=456
-[Thu Jun 18 14:44:14 CST 2026] Finished r_feasibility_safe seed=42
-[Thu Jun 18 14:44:14 CST 2026] Round 2 training complete

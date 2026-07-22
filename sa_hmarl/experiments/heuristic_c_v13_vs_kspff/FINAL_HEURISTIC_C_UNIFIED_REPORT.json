@@ -1,0 +1,103 @@
+{
+  "title": "Unified Heuristic-C Main Table: df_c and rf_c under Identical Protocol",
+  "date": "2026-07-05",
+  "protocol": {
+    "block_sort_strategy": "start_asc",
+    "path_sort_strategy": "hops",
+    "ksp_ff_k50_hops_k_paths": 50,
+    "requests_per_episode": 10000,
+    "warmup_requests": 2000,
+    "seeds": [
+      3030,
+      4040,
+      5050,
+      6060,
+      7070
+    ],
+    "episodes": 1,
+    "poisson_arrivals": true,
+    "exponential_holding": true,
+    "num_slots": 320,
+    "num_servers": 4,
+    "v1_3_config": {
+      "ranker_candidate_mode": "legalctx48",
+      "ranker_max_candidates": 48,
+      "ranker_ensure_ksp": true,
+      "note": "Method label remains v12_k50_hops in script interface; actual backend is unified v1.3 hybrid."
+    }
+  },
+  "per_topology": {
+    "COST239": {
+      "df_c": {
+        "ksp_ff": 0.14837499999999998,
+        "v12": 0.14837499999999998,
+        "delta_pp": 0.0,
+        "p_value": null,
+        "server_overload_rate": 0.14837499999999998,
+        "no_suitable_block_rate": 0.0
+      },
+      "rf_c": {
+        "ksp_ff": 0.15175,
+        "v12": 0.15175,
+        "delta_pp": 0.0,
+        "p_value": null,
+        "server_overload_rate": 0.15175,
+        "no_suitable_block_rate": 0.0
+      }
+    },
+    "German17": {
+      "df_c": {
+        "ksp_ff": 0.1269,
+        "v12": 0.128025,
+        "delta_pp": 0.0011249999999999871,
+        "p_value": 0.34834364604877566,
+        "server_overload_rate": 0.1267,
+        "no_suitable_block_rate": 0.000175
+      },
+      "rf_c": {
+        "ksp_ff": 0.13322499999999998,
+        "v12": 0.127775,
+        "delta_pp": -0.005449999999999983,
+        "p_value": 0.31160174308910493,
+        "server_overload_rate": 0.1331,
+        "no_suitable_block_rate": 7.500000000000001e-05
+      }
+    },
+    "NSFNET": {
+      "df_c": {
+        "ksp_ff": 0.203275,
+        "v12": 0.20255,
+        "delta_pp": -0.0007250000000000034,
+        "p_value": 0.8627685380208235,
+        "server_overload_rate": 0.20095000000000002,
+        "no_suitable_block_rate": 0.0007
+      },
+      "rf_c": {
+        "ksp_ff": 0.20532499999999998,
+        "v12": 0.21095000000000003,
+        "delta_pp": 0.005625000000000047,
+        "p_value": 0.31245138398726396,
+        "server_overload_rate": 0.20254999999999995,
+        "no_suitable_block_rate": 0.00095
+      }
+    },
+    "JPN48": {
+      "df_c": {
+        "ksp_ff": 0.112825,
+        "v12": 0.11065,
+        "delta_pp": -0.0021749999999999964,
+        "p_value": 0.20149399096832094,
+        "server_overload_rate": 0.10800000000000001,
+        "no_suitable_block_rate": 0.0014750000000000002
+      },
+      "rf_c": {
+        "ksp_ff": 0.12842499999999998,
+        "v12": 0.11674999999999999,
+        "delta_pp": -0.011674999999999991,
+        "p_value": 0.0224955349748873,
+        "server_overload_rate": 0.12402500000000001,
+        "no_suitable_block_rate": 0.0017749999999999999
+      }
+    }
+  }
+}

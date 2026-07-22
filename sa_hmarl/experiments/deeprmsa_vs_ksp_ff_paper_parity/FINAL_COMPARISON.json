@@ -1,0 +1,285 @@
+{
+  "protocol_id": "DEEPRMSA_VS_KSP_FF_PAPER_PARITY_V1",
+  "paper": {
+    "title": "Reinforcement learning for dynamic resource allocation in optical networks: hype or hope?",
+    "authors": "Doherty et al.",
+    "year": 2025,
+    "reference_values": {
+      "nsfnet": {
+        "label": "NSFNET",
+        "load_erlang": 250,
+        "deeprmsa_published": 0.04,
+        "ksp_ff_k5_km": {
+          "mean": 0.05,
+          "std": 0.0029
+        },
+        "ksp_ff_k5_hops": {
+          "mean": 0.0293,
+          "std": 0.0022
+        },
+        "ksp_ff_k50_hops": {
+          "mean": 0.0233,
+          "std": 0.0025
+        }
+      },
+      "cost239": {
+        "label": "COST239",
+        "load_erlang": 600,
+        "deeprmsa_published": 0.0575,
+        "ksp_ff_k5_km": {
+          "mean": 0.0669,
+          "std": 0.0035
+        },
+        "ksp_ff_k5_hops": {
+          "mean": 0.038,
+          "std": 0.0039
+        },
+        "ksp_ff_k50_hops": {
+          "mean": 0.0261,
+          "std": 0.0036
+        }
+      }
+    }
+  },
+  "ksp_ff": {
+    "nsfnet": {
+      "ksp_ff_k5_km": {
+        "mean": 0.05027999999999999,
+        "std": 0.0025831935446049893,
+        "min": 0.0452,
+        "max": 0.0537,
+        "n": 10,
+        "per_seed": [
+          0.0519,
+          0.0492,
+          0.0498,
+          0.0452,
+          0.0473,
+          0.0524,
+          0.051,
+          0.0537,
+          0.0499,
+          0.0524
+        ],
+        "paper_mean": 0.05,
+        "paper_std": 0.0029,
+        "paper_interval_2std": [
+          0.0442,
+          0.0558
+        ],
+        "within_paper_2std": true
+      },
+      "ksp_ff_k5_hops": {
+        "mean": 0.031979999999999995,
+        "std": 0.0027740063285996873,
+        "min": 0.0263,
+        "max": 0.0352,
+        "n": 10,
+        "per_seed": [
+          0.035,
+          0.0352,
+          0.0317,
+          0.0263,
+          0.0327,
+          0.0318,
+          0.0329,
+          0.0335,
+          0.0283,
+          0.0324
+        ],
+        "paper_mean": 0.0293,
+        "paper_std": 0.0022,
+        "paper_interval_2std": [
+          0.0249,
+          0.0337
+        ],
+        "within_paper_2std": true
+      },
+      "ksp_ff_k50_hops": {
+        "mean": 0.02406,
+        "std": 0.0027232333722984523,
+        "min": 0.0191,
+        "max": 0.0283,
+        "n": 10,
+        "per_seed": [
+          0.0283,
+          0.0248,
+          0.0229,
+          0.0191,
+          0.0249,
+          0.0216,
+          0.0254,
+          0.027,
+          0.0219,
+          0.0247
+        ],
+        "paper_mean": 0.0233,
+        "paper_std": 0.0025,
+        "paper_interval_2std": [
+          0.0183,
+          0.028300000000000002
+        ],
+        "within_paper_2std": true
+      }
+    },
+    "cost239": {
+      "ksp_ff_k5_km": {
+        "mean": 0.06739,
+        "std": 0.0038959950946809187,
+        "min": 0.0602,
+        "max": 0.0721,
+        "n": 10,
+        "per_seed": [
+          0.0697,
+          0.0668,
+          0.0662,
+          0.0721,
+          0.0602,
+          0.0681,
+          0.0649,
+          0.0714,
+          0.0713,
+          0.0632
+        ],
+        "paper_mean": 0.0669,
+        "paper_std": 0.0035,
+        "paper_interval_2std": [
+          0.0599,
+          0.07390000000000001
+        ],
+        "within_paper_2std": true
+      },
+      "ksp_ff_k5_hops": {
+        "mean": 0.026600000000000002,
+        "std": 0.003648744076162829,
+        "min": 0.0195,
+        "max": 0.0318,
+        "n": 10,
+        "per_seed": [
+          0.0313,
+          0.0266,
+          0.0251,
+          0.028,
+          0.0195,
+          0.0272,
+          0.0273,
+          0.0265,
+          0.0318,
+          0.0227
+        ],
+        "paper_mean": 0.038,
+        "paper_std": 0.0039,
+        "paper_interval_2std": [
+          0.030199999999999998,
+          0.0458
+        ],
+        "within_paper_2std": false
+      },
+      "ksp_ff_k50_hops": {
+        "mean": 0.018720000000000004,
+        "std": 0.0037682297641671958,
+        "min": 0.0106,
+        "max": 0.0238,
+        "n": 10,
+        "per_seed": [
+          0.0238,
+          0.0184,
+          0.0181,
+          0.0195,
+          0.0106,
+          0.0203,
+          0.0199,
+          0.0169,
+          0.0234,
+          0.0163
+        ],
+        "paper_mean": 0.0261,
+        "paper_std": 0.0036,
+        "paper_interval_2std": [
+          0.0189,
+          0.0333
+        ],
+        "within_paper_2std": false
+      }
+    }
+  },
+  "deeprmsa_local": {
+    "nsfnet": {
+      "per_train_seed": {
+        "42": {
+          "mean_blocking_rate": 0.06388999999999999,
+          "std_blocking_rate_test_seeds": 0.0035356753244606617,
+          "checkpoint_meta": {
+            "requests": 675000,
+            "updates": 3359,
+            "val_blocking": 0.059222222222222225
+          }
+        },
+        "43": {
+          "mean_blocking_rate": 0.0934,
+          "std_blocking_rate_test_seeds": 0.003681183384607605,
+          "checkpoint_meta": {
+            "requests": 1000000,
+            "updates": 4984,
+            "val_blocking": 0.0868888888888889
+          }
+        },
+        "44": {
+          "mean_blocking_rate": 0.05899,
+          "std_blocking_rate_test_seeds": 0.004434072620063862,
+          "checkpoint_meta": {
+            "requests": 850000,
+            "updates": 4234,
+            "val_blocking": 0.05522222222222222
+          }
+        }
+      },
+      "grand_mean": 0.07209333333333333,
+      "train_seed_std": 0.018614054725753153,
+      "test_seed_std_pooled": 0.01591039420247534,
+      "paper_published": 0.04
+    },
+    "cost239": {
+      "per_train_seed": {
+        "42": {
+          "mean_blocking_rate": 0.11952,
+          "std_blocking_rate_test_seeds": 0.0060499403119186005,
+          "checkpoint_meta": {
+            "requests": 950000,
+            "updates": 4734,
+            "val_blocking": 0.10955555555555556
+          }
+        },
+        "43": {
+          "mean_blocking_rate": 0.09282,
+          "std_blocking_rate_test_seeds": 0.005627274848647631,
+          "checkpoint_meta": {
+            "requests": 750000,
+            "updates": 3734,
+            "val_blocking": 0.08466666666666667
+          }
+        },
+        "44": {
+          "mean_blocking_rate": 0.07461,
+          "std_blocking_rate_test_seeds": 0.004384176091353994,
+          "checkpoint_meta": {
+            "requests": 875000,
+            "updates": 4359,
+            "val_blocking": 0.06788888888888889
+          }
+        }
+      },
+      "grand_mean": 0.09565,
+      "train_seed_std": 0.022588353193626138,
+      "test_seed_std_pooled": 0.019468874363083172,
+      "paper_published": 0.0575
+    }
+  },
+  "parity": {
+    "ksp_ff_k5_km_within_paper_2std": true
+  },
+  "appendix_legacy_snap24": {
+    "label": "Legacy masked DeepRMSA-style K=3/M=1 on custom SNAP24",
+    "blocking_rate": 0.257067
+  }
+}

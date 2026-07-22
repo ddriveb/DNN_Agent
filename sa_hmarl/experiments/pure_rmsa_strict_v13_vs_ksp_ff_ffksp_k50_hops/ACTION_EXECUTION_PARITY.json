@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "mask_vs_independent_enumerator",
+      "pass": true,
+      "evidence": {
+        "states": 1000,
+        "mismatches": 0
+      }
+    },
+    {
+      "name": "ksp_vs_canonical_paper_core",
+      "pass": true,
+      "evidence": {
+        "states": 1000,
+        "mismatches": 0
+      }
+    },
+    {
+      "name": "legal_action_execution",
+      "pass": true,
+      "evidence": {
+        "failures": 0
+      }
+    },
+    {
+      "name": "action_space_2000",
+      "pass": true,
+      "evidence": {
+        "observed_sizes": [
+          2000
+        ]
+      }
+    },
+    {
+      "name": "no_c_mec_state",
+      "pass": true,
+      "evidence": {
+        "forbidden_attributes": []
+      }
+    }
+  ]
+}

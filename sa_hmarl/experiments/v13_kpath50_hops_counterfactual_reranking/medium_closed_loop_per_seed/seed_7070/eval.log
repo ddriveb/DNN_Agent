@@ -1,0 +1,6 @@
+[fair] Loaded ranker 'new_v13' from /mnt/d/project/DNN_Agent/sa_hmarl/checkpoints/v13_kpath50_hops_medium_regret_selected/seed_42/ranking_model.pt
+[fair][seed=7070][mode=ppo_r_top1] blocking=7.0000% overload=7.0000% nsb=0.0000% decision_ms=10.47 ppo_agree=100.00%
+[fair][seed=7070][mode=ksp_ff_plain] blocking=7.6200% overload=7.6200% nsb=0.0000% decision_ms=10.28 ppo_agree=33.54%
+[fair][seed=7070][mode=ksp_ff_highest] blocking=7.0000% overload=7.0000% nsb=0.0000% decision_ms=10.36 ppo_agree=14.04%
+[fair][seed=7070][mode=ranker_new_v13] blocking=6.4000% overload=6.4000% nsb=0.0000% decision_ms=18.19 ppo_agree=9.00%
+[fair] Saved /mnt/d/project/DNN_Agent/sa_hmarl/experiments/v13_kpath50_hops_counterfactual_reranking/medium_closed_loop_per_seed/seed_7070/results.json and /mnt/d/project/DNN_Agent/sa_hmarl/experiments/v13_kpath50_hops_counterfactual_reranking/medium_closed_loop_per_seed/seed_7070/seed_report.md
