@@ -1,0 +1,613 @@
+{
+  "best_validation": {
+    "mean_normalized_regret": 0.03916769474744797,
+    "top1_recall": 0.3216090500354767,
+    "valid_price_mae": 23.474218368530273
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "listwise_loss": 3.9877227633200643,
+      "loss": 2.2462785997049277,
+      "mean_normalized_regret": 0.08003703504800797,
+      "pairwise_loss": 0.09113750536271069,
+      "price_loss": 0.20684846349613137,
+      "top1_recall": 0.20088057219982147,
+      "valid_price_mae": 41.71342086791992
+    },
+    {
+      "epoch": 2,
+      "listwise_loss": 3.6219540550885605,
+      "loss": 1.9479149909275573,
+      "mean_normalized_regret": 0.060482289642095566,
+      "pairwise_loss": 0.03808937256541246,
+      "price_loss": 0.11789328075202225,
+      "top1_recall": 0.23725421726703644,
+      "valid_price_mae": 32.730247497558594
+    },
+    {
+      "epoch": 3,
+      "listwise_loss": 3.5609969556179193,
+      "loss": 1.891868980339421,
+      "mean_normalized_regret": 0.05634237453341484,
+      "pairwise_loss": 0.03132505468128587,
+      "price_loss": 0.09570797849113069,
+      "top1_recall": 0.24851153790950775,
+      "valid_price_mae": 29.59712028503418
+    },
+    {
+      "epoch": 4,
+      "listwise_loss": 3.54257008730603,
+      "loss": 1.8736510807291016,
+      "mean_normalized_regret": 0.05292440578341484,
+      "pairwise_loss": 0.029310350275367422,
+      "price_loss": 0.08771085864900018,
+      "top1_recall": 0.2694251239299774,
+      "valid_price_mae": 28.403236389160156
+    },
+    {
+      "epoch": 5,
+      "listwise_loss": 3.5283602729172965,
+      "loss": 1.8621733722174565,
+      "mean_normalized_regret": 0.048358261585235596,
+      "pairwise_loss": 0.02829307806975854,
+      "price_loss": 0.08384669610225332,
+      "top1_recall": 0.2899884879589081,
+      "valid_price_mae": 27.543149948120117
+    },
+    {
+      "epoch": 6,
+      "listwise_loss": 3.5178856538689653,
+      "loss": 1.8540570504220246,
+      "mean_normalized_regret": 0.048111431300640106,
+      "pairwise_loss": 0.027692411290219678,
+      "price_loss": 0.08126801982179017,
+      "top1_recall": 0.2896382808685303,
+      "valid_price_mae": 27.0849666595459
+    },
+    {
+      "epoch": 7,
+      "listwise_loss": 3.5122977309214796,
+      "loss": 1.8496949998923884,
+      "mean_normalized_regret": 0.04942909628152847,
+      "pairwise_loss": 0.0276550386253449,
+      "price_loss": 0.07971861537383951,
+      "top1_recall": 0.2897883653640747,
+      "valid_price_mae": 27.06423568725586
+    },
+    {
+      "epoch": 8,
+      "listwise_loss": 3.506427490497794,
+      "loss": 1.8452750322458995,
+      "mean_normalized_regret": 0.04641022905707359,
+      "pairwise_loss": 0.027348038880988156,
+      "price_loss": 0.0783872639050569,
+      "top1_recall": 0.2979936897754669,
+      "valid_price_mae": 26.692150115966797
+    },
+    {
+      "epoch": 9,
+      "listwise_loss": 3.501397751786215,
+      "loss": 1.841706917109087,
+      "mean_normalized_regret": 0.0462656132876873,
+      "pairwise_loss": 0.02706135038162589,
+      "price_loss": 0.07747736710416692,
+      "top1_recall": 0.2946915626525879,
+      "valid_price_mae": 26.128734588623047
+    },
+    {
+      "epoch": 10,
+      "listwise_loss": 3.496887770455207,
+      "loss": 1.8382432924207215,
+      "mean_normalized_regret": 0.044313348829746246,
+      "pairwise_loss": 0.026524229394391065,
+      "price_loss": 0.07653729577579767,
+      "top1_recall": 0.3179066479206085,
+      "valid_price_mae": 25.85903549194336
+    },
+    {
+      "epoch": 11,
+      "listwise_loss": 3.492517097526804,
+      "loss": 1.8349595777214032,
+      "mean_normalized_regret": 0.04295305535197258,
+      "pairwise_loss": 0.026078250992785938,
+      "price_loss": 0.07566190314719744,
+      "top1_recall": 0.32366037368774414,
+      "valid_price_mae": 25.370128631591797
+    },
+    {
+      "epoch": 12,
+      "listwise_loss": 3.4833496007163203,
+      "loss": 1.8284869785503963,
+      "mean_normalized_regret": 0.041116464883089066,
+      "pairwise_loss": 0.025070877860078725,
+      "price_loss": 0.0742767403269058,
+      "top1_recall": 0.33046481013298035,
+      "valid_price_mae": 25.14142417907715
+    },
+    {
+      "epoch": 13,
+      "listwise_loss": 3.4793412514659754,
+      "loss": 1.825547010087601,
+      "mean_normalized_regret": 0.04145791754126549,
+      "pairwise_loss": 0.024834467412527563,
+      "price_loss": 0.07345915101754391,
+      "top1_recall": 0.33361685276031494,
+      "valid_price_mae": 25.34897232055664
+    },
+    {
+      "epoch": 14,
+      "listwise_loss": 3.4768403125236103,
+      "loss": 1.8237386499829304,
+      "mean_normalized_regret": 0.04121724143624306,
+      "pairwise_loss": 0.024778657240311964,
+      "price_loss": 0.07292916583816719,
+      "top1_recall": 0.3274628520011902,
+      "valid_price_mae": 25.07634925842285
+    },
+    {
+      "epoch": 15,
+      "listwise_loss": 3.4759110056835674,
+      "loss": 1.8227347684333393,
+      "mean_normalized_regret": 0.04147866740822792,
+      "pairwise_loss": 0.024768358734829347,
+      "price_loss": 0.07239507815188459,
+      "top1_recall": 0.32951420545578003,
+      "valid_price_mae": 24.891721725463867
+    },
+    {
+      "epoch": 16,
+      "listwise_loss": 3.4728766560859388,
+      "loss": 1.820678371602617,
+      "mean_normalized_regret": 0.040168024599552155,
+      "pairwise_loss": 0.02479680434174245,
+      "price_loss": 0.07184164196519596,
+      "top1_recall": 0.33211588859558105,
+      "valid_price_mae": 24.653470993041992
+    },
+    {
+      "epoch": 17,
+      "listwise_loss": 3.473126277289427,
+      "loss": 1.8205371790224938,
+      "mean_normalized_regret": 0.041724395006895065,
+      "pairwise_loss": 0.024822038443535185,
+      "price_loss": 0.0715630228924172,
+      "top1_recall": 0.32591184973716736,
+      "valid_price_mae": 24.721837997436523
+    },
+    {
+      "epoch": 18,
+      "listwise_loss": 3.4714549959772993,
+      "loss": 1.8192840195677775,
+      "mean_normalized_regret": 0.04079718142747879,
+      "pairwise_loss": 0.024946498644092808,
+      "price_loss": 0.07108327418641971,
+      "top1_recall": 0.3313654065132141,
+      "valid_price_mae": 24.713470458984375
+    },
+    {
+      "epoch": 19,
+      "listwise_loss": 3.471332872615141,
+      "loss": 1.8189389687364974,
+      "mean_normalized_regret": 0.040679942816495895,
+      "pairwise_loss": 0.025113651366985363,
+      "price_loss": 0.07071570928215676,
+      "top1_recall": 0.32661229372024536,
+      "valid_price_mae": 24.209190368652344
+    },
+    {
+      "epoch": 20,
+      "listwise_loss": 3.4699356177883685,
+      "loss": 1.817889257160294,
+      "mean_normalized_regret": 0.04063217341899872,
+      "pairwise_loss": 0.02502803317249736,
+      "price_loss": 0.07040743112487866,
+      "top1_recall": 0.32801321148872375,
+      "valid_price_mae": 24.453691482543945
+    },
+    {
+      "epoch": 21,
+      "listwise_loss": 3.4694490292493034,
+      "loss": 1.8174689227662733,
+      "mean_normalized_regret": 0.04096328467130661,
+      "pairwise_loss": 0.02516277676538738,
+      "price_loss": 0.07016301953502933,
+      "top1_recall": 0.32896384596824646,
+      "valid_price_mae": 24.354156494140625
+    },
+    {
+      "epoch": 22,
+      "listwise_loss": 3.469145871184366,
+      "loss": 1.8169554078670413,
+      "mean_normalized_regret": 0.04093555733561516,
+      "pairwise_loss": 0.0251462219135307,
+      "price_loss": 0.06980936252095206,
+      "top1_recall": 0.330965131521225,
+      "valid_price_mae": 24.35558319091797
+    },
+    {
+      "epoch": 23,
+      "listwise_loss": 3.4681910535563594,
+      "loss": 1.8164179285468958,
+      "mean_normalized_regret": 0.04135866090655327,
+      "pairwise_loss": 0.02520021782887866,
+      "price_loss": 0.0697222941786127,
+      "top1_recall": 0.3226597309112549,
+      "valid_price_mae": 24.27440643310547
+    },
+    {
+      "epoch": 24,
+      "listwise_loss": 3.4671429246282943,
+      "loss": 1.8154254493201176,
+      "mean_normalized_regret": 0.041999492794275284,
+      "pairwise_loss": 0.02516023961403181,
+      "price_loss": 0.06927386959990882,
+      "top1_recall": 0.31960776448249817,
+      "valid_price_mae": 24.32904052734375
+    },
+    {
+      "epoch": 25,
+      "listwise_loss": 3.4667164187906954,
+      "loss": 1.8150221801474882,
+      "mean_normalized_regret": 0.03993753343820572,
+      "pairwise_loss": 0.025204957398535954,
+      "price_loss": 0.06906149035219646,
+      "top1_recall": 0.33186572790145874,
+      "valid_price_mae": 24.135610580444336
+    },
+    {
+      "epoch": 26,
+      "listwise_loss": 3.465290430561661,
+      "loss": 1.8140502759562733,
+      "mean_normalized_regret": 0.0416434183716774,
+      "pairwise_loss": 0.025236777408653512,
+      "price_loss": 0.06878667776389501,
+      "top1_recall": 0.3240606486797333,
+      "valid_price_mae": 24.285430908203125
+    },
+    {
+      "epoch": 27,
+      "listwise_loss": 3.4633094654668626,
+      "loss": 1.8127111364203645,
+      "mean_normalized_regret": 0.04035433754324913,
+      "pairwise_loss": 0.025275122984062374,
+      "price_loss": 0.06841884440054065,
+      "top1_recall": 0.32651224732398987,
+      "valid_price_mae": 24.250110626220703
+    },
+    {
+      "epoch": 28,
+      "listwise_loss": 3.4622447435813184,
+      "loss": 1.811780258517741,
+      "mean_normalized_regret": 0.04080347716808319,
+      "pairwise_loss": 0.02529539161688074,
+      "price_loss": 0.06801018875349513,
+      "top1_recall": 0.32240957021713257,
+      "valid_price_mae": 23.99788475036621
+    },
+    {
+      "epoch": 29,
+      "listwise_loss": 3.461298943175684,
+      "loss": 1.811041294461321,
+      "mean_normalized_regret": 0.04012717679142952,
+      "pairwise_loss": 0.025323159444858048,
+      "price_loss": 0.06773024103830537,
+      "top1_recall": 0.32391053438186646,
+      "valid_price_mae": 23.864978790283203
+    },
+    {
+      "epoch": 30,
+      "listwise_loss": 3.4604162175941955,
+      "loss": 1.8104008789867392,
+      "mean_normalized_regret": 0.04019162803888321,
+      "pairwise_loss": 0.02525638096282244,
+      "price_loss": 0.06756458174237205,
+      "top1_recall": 0.32521140575408936,
+      "valid_price_mae": 23.983379364013672
+    },
+    {
+      "epoch": 31,
+      "listwise_loss": 3.460548630760759,
+      "loss": 1.8102120075689252,
+      "mean_normalized_regret": 0.03992430865764618,
+      "pairwise_loss": 0.02535673844463685,
+      "price_loss": 0.0672593210702357,
+      "top1_recall": 0.32110872864723206,
+      "valid_price_mae": 23.854833602905273
+    },
+    {
+      "epoch": 32,
+      "listwise_loss": 3.460280115342201,
+      "loss": 1.8097020838876514,
+      "mean_normalized_regret": 0.04091961681842804,
+      "pairwise_loss": 0.025238995452213774,
+      "price_loss": 0.06694252989100069,
+      "top1_recall": 0.31855708360671997,
+      "valid_price_mae": 23.943273544311523
+    },
+    {
+      "epoch": 33,
+      "listwise_loss": 3.459451355287791,
+      "loss": 1.8092373890035294,
+      "mean_normalized_regret": 0.040740158408880234,
+      "pairwise_loss": 0.025313198914194045,
+      "price_loss": 0.06685511427729027,
+      "top1_recall": 0.32180917263031006,
+      "valid_price_mae": 23.83506965637207
+    },
+    {
+      "epoch": 34,
+      "listwise_loss": 3.4592752212758566,
+      "loss": 1.8089367791514872,
+      "mean_normalized_regret": 0.04012897610664368,
+      "pairwise_loss": 0.025269202559309846,
+      "price_loss": 0.066664566669394,
+      "top1_recall": 0.32180917263031006,
+      "valid_price_mae": 23.78034019470215
+    },
+    {
+      "epoch": 35,
+      "listwise_loss": 3.459408486895549,
+      "loss": 1.8088145073112625,
+      "mean_normalized_regret": 0.04030343517661095,
+      "pairwise_loss": 0.025260791839922175,
+      "price_loss": 0.06647986140283173,
+      "top1_recall": 0.3201080858707428,
+      "valid_price_mae": 23.486419677734375
+    },
+    {
+      "epoch": 36,
+      "listwise_loss": 3.4598536924328034,
+      "loss": 1.809038937244269,
+      "mean_normalized_regret": 0.040422968566417694,
+      "pairwise_loss": 0.02533654687578416,
+      "price_loss": 0.06644381626563914,
+      "top1_recall": 0.32015812397003174,
+      "valid_price_mae": 23.61000633239746
+    },
+    {
+      "epoch": 37,
+      "listwise_loss": 3.4587426453905032,
+      "loss": 1.8082088174112618,
+      "mean_normalized_regret": 0.04015827551484108,
+      "pairwise_loss": 0.025277212576564314,
+      "price_loss": 0.0661988889183992,
+      "top1_recall": 0.3214089274406433,
+      "valid_price_mae": 23.75657081604004
+    },
+    {
+      "epoch": 38,
+      "listwise_loss": 3.4582868518731784,
+      "loss": 1.807849573967097,
+      "mean_normalized_regret": 0.039743199944496155,
+      "pairwise_loss": 0.025226144563130406,
+      "price_loss": 0.06609307392440794,
+      "top1_recall": 0.32295992970466614,
+      "valid_price_mae": 23.61954689025879
+    },
+    {
+      "epoch": 39,
+      "listwise_loss": 3.458409394144707,
+      "loss": 1.8076724832320152,
+      "mean_normalized_regret": 0.040612783282995224,
+      "pairwise_loss": 0.02527197195059808,
+      "price_loss": 0.06583180061310454,
+      "top1_recall": 0.3198579251766205,
+      "valid_price_mae": 23.378219604492188
+    },
+    {
+      "epoch": 40,
+      "listwise_loss": 3.45828983728843,
+      "loss": 1.8075152839846014,
+      "mean_normalized_regret": 0.03974371775984764,
+      "pairwise_loss": 0.02518948283799164,
+      "price_loss": 0.06577562709408039,
+      "top1_recall": 0.3256116509437561,
+      "valid_price_mae": 23.57583236694336
+    },
+    {
+      "epoch": 41,
+      "listwise_loss": 3.4583953780591337,
+      "loss": 1.807485622823086,
+      "mean_normalized_regret": 0.03994058445096016,
+      "pairwise_loss": 0.0252906498892228,
+      "price_loss": 0.06564260333242929,
+      "top1_recall": 0.3214089274406433,
+      "valid_price_mae": 23.254411697387695
+    },
+    {
+      "epoch": 42,
+      "listwise_loss": 3.4577714622478046,
+      "loss": 1.8069943390843812,
+      "mean_normalized_regret": 0.03919000178575516,
+      "pairwise_loss": 0.02518924879734321,
+      "price_loss": 0.06551398400722257,
+      "top1_recall": 0.32766297459602356,
+      "valid_price_mae": 23.37183380126953
+    },
+    {
+      "epoch": 43,
+      "listwise_loss": 3.4581633955621354,
+      "loss": 1.8071055576929351,
+      "mean_normalized_regret": 0.03916769474744797,
+      "pairwise_loss": 0.02525753739868741,
+      "price_loss": 0.06539509020498037,
+      "top1_recall": 0.3216090500354767,
+      "valid_price_mae": 23.474218368530273
+    },
+    {
+      "epoch": 44,
+      "listwise_loss": 3.457887989175899,
+      "loss": 1.8067995096411547,
+      "mean_normalized_regret": 0.04126054793596268,
+      "pairwise_loss": 0.02535517374649072,
+      "price_loss": 0.06517792999020318,
+      "top1_recall": 0.317306250333786,
+      "valid_price_mae": 23.673980712890625
+    },
+    {
+      "epoch": 45,
+      "listwise_loss": 3.4571411963314045,
+      "loss": 1.806347953389063,
+      "mean_normalized_regret": 0.04028719291090965,
+      "pairwise_loss": 0.025224898434470375,
+      "price_loss": 0.06516490771871089,
+      "top1_recall": 0.31525492668151855,
+      "valid_price_mae": 23.740806579589844
+    },
+    {
+      "epoch": 46,
+      "listwise_loss": 3.4582039517209964,
+      "loss": 1.8067020659556474,
+      "mean_normalized_regret": 0.03992491960525513,
+      "pairwise_loss": 0.02528407511865849,
+      "price_loss": 0.06495805581093139,
+      "top1_recall": 0.3177565634250641,
+      "valid_price_mae": 23.246679306030273
+    },
+    {
+      "epoch": 47,
+      "listwise_loss": 3.4576728282987004,
+      "loss": 1.806360552378018,
+      "mean_normalized_regret": 0.04014776274561882,
+      "pairwise_loss": 0.025254728034367343,
+      "price_loss": 0.06489677459496976,
+      "top1_recall": 0.32040828466415405,
+      "valid_price_mae": 23.288516998291016
+    },
+    {
+      "epoch": 48,
+      "listwise_loss": 3.4570979053711954,
+      "loss": 1.8060101712756145,
+      "mean_normalized_regret": 0.03998410329222679,
+      "pairwise_loss": 0.025235902308426855,
+      "price_loss": 0.06484326889828952,
+      "top1_recall": 0.31980788707733154,
+      "valid_price_mae": 23.132568359375
+    },
+    {
+      "epoch": 49,
+      "listwise_loss": 3.457861239343043,
+      "loss": 1.8062219464260598,
+      "mean_normalized_regret": 0.03994132578372955,
+      "pairwise_loss": 0.025284536568748066,
+      "price_loss": 0.0646490623788608,
+      "top1_recall": 0.3186070919036865,
+      "valid_price_mae": 23.062705993652344
+    },
+    {
+      "epoch": 50,
+      "listwise_loss": 3.4568641076002584,
+      "loss": 1.8056474134440312,
+      "mean_normalized_regret": 0.03982092812657356,
+      "pairwise_loss": 0.02526444542076429,
+      "price_loss": 0.06458313630708039,
+      "top1_recall": 0.32065844535827637,
+      "valid_price_mae": 23.15779685974121
+    },
+    {
+      "epoch": 51,
+      "listwise_loss": 3.457212643245297,
+      "loss": 1.805696341387756,
+      "mean_normalized_regret": 0.03994547948241234,
+      "pairwise_loss": 0.025366614346423417,
+      "price_loss": 0.0644067123608516,
+      "top1_recall": 0.32215940952301025,
+      "valid_price_mae": 22.962154388427734
+    },
+    {
+      "epoch": 52,
+      "listwise_loss": 3.457410695912588,
+      "loss": 1.8058019949652044,
+      "mean_normalized_regret": 0.03946411609649658,
+      "pairwise_loss": 0.025424922761671683,
+      "price_loss": 0.06438418760743288,
+      "top1_recall": 0.3207084536552429,
+      "valid_price_mae": 23.054601669311523
+    },
+    {
+      "epoch": 53,
+      "listwise_loss": 3.4569678556583727,
+      "loss": 1.8053987178656146,
+      "mean_normalized_regret": 0.03994406387209892,
+      "pairwise_loss": 0.025360081911734913,
+      "price_loss": 0.06423474934018786,
+      "top1_recall": 0.3183569312095642,
+      "valid_price_mae": 23.002567291259766
+    },
+    {
+      "epoch": 54,
+      "listwise_loss": 3.456255403625996,
+      "loss": 1.8049367111357277,
+      "mean_normalized_regret": 0.039410121738910675,
+      "pairwise_loss": 0.02538209606219283,
+      "price_loss": 0.06411796225153882,
+      "top1_recall": 0.32065844535827637,
+      "valid_price_mae": 22.845495223999023
+    },
+    {
+      "epoch": 55,
+      "listwise_loss": 3.4568765078054366,
+      "loss": 1.805169450352564,
+      "mean_normalized_regret": 0.03989248722791672,
+      "pairwise_loss": 0.025316589052224402,
+      "price_loss": 0.06407289978716989,
+      "top1_recall": 0.3186070919036865,
+      "valid_price_mae": 23.098913192749023
+    },
+    {
+      "epoch": 56,
+      "listwise_loss": 3.4563637426137315,
+      "loss": 1.804681078247402,
+      "mean_normalized_regret": 0.04090798273682594,
+      "pairwise_loss": 0.025248041819504765,
+      "price_loss": 0.06387518433963552,
+      "top1_recall": 0.31090208888053894,
+      "valid_price_mae": 22.922870635986328
+    },
+    {
+      "epoch": 57,
+      "listwise_loss": 3.4559860936820965,
+      "loss": 1.8045380447831605,
+      "mean_normalized_regret": 0.040482085198163986,
+      "pairwise_loss": 0.025314908717637478,
+      "price_loss": 0.06388753795486582,
+      "top1_recall": 0.3206084072589874,
+      "valid_price_mae": 22.944063186645508
+    },
+    {
+      "epoch": 58,
+      "listwise_loss": 3.4567316956532275,
+      "loss": 1.8048497767704528,
+      "mean_normalized_regret": 0.04029152914881706,
+      "pairwise_loss": 0.025358069964382043,
+      "price_loss": 0.06380489382826154,
+      "top1_recall": 0.3161555230617523,
+      "valid_price_mae": 22.77374267578125
+    },
+    {
+      "epoch": 59,
+      "listwise_loss": 3.4560993321411444,
+      "loss": 1.8043998735944937,
+      "mean_normalized_regret": 0.04053937643766403,
+      "pairwise_loss": 0.025346339577832794,
+      "price_loss": 0.06367703796843129,
+      "top1_recall": 0.31430429220199585,
+      "valid_price_mae": 22.613046646118164
+    },
+    {
+      "epoch": 60,
+      "listwise_loss": 3.4558458596544193,
+      "loss": 1.8042253646094475,
+      "mean_normalized_regret": 0.04138224944472313,
+      "pairwise_loss": 0.025285954432338095,
+      "price_loss": 0.06365946041958412,
+      "top1_recall": 0.3097013235092163,
+      "valid_price_mae": 22.575090408325195
+    }
+  ],
+  "protocol_id": "pure_rmsa_neural_opportunity_n1_100_v1",
+  "target_scale": 250.48777770996094,
+  "train_samples": 49953,
+  "validation_samples": 19987
+}

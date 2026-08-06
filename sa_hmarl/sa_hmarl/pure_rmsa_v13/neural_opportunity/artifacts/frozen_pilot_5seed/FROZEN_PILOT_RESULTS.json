@@ -1,0 +1,190 @@
+{
+  "diagnostic_because_offline_gate_failed": true,
+  "eval_requests": 10000,
+  "frozen_model": true,
+  "protocol_id": "pure_rmsa_neural_opportunity_v1",
+  "seeds": [
+    60301,
+    60302,
+    60303,
+    60304,
+    60305
+  ],
+  "summaries": {
+    "xlron_jpn48": {
+      "comparisons": {
+        "neural_vs_full_direct": {
+          "ci95": [
+            -0.2799999999999997,
+            0.21600000000000064
+          ],
+          "delta_pp": -0.03199999999999953,
+          "wins_ties_losses": [
+            2,
+            1,
+            2
+          ]
+        },
+        "neural_vs_ksp_ff_k50": {
+          "ci95": [
+            -1.3819999999999997,
+            -1.0619999999999994
+          ],
+          "delta_pp": -1.2539999999999996,
+          "wins_ties_losses": [
+            5,
+            0,
+            0
+          ]
+        },
+        "neural_vs_opportunity_teacher": {
+          "ci95": [
+            -0.354000000000001,
+            0.024000000000000132
+          ],
+          "delta_pp": -0.15600000000000003,
+          "wins_ties_losses": [
+            4,
+            0,
+            1
+          ]
+        }
+      },
+      "means": {
+        "full_direct": {
+          "blocking": 0.07233999999999999,
+          "mean_ms": 0.4749519942199999
+        },
+        "ksp_ff_k50": {
+          "blocking": 0.08456,
+          "mean_ms": 0.024450556360000004
+        },
+        "neural_opportunity": {
+          "blocking": 0.07202,
+          "mean_ms": 0.0486086365
+        },
+        "opportunity_teacher": {
+          "blocking": 0.07358,
+          "mean_ms": 0.13852629668
+        }
+      }
+    },
+    "xlron_nsfnet_deeprmsa": {
+      "comparisons": {
+        "neural_vs_full_direct": {
+          "ci95": [
+            -0.10800000000000032,
+            0.4039999999999999
+          ],
+          "delta_pp": 0.1479999999999998,
+          "wins_ties_losses": [
+            2,
+            0,
+            3
+          ]
+        },
+        "neural_vs_ksp_ff_k50": {
+          "ci95": [
+            -1.406,
+            -1.1940000000000006
+          ],
+          "delta_pp": -1.3100000000000003,
+          "wins_ties_losses": [
+            5,
+            0,
+            0
+          ]
+        },
+        "neural_vs_opportunity_teacher": {
+          "ci95": [
+            -0.0640000000000003,
+            0.34199999999999975
+          ],
+          "delta_pp": 0.13799999999999996,
+          "wins_ties_losses": [
+            2,
+            0,
+            3
+          ]
+        }
+      },
+      "means": {
+        "full_direct": {
+          "blocking": 0.061939999999999995,
+          "mean_ms": 0.37455733537999997
+        },
+        "ksp_ff_k50": {
+          "blocking": 0.07652,
+          "mean_ms": 0.0175520133
+        },
+        "neural_opportunity": {
+          "blocking": 0.06342,
+          "mean_ms": 0.045485872559999994
+        },
+        "opportunity_teacher": {
+          "blocking": 0.06204,
+          "mean_ms": 0.14778195060000002
+        }
+      }
+    },
+    "xlron_usnet_gcnrmsa": {
+      "comparisons": {
+        "neural_vs_full_direct": {
+          "ci95": [
+            -0.20599999999999952,
+            0.36600000000000044
+          ],
+          "delta_pp": 0.07200000000000038,
+          "wins_ties_losses": [
+            2,
+            0,
+            3
+          ]
+        },
+        "neural_vs_ksp_ff_k50": {
+          "ci95": [
+            -0.9979999999999999,
+            -0.6499999999999995
+          ],
+          "delta_pp": -0.8239999999999998,
+          "wins_ties_losses": [
+            5,
+            0,
+            0
+          ]
+        },
+        "neural_vs_opportunity_teacher": {
+          "ci95": [
+            -0.16799999999999926,
+            0.348
+          ],
+          "delta_pp": 0.038000000000000256,
+          "wins_ties_losses": [
+            4,
+            0,
+            1
+          ]
+        }
+      },
+      "means": {
+        "full_direct": {
+          "blocking": 0.07516,
+          "mean_ms": 0.353399345
+        },
+        "ksp_ff_k50": {
+          "blocking": 0.08412,
+          "mean_ms": 0.01970951292
+        },
+        "neural_opportunity": {
+          "blocking": 0.07588,
+          "mean_ms": 0.0475404185
+        },
+        "opportunity_teacher": {
+          "blocking": 0.07549999999999998,
+          "mean_ms": 0.13017957942
+        }
+      }
+    }
+  },
+  "warmup": 1000
+}

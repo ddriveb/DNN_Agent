@@ -1,0 +1,271 @@
+{
+  "chosen_load": 800,
+  "chosen_mean_blocking": 5.983333333333333,
+  "eval_requests": 10000,
+  "holding_truncation": 2.0,
+  "k_paths": 50,
+  "note": "Extended grid appended because the initial {200..500} scan did not hit the target range.",
+  "num_slots": 100,
+  "results": [
+    {
+      "blocked_rate": 0.0,
+      "load": 200,
+      "seed": 69501,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.0,
+      "load": 200,
+      "seed": 69502,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.0,
+      "load": 200,
+      "seed": 69503,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.0,
+      "load": 250,
+      "seed": 69501,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.0,
+      "load": 250,
+      "seed": 69502,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.0,
+      "load": 250,
+      "seed": 69503,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.0,
+      "load": 300,
+      "seed": 69501,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.0,
+      "load": 300,
+      "seed": 69502,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.0,
+      "load": 300,
+      "seed": 69503,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.0,
+      "load": 350,
+      "seed": 69501,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.0,
+      "load": 350,
+      "seed": 69502,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.0,
+      "load": 350,
+      "seed": 69503,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.0,
+      "load": 400,
+      "seed": 69501,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.0,
+      "load": 400,
+      "seed": 69502,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.0,
+      "load": 400,
+      "seed": 69503,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.0,
+      "load": 450,
+      "seed": 69501,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.0,
+      "load": 450,
+      "seed": 69502,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.01,
+      "load": 450,
+      "seed": 69503,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.0,
+      "load": 500,
+      "seed": 69501,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.01,
+      "load": 500,
+      "seed": 69502,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.02,
+      "load": 500,
+      "seed": 69503,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.24,
+      "load": 600,
+      "seed": 69501,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.44,
+      "load": 600,
+      "seed": 69502,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.63,
+      "load": 600,
+      "seed": 69503,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 2.09,
+      "load": 700,
+      "seed": 69501,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 2.75,
+      "load": 700,
+      "seed": 69502,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 3.02,
+      "load": 700,
+      "seed": 69503,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 3.5700000000000003,
+      "load": 750,
+      "seed": 69501,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 4.06,
+      "load": 750,
+      "seed": 69502,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 4.64,
+      "load": 750,
+      "seed": 69503,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 5.58,
+      "load": 800,
+      "seed": 69501,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 6.1,
+      "load": 800,
+      "seed": 69502,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 6.2700000000000005,
+      "load": 800,
+      "seed": 69503,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 7.12,
+      "load": 850,
+      "seed": 69501,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 7.68,
+      "load": 850,
+      "seed": 69502,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 8.18,
+      "load": 850,
+      "seed": 69503,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 8.43,
+      "load": 900,
+      "seed": 69501,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 9.25,
+      "load": 900,
+      "seed": 69502,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 9.33,
+      "load": 900,
+      "seed": 69503,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 11.48,
+      "load": 1000,
+      "seed": 69501,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 12.389999999999999,
+      "load": 1000,
+      "seed": 69502,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 13.4,
+      "load": 1000,
+      "seed": 69503,
+      "topology": "cost239_deeprmsa"
+    }
+  ],
+  "seeds": [
+    69501,
+    69502,
+    69503
+  ],
+  "selection_rule": "first mean in [5.0, 8.0]%, else closest to 6.5%",
+  "topology": "cost239_deeprmsa",
+  "warmup": 3000
+}

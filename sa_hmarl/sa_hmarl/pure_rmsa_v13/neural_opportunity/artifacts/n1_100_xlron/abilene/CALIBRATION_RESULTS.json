@@ -1,0 +1,147 @@
+{
+  "chosen_load": 95,
+  "chosen_mean_blocking": 0.844,
+  "eval_requests": 10000,
+  "holding_truncation": 2.0,
+  "k_paths": 50,
+  "loads": [
+    80,
+    85,
+    90,
+    95
+  ],
+  "num_slots": 100,
+  "results": [
+    {
+      "blocked_rate": 0.2,
+      "load": 80,
+      "seed": 62001,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 0.24,
+      "load": 80,
+      "seed": 62002,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 0.26,
+      "load": 80,
+      "seed": 62003,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 0.16999999999999998,
+      "load": 80,
+      "seed": 62004,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 0.16,
+      "load": 80,
+      "seed": 62005,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 0.4,
+      "load": 85,
+      "seed": 62001,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 0.36,
+      "load": 85,
+      "seed": 62002,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 0.26,
+      "load": 85,
+      "seed": 62003,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 0.29,
+      "load": 85,
+      "seed": 62004,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 0.32,
+      "load": 85,
+      "seed": 62005,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 0.5499999999999999,
+      "load": 90,
+      "seed": 62001,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 0.5,
+      "load": 90,
+      "seed": 62002,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 0.65,
+      "load": 90,
+      "seed": 62003,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 0.53,
+      "load": 90,
+      "seed": 62004,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 0.66,
+      "load": 90,
+      "seed": 62005,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 1.09,
+      "load": 95,
+      "seed": 62001,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 0.72,
+      "load": 95,
+      "seed": 62002,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 0.76,
+      "load": 95,
+      "seed": 62003,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 0.88,
+      "load": 95,
+      "seed": 62004,
+      "topology": "abilene"
+    },
+    {
+      "blocked_rate": 0.77,
+      "load": 95,
+      "seed": 62005,
+      "topology": "abilene"
+    }
+  ],
+  "seeds": [
+    62001,
+    62002,
+    62003,
+    62004,
+    62005
+  ],
+  "selection_rule": "highest mean < 1.0%",
+  "target_max_blocking_pct": 1.0,
+  "topology": "abilene",
+  "warmup": 3000
+}

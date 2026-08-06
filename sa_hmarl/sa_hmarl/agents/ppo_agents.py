@@ -265,7 +265,8 @@ class _MaskedPPOBase:
         advantages_t = torch.tensor(advantages, dtype=torch.float32, device=self.device)
 
         # Pre-compute reference distribution once (frozen, no grad needed)
-        ref_dist = None
+        ref_log_probs = None
+        ref_probs = None
         features_t_for_kl = None
         masks_t_for_kl = None
         if reference_policy is not None and ref_kl_coef > 0:
@@ -276,7 +277,8 @@ class _MaskedPPOBase:
                 ref_logits = reference_policy(features_t_for_kl).masked_fill(
                     ~masks_t_for_kl, -1e9
                 )
-            ref_dist = torch.distributions.Categorical(logits=ref_logits)
+                ref_log_probs = torch.log_softmax(ref_logits, dim=-1)
+                ref_probs = torch.softmax(ref_logits, dim=-1)
 
         last_policy_loss = 0.0
         last_entropy = 0.0
@@ -298,13 +300,18 @@ class _MaskedPPOBase:
             loss = policy_loss - self.entropy_coef * entropy_loss
 
             # KL reference regularization (Agent-R only)
-            if ref_dist is not None:
+            if ref_log_probs is not None and ref_probs is not None:
                 cur_logits = self.policy_net(features_t_for_kl).masked_fill(
                     ~masks_t_for_kl, -1e9
                 )
-                cur_dist = torch.distributions.Categorical(logits=cur_logits)
-                # KL(reference || current) — mode-seeking; penalise forgetting
-                ref_kl = torch.distributions.kl_divergence(ref_dist, cur_dist).mean()
+                cur_log_probs = torch.log_softmax(cur_logits, dim=-1)
+                # Log-space KL stays finite when probabilities underflow in a
+                # large masked action space after substantial policy drift.
+                per_row_ref_kl = (
+                    ref_probs * (ref_log_probs - cur_log_probs)
+                ).sum(dim=-1)
+                valid_rows = masks_t_for_kl.any(dim=-1)
+                ref_kl = per_row_ref_kl[valid_rows].mean()
                 loss = loss + ref_kl_coef * ref_kl
                 last_ref_kl = float(ref_kl.item())
 

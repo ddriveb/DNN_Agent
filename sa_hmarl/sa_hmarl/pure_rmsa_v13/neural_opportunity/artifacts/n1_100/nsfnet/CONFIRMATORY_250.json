@@ -1,0 +1,90 @@
+{
+  "eval_requests": 10000,
+  "experiment": "n1_100_confirmatory_v1",
+  "k_paths": 50,
+  "load_erlang": 250,
+  "model_sha256": "ab6ce1a248332e7907780f8148cc70ad1ec0a0ed6b6da687c022c92fd203a2ee",
+  "native_kernel": null,
+  "num_slots": 100,
+  "per_seed": {
+    "61701": {
+      "delta_pp_n1_minus_ksp": -0.8199999999999998,
+      "ksp_blocking": 0.0885,
+      "ksp_latency_mean_ms": 0.0253111848,
+      "ksp_latency_p95_ms": 0.07350004999999998,
+      "latency_ratio_n1_over_ksp": 3.0348157230474646,
+      "n1_blocking": 0.0803,
+      "n1_latency_mean_ms": 0.07681478159999999,
+      "n1_latency_p95_ms": 0.14425799999999994,
+      "relative_reduction_pct": 9.26553672316384
+    },
+    "61702": {
+      "delta_pp_n1_minus_ksp": -0.8300000000000002,
+      "ksp_blocking": 0.0956,
+      "ksp_latency_mean_ms": 0.024710393299999998,
+      "ksp_latency_p95_ms": 0.07348954999999999,
+      "latency_ratio_n1_over_ksp": 2.9390445638920695,
+      "n1_blocking": 0.0873,
+      "n1_latency_mean_ms": 0.0726249471,
+      "n1_latency_p95_ms": 0.132822,
+      "relative_reduction_pct": 8.682008368200838
+    },
+    "61703": {
+      "delta_pp_n1_minus_ksp": -0.5000000000000004,
+      "ksp_blocking": 0.0834,
+      "ksp_latency_mean_ms": 0.024938608600000002,
+      "ksp_latency_p95_ms": 0.07256705000000001,
+      "latency_ratio_n1_over_ksp": 3.258583343739554,
+      "n1_blocking": 0.0784,
+      "n1_latency_mean_ms": 0.08126453460000001,
+      "n1_latency_p95_ms": 0.16087954999999993,
+      "relative_reduction_pct": 5.995203836930461
+    },
+    "61704": {
+      "delta_pp_n1_minus_ksp": -1.1899999999999995,
+      "ksp_blocking": 0.0831,
+      "ksp_latency_mean_ms": 0.0250445185,
+      "ksp_latency_p95_ms": 0.07351999999999999,
+      "latency_ratio_n1_over_ksp": 3.246406661801064,
+      "n1_blocking": 0.0712,
+      "n1_latency_mean_ms": 0.0813046917,
+      "n1_latency_p95_ms": 0.16212949999999998,
+      "relative_reduction_pct": 14.320096269554746
+    },
+    "61705": {
+      "delta_pp_n1_minus_ksp": -0.5699999999999996,
+      "ksp_blocking": 0.0946,
+      "ksp_latency_mean_ms": 0.025288253700000003,
+      "ksp_latency_p95_ms": 0.07352045,
+      "latency_ratio_n1_over_ksp": 3.2051024622550344,
+      "n1_blocking": 0.0889,
+      "n1_latency_mean_ms": 0.08105144419999999,
+      "n1_latency_p95_ms": 0.16531449999999998,
+      "relative_reduction_pct": 6.025369978858347
+    }
+  },
+  "protocol_id": "pure_rmsa_neural_opportunity_n1_100_v1",
+  "seeds": [
+    61701,
+    61702,
+    61703,
+    61704,
+    61705
+  ],
+  "summary": {
+    "ci_entirely_below_zero": true,
+    "mean_delta_pp": -0.7819999999999998,
+    "mean_ksp_blocking": 0.08904,
+    "mean_latency_ratio": 3.1367905509470373,
+    "mean_n1_blocking": 0.08122,
+    "mean_relative_reduction_pct": 8.857643035341647,
+    "n1_wins_seeds": 5,
+    "n_seeds": 5,
+    "paired_t_ci95_pp": [
+      -1.1190151496867053,
+      -0.4449848503132942
+    ]
+  },
+  "topology": "xlron_nsfnet_deeprmsa",
+  "warmup": 1000
+}

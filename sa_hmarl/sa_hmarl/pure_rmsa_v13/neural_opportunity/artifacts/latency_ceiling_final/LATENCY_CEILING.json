@@ -1,0 +1,86 @@
+{
+  "eval_requests": 5000,
+  "gate_mean_ms": 0.06,
+  "native_kernel": false,
+  "protocol_id": "pure_rmsa_neural_opportunity_v1",
+  "rows": [
+    {
+      "arms": {
+        "ksp_ff_k50": {
+          "arm": "ksp_ff_k50",
+          "blocked": 405,
+          "blocking": 0.081,
+          "mean_ms": 0.019348584199999998,
+          "p50_ms": 0.009378,
+          "p95_ms": 0.07331305000000002,
+          "p99_ms": 0.11225911000000013
+        },
+        "neural_opportunity_zero": {
+          "arm": "neural_opportunity_zero",
+          "blocked": 405,
+          "blocking": 0.081,
+          "mean_ms": 0.0417141864,
+          "p50_ms": 0.035898,
+          "p95_ms": 0.08377600000000002,
+          "p99_ms": 0.13503746000000066
+        }
+      },
+      "latency_ratio": 2.155929651948384,
+      "passes_absolute_gate": true,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "arms": {
+        "ksp_ff_k50": {
+          "arm": "ksp_ff_k50",
+          "blocked": 388,
+          "blocking": 0.0776,
+          "mean_ms": 0.020412505199999997,
+          "p50_ms": 0.011171,
+          "p95_ms": 0.06724805,
+          "p99_ms": 0.1074143
+        },
+        "neural_opportunity_zero": {
+          "arm": "neural_opportunity_zero",
+          "blocked": 388,
+          "blocking": 0.0776,
+          "mean_ms": 0.0453277414,
+          "p50_ms": 0.037622,
+          "p95_ms": 0.09477455000000015,
+          "p99_ms": 0.1542527200000002
+        }
+      },
+      "latency_ratio": 2.2205868880807444,
+      "passes_absolute_gate": true,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "arms": {
+        "ksp_ff_k50": {
+          "arm": "ksp_ff_k50",
+          "blocked": 447,
+          "blocking": 0.0894,
+          "mean_ms": 0.0249801532,
+          "p50_ms": 0.0133105,
+          "p95_ms": 0.08662450000000001,
+          "p99_ms": 0.13164030000000002
+        },
+        "neural_opportunity_zero": {
+          "arm": "neural_opportunity_zero",
+          "blocked": 447,
+          "blocking": 0.0894,
+          "mean_ms": 0.05470833540000001,
+          "p50_ms": 0.042095,
+          "p95_ms": 0.11034000000000004,
+          "p99_ms": 0.1607057600000003
+        }
+      },
+      "latency_ratio": 2.190072052880765,
+      "passes_absolute_gate": true,
+      "topology": "xlron_jpn48"
+    }
+  ],
+  "seed": 60201,
+  "verdict": "GO_TO_TEACHER_COLLECTION",
+  "warmup": 300
+}

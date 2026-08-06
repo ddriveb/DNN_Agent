@@ -1,0 +1,24 @@
+path,type,comparison,key_numbers,stage
+neural_opportunity/PHASE_N1_PROTOCOL_LOCK.md,report,N1 vs KSP-FF K50,latency gate <=0.060ms,current
+neural_opportunity/NEURAL_OPPORTUNITY_FINAL_REPORT.md,report,N1 vs KSP/FD/Opp Teacher,-1.412/-0.892/-1.065 pp vs KSP; +0.210/+0.009/+0.201 vs FD; retention 87.1/99.0/84.1%; latency 0.0448/0.0446/0.0476 ms; N1/KSP 2.77/2.28/1.91x,current
+neural_opportunity/artifacts/confirmatory_10seed/CONFIRMATORY_RESULTS.json,raw,N1 vs KSP/FD/Opp,23001-23010; verdict HOLD_NEURAL_OPPORTUNITY,current
+neural_opportunity/artifacts/frozen_pilot_5seed/FROZEN_PILOT_RESULTS.json,raw,N1 vs KSP/FD/Opp,60301-60305; diagnostic_because_offline_gate_failed,pilot
+neural_opportunity/artifacts/latency_ceiling_conflict_v1/LATENCY_CEILING.json,raw,latency gate,seed 60201; KSP 0.0210/0.0193/0.0247; N1 0.0473/0.0450/0.0473,current
+neural_opportunity/artifacts/closed_loop_smoke_conflict_v1/CLOSED_LOOP_SMOKE.json,raw,N1 vs KSP,smoke seed diagnostic,smoke
+artifacts/direct_sketch_exact_optimization/phaseA_confirmatory_10seed/per_seed.csv,raw,KSP/FD/opp per-seed fact table,23001-23010; KSP k50 0.0162/0.0195/0.0250 ms (A-group),current
+artifacts/neural_pricing_kernel_v2_residual/direct_vs_ksp_k5_k50_python_early_exit_10seed_v1_20260801/DIRECT_VS_KSP_K5_K50_REPORT.md,report,Direct vs KSP K5/K50,0.0197/0.0230/0.0279 ms KSP k50 (B-group); Direct/K50 22.58/18.77/19.61x; legacy 1.13-1.19x rejected,corrected
+artifacts/neural_pricing_kernel_v2_residual/DIRECT_SKETCH_PYTHON_FAIR_OPTIMIZATION_REPORT.md,report,Direct vs KSP,1.13-1.18x latency; legacy KSP materialized candidates,legacy
+artifacts/neural_pricing_kernel_v2_residual/DIRECT_SKETCH_10SEED_REVALIDATION_REPORT.md,report,Direct vs KSP,1.19/1.13/1.15x; same legacy KSP timing,legacy
+artifacts/neural_pricing_kernel_v2_residual/single_worker_latency + direct_sketch_single_worker_latency_rerun_20260730,raw,Direct vs KSP,KSP ~0.296/Direct ~0.586 ms; source of 1.13-1.19x batch,legacy
+artifacts/neural_pricing_kernel_v2_residual/formal_5seed/FORMAL_RESULTS.json,raw,ksp vs direct vs npk_v1,slow Direct 1.38-1.55 ms; npk_v1 0.894 ms,legacy
+artifacts/neural_pricing_kernel_v2_residual/confirmatory_20seed/RESULTS.json,raw,ksp vs direct hotpath_v2,24001-24020; slow Direct 1.08 ms,legacy
+artifacts/direct_sketch_exact_optimization/phaseA_opportunity_only,report+raw,opp_only vs FD/KSP,GO decision (later overturned),legacy
+artifacts/direct_sketch_exact_optimization/phaseB_exact_branch_bound,report+raw,B&B vs base,-12.52% slower; STOP,legacy
+artifacts/direct_sketch_exact_optimization/phaseC_certified_lazy_width,report+raw,CLW vs base,-7.95%/-29.48%; STOP,legacy
+artifacts/direct_sketch_exact_optimization/phase0_profile,raw,profiled Direct,shadow_marginal_losses 53.9-63.6%,legacy
+direct_sketch_residual_rl/statistics.py,code,mean_delta_pp definition,positive=target better (convention B),current
+neural_opportunity/run_confirmatory.py,code,delta_pp definition,(N1-fact)*100 negative=N1 better (convention A) L109-131,current
+evaluation/eval_c_demand_potential_closed_loop.py,code,delta_pp definition,(base-method)*100 positive=method better,current
+tchr_rl/evaluator.py,code,paired_deltas,(treat-base) positive=treatment WORSE; TCHR +0.490 read as TCHR better was INVERTED,current+correction
+experiments/ksp_k5_vs_k50_overload_audit.md,report,K5 vs K50 mixing audit,K50>K5 is selector-mixing artifact; strict modes added,corrected
+experiments/ (cost239/strict_v13/etc),report+raw,v13 DNN vs KSP-FF K50,COST239 system-level; different protocol,legacy

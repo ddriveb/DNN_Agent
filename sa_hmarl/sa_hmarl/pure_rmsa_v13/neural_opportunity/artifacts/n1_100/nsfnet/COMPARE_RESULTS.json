@@ -1,0 +1,62 @@
+{
+  "num_slots": 100,
+  "per_seed": {
+    "61401": {
+      "delta_pp_n1_minus_ksp": 0.0,
+      "ksp_blocking": 0.0,
+      "ksp_latency_mean_ms": 0.0173997745,
+      "ksp_latency_p95_ms": 0.03293394999999998,
+      "latency_ratio_fused_over_ksp": 4.183540499332333,
+      "latency_ratio_plain_over_ksp": 5.0849877450998,
+      "n1_blocking": 0.0,
+      "n1_fused_latency_mean_ms": 0.07279266129999999,
+      "n1_fused_latency_p95_ms": 0.13209549999999992,
+      "n1_plain_latency_mean_ms": 0.08847764009999999,
+      "parity_mismatches": 0,
+      "relative_reduction_pct": 0.0
+    },
+    "61402": {
+      "delta_pp_n1_minus_ksp": 0.0,
+      "ksp_blocking": 0.0,
+      "ksp_latency_mean_ms": 0.0163519822,
+      "ksp_latency_p95_ms": 0.029707949999999986,
+      "latency_ratio_fused_over_ksp": 4.438200446426611,
+      "latency_ratio_plain_over_ksp": 5.218932136557732,
+      "n1_blocking": 0.0,
+      "n1_fused_latency_mean_ms": 0.0725733747,
+      "n1_fused_latency_p95_ms": 0.13168149999999998,
+      "n1_plain_latency_mean_ms": 0.08533988540000001,
+      "parity_mismatches": 0,
+      "relative_reduction_pct": 0.0
+    },
+    "61403": {
+      "delta_pp_n1_minus_ksp": 0.0,
+      "ksp_blocking": 0.0,
+      "ksp_latency_mean_ms": 0.0175809191,
+      "ksp_latency_p95_ms": 0.03440654999999997,
+      "latency_ratio_fused_over_ksp": 4.270064066218245,
+      "latency_ratio_plain_over_ksp": 4.872539411207462,
+      "n1_blocking": 0.0,
+      "n1_fused_latency_mean_ms": 0.0750716509,
+      "n1_fused_latency_p95_ms": 0.13678145,
+      "n1_plain_latency_mean_ms": 0.0856637212,
+      "parity_mismatches": 0,
+      "relative_reduction_pct": 0.0
+    }
+  },
+  "seeds": [
+    61401,
+    61402,
+    61403
+  ],
+  "summary": {
+    "ksp_latency_mean_ms": 0.01711089193333333,
+    "latency_ratio_fused_over_ksp": 4.29726833732573,
+    "mean_delta_pp_n1_minus_ksp": 0.0,
+    "mean_relative_reduction_pct": 0.0,
+    "n1_fused_latency_mean_ms": 0.07347922896666666,
+    "n1_wins_seeds": 0
+  },
+  "topology": "xlron_nsfnet_deeprmsa",
+  "total_parity_mismatches": 0
+}

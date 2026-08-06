@@ -1,0 +1,50 @@
+{
+  "topology": "xlron_jpn48",
+  "seeds": [
+    61201,
+    61202,
+    61203
+  ],
+  "per_seed": {
+    "61201": {
+      "parity_mismatches": 0,
+      "ksp_blocking": 0.0845,
+      "n1_blocking": 0.0718,
+      "delta_pp_n1_minus_ksp": -1.2700000000000002,
+      "ksp_latency_mean_ms": 0.027106768599999997,
+      "ksp_latency_p95_ms": 0.08900149999999996,
+      "n1_fused_latency_mean_ms": 0.0458649567,
+      "n1_fused_latency_p95_ms": 0.09981899999999973,
+      "latency_ratio_n1_over_ksp": 1.6920112233517943
+    },
+    "61202": {
+      "parity_mismatches": 0,
+      "ksp_blocking": 0.0893,
+      "n1_blocking": 0.0747,
+      "delta_pp_n1_minus_ksp": -1.4600000000000002,
+      "ksp_latency_mean_ms": 0.0242795532,
+      "ksp_latency_p95_ms": 0.08413099999999998,
+      "n1_fused_latency_mean_ms": 0.0410709418,
+      "n1_fused_latency_p95_ms": 0.08475249999999998,
+      "latency_ratio_n1_over_ksp": 1.6915855683868186
+    },
+    "61203": {
+      "parity_mismatches": 0,
+      "ksp_blocking": 0.0805,
+      "n1_blocking": 0.0695,
+      "delta_pp_n1_minus_ksp": -1.0999999999999996,
+      "ksp_latency_mean_ms": 0.0245323127,
+      "ksp_latency_p95_ms": 0.08564349999999998,
+      "n1_fused_latency_mean_ms": 0.041337942399999994,
+      "n1_fused_latency_p95_ms": 0.0853680499999999,
+      "latency_ratio_n1_over_ksp": 1.6850405791542025
+    }
+  },
+  "summary": {
+    "n1_minus_ksp_delta_pp_mean": -1.2766666666666666,
+    "n1_wins_seeds": 3,
+    "ksp_latency_mean_ms_mean": 0.0253062115,
+    "n1_fused_latency_mean_ms_mean": 0.04275794696666666,
+    "latency_ratio_n1_over_ksp_mean": 1.6896226037890605
+  }
+}

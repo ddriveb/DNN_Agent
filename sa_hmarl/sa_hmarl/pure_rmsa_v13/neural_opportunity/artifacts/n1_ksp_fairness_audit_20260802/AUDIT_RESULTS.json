@@ -1,0 +1,307 @@
+{
+  "algorithm_identity": "PASS: first-three-feasible (MAX_FEASIBLE_PATHS=3), 110-dim (10+2x50), shared 110->16->50 ReLU MLP, strict start mask, argmin(path_rank+neural_price), deterministic path-major tie-break; no Teacher/exact/shadow/sketch/rollout/GNN/PyTorch/C kernel",
+  "audit_id": "n1_ksp_fairness_audit_20260802",
+  "blocking_recompute": {
+    "formula": "delta_pp = (N1 - KSP) * 100; negative = N1 better",
+    "per_topology": {
+      "xlron_jpn48": {
+        "arms_present": [
+          "full_direct",
+          "ksp_bf_k50",
+          "ksp_ff_k5",
+          "ksp_ff_k50",
+          "neural_opportunity",
+          "opp_only"
+        ],
+        "mean_blocking": {
+          "full_direct": 0.06949999999999999,
+          "ksp_bf_k50": 0.08167,
+          "ksp_ff_k5": 0.11346,
+          "ksp_ff_k50": 0.08216,
+          "neural_opportunity": 0.07151,
+          "opp_only": 0.07110000000000001
+        },
+        "n_seeds": 10,
+        "seeds": [
+          23001,
+          23002,
+          23003,
+          23004,
+          23005,
+          23006,
+          23007,
+          23008,
+          23009,
+          23010
+        ],
+        "vs_ksp_ff_k5": {
+          "all_10_seeds_present": true,
+          "ci95_halfwidth_pp": 0.16383078809598,
+          "ci95_high_pp": -4.03116921190402,
+          "ci95_low_pp": -4.358830788095981,
+          "ci_entirely_negative": true,
+          "mean_delta_pp": -4.195,
+          "n1_losses": 0,
+          "n1_wins": 10,
+          "per_seed_delta_pp": {
+            "23001": -4.180000000000001,
+            "23002": -3.900000000000001,
+            "23003": -4.45,
+            "23004": -4.3999999999999995,
+            "23005": -4.340000000000001,
+            "23006": -4.06,
+            "23007": -3.7800000000000002,
+            "23008": -4.109999999999999,
+            "23009": -4.390000000000001,
+            "23010": -4.34
+          },
+          "ties": 0
+        },
+        "vs_ksp_ff_k50": {
+          "all_10_seeds_present": true,
+          "ci95_halfwidth_pp": 0.21635522559460346,
+          "ci95_high_pp": -0.8486447744053964,
+          "ci95_low_pp": -1.2813552255946035,
+          "ci_entirely_negative": true,
+          "mean_delta_pp": -1.065,
+          "n1_losses": 0,
+          "n1_wins": 10,
+          "per_seed_delta_pp": {
+            "23001": -0.8400000000000005,
+            "23002": -0.5600000000000007,
+            "23003": -1.1700000000000002,
+            "23004": -1.5,
+            "23005": -1.1999999999999997,
+            "23006": -0.9799999999999989,
+            "23007": -0.7199999999999998,
+            "23008": -1.0300000000000002,
+            "23009": -1.4600000000000002,
+            "23010": -1.1900000000000002
+          },
+          "ties": 0
+        }
+      },
+      "xlron_nsfnet_deeprmsa": {
+        "arms_present": [
+          "full_direct",
+          "ksp_bf_k50",
+          "ksp_ff_k5",
+          "ksp_ff_k50",
+          "neural_opportunity",
+          "opp_only"
+        ],
+        "mean_blocking": {
+          "full_direct": 0.06117,
+          "ksp_bf_k50": 0.07408000000000001,
+          "ksp_ff_k5": 0.08031999999999999,
+          "ksp_ff_k50": 0.07739,
+          "neural_opportunity": 0.06327,
+          "opp_only": 0.06304
+        },
+        "n_seeds": 10,
+        "seeds": [
+          23001,
+          23002,
+          23003,
+          23004,
+          23005,
+          23006,
+          23007,
+          23008,
+          23009,
+          23010
+        ],
+        "vs_ksp_ff_k5": {
+          "all_10_seeds_present": true,
+          "ci95_halfwidth_pp": 0.20875814720308242,
+          "ci95_high_pp": -1.4962418527969177,
+          "ci95_low_pp": -1.9137581472030825,
+          "ci_entirely_negative": true,
+          "mean_delta_pp": -1.705,
+          "n1_losses": 0,
+          "n1_wins": 10,
+          "per_seed_delta_pp": {
+            "23001": -1.2900000000000003,
+            "23002": -1.8500000000000003,
+            "23003": -1.79,
+            "23004": -1.7500000000000002,
+            "23005": -1.45,
+            "23006": -1.6199999999999999,
+            "23007": -2.1899999999999995,
+            "23008": -1.9200000000000008,
+            "23009": -1.8999999999999997,
+            "23010": -1.2899999999999996
+          },
+          "ties": 0
+        },
+        "vs_ksp_ff_k50": {
+          "all_10_seeds_present": true,
+          "ci95_halfwidth_pp": 0.1864446945298982,
+          "ci95_high_pp": -1.2255553054701016,
+          "ci95_low_pp": -1.5984446945298978,
+          "ci_entirely_negative": true,
+          "mean_delta_pp": -1.4119999999999997,
+          "n1_losses": 0,
+          "n1_wins": 10,
+          "per_seed_delta_pp": {
+            "23001": -1.3900000000000003,
+            "23002": -1.45,
+            "23003": -1.9099999999999993,
+            "23004": -1.69,
+            "23005": -1.0099999999999998,
+            "23006": -1.3599999999999994,
+            "23007": -1.5499999999999994,
+            "23008": -1.2800000000000007,
+            "23009": -1.1299999999999997,
+            "23010": -1.3499999999999999
+          },
+          "ties": 0
+        }
+      },
+      "xlron_usnet_gcnrmsa": {
+        "arms_present": [
+          "full_direct",
+          "ksp_bf_k50",
+          "ksp_ff_k5",
+          "ksp_ff_k50",
+          "neural_opportunity",
+          "opp_only"
+        ],
+        "mean_blocking": {
+          "full_direct": 0.07698,
+          "ksp_bf_k50": 0.08357,
+          "ksp_ff_k5": 0.11202000000000001,
+          "ksp_ff_k50": 0.08599000000000001,
+          "neural_opportunity": 0.07707,
+          "opp_only": 0.07705
+        },
+        "n_seeds": 10,
+        "seeds": [
+          23001,
+          23002,
+          23003,
+          23004,
+          23005,
+          23006,
+          23007,
+          23008,
+          23009,
+          23010
+        ],
+        "vs_ksp_ff_k5": {
+          "all_10_seeds_present": true,
+          "ci95_halfwidth_pp": 0.17911720480753074,
+          "ci95_high_pp": -3.3158827951924694,
+          "ci95_low_pp": -3.674117204807531,
+          "ci_entirely_negative": true,
+          "mean_delta_pp": -3.495,
+          "n1_losses": 0,
+          "n1_wins": 10,
+          "per_seed_delta_pp": {
+            "23001": -3.5000000000000004,
+            "23002": -3.3600000000000003,
+            "23003": -3.420000000000001,
+            "23004": -3.73,
+            "23005": -3.19,
+            "23006": -3.9800000000000004,
+            "23007": -3.6699999999999995,
+            "23008": -3.16,
+            "23009": -3.5500000000000003,
+            "23010": -3.39
+          },
+          "ties": 0
+        },
+        "vs_ksp_ff_k50": {
+          "all_10_seeds_present": true,
+          "ci95_halfwidth_pp": 0.17824369386119018,
+          "ci95_high_pp": -0.7137563061388101,
+          "ci95_low_pp": -1.0702436938611906,
+          "ci_entirely_negative": true,
+          "mean_delta_pp": -0.8920000000000003,
+          "n1_losses": 0,
+          "n1_wins": 10,
+          "per_seed_delta_pp": {
+            "23001": -0.7900000000000005,
+            "23002": -0.7200000000000012,
+            "23003": -1.2200000000000002,
+            "23004": -0.9300000000000003,
+            "23005": -0.97,
+            "23006": -0.5700000000000011,
+            "23007": -1.2799999999999991,
+            "23008": -0.5199999999999996,
+            "23009": -0.9300000000000003,
+            "23010": -0.9900000000000007
+          },
+          "ties": 0
+        }
+      }
+    }
+  },
+  "date": "2026-08-02",
+  "delta_sign_audit": {
+    "n1_line": "PASS: delta_pp = (N1-KSP)*100, negative = N1 better; archived values reproduce",
+    "tchr_line": "FAILED READ: tchr_rl/evaluator.py paired_deltas uses treat-baseline; EVALUATION.json paired_delta_n1_vs_tchr_joint=+0.490 means TCHR WORSE; earlier report/freeze doc misread as TCHR better",
+    "tchr_selection": "PASS: v3-v2 = -0.208 pp read correctly (v3 better)"
+  },
+  "deployment_sha256": {
+    "jpn48": "2ecdbd46e37bad2361dcc0eace8906e8f2922fae27bbb22ca5882985f9bf6949",
+    "nsfnet": "7d4436a0dad4330a5ece731793c741c709854e24745446c764957c15cd7ada60",
+    "usnet": "c3cdd0dc40435aed6966b9d7665654635831ded309f89632c613aeb27648871f"
+  },
+  "followup_decisions": {
+    "archive_doc": "tchr_rl/artifacts/TCHR_NEGATIVE_RESULT_ARCHIVE.md",
+    "corrections_handling": "recorded_only_in_audit_report (user decision 2026-08-02)",
+    "tchr_formal_eval": "CANCELLED (user decision 2026-08-02); TCHR line archived as negative result"
+  },
+  "freeze_timeline": {
+    "conclusion": "frozen before pilot/confirmatory",
+    "confirmatory": "2026-08-02 12:40:09",
+    "deployment_npz": "2026-08-02 12:17:30",
+    "gap": "no archived hash to compare against",
+    "pilot": "2026-08-02 12:30:21",
+    "training_checkpoint": "2026-08-02 12:13:13"
+  },
+  "latency_reconciliation": {
+    "A_vs_B": "same seeds 23001-23010, same implementation, same blocking (+0.00%), all methods/all metrics ~15-20% faster -> machine/run-time difference (PROTOCOL_AUDIT.md), not implementation",
+    "group_A_ms": {
+      "backend": "python_bitparallel_early_exit",
+      "source": "phaseA_confirmatory_10seed/per_seed.csv (2026-08-02 09:44 revalidation run)",
+      "xlron_jpn48": 0.025,
+      "xlron_nsfnet_deeprmsa": 0.0162,
+      "xlron_usnet_gcnrmsa": 0.0195
+    },
+    "group_B_ms": {
+      "source": "20260801 corrected report, same seeds same implementation",
+      "xlron_jpn48": 0.0279,
+      "xlron_nsfnet_deeprmsa": 0.0197,
+      "xlron_usnet_gcnrmsa": 0.023
+    },
+    "group_C_ms": {
+      "source": "LATENCY_CEILING.json seed 60201 warmup 300 eval 5000 (different seed/config)",
+      "xlron_jpn48": 0.0247,
+      "xlron_nsfnet_deeprmsa": 0.021,
+      "xlron_usnet_gcnrmsa": 0.0193
+    },
+    "timing_boundary": "identical on both harnesses: selector-only, init excluded, mean denominator includes warmup, percentiles on eval segment"
+  },
+  "seed_isolation": "PASS: train 60001-60003 / valid 60101 / smoke 60201 / pilot 60301-60305 / confirmatory 23001-23010 disjoint",
+  "test_summary": {
+    "file": "test_audit_fairness.py",
+    "pytest": "20 passed"
+  },
+  "trace_hash": {
+    "note": "NOT FOUND in phaseA_confirmatory_10seed and direct_vs_ksp_20260801; blocking identity (+0.00%) is indirect evidence only",
+    "present": false
+  },
+  "verdict": "PASS_WITH_REPORT_CORRECTIONS",
+  "verdict_criteria": {
+    "blocking_fairness": "PASS",
+    "latency_fairness": "PASS (same timing boundary; A/B difference attributed to machine/run-time, C different config)",
+    "provenance": "GAPS: no trace hash, no historical artifact hashes (noted, not fabricated)",
+    "report_corrections": [
+      "N1 report wording \"within roughly 2x of KSP\" (actual 2.77x) -> use 2-3x",
+      "TCHR +0.490pp sign misread (TCHR worse, not better); N1 line unaffected",
+      "delta fields must carry explicit formulas (run_select_tchr mean_delta_pp_v3_minus_v2 etc.)"
+    ]
+  }
+}

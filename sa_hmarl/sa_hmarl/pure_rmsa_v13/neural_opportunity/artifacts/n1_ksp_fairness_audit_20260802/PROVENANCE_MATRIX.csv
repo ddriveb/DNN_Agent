@@ -1,0 +1,12 @@
+artifact,role,seeds,created_mtime,sha256_status,trace_hash,freeze_order,notes
+training_conflict_v1/{topo}/training_checkpoint.pt,model checkpoint,60001-60003 train,2026-08-02 12:13:13,no_archived_hash,,frozen_first,
+training_conflict_v1/{topo}/deployment_weights.npz,deployment model,60001-60003 train,2026-08-02 12:17:30,audit_computed_only(no archived),,frozen_second,audit SHA256 in AUDIT_RESULTS.json
+latency_ceiling_conflict_v1/LATENCY_CEILING.json,latency gate,60201,2026-08-02 12:08:22,no_archived_hash,,,C-group KSP numbers
+frozen_pilot_5seed/FROZEN_PILOT_RESULTS.json,pilot,60301-60305,2026-08-02 12:30:21,no_archived_hash,,after_freeze,
+confirmatory_10seed/CONFIRMATORY_RESULTS.json,N1 confirmatory,23001-23010,2026-08-02 12:40:09,no_archived_hash,NOT_FOUND,after_freeze,verified: model frozen before confirmatory per mtime chain
+confirmatory_10seed/neural_per_seed.csv,N1 raw rows,23001-23010,2026-08-02 12:40:09,no_archived_hash,NOT_FOUND,after_freeze,
+phaseA_confirmatory_10seed/per_seed.csv,fact table KSP/FD/opp,23001-23010,2026-08-02 09:44:44,no_archived_hash,NOT_FOUND,n/a(A-group latency source)
+phaseA_confirmatory_10seed/EXPERIMENT_MANIFEST.json,protocol manifest,23001-23010,2026-08-02 09:44:44,no_archived_hash,NOT_FOUND,n/a,native_kernel=unset workers=1 backend=python_bitparallel_early_exit
+direct_vs_ksp_k5_k50_python_early_exit_10seed_v1_20260801/{topo}/per_seed.csv,20260801 corrected raw,23001-23010,2026-08-01,no_archived_hash,NOT_FOUND,n/a(B-group latency source)
+PROTOCOL_AUDIT.md,harness equivalence audit,23001-23010,2026-08-02,no_archived_hash,NOT_FOUND,n/a,records A-vs-B machine offset -15..-20% all metrics
+experiments/*/REQUEST_TRACE_HASH,other protocols only,deeprmsa/strict_v13,.,.,present(efb30b11...),n/a,NOT in N1/direct_sketch protocol

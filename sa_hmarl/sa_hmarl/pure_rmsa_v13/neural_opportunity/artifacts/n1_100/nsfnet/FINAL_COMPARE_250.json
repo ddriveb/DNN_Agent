@@ -1,0 +1,51 @@
+{
+  "load": 250,
+  "seeds": [
+    61401,
+    61402,
+    61403
+  ],
+  "per_seed": {
+    "61401": {
+      "parity_mismatches": 0,
+      "ksp_blocking": 0.097,
+      "n1_blocking": 0.0849,
+      "delta_pp_n1_minus_ksp": -1.21,
+      "relative_reduction_pct": 12.47422680412371,
+      "ksp_latency_mean_ms": 0.025081640900000004,
+      "n1_latency_mean_ms": 0.07404019619999999,
+      "latency_ratio": 2.951967795695535
+    },
+    "61402": {
+      "parity_mismatches": 0,
+      "ksp_blocking": 0.0857,
+      "n1_blocking": 0.0781,
+      "delta_pp_n1_minus_ksp": -0.7599999999999996,
+      "relative_reduction_pct": 8.868144690781792,
+      "ksp_latency_mean_ms": 0.0254352934,
+      "n1_latency_mean_ms": 0.074621493,
+      "latency_ratio": 2.933777559648673
+    },
+    "61403": {
+      "parity_mismatches": 0,
+      "ksp_blocking": 0.0862,
+      "n1_blocking": 0.0772,
+      "delta_pp_n1_minus_ksp": -0.8999999999999995,
+      "relative_reduction_pct": 10.440835266821338,
+      "ksp_latency_mean_ms": 0.023914228000000003,
+      "n1_latency_mean_ms": 0.0789970408,
+      "latency_ratio": 3.303348985382258
+    }
+  },
+  "summary": {
+    "total_parity_mismatches": 0,
+    "mean_delta_pp": -0.9566666666666664,
+    "mean_relative_reduction_pct": 10.594402253908946,
+    "n1_wins": 3,
+    "ksp_mean_blocking": 0.08963333333333334,
+    "n1_mean_blocking": 0.08006666666666667,
+    "ksp_latency_mean_ms": 0.024810387433333334,
+    "n1_latency_mean_ms": 0.07588624333333334,
+    "latency_ratio_mean": 3.063031446908822
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "chosen_load": 600,
+  "chosen_mean_blocking": 0.784,
+  "eval_requests": 10000,
+  "holding_truncation": 2.0,
+  "k_paths": 50,
+  "loads": [
+    560,
+    580,
+    600,
+    620
+  ],
+  "num_slots": 100,
+  "results": [
+    {
+      "blocked_rate": 0.43,
+      "load": 560,
+      "seed": 62001,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.16,
+      "load": 560,
+      "seed": 62002,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.33,
+      "load": 560,
+      "seed": 62003,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.22999999999999998,
+      "load": 560,
+      "seed": 62004,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.19,
+      "load": 560,
+      "seed": 62005,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.52,
+      "load": 580,
+      "seed": 62001,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.44999999999999996,
+      "load": 580,
+      "seed": 62002,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.58,
+      "load": 580,
+      "seed": 62003,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.43,
+      "load": 580,
+      "seed": 62004,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.45999999999999996,
+      "load": 580,
+      "seed": 62005,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.97,
+      "load": 600,
+      "seed": 62001,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.7000000000000001,
+      "load": 600,
+      "seed": 62002,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.8699999999999999,
+      "load": 600,
+      "seed": 62003,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.69,
+      "load": 600,
+      "seed": 62004,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.69,
+      "load": 600,
+      "seed": 62005,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 1.35,
+      "load": 620,
+      "seed": 62001,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 1.24,
+      "load": 620,
+      "seed": 62002,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 1.08,
+      "load": 620,
+      "seed": 62003,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 1.03,
+      "load": 620,
+      "seed": 62004,
+      "topology": "cost239_deeprmsa"
+    },
+    {
+      "blocked_rate": 1.0999999999999999,
+      "load": 620,
+      "seed": 62005,
+      "topology": "cost239_deeprmsa"
+    }
+  ],
+  "seeds": [
+    62001,
+    62002,
+    62003,
+    62004,
+    62005
+  ],
+  "selection_rule": "highest mean < 1.0%",
+  "target_max_blocking_pct": 1.0,
+  "topology": "cost239_deeprmsa",
+  "warmup": 3000
+}

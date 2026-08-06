@@ -1,0 +1,178 @@
+{
+  "chosen_load": 225,
+  "chosen_mean_blocking": 0.6679999999999999,
+  "eval_requests": 10000,
+  "holding_truncation": 2.0,
+  "k_paths": 50,
+  "loads": [
+    210,
+    225,
+    240,
+    255,
+    270
+  ],
+  "num_slots": 100,
+  "results": [
+    {
+      "blocked_rate": 0.21,
+      "load": 210,
+      "seed": 62001,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.26,
+      "load": 210,
+      "seed": 62002,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.22,
+      "load": 210,
+      "seed": 62003,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.41000000000000003,
+      "load": 210,
+      "seed": 62004,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.19,
+      "load": 210,
+      "seed": 62005,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.6799999999999999,
+      "load": 225,
+      "seed": 62001,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.83,
+      "load": 225,
+      "seed": 62002,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.58,
+      "load": 225,
+      "seed": 62003,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.64,
+      "load": 225,
+      "seed": 62004,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.61,
+      "load": 225,
+      "seed": 62005,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 1.23,
+      "load": 240,
+      "seed": 62001,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 1.4200000000000002,
+      "load": 240,
+      "seed": 62002,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 0.88,
+      "load": 240,
+      "seed": 62003,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 1.35,
+      "load": 240,
+      "seed": 62004,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 1.04,
+      "load": 240,
+      "seed": 62005,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 1.9900000000000002,
+      "load": 255,
+      "seed": 62001,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 2.08,
+      "load": 255,
+      "seed": 62002,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 1.49,
+      "load": 255,
+      "seed": 62003,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 2.15,
+      "load": 255,
+      "seed": 62004,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 1.95,
+      "load": 255,
+      "seed": 62005,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 2.74,
+      "load": 270,
+      "seed": 62001,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 2.94,
+      "load": 270,
+      "seed": 62002,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 2.34,
+      "load": 270,
+      "seed": 62003,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 3.11,
+      "load": 270,
+      "seed": 62004,
+      "topology": "xlron_nsfnet_deeprmsa"
+    },
+    {
+      "blocked_rate": 2.6599999999999997,
+      "load": 270,
+      "seed": 62005,
+      "topology": "xlron_nsfnet_deeprmsa"
+    }
+  ],
+  "seeds": [
+    62001,
+    62002,
+    62003,
+    62004,
+    62005
+  ],
+  "selection_rule": "highest mean < 1.0%",
+  "target_max_blocking_pct": 1.0,
+  "topology": "xlron_nsfnet_deeprmsa",
+  "warmup": 3000
+}

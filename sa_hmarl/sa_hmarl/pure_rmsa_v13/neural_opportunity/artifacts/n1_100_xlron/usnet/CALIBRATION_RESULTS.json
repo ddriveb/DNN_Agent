@@ -1,0 +1,178 @@
+{
+  "chosen_load": 480,
+  "chosen_mean_blocking": 0.72,
+  "eval_requests": 10000,
+  "holding_truncation": 2.0,
+  "k_paths": 50,
+  "loads": [
+    480,
+    500,
+    520,
+    540,
+    560
+  ],
+  "num_slots": 100,
+  "results": [
+    {
+      "blocked_rate": 0.51,
+      "load": 480,
+      "seed": 62001,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 0.7000000000000001,
+      "load": 480,
+      "seed": 62002,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 1.04,
+      "load": 480,
+      "seed": 62003,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 0.74,
+      "load": 480,
+      "seed": 62004,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 0.61,
+      "load": 480,
+      "seed": 62005,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 0.8099999999999999,
+      "load": 500,
+      "seed": 62001,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 0.9299999999999999,
+      "load": 500,
+      "seed": 62002,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 1.46,
+      "load": 500,
+      "seed": 62003,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 1.06,
+      "load": 500,
+      "seed": 62004,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 1.03,
+      "load": 500,
+      "seed": 62005,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 1.31,
+      "load": 520,
+      "seed": 62001,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 1.5,
+      "load": 520,
+      "seed": 62002,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 2.02,
+      "load": 520,
+      "seed": 62003,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 1.6,
+      "load": 520,
+      "seed": 62004,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 1.59,
+      "load": 520,
+      "seed": 62005,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 2.07,
+      "load": 540,
+      "seed": 62001,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 2.11,
+      "load": 540,
+      "seed": 62002,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 2.8400000000000003,
+      "load": 540,
+      "seed": 62003,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 2.39,
+      "load": 540,
+      "seed": 62004,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 2.31,
+      "load": 540,
+      "seed": 62005,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 2.4699999999999998,
+      "load": 560,
+      "seed": 62001,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 2.7199999999999998,
+      "load": 560,
+      "seed": 62002,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 3.38,
+      "load": 560,
+      "seed": 62003,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 2.88,
+      "load": 560,
+      "seed": 62004,
+      "topology": "xlron_usnet_gcnrmsa"
+    },
+    {
+      "blocked_rate": 2.91,
+      "load": 560,
+      "seed": 62005,
+      "topology": "xlron_usnet_gcnrmsa"
+    }
+  ],
+  "seeds": [
+    62001,
+    62002,
+    62003,
+    62004,
+    62005
+  ],
+  "selection_rule": "highest mean < 1.0%",
+  "target_max_blocking_pct": 1.0,
+  "topology": "xlron_usnet_gcnrmsa",
+  "warmup": 3000
+}
